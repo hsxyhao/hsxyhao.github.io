@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Test</title>
-    <updated>2019-11-13T06:57:23.495Z</updated>
+    <updated>2019-11-13T07:12:44.791Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -56,15 +56,6 @@ $ yarn electron:build
 <li><a href="https://fehey.com/post/hve-notes-start/">Gridea小白上手教程</a></li>
 <li><a href="https://www.bilibili.com/video/av54010923">B站视频教程</a></li>
 </ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ceshi]]></title>
-        <id>https://hsxyhao.github.io/post/ceshi</id>
-        <link href="https://hsxyhao.github.io/post/ceshi">
-        </link>
-        <updated>2019-11-13T05:42:10.000Z</updated>
-        <content type="html"><![CDATA[<p>Gridea测试文件</p>
 ]]></content>
     </entry>
 </feed>
