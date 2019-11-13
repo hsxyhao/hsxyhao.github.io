@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>madara</title>
-    <updated>2019-11-13T08:30:45.774Z</updated>
+    <updated>2019-11-13T08:36:57.342Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -40,15 +40,15 @@ $ yarn
 $ yarn electron:serve
 $ yarn electron:build
 </code></pre>
-<h3 id="3绑定github配置信息">3.绑定github配置信息</h3>
+<h3 id="3绑定github信息">3.绑定github信息</h3>
 <p>将之前创建的token、仓库、域名等信息配置一下，配置好之后保存一下。<br>
 <img src="https://hsxyhao.github.io/post-images/1573627331402.jpg" alt=""></p>
-<h3 id="4添加gittalk评论系统">4.添加Gittalk评论系统</h3>
+<h3 id="4添加gittalk评论">4.添加Gittalk评论</h3>
 <p>开通评论，需要使用到oauth账号，填写好之后，保存一下。<br>
 <img src="https://hsxyhao.github.io/post-images/1573627495172.png" alt=""></p>
 <h3 id="5完结散花">5.完结散花🍂</h3>
 <p>最后一步，点击左下角同步一下就可以了。如果同步出现问题，请移步到文章尾部，看看是否能帮助到你。</p>
-<h2 id="最后">最后</h2>
+<h2 id="帮助">帮助</h2>
 <p>最后再补充一下搭建过程中遇到的问题，希望能帮助的你。</p>
 <h3 id="踩坑">踩坑</h3>
 <ol>
