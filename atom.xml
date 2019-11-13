@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
-    <title>Test</title>
-    <updated>2019-11-13T07:29:32.397Z</updated>
+    <title>madara</title>
+    <updated>2019-11-13T08:06:12.482Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
     <subtitle>这个人很懒，什么都不想写...</subtitle>
     <logo>https://hsxyhao.github.io/images/avatar.png</logo>
     <icon>https://hsxyhao.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2019, Test</rights>
+    <rights>All rights reserved 2019, madara</rights>
     <entry>
         <title type="html"><![CDATA[Gredia搭建个人博客]]></title>
         <id>https://hsxyhao.github.io/post/gridea-setup</id>
