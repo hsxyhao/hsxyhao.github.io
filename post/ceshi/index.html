@@ -5,7 +5,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>
-    Test
+    ceshi | Test
 </title>
 <link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1573623750195">
 <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
@@ -19,6 +19,14 @@
 <script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
+        
+            
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+                
+
+                    
+                            
 </head>
 
 <body>
@@ -93,36 +101,69 @@
     });
 </script>
 
-            
-
-    <div class="archives-container main-container">
-        <ul class="timeline">
-            
-                <li>
-                    <h3 class="year">
-                        2019
-                    </h3>
-                    <ul class="year-wrapper">
-                        
+            <div id="main-content" class="post-detail main-container">
+                <!-- left -->
+                <div id="content" class="main-container-left">
+                    <article class="post i-card">
+                        <h2 class="post-title">
+                            ceshi
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time">2019-11-13</time>
                             
-                                <li>
-                                    <span class="date">2019-11-13</span>
-                                    <a class="title" href="https://hsxyhao.github.io/post/ceshi">
-                                        <span>ceshi</span>
-                                    </a>
-                                </li>
+                        </div>
+                        
+                                <div class="post-content">
+                                    <p>Gridea测试文件</p>
+
+                                </div>
+                    </article>
+                    <!--  -->
+                    
+                            <div id="disqus_thread"></div>
+                            <div id="gitalk-container"></div>
+                </div>
+                <!-- middle -->
+                <div class="main-container-middle"></div>
+                <!-- right -->
+                <div id="sidebar" class="main-container-right">
+                    
+                                <!-- id-card -->
                                 
+    <div class="id_card i-card">
+        <div class="id_card-avatar" style="background-image: url(https://hsxyhao.github.io/images/avatar.png?v=1573623750195)">
+        </div>
+        <h1 class="id_card-title">
+            Test
+        </h1>
+        <h2 class="id_card-description">
+            这个人很懒，什么都没有写...
+        </h2>
+        <!--  -->
+        <div class="id_card-sns">
+            <!-- github -->
+            
+                    <!-- twitter -->
+                    
+                            <!-- weibo -->
+                            
+                                    <!-- facebook -->
                                     
-                    </ul>
 
-                </li>
-                
-        </ul>
+        </div>
     </div>
+    
+                                    
 
-                
+                </div>
 
-                    <div class="site-footer">
+
+
+
+            </div>
+
+
+            <div class="site-footer">
   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
   <a class="rss" href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
 </div>
@@ -131,7 +172,35 @@
   hljs.initHighlightingOnLoad()
 </script>
 
+
     </div>
+    <script>
+        $('#sidebar').stickySidebar({
+            topSpacing: 80,
+            // bottomSpacing: 60
+        });
+    </script>
+    
+        
+            <script>
+    window.onload = function() {
+        var gitalk = new Gitalk({
+            clientID: '7daf0c9da2ee9a72ecba',
+            clientSecret: '39e3424bd496a5d8dcdbb618c370897256810975',
+            repo: 'hsxyhao.github.io',
+            owner: 'hsxyhao',
+            admin: ['hsxyhao'],
+            id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+            distractionFreeMode: false // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    }
+</script>
+                
+
+                    
+                                
 </body>
 
 </html>
