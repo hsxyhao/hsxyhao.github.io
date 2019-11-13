@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>madara</title>
-    <updated>2019-11-13T08:06:12.482Z</updated>
+    <updated>2019-11-13T08:11:06.582Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -16,8 +16,7 @@
         <link href="https://hsxyhao.github.io/post/gridea-setup">
         </link>
         <updated>2019-11-13T05:47:44.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="初识">初识</h2>
-<p>无意间在掘金上看到的一个沸点，刚开始只是好像博主发的东西，随意看了下。在深入了解了之后 ，发现是一个很不错的静态博客搭建客户端，但是也有些不足的地方，首先就是主题不是很多，用户量以及活跃度没有hexo多，但是这些并不影响写博客，所以还是可以忍受的。主要还是免费，加上和github pages结合，省掉了一笔服务器的费用，后期迁移也比较方便。好了闲话不多说，下面直接搭建博客了。</p>
+        <content type="html"><![CDATA[<p>无意间在掘金上看到的一个沸点，刚开始只是好奇博主发的东西，随意看了下。在深入了解了之后 ，发现是一个很不错的静态博客搭建客户端，但是也有些不足的地方，首先就是主题不是很多，用户量以及活跃度没有hexo多，但是这些并不影响写博客，所以还是可以忍受的。主要还是免费，加上和github pages结合，省掉了一笔服务器的费用，后期迁移也比较方便。好了闲话不多说，下面直接搭建博客了。</p>
 <h2 id="搭建教程">搭建教程</h2>
 <h3 id="创建github-pages-token以及开通oauth认证">创建github pages、token以及开通oauth认证</h3>
 <ol>
@@ -30,8 +29,8 @@
 <img src="https://hsxyhao.github.io/post-images/1573626568363.jpg" alt=""></li>
 </ul>
 </li>
-<li>把Gridea项目克隆到本地git clone https://github.com/getgridea/gridea，按照官方的命令启动客户端，这里要使用yarn命令，没有的话安装一下。</li>
 </ol>
+<h3 id="把gridea项目克隆到本地git-clone-httpsgithubcomgetgrideagridea按照官方的命令启动客户端这里要使用yarn命令没有的话安装一下">把Gridea项目克隆到本地git clone https://github.com/getgridea/gridea，按照官方的命令启动客户端，这里要使用yarn命令，没有的话安装一下。</h3>
 <pre><code class="language-java"># Node version &gt; v10.0.0 is requied
 $ git clone https://github.com/getgridea/gridea.git
 $ cd gridea
@@ -39,23 +38,21 @@ $ yarn
 $ yarn electron:serve
 $ yarn electron:build
 </code></pre>
-<ol start="4">
-<li>将之前创建的token、仓库、域名等信息配置一下，配置好之后保存一下。<br>
-<img src="https://hsxyhao.github.io/post-images/1573627331402.jpg" alt=""></li>
-<li>开通评论，需要使用到oauth账号，填写好之后，保存一下。<br>
-<img src="https://hsxyhao.github.io/post-images/1573627495172.png" alt=""></li>
-<li>最后一步，点击左下角同步一下就可以了</li>
-</ol>
+<h3 id="将之前创建的token-仓库-域名等信息配置一下配置好之后保存一下">将之前创建的token、仓库、域名等信息配置一下，配置好之后保存一下。</h3>
+<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1573627331402.jpg" alt=""></figure>
+<h3 id="开通评论需要使用到oauth账号填写好之后保存一下">开通评论，需要使用到oauth账号，填写好之后，保存一下。</h3>
+<figure data-type="image" tabindex="2"><img src="https://hsxyhao.github.io/post-images/1573627495172.png" alt=""></figure>
+<h3 id="最后一步点击左下角同步一下就可以了">最后一步，点击左下角同步一下就可以了</h3>
 <h2 id="踩坑">踩坑</h2>
 <ol>
 <li>在所有信息配置完之后，点击同步或者检测远程连接会出现失败的情况，如果你是第一次使用Gridea的话，那么需要将Gridea的output目录初始化为一个git仓库，然后添加远程的github地址，就是刚刚建立的XXX.github.io仓库的地址，output路径在系统中的源文件夹处可以看到。如果是从hexo迁移过来的话，这个时候一般只要拷贝一下就行了，但是需要保证之前的git origin 地址是正确的。</li>
 </ol>
 <h2 id="参考文档">参考文档</h2>
-<ol>
+<ul>
 <li><a href="https://gridea.dev/">Gridea文档</a></li>
 <li><a href="https://fehey.com/post/hve-notes-start/">Gridea小白上手教程</a></li>
 <li><a href="https://www.bilibili.com/video/av54010923">B站视频教程</a></li>
-</ol>
+</ul>
 ]]></content>
     </entry>
 </feed>
