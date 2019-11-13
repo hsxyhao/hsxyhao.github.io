@@ -1,233 +1,162 @@
 <html>
-
-<head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
+  <head>
+  <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-    Gridea | madara
-</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1573632662616">
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<title>Gridea | madara</title>
+<meta name="description" content="这个人很懒，什么都不想写..." />
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1573632871007">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
-<!-- js -->
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://hsxyhao.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
-</head>
 
-<body>
+  </head>
+  <body>
     <div class="main">
-        <div class="header">
-    <div class="nav">
-        <div class="logo">
-            <a href="https://hsxyhao.github.io">
-                <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1573632662616" alt="">
-            </a>
-            <div class="site-title">
-                <h1>
-                    madara
-                </h1>
-            </div>
-        </div>
-        <span class="menu-btn fa fa-align-justify"></span>
-        <div class="menu-container">
-            <ul>
-                
-                    
-                            <li>
-                                <a href="/" class="menu">
-                                    首页
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/archives" class="menu">
-                                    归档
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/tags" class="menu">
-                                    标签
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/post/about" class="menu">
-                                    关于
-                                </a>
-                            </li>
-                            
-                                
-            </ul>
-        </div>
-    </div>
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hsxyhao.github.io">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1573632871007" alt="">
+  </a>
+  <h1 class="site-title">
+    madara
+  </h1>
+  <p class="site-description">
+    这个人很懒，什么都不想写...
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".menu-btn").click(function() {
-            $(".menu-container").slideToggle();
-        });
-        $(window).resize(function() {
-
-            if (window.matchMedia('(min-width: 960px)').matches) {
-                $(".menu-container").css('display', 'block')
-            } else {
-                $(".menu-container").css('display', 'none')
-            }
-
-        });
-    });
-</script>
-
-            <div id="main-content" class="post-container main-container">
-                <div id="content" class="main-container-left">
-                    
-    <div class="i-card">
-        <b>标签：#
-        Gridea</b>
-    </div>
-    
+        <div class="current-tag-container">
+            <h2 class="title">
+                标签：# Gridea
+            </h2> 
+        </div>
+        <div class="post-container">
+  
+    <article class="post">
+      <a href="https://hsxyhao.github.io/post/gridea-setup">
+        <h2 class="post-title">Gredia搭建个人博客</h2>
+      </a>
+      <div class="post-info">
+        <span>
+          2019-11-13
+        </span>
+        <span>
+          3 min read
+        </span>
         
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://hsxyhao.github.io/post/gridea-setup">
-                        Gredia搭建个人博客
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-11-13</time>
-                    
-                        <a href="https://hsxyhao.github.io/tag/uCHcXlB40" class="post-tag i-tag
-                            i-tag-other_1">
-            #Gridea
+          <a href="https://hsxyhao.github.io/tag/uCHcXlB40" class="post-tag">
+            # Gridea
+          </a>
+        
+      </div>
+      
+        <a href="https://hsxyhao.github.io/post/gridea-setup" class="post-feature-image" style="background-image: url('https://hsxyhao.github.io/post-images/gridea-setup.png')">
         </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                        <a href="https://hsxyhao.github.io/post/gridea-setup" class="post-feature-image" style="background-image:url(https://hsxyhao.github.io/post-images/gridea-setup.png) ">
-                        </a>
-                        
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            无意间在掘金上看到的一个沸点，刚开始只是好奇博主发的东西，随意看了下。在深入了解了之后 ，发现是一个很不错的静态博客搭建客户端，但是也有些不足的地方，首先就是主题不是很多，用户量以及活跃度没有hexo多，但是这些并不影响写博客，所以还是可以忍受的。主要还是免费，加上和github pages结合，省掉了一笔服务器的费用，后期迁移也比较方便。好了闲话不多说，下面直接搭建博客了。
-搭建教程
-创建github pages、token以及开通oauth认证
+      
+      <div class="post-abstract">
+        
+      </div>
+    </article>
+  
+</div>
 
-新建一个名为XXX.github.io的仓库，就是一个普通的github仓库只不过名字需要有一定的规则
-在github右上角进入settings页面，在进入Developer settings页面
+        <div class="pagination-container">
+  
+  
+</div>
 
-添加一个个人访问token，添加完之后立马复制保存一下，token是一次性可见的，后面在访问的时候就会消失，那个时候只能从新创建一个了。权限选择第一个repo就行了。
-
-然后再创建一个oauth app，后面开通评论会用到。
-
-
-
-
-把Gridea项目克隆到本地git clone https://github.com/getgridea/gridea，按照官方的命令启动客户端，这里要使用yarn命令，没有的话安装一下。
-# Node version &amp;gt; v10.0.0 is requied
-$ git clone https://github.com/getgridea/gridea.git
-$ cd gridea
-$ yarn
-$ yarn electron:serve
-$ yarn electron:build
-
-将之前创建的token、仓库、域名等信息配置一下，配置好之后保存一下。
-
-开通评论，需要使用到oauth账号，填写好之后，保存一下。
-
-最后一步，点击左下角同步一下就可以了
-踩坑
-
-在所有信息配置完之后，点击同步或者检测远程连接会出现失败的情况，如果你是第一次使用Gridea的话，那么需要将Gridea的output目录初始化为一个git仓库，然后添加远程的github地址，就是刚刚建立的XXX.github.io仓库的地址，output路径在系统中的源文件夹处可以看到。如果是从hexo迁移过来的话，这个时候一般只要拷贝一下就行了，但是需要保证之前的git origin 地址是正确的。
-
-参考文档
-
-Gridea文档
-Gridea小白上手教程
-B站视频教程
-
-
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://hsxyhao.github.io/post/gridea-setup">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-                <!-- 翻页 -->
-                
-                </div>
-                <!--  -->
-                <div class="main-container-middle"></div>
-                <!--  -->
-                <div id="sidebar" class="main-container-right">
-
-                    <!-- 个人信息 -->
-                    
-    <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://hsxyhao.github.io/images/avatar.png?v=1573632662616)">
-        </div>
-        <h1 class="id_card-title">
-            madara
-        </h1>
-        <h2 class="id_card-description">
-            这个人很懒，什么都不想写...
-        </h2>
-        <!--  -->
-        <div class="id_card-sns">
-            <!-- github -->
-            
-                    <!-- twitter -->
-                    
-                            <!-- weibo -->
-                            
-                                    <!-- facebook -->
-                                    
-
-        </div>
-    </div>
-    
-
-                        <!-- 公告栏 -->
-                        
-
-                </div>
-            </div>
-
-
-
-            <div class="site-footer">
+        <div class="site-footer">
   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
   <a class="rss" href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
 </div>
 
 <script>
   hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
 </script>
 
+      </div>
     </div>
-    <script>
-        $('#sidebar').stickySidebar({
-            topSpacing: 80,
-            // bottomSpacing: 60
-        });
-    </script>
-</body>
-
+  </body>
 </html>
