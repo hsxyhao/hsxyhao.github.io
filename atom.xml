@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>madara</title>
-    <updated>2019-11-13T09:18:00.506Z</updated>
+    <updated>2019-11-13T09:36:24.364Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -16,7 +16,13 @@
         <link href="https://hsxyhao.github.io/post/gridea-setup">
         </link>
         <updated>2019-11-13T05:47:44.000Z</updated>
-        <content type="html"><![CDATA[<p>无意间在掘金上看到的一个沸点，刚开始只是好奇博主发的东西，随意看了下。在深入了解了之后 ，发现是一个很不错的静态博客搭建客户端，但是也有些不足的地方，首先就是主题不是很多，用户量以及活跃度没有hexo多，但是这些并不影响写博客，所以还是可以忍受的。主要还是免费，加上和github pages结合，省掉了一笔服务器的费用，后期迁移也比较方便。好了闲话不多说，下面直接搭建博客了。</p>
+        <summary type="html"><![CDATA[<p>使用Gredia搭建静态博客，记录踩坑血史🍁</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>使用Gredia搭建静态博客，记录踩坑血史🍁</p>
+<!-- more -->
+<blockquote>
+<p>无意间在掘金上看到的一个沸点，刚开始只是好奇博主发的东西，随意看了下。在深入了解了之后 ，发现是一个很不错的静态博客搭建客户端，但是也有些不足的地方，首先就是主题不是很多，用户量以及活跃度没有hexo多，但是这些并不影响写博客，所以还是可以忍受的。主要还是免费，加上和github pages结合，省掉了一笔服务器的费用，后期迁移也比较方便。好了闲话不多说，下面直接搭建博客了。</p>
+</blockquote>
 <h2 id="搭建教程">搭建教程</h2>
 <h3 id="1github相关配置">1.github相关配置</h3>
 <p>创建github pages、token以及开通oauth认证。</p>
