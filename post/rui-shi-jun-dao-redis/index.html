@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>瑞士军刀-Redis | madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1573723607198">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1573724386963">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://hsxyhao.github.io">
-  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1573723607198" alt="">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1573724386963" alt="">
   </a>
   <h1 class="site-title">
     madara
@@ -168,25 +168,28 @@ OK
 
         
           
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
-          
-            <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
-<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
-
-<div id="disqus_thread"></div>
+<div id="gitalk-container"></div>
 
 <script>
 
-var options = {
-  shortname: 'hao',
-  apikey: 'WqHbTiyi6m0RFvGraBrJ3IBi36D845fQ6ofCcSRdwkGzakLbXogCLzbQnNNuEyUH',
-}
-if ('') {
-  options.api = ''
-}
-var dsqjs = new DisqusJS(options)
+  var gitalk = new Gitalk({
+    clientID: '7daf0c9da2ee9a72ecba',
+    clientSecret: '39e3424bd496a5d8dcdbb618c370897256810975',
+    repo: 'hsxyhao.github.io',
+    owner: 'hsxyhao',
+    admin: ['hsxyhao'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
 
 </script>
+
+          
 
           
         
