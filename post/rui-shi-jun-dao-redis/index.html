@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>瑞士军刀-Redis | madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1573721547773">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1573722931229">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://hsxyhao.github.io">
-  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1573721547773" alt="">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1573722931229" alt="">
   </a>
   <h1 class="site-title">
     madara
@@ -80,8 +80,12 @@
                 2019-11-14
               </span>
               <span>
-                3 min read
+                4 min read
               </span>
+              
+                <a href="https://hsxyhao.github.io/tag/redis" class="post-tag">
+                  # redis
+                </a>
               
             </div>
             
@@ -95,7 +99,7 @@
 <h1 id="基础">基础</h1>
 <h2 id="redis-key">redis key</h2>
 <p>Redis密钥是二进制安全的，任何二进制序列的字符串都可以作为密钥，空字符串也是有效的键。虽然key的有效长度为512M，但是在日常开发中不建议把key的长度设置太长，或者过短，最友好的一种做法是将key和业务结合起来命名，一般推荐使用user:{id}这样的方式。</p>
-<h2 id="数据类型">数据类型</h2>
+<h2 id="数据类型"><a href="https://redis.io/topics/data-types-intro">数据类型</a></h2>
 <p>从redis的官方介绍中就可以得出，redis的基础数据类型有五种，分别为：string，hash，list，set，以及zset。至于后面提到的hyperloglogs、geospatial、bitmaps的类型，有的是后面的版本增加的，有的是基础数据类型扩展来的。相对于其他的nosql数据库来说，redis的数据类型已经很充分了。redis内置的这些类型，对于学过java的同学可以使用java中的HashMap来辅助记忆，比如说string类型就是Map&lt;String,String&gt;,list类型就类比为Map&lt;String,List<String>&gt;，hash则为Map&lt;String,Map&lt;String,String&gt;&gt;。通过这样的辅助记忆，就可以很快的记住redis的数据类型，对于后期各种类型的命令使用也起到一定的帮助。从上面的类比中我们可以看到redis是一个key，value的数据存储系统，key都是字符串类型，value则对应redis着以上几种数据类型。</p>
 <h3 id="string类型">string类型</h3>
 <p>string类型，可以说是redis中使用到最多的一种类型了，开发中有很多开发人员把一些热点数据的序列化成json，存储到redis中，最后访问的时候后再取出来反序列化返回到客户端。<br>
@@ -105,6 +109,26 @@
 <li>最大能存储512M的内容</li>
 <li>value的值是可以修改的，内部采取的是一种预扩容机制来减少频繁的扩容，如图中所示，内部为当前字符串实际分配的空间 capacity 一般要高于实际字符串长度 len。当字符串长度小于 1M 时，扩容都是加倍现有的空间，如果超过 1M，扩容时一次只会多扩 1M 的空间。需要注意的是字符串最大长度为 512M。</li>
 </ul>
+<p>相关命令：</p>
+<pre><code class="language-java">// 添加一个键值对
+&gt; set key1 value1
+OK
+// 添加多个键值对，改名相当于多次使用set名，mset可以减少网络请求
+&gt; mset key1 value1 key2 value2 
+OK
+// 当value是int类型的时候可以进行加减操作，超过signed long（Long.Max）则会报错
+&gt; set counter 100
+OK
+&gt; incr counter
+(integer) 101
+&gt; incr counter
+(integer) 102
+&gt; incrby counter 50
+(integer) 152
+</code></pre>
+<h3 id="list类型">list类型</h3>
+<p>Redis中的list相当于java中的LinkedList，不是ArrayList，也就是说他是一个链表。结合*pop和*push命令可以实现队列或者栈这种数据结构。<br>
+<img src="https://hsxyhao.github.io/post-images/1573722527155.gif" alt=""></p>
 
               </div>
               <div class="toc-container">
@@ -115,6 +139,7 @@
 <li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a>
 <ul>
 <li><a href="#string%E7%B1%BB%E5%9E%8B">string类型</a></li>
+<li><a href="#list%E7%B1%BB%E5%9E%8B">list类型</a></li>
 </ul>
 </li>
 </ul>
