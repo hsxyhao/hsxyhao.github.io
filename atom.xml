@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>madara</title>
-    <updated>2019-11-14T09:25:58.981Z</updated>
+    <updated>2019-11-14T09:26:50.713Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -54,6 +54,8 @@ OK
 <h3 id="2list类型">2).list类型</h3>
 <p>Redis中的list相当于java中的LinkedList，不是ArrayList，也就是说他是一个链表。结合*pop和*push命令可以实现队列或者栈这种数据结构。<br>
 <img src="https://hsxyhao.github.io/post-images/1573722527155.gif" alt=""></p>
+<h1 id="二-应用">二、应用</h1>
+<h1 id="三-高可用">三、高可用</h1>
 ]]></content>
     </entry>
     <entry>
