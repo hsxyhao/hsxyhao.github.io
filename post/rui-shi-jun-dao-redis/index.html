@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Gridea搭建个人博客 | madara</title>
+<title>瑞士军刀-Redis | madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
 <link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1573721547773">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -73,93 +73,50 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              Gridea搭建个人博客
+              瑞士军刀-Redis
             </h2>
             <div class="post-info">
               <span>
-                2019-11-13
+                2019-11-14
               </span>
               <span>
                 3 min read
               </span>
               
-                <a href="https://hsxyhao.github.io/tag/uCHcXlB40" class="post-tag">
-                  # Gridea
-                </a>
-              
             </div>
             
-              <img class="post-feature-image" src="https://hsxyhao.github.io/post-images/gridea-setup.png" alt="">
+              <img class="post-feature-image" src="https://hsxyhao.github.io/post-images/rui-shi-jun-dao-redis.png" alt="">
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>使用Gridea搭建静态博客，记录踩坑血史🤓</p>
+                <p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.</p>
 <!-- more -->
-<h2 id="搭建教程">搭建教程</h2>
-<h3 id="1github相关配置">1.github相关配置</h3>
-<p>创建github pages、token以及开通oauth认证。</p>
-<ol>
-<li>新建一个名为XXX.github.io的仓库，就是一个普通的github仓库只不过名字需要有一定的规则</li>
-<li>在github右上角进入settings页面，在进入Developer settings页面
+<p>摘要取自Redis官方的介绍，为什么要把它放在这里，我觉得这是介绍Redis最为标准的一段话，从用途、数据结构已经功能等多方面介绍，如果以后面试官叫你介绍下redis的话，我觉得可以直接把这段话背下来😌。至于为什么把Redis称为瑞士军刀，相信用过redis的人都会这么认为。</p>
+<h1 id="基础">基础</h1>
+<h2 id="redis-key">redis key</h2>
+<p>Redis密钥是二进制安全的，任何二进制序列的字符串都可以作为密钥，空字符串也是有效的键。虽然key的有效长度为512M，但是在日常开发中不建议把key的长度设置太长，或者过短，最友好的一种做法是将key和业务结合起来命名，一般推荐使用user:{id}这样的方式。</p>
+<h2 id="数据类型">数据类型</h2>
+<p>从redis的官方介绍中就可以得出，redis的基础数据类型有五种，分别为：string，hash，list，set，以及zset。至于后面提到的hyperloglogs、geospatial、bitmaps的类型，有的是后面的版本增加的，有的是基础数据类型扩展来的。相对于其他的nosql数据库来说，redis的数据类型已经很充分了。redis内置的这些类型，对于学过java的同学可以使用java中的HashMap来辅助记忆，比如说string类型就是Map&lt;String,String&gt;,list类型就类比为Map&lt;String,List<String>&gt;，hash则为Map&lt;String,Map&lt;String,String&gt;&gt;。通过这样的辅助记忆，就可以很快的记住redis的数据类型，对于后期各种类型的命令使用也起到一定的帮助。从上面的类比中我们可以看到redis是一个key，value的数据存储系统，key都是字符串类型，value则对应redis着以上几种数据类型。</p>
+<h3 id="string类型">string类型</h3>
+<p>string类型，可以说是redis中使用到最多的一种类型了，开发中有很多开发人员把一些热点数据的序列化成json，存储到redis中，最后访问的时候后再取出来反序列化返回到客户端。<br>
+<img src="https://hsxyhao.github.io/post-images/1573721308127.png" alt=""><br>
+重点记忆：</p>
 <ul>
-<li>添加一个个人访问token，添加完之后立马复制保存一下，token是一次性可见的，后面在访问的时候就会消失，那个时候只能从新创建一个了。权限选择第一个repo就行了。<br>
-<img src="https://hsxyhao.github.io/post-images/1573626367969.png" alt=""></li>
-<li>然后再创建一个oauth app，后面开通评论会用到。<br>
-<img src="https://hsxyhao.github.io/post-images/1573626568363.jpg" alt=""></li>
-</ul>
-</li>
-</ol>
-<h3 id="2安装gridea客户端">2.安装Gridea客户端</h3>
-<p>把Gridea项目克隆到本地git clone https://github.com/getgridea/gridea，按照官方的命令启动客户端，这里要使用yarn命令，没有的话安装一下。</p>
-<pre><code class="language-java"># Node version &gt; v10.0.0 is requied
-$ git clone https://github.com/getgridea/gridea.git
-$ cd gridea
-$ yarn
-$ yarn electron:serve
-$ yarn electron:build
-</code></pre>
-<h3 id="3绑定github信息">3.绑定github信息</h3>
-<p>将之前创建的token、仓库、域名等信息配置一下，配置好之后保存一下。<br>
-<img src="https://hsxyhao.github.io/post-images/1573627331402.jpg" alt=""></p>
-<h3 id="4添加gittalk评论">4.添加Gittalk评论</h3>
-<p>开通评论，需要使用到oauth账号，填写好之后，保存一下。<br>
-<img src="https://hsxyhao.github.io/post-images/1573627495172.png" alt=""></p>
-<h3 id="5完结散花">5.完结散花🍂</h3>
-<p>最后一步，点击左下角同步一下就可以了。如果同步出现问题，请移步到文章尾部，看看是否能帮助到你。</p>
-<h2 id="帮助">帮助</h2>
-<p>最后再补充一下搭建过程中遇到的问题，希望能帮助的你。</p>
-<h3 id="踩坑">踩坑</h3>
-<ol>
-<li>在所有信息配置完之后，点击同步或者检测远程连接会出现失败的情况，如果你是第一次使用Gridea的话，那么需要将Gridea的output目录初始化为一个git仓库，然后添加远程的github地址，就是刚刚建立的XXX.github.io仓库的地址，output路径在系统中的源文件夹处可以看到。如果是从hexo迁移过来的话，这个时候一般只要拷贝一下就行了，但是需要保证之前的git origin 地址是正确的。</li>
-</ol>
-<h2 id="参考文档">参考文档</h2>
-<p>搭建过程中查阅的相关文档，其实就是官方的文档😜</p>
-<ul>
-<li><a href="https://gridea.dev/">Gridea文档</a></li>
-<li><a href="https://fehey.com/post/hve-notes-start/">Gridea小白上手教程</a></li>
-<li><a href="https://www.bilibili.com/video/av54010923">B站视频教程</a></li>
+<li>最大能存储512M的内容</li>
+<li>value的值是可以修改的，内部采取的是一种预扩容机制来减少频繁的扩容，如图中所示，内部为当前字符串实际分配的空间 capacity 一般要高于实际字符串长度 len。当字符串长度小于 1M 时，扩容都是加倍现有的空间，如果超过 1M，扩容时一次只会多扩 1M 的空间。需要注意的是字符串最大长度为 512M。</li>
 </ul>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li>
+<li><a href="#%E5%9F%BA%E7%A1%80">基础</a>
 <ul>
-<li><a href="#%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B">搭建教程</a>
+<li><a href="#redis-key">redis key</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a>
 <ul>
-<li><a href="#1github%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE">1.github相关配置</a></li>
-<li><a href="#2%E5%AE%89%E8%A3%85gridea%E5%AE%A2%E6%88%B7%E7%AB%AF">2.安装Gridea客户端</a></li>
-<li><a href="#3%E7%BB%91%E5%AE%9Agithub%E4%BF%A1%E6%81%AF">3.绑定github信息</a></li>
-<li><a href="#4%E6%B7%BB%E5%8A%A0gittalk%E8%AF%84%E8%AE%BA">4.添加Gittalk评论</a></li>
-<li><a href="#5%E5%AE%8C%E7%BB%93%E6%95%A3%E8%8A%B1">5.完结散花🍂</a></li>
+<li><a href="#string%E7%B1%BB%E5%9E%8B">string类型</a></li>
 </ul>
 </li>
-<li><a href="#%E5%B8%AE%E5%8A%A9">帮助</a>
-<ul>
-<li><a href="#%E8%B8%A9%E5%9D%91">踩坑</a></li>
-</ul>
-</li>
-<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3">参考文档</a></li>
 </ul>
 </li>
 </ul>
@@ -169,6 +126,15 @@ $ yarn electron:build
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hsxyhao.github.io/post/gridea-setup">
+              <h3 class="post-title">
+                Gridea搭建个人博客
+              </h3>
+            </a>
+          </div>
         
 
         
