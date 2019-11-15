@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Redis入门知识点 | madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1573804866444">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1573808694978">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://hsxyhao.github.io">
-  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1573804866444" alt="">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1573808694978" alt="">
   </a>
   <h1 class="site-title">
     madara
@@ -80,7 +80,7 @@
                 2019-11-14
               </span>
               <span>
-                8 min read
+                9 min read
               </span>
               
                 <a href="https://hsxyhao.github.io/tag/redis" class="post-tag">
@@ -213,6 +213,15 @@ OK
 &gt; spop books  # 弹出一个
 &quot;java&quot;
 </code></pre>
+<h2 id="5-zset有序集合">5. zset(有序集合)</h2>
+<p>set是一个无序不重复集合，zset是一个有序的不重复集合，redis内部是通过跳跃链表来实现的。要想对一个链表排序，普通的链表肯定是不行的。需要对普通链表进行改进，改造后就是跳跃链表了。<br>
+<img src="https://hsxyhao.github.io/post-images/1573807555093.png" alt=""><br>
+上图就是跳跃链表的一个简化示意图，相信不熟悉的人看到这里肯定会懵，这个“跳跃”二字如何解释，在这里跳跃是指层与层之间的一个切换，不是元素和元素之间。层是代表高度词，所以用跳跃来形容也比较合适。</p>
+<h1 id="最后">最后</h1>
+<p>这里只是对Redis的基本数据类型进行一个简单记录，将所有重要的地方都记录下来，但是没有详细记录，在面试的时候如果聊到Redis，可以简单的做个大概介绍，后面再慢慢深入，后续的文章中会对文中的一些点进行详细的描述。本偏文章主要根据网上的资料进行总结，说不上复制，如果单纯的把别人的东西复制过来放在自己的博客上，行为上就是可耻的，其次在效果上微乎其微 。建议大家平时看过一些东西之后转换成自己的理解记录下来，好处多多🤓。</p>
+<h1 id="相关文档">相关文档</h1>
+<p><a href="https://redis.io/topics/data-types-intro">Redis官方文档</a><br>
+<a href="https://juejin.im/book/5afc2e5f6fb9a07a9b362527">Redis 深度历险：核心原理与应用实践</a></p>
 
               </div>
               <div class="toc-container">
@@ -234,8 +243,11 @@ OK
 </ul>
 </li>
 <li><a href="#4-set%E7%B1%BB%E5%9E%8B">4. set类型</a></li>
+<li><a href="#5-zset%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88">5. zset(有序集合)</a></li>
 </ul>
 </li>
+<li><a href="#%E6%9C%80%E5%90%8E">最后</a></li>
+<li><a href="#%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3">相关文档</a></li>
 </ul>
 
               </div>
