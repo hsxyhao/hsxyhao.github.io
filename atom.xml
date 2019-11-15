@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>madara</title>
-    <updated>2019-11-14T09:39:49.120Z</updated>
+    <updated>2019-11-15T07:46:20.352Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -54,8 +54,68 @@ OK
 <h3 id="2list类型">2).list类型</h3>
 <p>Redis中的list相当于java中的LinkedList，不是ArrayList，也就是说他是一个链表。结合*pop和*push命令可以实现队列或者栈这种数据结构。<br>
 <img src="https://hsxyhao.github.io/post-images/1573722527155.gif" alt=""></p>
-<h1 id="二-应用">二、应用</h1>
-<h1 id="三-高可用">三、高可用</h1>
+<h4 id="快速链表">快速链表</h4>
+<p><img src="https://hsxyhao.github.io/post-images/1573801624670.png" alt=""><br>
+准确的说list类型的底层实现是快速链表，普通链表在数据量量大的情况下性能是非常低的，所以需要对list进行优化。在列表开始数据量少的情况下，会直接申请一块<strong>连续</strong>的内存存储，这块内存的结构就是ziplist(压缩列表)，当数据量比较多的时候会切换成quicklist，就是多个ziplist结合成的链表。</p>
+<h4 id="list扩展应用">list扩展应用</h4>
+<ol>
+<li>结合rpush以及lpop（或者lpush和rpop）可以实现redis版的队列，右进左出（或左进右出）。</li>
+<li>使用rpush以及rpop（或者lpush和lpop）可以实现redis版的栈，右进右出（左进左出）。</li>
+<li>ltrim [start_index, end_index]命令，会保留start_index和end_index之间的部分</li>
+<li>lindex相当于链表的get方法，时间复杂度为O(n),index越大性能越低。</li>
+</ol>
+<pre><code class="language-java">   &gt; rpush books python java golang
+(integer) 3
+&gt; lindex books 1  # O(n) 慎用
+&quot;java&quot;
+&gt; lrange books 0 -1  # 获取所有元素，O(n) 慎用
+1) &quot;python&quot;
+2) &quot;java&quot;
+3) &quot;golang&quot;
+&gt; ltrim books 1 -1 # O(n) 慎用
+OK
+&gt; lrange books 0 -1
+1) &quot;java&quot;
+2) &quot;golang&quot;
+&gt; ltrim books 1 0 # 这其实是清空了整个列表，因为区间范围长度为负
+OK
+&gt; llen books
+(integer) 0
+</code></pre>
+<h3 id="3hash">3）hash</h3>
+<p>hash类型可以类比成java中HashMap，一种键值对类型，只不过这里的key只能是string类型。</p>
+<h4 id="rehash">rehash</h4>
+<p>相信大多数java开发人员在面试的时候都会被问到rehash，这个过程在数据量大的时候是一个性能相当低的操作，而redis为了提高性能，就采取了另一种方式进行rehash————渐近式，就是在rehash的时候不立马进行rehash，保存一个新的hash结构的同时，旧的也保存下来，在后续的定时任务中，或者有hash操作的时候进行迁移，当数据迁移完成之后，旧的hash就会被新的取代。</p>
+<h4 id="与string应用比较">与string应用比较</h4>
+<p>hash也可以用来保存用户信息的类似操作，但是相对于string来说，hash可以保存一个用户的单个属性，在数据量以及请求非常大的情况下，获取单个属性相比较或者所有属性来说，更加节约网络流量，但是hash的存储结构消耗要高于string。</p>
+<p>命令</p>
+<pre><code class="language-java">&gt; hset books java &quot;think in java&quot;  # 命令行的字符串如果包含空格，要用引号括起来
+(integer) 1
+&gt; hset books golang &quot;concurrency in go&quot;
+(integer) 1
+&gt; hset books python &quot;python cookbook&quot;
+(integer) 1
+&gt; hgetall books  # entries()，key 和 value 间隔出现
+1) &quot;java&quot;
+2) &quot;think in java&quot;
+3) &quot;golang&quot;
+4) &quot;concurrency in go&quot;
+5) &quot;python&quot;
+6) &quot;python cookbook&quot;
+&gt; hlen books
+(integer) 3
+&gt; hget books java
+&quot;think in java&quot;
+&gt; hset books golang &quot;learning go programming&quot;  # 因为是更新操作，所以返回 0
+(integer) 0
+&gt; hget books golang
+&quot;learning go programming&quot;
+&gt; hmset books java &quot;effective java&quot; python &quot;learning python&quot; golang &quot;modern golang programming&quot;  # 批量 set
+OK
+# 整形变量的自增操作
+&gt; hincrby user-laoqian age 1
+(integer) 30
+</code></pre>
 ]]></content>
     </entry>
     <entry>
