@@ -2,9 +2,9 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>瑞士军刀-Redis | madara</title>
+<title>Redis入门知识点 | madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1573803977172">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1573804866444">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://hsxyhao.github.io">
-  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1573803977172" alt="">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1573804866444" alt="">
   </a>
   <h1 class="site-title">
     madara
@@ -73,14 +73,14 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              瑞士军刀-Redis
+              Redis入门知识点
             </h2>
             <div class="post-info">
               <span>
                 2019-11-14
               </span>
               <span>
-                7 min read
+                8 min read
               </span>
               
                 <a href="https://hsxyhao.github.io/tag/redis" class="post-tag">
@@ -96,12 +96,11 @@
                 <p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.</p>
 <!-- more -->
 <p>摘要取自Redis官方的介绍，为什么要把它放在这里，我觉得这是介绍Redis最为标准的一段话，从用途、数据结构已经功能等多方面介绍，如果以后面试官叫你介绍下redis的话，我觉得可以直接把这段话背下来😌。至于为什么把Redis称为瑞士军刀，相信用过redis的人都会这么认为。</p>
-<h1 id="一-基础">一、基础</h1>
-<h2 id="1redis-key">1.redis key</h2>
+<h1 id="redis-key">redis key</h1>
 <p>Redis密钥是二进制安全的，任何二进制序列的字符串都可以作为密钥，空字符串也是有效的键。虽然key的有效长度为512M，但是在日常开发中不建议把key的长度设置太长，或者过短，最友好的一种做法是将key和业务结合起来命名，一般推荐使用user:{id}这样的方式。</p>
-<h2 id="2数据类型">2.<a href="https://redis.io/topics/data-types-intro">数据类型</a></h2>
+<h1 id="数据类型"><a href="https://redis.io/topics/data-types-intro">数据类型</a></h1>
 <p>从redis的官方介绍中就可以得出，redis的基础数据类型有五种，分别为：string，hash，list，set，以及zset。至于后面提到的hyperloglogs、geospatial、bitmaps的类型，有的是后面的版本增加的，有的是基础数据类型扩展来的。相对于其他的nosql数据库来说，redis的数据类型已经很充分了。redis内置的这些类型，对于学过java的同学可以使用java中的HashMap来辅助记忆，比如说string类型就是Map&lt;String,String&gt;,list类型就类比为Map&lt;String,List<String>&gt;，hash则为Map&lt;String,Map&lt;String,String&gt;&gt;。通过这样的辅助记忆，就可以很快的记住redis的数据类型，对于后期各种类型的命令使用也起到一定的帮助。从上面的类比中我们可以看到redis是一个key，value的数据存储系统，key都是字符串类型，value则对应redis着以上几种数据类型。</p>
-<h3 id="1string类型">1).string类型</h3>
+<h2 id="1-string类型">1. string类型</h2>
 <p>string类型，可以说是redis中使用到最多的一种类型了，开发中有很多开发人员把一些热点数据的序列化成json，存储到redis中，最后访问的时候后再取出来反序列化返回到客户端。<br>
 <img src="https://hsxyhao.github.io/post-images/1573721308127.png" alt=""><br>
 重点记忆：</p>
@@ -126,20 +125,20 @@ OK
 &gt; incrby counter 50
 (integer) 152
 </code></pre>
-<h3 id="2list类型">2).list类型</h3>
+<h2 id="2-list类型">2. list类型</h2>
 <p>Redis中的list相当于java中的LinkedList，不是ArrayList，也就是说他是一个链表。结合*pop和*push命令可以实现队列或者栈这种数据结构。<br>
 <img src="https://hsxyhao.github.io/post-images/1573722527155.gif" alt=""></p>
-<h4 id="快速链表">快速链表</h4>
+<h3 id="快速链表">快速链表</h3>
 <p><img src="https://hsxyhao.github.io/post-images/1573801624670.png" alt=""><br>
 准确的说list类型的底层实现是快速链表，普通链表在数据量量大的情况下性能是非常低的，所以需要对list进行优化。在列表开始数据量少的情况下，会直接申请一块<strong>连续</strong>的内存存储，这块内存的结构就是ziplist(压缩列表)，当数据量比较多的时候会切换成quicklist，就是多个ziplist结合成的链表。</p>
-<h4 id="list扩展应用">list扩展应用</h4>
+<h3 id="list扩展应用">list扩展应用</h3>
 <ol>
 <li>结合rpush以及lpop（或者lpush和rpop）可以实现redis版的队列，右进左出（或左进右出）。</li>
 <li>使用rpush以及rpop（或者lpush和lpop）可以实现redis版的栈，右进右出（左进左出）。</li>
 <li>ltrim [start_index, end_index]命令，会保留start_index和end_index之间的部分</li>
 <li>lindex相当于链表的get方法，时间复杂度为O(n),index越大性能越低。</li>
 </ol>
-<pre><code class="language-java">   &gt; rpush books python java golang
+<pre><code class="language-java">&gt; rpush books python java golang
 (integer) 3
 &gt; lindex books 1  # O(n) 慎用
 &quot;java&quot;
@@ -157,11 +156,11 @@ OK
 &gt; llen books
 (integer) 0
 </code></pre>
-<h3 id="3hash">3）hash</h3>
+<h2 id="3-hash类型">3. hash类型</h2>
 <p>hash类型可以类比成java中HashMap，一种键值对类型，只不过这里的key只能是string类型。</p>
-<h4 id="rehash">rehash</h4>
+<h3 id="rehash">rehash</h3>
 <p>相信大多数java开发人员在面试的时候都会被问到rehash，这个过程在数据量大的时候是一个性能相当低的操作，而redis为了提高性能，就采取了另一种方式进行rehash————渐近式，就是在rehash的时候不立马进行rehash，保存一个新的hash结构的同时，旧的也保存下来，在后续的定时任务中，或者有hash操作的时候进行迁移，当数据迁移完成之后，旧的hash就会被新的取代。</p>
-<h4 id="与string应用比较">与string应用比较</h4>
+<h3 id="与string应用比较">与string应用比较</h3>
 <p>hash也可以用来保存用户信息的类似操作，但是相对于string来说，hash可以保存一个用户的单个属性，在数据量以及请求非常大的情况下，获取单个属性相比较或者所有属性来说，更加节约网络流量，但是hash的存储结构消耗要高于string。</p>
 <p>命令</p>
 <pre><code class="language-java">&gt; hset books java &quot;think in java&quot;  # 命令行的字符串如果包含空格，要用引号括起来
@@ -191,30 +190,50 @@ OK
 &gt; hincrby user-laoqian age 1
 (integer) 30
 </code></pre>
+<h2 id="4-set类型">4. set类型</h2>
+<p>同样的set类型可以类比为java中的HashSet，是一种键值对唯一的数据结构，大家都知道java中的HashSet是由HashMap“变异”的，相对于HashMap，HashSet的所有value都是Null。set具有自动去重的功能，可以保证set中的可以是唯一的。<br>
+<img src="https://hsxyhao.github.io/post-images/1573804430835.gif" alt=""><br>
+命令：</p>
+<pre><code class="language-java">&gt; sadd books python
+(integer) 1
+&gt; sadd books python  #  重复
+(integer) 0
+&gt; sadd books java golang
+(integer) 2
+&gt; smembers books  # 注意顺序，和插入的并不一致，因为 set 是无序的
+1) &quot;java&quot;
+2) &quot;python&quot;
+3) &quot;golang&quot;
+&gt; sismember books java  # 查询某个 value 是否存在，相当于 contains(o)
+(integer) 1
+&gt; sismember books rust
+(integer) 0
+&gt; scard books  # 获取长度相当于 count()
+(integer) 3
+&gt; spop books  # 弹出一个
+&quot;java&quot;
+</code></pre>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li><a href="#%E4%B8%80-%E5%9F%BA%E7%A1%80">一、基础</a>
+<li><a href="#redis-key">redis key</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a>
 <ul>
-<li><a href="#1redis-key">1.redis key</a></li>
-<li><a href="#2%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">2.数据类型</a>
-<ul>
-<li><a href="#1string%E7%B1%BB%E5%9E%8B">1).string类型</a></li>
-<li><a href="#2list%E7%B1%BB%E5%9E%8B">2).list类型</a>
+<li><a href="#1-string%E7%B1%BB%E5%9E%8B">1. string类型</a></li>
+<li><a href="#2-list%E7%B1%BB%E5%9E%8B">2. list类型</a>
 <ul>
 <li><a href="#%E5%BF%AB%E9%80%9F%E9%93%BE%E8%A1%A8">快速链表</a></li>
 <li><a href="#list%E6%89%A9%E5%B1%95%E5%BA%94%E7%94%A8">list扩展应用</a></li>
 </ul>
 </li>
-<li><a href="#3hash">3）hash</a>
+<li><a href="#3-hash%E7%B1%BB%E5%9E%8B">3. hash类型</a>
 <ul>
 <li><a href="#rehash">rehash</a></li>
 <li><a href="#%E4%B8%8Estring%E5%BA%94%E7%94%A8%E6%AF%94%E8%BE%83">与string应用比较</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li><a href="#4-set%E7%B1%BB%E5%9E%8B">4. set类型</a></li>
 </ul>
 </li>
 </ul>
