@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>madara</title>
-    <updated>2019-11-15T09:04:58.054Z</updated>
+    <updated>2019-11-15T09:10:26.492Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -21,7 +21,7 @@
         <content type="html"><![CDATA[<p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.</p>
 <!-- more -->
 <p>摘要取自Redis官方的介绍，为什么要把它放在这里，我觉得这是介绍Redis最为标准的一段话，从用途、数据结构已经功能等多方面介绍，如果以后面试官叫你介绍下redis的话，我觉得可以直接把这段话背下来😌。至于为什么把Redis称为瑞士军刀，相信用过redis的人都会这么认为。</p>
-<h1 id="redis-key">redis key</h1>
+<h1 id="redis-key">Redis key</h1>
 <p>Redis密钥是二进制安全的，任何二进制序列的字符串都可以作为密钥，空字符串也是有效的键。虽然key的有效长度为512M，但是在日常开发中不建议把key的长度设置太长，或者过短，最友好的一种做法是将key和业务结合起来命名，一般推荐使用user:{id}这样的方式。</p>
 <h1 id="数据类型"><a href="https://redis.io/topics/data-types-intro">数据类型</a></h1>
 <p>从redis的官方介绍中就可以得出，redis的基础数据类型有五种，分别为：string，hash，list，set，以及zset。至于后面提到的hyperloglogs、geospatial、bitmaps的类型，有的是后面的版本增加的，有的是基础数据类型扩展来的。相对于其他的nosql数据库来说，redis的数据类型已经很充分了。redis内置的这些类型，对于学过java的同学可以使用java中的HashMap来辅助记忆，比如说string类型就是Map&lt;String,String&gt;,list类型就类比为Map&lt;String,List<String>&gt;，hash则为Map&lt;String,Map&lt;String,String&gt;&gt;。通过这样的辅助记忆，就可以很快的记住redis的数据类型，对于后期各种类型的命令使用也起到一定的帮助。从上面的类比中我们可以看到redis是一个key，value的数据存储系统，key都是字符串类型，value则对应redis着以上几种数据类型。</p>
@@ -59,10 +59,13 @@ OK
 <h3 id="list扩展应用">list扩展应用</h3>
 <ol>
 <li>结合rpush以及lpop（或者lpush和rpop）可以实现redis版的队列，右进左出（或左进右出）。</li>
-<li>使用rpush以及rpop（或者lpush和lpop）可以实现redis版的栈，右进右出（左进左出）。</li>
+<li>使用rpush以及rpop（或者lpush和lpop）可以实现redis版的栈，右进右出（左进左出）。<br>
+命令:</li>
+</ol>
+<ul>
 <li>ltrim [start_index, end_index]命令，会保留start_index和end_index之间的部分</li>
 <li>lindex相当于链表的get方法，时间复杂度为O(n),index越大性能越低。</li>
-</ol>
+</ul>
 <pre><code class="language-java">&gt; rpush books python java golang
 (integer) 3
 &gt; lindex books 1  # O(n) 慎用
@@ -84,7 +87,7 @@ OK
 <h2 id="3-hash类型">3. hash类型</h2>
 <p>hash类型可以类比成java中HashMap，一种键值对类型，只不过这里的key只能是string类型。</p>
 <h3 id="rehash">rehash</h3>
-<p>相信大多数java开发人员在面试的时候都会被问到rehash，这个过程在数据量大的时候是一个性能相当低的操作，而redis为了提高性能，就采取了另一种方式进行rehash————渐近式，就是在rehash的时候不立马进行rehash，保存一个新的hash结构的同时，旧的也保存下来，在后续的定时任务中，或者有hash操作的时候进行迁移，当数据迁移完成之后，旧的hash就会被新的取代。</p>
+<p>相信大多数java开发人员在面试的时候都会被问到rehash，这个过程在数据量大的时候是一个性能相当低的操作，而redis为了提高性能，就采取了另一种方式进行rehash——渐近式，就是在rehash的时候不立马进行rehash，保存一个新的hash结构的同时，旧的也保存下来，在后续的定时任务中，或者有hash操作的时候进行迁移，当数据迁移完成之后，旧的hash就会被新的取代。</p>
 <h3 id="与string应用比较">与string应用比较</h3>
 <p>hash也可以用来保存用户信息的类似操作，但是相对于string来说，hash可以保存一个用户的单个属性，在数据量以及请求非常大的情况下，获取单个属性相比较或者所有属性来说，更加节约网络流量，但是hash的存储结构消耗要高于string。</p>
 <p>命令</p>
@@ -143,7 +146,7 @@ OK
 <img src="https://hsxyhao.github.io/post-images/1573807555093.png" alt=""><br>
 上图就是跳跃链表的一个简化示意图，相信不熟悉的人看到这里肯定会懵，这个“跳跃”二字如何解释，在这里跳跃是指层与层之间的一个切换，不是元素和元素之间。层是代表高度词，所以用跳跃来形容也比较合适。</p>
 <h1 id="最后">最后</h1>
-<p>这里只是对Redis的基本数据类型进行一个简单记录，将所有重要的地方都记录下来，但是没有详细记录，在面试的时候如果聊到Redis，可以简单的做个大概介绍，后面再慢慢深入，后续的文章中会对文中的一些点进行详细的描述。本偏文章主要根据网上的资料进行总结，说不上复制，如果单纯的把别人的东西复制过来放在自己的博客上，行为上就是可耻的，其次在效果上微乎其微 。建议大家平时看过一些东西之后转换成自己的理解记录下来，好处多多🤓。</p>
+<p>这里只是对Redis的基本数据类型进行一个简单记录，将所有重要的地方都记录下来，但是没有详细记录，在面试的时候如果聊到Redis，可以简单的做个大概介绍，后面再慢慢深入，后续的文章中会对文中的一些点进行详细的学习记录。本篇文章主要根据网上的资料进行总结，说不上复制，如果单纯的把别人的东西复制过来放在自己的博客上，行为上本身就是可耻的（未标明原著），其次在效果上也是微乎其微 。建议大家平时看过一些东西之后转换成自己的理解后记录下来，这样的话效果也会好很多🤓。</p>
 <h1 id="相关文档">相关文档</h1>
 <p><a href="https://redis.io/topics/data-types-intro">Redis官方文档</a><br>
 <a href="https://juejin.im/book/5afc2e5f6fb9a07a9b362527">Redis 深度历险：核心原理与应用实践</a></p>
