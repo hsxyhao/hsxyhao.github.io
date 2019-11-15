@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>madara</title>
-    <updated>2019-11-15T09:10:26.492Z</updated>
+    <updated>2019-11-15T09:13:25.830Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -33,7 +33,7 @@
 <li>最大能存储512M的内容</li>
 <li>value的值是可以修改的，内部采取的是一种预扩容机制来减少频繁的扩容，如图中所示，内部为当前字符串实际分配的空间 capacity 一般要高于实际字符串长度 len。当字符串长度小于 1M 时，扩容都是加倍现有的空间，如果超过 1M，扩容时一次只会多扩 1M 的空间。需要注意的是字符串最大长度为 512M。</li>
 </ul>
-<p>相关命令：</p>
+<p>命令：</p>
 <pre><code class="language-java">// 添加一个键值对
 &gt; set key1 value1
 OK
@@ -59,9 +59,9 @@ OK
 <h3 id="list扩展应用">list扩展应用</h3>
 <ol>
 <li>结合rpush以及lpop（或者lpush和rpop）可以实现redis版的队列，右进左出（或左进右出）。</li>
-<li>使用rpush以及rpop（或者lpush和lpop）可以实现redis版的栈，右进右出（左进左出）。<br>
-命令:</li>
+<li>使用rpush以及rpop（或者lpush和lpop）可以实现redis版的栈，右进右出（左进左出）。</li>
 </ol>
+<p>命令:</p>
 <ul>
 <li>ltrim [start_index, end_index]命令，会保留start_index和end_index之间的部分</li>
 <li>lindex相当于链表的get方法，时间复杂度为O(n),index越大性能越低。</li>
