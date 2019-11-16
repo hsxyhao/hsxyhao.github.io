@@ -1,0 +1,264 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Redis 持久化 | Madara</title>
+<meta name="description" content="这个人很懒，什么都不想写..." />
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1573901735850">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hsxyhao.github.io">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1573901735850" alt="">
+  </a>
+  <h1 class="site-title">
+    Madara
+  </h1>
+  <p class="site-description">
+    这个人很懒，什么都不想写...
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Redis 持久化
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-11-16
+              </span>
+              <span>
+                5 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>持久化是将Redis内存中的数据写入到磁盘中，避免发生redis故障时数据丢失，在下次服务重启的根据持久化文件即可对数据进行恢复。</p>
+<!-- more -->
+<h1 id="面试">面试</h1>
+<p>在面试的时候如果被问到Redis持久化的时候，怎么回答比较好？我想从以下几个角度展开，一定会让面试官眼前一亮。</p>
+<ul>
+<li>RDB冷备份以及AOF热备份</li>
+<li>fork函数</li>
+<li>COW（Copy on write）写时复制机制</li>
+<li>AOF命令重写</li>
+</ul>
+<h1 id="cow机制">COW机制</h1>
+<blockquote>
+<p>写入时复制（英语：Copy-on-write，简称COW）是一种计算机程序设计领域的优化策略。其核心思想是，如果有多个调用者（callers）同时请求相同资源（如内存或磁盘上的数据存储），他们会共同获取相同的指针指向相同的资源，直到某个调用者试图修改资源的内容时，系统才会真正复制一份专用副本（private copy）给该调用者，而其他调用者所见到的最初的资源仍然保持不变。这过程对其他的调用者都是透明的（transparently）。此作法主要的优点是如果调用者没有修改该资源，就不会有副本（private copy）被创建，因此多个调用者只是读取操作时可以共享同一份资源。</p>
+</blockquote>
+<p>上面一段话摘自<a href="https://zh.wikipedia.org/wiki/%E5%AF%AB%E5%85%A5%E6%99%82%E8%A4%87%E8%A3%BD">维基百科</a>，简单的理解就是在有多个进程请求同一个文件的时候，都会先持有这份文件，但是只有在程序试图去修改的时候，这个程序会先复制一份文件，后面的修改会基于复制的文件，不会改动源文件。这样其他的程序所持有的还是未改动的文件。</p>
+<h1 id="rbd">RBD</h1>
+<p>RBD是Redis持久化方式的一种，主要是基于COW机制实现的一种类似快照的持久化方式。在Redis运行中将所有的数据复制一份输出到磁盘上，其分为两种触发机制手动触发以及自动触发。</p>
+<h2 id="触发机制">触发机制</h2>
+<h3 id="1手动触发">1.手动触发</h3>
+<p>手动触发主要依靠开发人员使用save以及bgsave命令来启动，save和bgsave主要区别在于save是阻塞式的，bgsave会fork一个子进程来进行持久化，除了在fork过程中会出现一小段时间的阻塞外，其余时间不会阻塞服务，在持久化完成之后会自动结束进行。</p>
+<h3 id="2自动触发">2.自动触发</h3>
+<p>除了手动触发外，还有自动触发机制，自动触发场景如下：</p>
+<ul>
+<li>开启save配置(save m n)，每m秒数据出现n次修改就会自动触发</li>
+<li>从节点全量复制</li>
+<li>执行debug reload重新加载redis</li>
+<li>在没有开启AOF持久化时，执行shutdown命令</li>
+</ul>
+<h2 id="bgsave流程">bgsave流程</h2>
+<p>bgsave命令首先会判断是否存在RBD或者AOF子进程，如果没有则创建，若存在则直接返回。紧接着父进程会fork一个子进程，fork这段时间会出现短时间阻塞，然后父进程继续响应客户端，子进程生成RBD文件，完成持久化之后通知父进程。<br>
+<img src="https://hsxyhao.github.io/post-images/1573897466755.png" alt=""><br>
+bgsave命令流程说明，图片摘自《Redis开发与运维》一书</p>
+<h2 id="rbd文件">RBD文件</h2>
+<p>RDB的保存于dir配置指定下的目录，除此之外还可以使用config set dir动态修改RDB文件的位置以及config set dbfilename动态修改RBD文件的名称，这个在线上环境的磁盘出现问题或者写满的时候有用。</p>
+<h2 id="cow的运用">cow的运用</h2>
+<p>fork出来的子进程需要对父进程的数据进程持久化，但是这个时候父进程会响应来自客户端的请求，对数据进行修改，如果此时出现了一个非常大的数据正在持久化，但是突然客户端来了一个删除命令，这个时候持久化就会失败。但是如果基于cow机制的话就可以避免这个问题，父进程修改的是复制出来的数据，子进程持久化的还是原来的数据没有被修改，不会受父进程的影响。</p>
+<h2 id="rdb-优缺点">RDB 优缺点</h2>
+<p>优点：</p>
+<ul>
+<li>RDB适合用来做冷备份，加载速度比AOF快<br>
+缺点：</li>
+<li>RDB文件的版本有很多，版本之间互相不兼容</li>
+<li>不适合实时备份，fork操作会很耗性能，与redis的高性能相违背</li>
+</ul>
+<h1 id="aof">AOF</h1>
+<p>相对于RDB来说，AOF是可以进行实时(秒级)持久化的。比较适合用来做热备份，通过配置文件中的appendonly yes来开启，appendfilename为AOF持久化的文件名，默认为appendonly.aof。</p>
+<h2 id="aof工作流程">AOF工作流程</h2>
+<p>AOF持久化首先会将客户端请求的命令放入到AOF缓存中，然后根据磁盘的刷新策略写入到磁盘中，当AOF文件达到上限时，会进行AOF重写，对文件进行瘦身，最后在redis重启的时候重新加载下AOF文件即可。<br>
+<img src="https://hsxyhao.github.io/post-images/1573900560042.png" alt=""></p>
+<h3 id="命令写入过程">命令写入过程</h3>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E9%9D%A2%E8%AF%95">面试</a></li>
+<li><a href="#cow%E6%9C%BA%E5%88%B6">COW机制</a></li>
+<li><a href="#rbd">RBD</a>
+<ul>
+<li><a href="#%E8%A7%A6%E5%8F%91%E6%9C%BA%E5%88%B6">触发机制</a>
+<ul>
+<li><a href="#1%E6%89%8B%E5%8A%A8%E8%A7%A6%E5%8F%91">1.手动触发</a></li>
+<li><a href="#2%E8%87%AA%E5%8A%A8%E8%A7%A6%E5%8F%91">2.自动触发</a></li>
+</ul>
+</li>
+<li><a href="#bgsave%E6%B5%81%E7%A8%8B">bgsave流程</a></li>
+<li><a href="#rbd%E6%96%87%E4%BB%B6">RBD文件</a></li>
+<li><a href="#cow%E7%9A%84%E8%BF%90%E7%94%A8">cow的运用</a></li>
+<li><a href="#rdb-%E4%BC%98%E7%BC%BA%E7%82%B9">RDB 优缺点</a></li>
+</ul>
+</li>
+<li><a href="#aof">AOF</a>
+<ul>
+<li><a href="#aof%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B">AOF工作流程</a>
+<ul>
+<li><a href="#%E5%91%BD%E4%BB%A4%E5%86%99%E5%85%A5%E8%BF%87%E7%A8%8B">命令写入过程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hsxyhao.github.io/post/rui-shi-jun-dao-redis">
+              <h3 class="post-title">
+                Redis入门知识点
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '7daf0c9da2ee9a72ecba',
+    clientSecret: '39e3424bd496a5d8dcdbb618c370897256810975',
+    repo: 'hsxyhao.github.io',
+    owner: 'hsxyhao',
+    admin: ['hsxyhao'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
