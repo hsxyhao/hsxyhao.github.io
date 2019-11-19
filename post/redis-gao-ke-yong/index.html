@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | Madara</title>
+<title>Redis高可用 | Madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
 <link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574156125470">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -73,40 +73,60 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              关于
+              Redis高可用
             </h2>
             <div class="post-info">
               <span>
-                2019-01-25
+                2019-11-19
               </span>
               <span>
-                1 min read
+                2 min read
               </span>
               
             </div>
             
+              <img class="post-feature-image" src="https://hsxyhao.github.io/post-images/redis-gao-ke-yong.png" alt="">
+            
             <div class="post-content-wrapper">
               <div class="post-content">
-                <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<p>持之以恒的学习了是每一名程序员都要有的觉悟，在这里主要记录博主平时学习的一些知识，方便以后查阅复习。如果你有幸来到博主的小站，就不妨看一看吧️，希望能在这里收获满满。</p>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+                <h1 id="复制">复制</h1>
+<p>复制就是将redis节点中的数据复制完同步到其他节点中，主要是为了解决单点故障问题。在redis中参与复制一般有主节点(master)以及从节点(slave)，将数据从主节点复制到从节点，并且复制的方式是单向的，逆向复制，在建立复制关系之后主节点的数据会同步到从节点直到解除主从关系。不论是哨兵模式还是redis集群都是在复制的基础上完成的。<br>
+记忆点</p>
+<ol>
+<li>使用方式：建立、断开复制、安全性、只读性</li>
+<li>适用场景</li>
+<li>复制原理：建立复制、全量复制、部分复制、心跳</li>
+<li>常见问题：读写分离、数据不一致、避免全量复制</li>
+</ol>
+<h2 id="复制流程">复制流程</h2>
+<ol>
+<li>建立复制<br>
+将具有复制关系的两个redis的节点一个称为master节点，另一个称为salve节点。一个主节点可以拥有多个从节点，一个从节点主能拥有一个主节点</li>
+</ol>
+<ul>
+<li>配置文件：在redis从节点的配置文件中添加saveof ${masterHost} ${masterPort}配置</li>
+<li>启动命令：在redis启动命令中加入 --saveof ${masterHost} ${masterPort}命令</li>
+<li>运行时命令：在redis运行时直接使用 salveof ${masterHost} ${masterPort}命令</li>
+</ul>
+<ol start="2">
+<li>断开复制<br>
+在从节点中执行salve no one，断开复制不会清除之前同步成功的数据。</li>
+<li>切换主节点<br>
+在一个已经有主节点的从节点中执行salve ${newHost} ${newPort}就会切换到新的节点，但是之前同步的数据会被清空掉，这个和断开复制有点区别。</li>
+</ol>
+<h1 id="哨兵模式">哨兵模式</h1>
+<h1 id="集群">集群</h1>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li>
+<li><a href="#%E5%A4%8D%E5%88%B6">复制</a>
 <ul>
-<li><a href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99">🏠 关于本站</a></li>
-<li><a href="#%E5%8D%9A%E4%B8%BB%E6%98%AF%E8%B0%81">👨‍💻 博主是谁</a></li>
-<li><a href="#%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD">⛹ 兴趣爱好</a></li>
-<li><a href="#%E8%81%94%E7%B3%BB%E6%88%91%E5%91%80">📬 联系我呀</a></li>
+<li><a href="#%E5%A4%8D%E5%88%B6%E6%B5%81%E7%A8%8B">复制流程</a></li>
 </ul>
 </li>
+<li><a href="#%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F">哨兵模式</a></li>
+<li><a href="#%E9%9B%86%E7%BE%A4">集群</a></li>
 </ul>
 
               </div>
@@ -114,6 +134,15 @@
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hsxyhao.github.io/post/redis-chi-jiu-hua">
+              <h3 class="post-title">
+                Redis 持久化
+              </h3>
+            </a>
+          </div>
         
 
         
