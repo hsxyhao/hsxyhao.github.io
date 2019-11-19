@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2019-11-16T10:55:39.529Z</updated>
+    <updated>2019-11-19T06:35:32.736Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -68,6 +68,38 @@ bgsave命令流程说明，图片摘自《Redis开发与运维》一书</p>
 <p>AOF持久化首先会将客户端请求的命令放入到AOF缓存中，然后根据磁盘的刷新策略写入到磁盘中，当AOF文件达到上限时，会进行AOF重写，对文件进行瘦身，最后在redis重启的时候重新加载下AOF文件即可。<br>
 <img src="https://hsxyhao.github.io/post-images/1573900560042.png" alt=""></p>
 <h3 id="命令写入过程">命令写入过程</h3>
+<p>服务端接收到客户端按照RESP协议文本格式的命令后，会将其直接写入到aof缓存区内。使用aof缓存可以提高redis的性能，以及使用不同缓存区刷新策略，可以在性能和安全方面做出平衡。<br>
+AOF刷新策略</p>
+<ul>
+<li>always 命令写入缓冲区后，调用fsync写入到磁盘上。即没接收到一条命令就写入到磁盘上。</li>
+<li>everysec 命令写入缓冲区后，同步文件操作有专门线程每秒钟同步一次。(推荐使用)</li>
+<li>no 同步操作由硬盘操作，同步周期最长为30s</li>
+</ul>
+<h2 id="重写机制">重写机制</h2>
+<p>AOF文件随着命令不断被写入体积会越来越大，但是已经同步过的命令并不是所有的命令都是有效的，有的命令是可以被优化掉，这样可以减少AOF文件体积，还可以降低加载时间。</p>
+<h3 id="优化场景">优化场景</h3>
+<ul>
+<li>内存中已经过期的数据不会被同步。</li>
+<li>旧的AOF文件中无效的命令，del、hdel、srem等。</li>
+<li>命令合并，将多条命令合并成一条指令。</li>
+</ul>
+<h3 id="aof重写触发机制">AOF重写触发机制</h3>
+<p>手动触发：bgrewriteaof<br>
+自动触发：根据auto-aof-rewrite-min-size和auto-aof-rewrite-percentage参数确定，简单的理解就是当前文件大小大于重写最小值并且aof文件增长率大于设置的值。</p>
+<blockquote>
+<p>auto-aof-rewrite-min-size表示运行AOF重写时文件最小体积，默认为64MB，auto-aof-rewrite-percentage代表当前AOF文件空间(aof_current_size)和上一次重写后的文件空间占比。自动触发时机=aof_current_size&gt;auto-aof-rewrite-min-size &amp;&amp; (aof_current_size - aof_base_size) / aof_base_size &gt;= auto-aof-rewrite-percentage</p>
+</blockquote>
+<h3 id="aof重写流程">AOF重写流程</h3>
+<p>AOFfork的子进程只是用来重写已经存在AOF文件，AOF写入还是由父进程来完成。<br>
+<img src="https://hsxyhao.github.io/post-images/1574070629984.png" alt=""></p>
+<ol>
+<li>执行AOF重写请求<br>
+如果当前已经存在AOF重写任务，则当次请求不执行，如果已经有bgsave正在执行，则当前请求会等待该任务执行完成后启动。</li>
+<li>父进程fork一个子进程用来重写AOF文件，将客户端的命令<strong>同时</strong>保存到aof_buf以及aof_rewrite_buf中<br>
+3.1 原有的AOF持久化操作会正常进行，保持从aof_buf中读取数据写入到旧的aof文件中。<br>
+3.2 同时会将命令写入到aof_rewrite_buf中，保证重写操作的数据一致性。</li>
+<li>子进程的重写操作会对旧的文件以及aof_rewrite_buf里面的数据进行重写</li>
+</ol>
 ]]></content>
     </entry>
     <entry>
