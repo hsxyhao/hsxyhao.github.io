@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2019-11-19T06:35:32.736Z</updated>
+    <updated>2019-11-19T07:38:16.542Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -91,15 +91,27 @@ AOF刷新策略</p>
 </blockquote>
 <h3 id="aof重写流程">AOF重写流程</h3>
 <p>AOFfork的子进程只是用来重写已经存在AOF文件，AOF写入还是由父进程来完成。<br>
-<img src="https://hsxyhao.github.io/post-images/1574070629984.png" alt=""></p>
-<ol>
-<li>执行AOF重写请求<br>
-如果当前已经存在AOF重写任务，则当次请求不执行，如果已经有bgsave正在执行，则当前请求会等待该任务执行完成后启动。</li>
-<li>父进程fork一个子进程用来重写AOF文件，将客户端的命令<strong>同时</strong>保存到aof_buf以及aof_rewrite_buf中<br>
-3.1 原有的AOF持久化操作会正常进行，保持从aof_buf中读取数据写入到旧的aof文件中。<br>
-3.2 同时会将命令写入到aof_rewrite_buf中，保证重写操作的数据一致性。</li>
-<li>子进程的重写操作会对旧的文件以及aof_rewrite_buf里面的数据进行重写</li>
-</ol>
+<img src="https://hsxyhao.github.io/post-images/1574070629984.png" alt=""><br>
+1.执行AOF重写请求<br>
+如果当前已经存在AOF重写任务，则当次请求不执行，如果已经有bgsave正在执行，则当前请求会等待该任务执行完成后启动。<br>
+2.父进程fork一个子进程用来重写AOF文件，将客户端的命令<strong>同时</strong>保存到aof_buf以及aof_rewrite_buf中</p>
+<ul>
+<li>3.1 原有的AOF持久化操作会正常进行，保持从aof_buf中读取数据写入到旧的aof文件中。</li>
+<li>3.2 同时会将命令写入到aof_rewrite_buf中，保证命令重写操作后的数据一致性。</li>
+</ul>
+<p>4.子进程的重写操作会根据内存快照进行重写，生成新的aof文件。<br>
+5.1子进程完成重写之后会发给父进程发送一个完成信号，父进程会更新相关的统计数据</p>
+<ul>
+<li>5.2父进程把aof_rewrite_buf缓冲区的数据重写到新的aof文件中</li>
+<li>5.3使用新的AOF文件替换老的AOF文件</li>
+</ul>
+<blockquote>
+<p>体会：在AOF重写过程中会有aof_buf以及aof_rewrite_buf两个缓存区，第一个aof_buf缓存区主要的目的就是用来保持原有的AOF持久化的正常进行。第二个缓冲区aof_rewrite_buf缓冲区是保存在重写期间接收到的命令，一开始我在思考的时候不是很明白，aof_buf也会保存重写期间的数据，为什么还要在保存一份到rewrite的缓存区中？主要就是aof_buf是提供给持久化操作的，在重写操作完成之后是要将旧的文件替换掉的，所有这个时候需要将重写期间的命令单独保存下来，等重写完成之后再同步rewrite的数据，从而保证了AOF的连续性。</p>
+</blockquote>
+<h1 id="总结">总结</h1>
+<p>这篇文章主要用来概括性记录下redis持久化操作所包含的知识点，大部分内容是我整合起来的。但是基本上都是加以自己的理解写出来的，没有直接CV，当然图片是我直接抄过来的。主要目的就是大概的记录下AOF涉及到的知识点，方便后期深入了解，以及回顾的时候可以有个快速的了解。</p>
+<h1 id="参考文献">参考文献</h1>
+<p><a href="https://book.douban.com/subject/26971561/">《Redis开发与运维》</a></p>
 ]]></content>
     </entry>
     <entry>
