@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2019-11-20T03:49:29.810Z</updated>
+    <updated>2019-11-20T06:12:45.676Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -17,11 +17,11 @@
         </link>
         <updated>2019-11-19T08:19:22.000Z</updated>
         <content type="html"><![CDATA[<h1 id="复制">复制</h1>
-<p>复制就是将redis节点中的数据复制完同步到其他节点中，主要是为了解决单点故障问题。在redis中参与复制一般有主节点(master)以及从节点(slave)，将数据从主节点复制到从节点，并且复制的方式是单向的，逆向复制，在建立复制关系之后主节点的数据会同步到从节点直到解除主从关系。不论是哨兵模式还是redis集群都是在复制的基础上完成的。<br>
+<p>复制就是将redis节点中的数据复制完同步到其他节点中，在redis中参与复制一般有主节点(master)以及从节点(slave)，将数据从主节点复制到从节点，并且复制的方式是单向的，不能逆向复制，在建立复制关系之后主节点的数据会同步到从节点直到解除主从关系。不论是哨兵模式还是redis集群都是在复制的基础上完成的。<br>
 记忆点</p>
 <ol>
 <li>使用方式：建立、断开复制、安全性、只读性</li>
-<li>适用场景</li>
+<li>适用场景：哨兵、集群</li>
 <li>复制原理：建立复制、全量复制、部分复制、心跳</li>
 <li>常见问题：读写分离、数据不一致、避免全量复制</li>
 </ol>
@@ -51,6 +51,15 @@
 <li>一主多从：又被称为星状结构，适用于读写分离的场景。建立复制连接之后，除了一开始的数据同步，在后期还会进行实时的写命令同步，这样如果从节点过多，并且写并发量比较大的话，那么会造成主节点的性能严重降低，还会增加网络带宽。</li>
 <li>树状结构：可以理解为是对星状结构的优化，可以有效降低主节点负载，并且减少主节点同步的数目。</li>
 </ul>
+<h2 id="复制流程">复制流程</h2>
+<ol>
+<li>保存主节点信息</li>
+<li>主从简历socket连接</li>
+<li>发送ping命令</li>
+<li>权限验证</li>
+<li>同步数据集</li>
+<li>命令持续复制</li>
+</ol>
 <h1 id="哨兵模式">哨兵模式</h1>
 <h1 id="集群">集群</h1>
 ]]></content>
@@ -102,8 +111,10 @@ bgsave命令流程说明，图片摘自《Redis开发与运维》一书</p>
 <h2 id="rdb-优缺点">RDB 优缺点</h2>
 <p>优点：</p>
 <ul>
-<li>RDB适合用来做冷备份，加载速度比AOF快<br>
-缺点：</li>
+<li>RDB适合用来做冷备份，加载速度比AOF快</li>
+</ul>
+<p>缺点：</p>
+<ul>
 <li>RDB文件的版本有很多，版本之间互相不兼容</li>
 <li>不适合实时备份，fork操作会很耗性能，与redis的高性能相违背</li>
 </ul>

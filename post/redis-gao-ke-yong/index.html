@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Redis高可用 | Madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574221765771">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574230362096">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://hsxyhao.github.io">
-  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1574221765771" alt="">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1574230362096" alt="">
   </a>
   <h1 class="site-title">
     Madara
@@ -90,11 +90,11 @@
             <div class="post-content-wrapper">
               <div class="post-content">
                 <h1 id="复制">复制</h1>
-<p>复制就是将redis节点中的数据复制完同步到其他节点中，主要是为了解决单点故障问题。在redis中参与复制一般有主节点(master)以及从节点(slave)，将数据从主节点复制到从节点，并且复制的方式是单向的，逆向复制，在建立复制关系之后主节点的数据会同步到从节点直到解除主从关系。不论是哨兵模式还是redis集群都是在复制的基础上完成的。<br>
+<p>复制就是将redis节点中的数据复制完同步到其他节点中，在redis中参与复制一般有主节点(master)以及从节点(slave)，将数据从主节点复制到从节点，并且复制的方式是单向的，不能逆向复制，在建立复制关系之后主节点的数据会同步到从节点直到解除主从关系。不论是哨兵模式还是redis集群都是在复制的基础上完成的。<br>
 记忆点</p>
 <ol>
 <li>使用方式：建立、断开复制、安全性、只读性</li>
-<li>适用场景</li>
+<li>适用场景：哨兵、集群</li>
 <li>复制原理：建立复制、全量复制、部分复制、心跳</li>
 <li>常见问题：读写分离、数据不一致、避免全量复制</li>
 </ol>
@@ -124,6 +124,15 @@
 <li>一主多从：又被称为星状结构，适用于读写分离的场景。建立复制连接之后，除了一开始的数据同步，在后期还会进行实时的写命令同步，这样如果从节点过多，并且写并发量比较大的话，那么会造成主节点的性能严重降低，还会增加网络带宽。</li>
 <li>树状结构：可以理解为是对星状结构的优化，可以有效降低主节点负载，并且减少主节点同步的数目。</li>
 </ul>
+<h2 id="复制流程">复制流程</h2>
+<ol>
+<li>保存主节点信息</li>
+<li>主从简历socket连接</li>
+<li>发送ping命令</li>
+<li>权限验证</li>
+<li>同步数据集</li>
+<li>命令持续复制</li>
+</ol>
 <h1 id="哨兵模式">哨兵模式</h1>
 <h1 id="集群">集群</h1>
 
@@ -134,6 +143,7 @@
 <ul>
 <li><a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F">使用方式</a></li>
 <li><a href="#%E5%A4%8D%E5%88%B6%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84">复制拓扑结构</a></li>
+<li><a href="#%E5%A4%8D%E5%88%B6%E6%B5%81%E7%A8%8B">复制流程</a></li>
 </ul>
 </li>
 <li><a href="#%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F">哨兵模式</a></li>

@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Redis 持久化 | Madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574221765771">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574230362096">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://hsxyhao.github.io">
-  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1574221765771" alt="">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1574230362096" alt="">
   </a>
   <h1 class="site-title">
     Madara
@@ -132,8 +132,10 @@ bgsave命令流程说明，图片摘自《Redis开发与运维》一书</p>
 <h2 id="rdb-优缺点">RDB 优缺点</h2>
 <p>优点：</p>
 <ul>
-<li>RDB适合用来做冷备份，加载速度比AOF快<br>
-缺点：</li>
+<li>RDB适合用来做冷备份，加载速度比AOF快</li>
+</ul>
+<p>缺点：</p>
+<ul>
 <li>RDB文件的版本有很多，版本之间互相不兼容</li>
 <li>不适合实时备份，fork操作会很耗性能，与redis的高性能相违背</li>
 </ul>
