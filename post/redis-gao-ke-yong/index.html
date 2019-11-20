@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Redis高可用 | Madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574234097131">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574242789209">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://hsxyhao.github.io">
-  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1574234097131" alt="">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1574242789209" alt="">
   </a>
   <h1 class="site-title">
     Madara
@@ -80,8 +80,12 @@
                 2019-11-19
               </span>
               <span>
-                5 min read
+                6 min read
               </span>
+              
+                <a href="https://hsxyhao.github.io/tag/redis" class="post-tag">
+                  # redis
+                </a>
               
             </div>
             
@@ -140,8 +144,14 @@
 数据同步完之后，主节点还会把写命令持续同步给所有节点（这里会有网络消耗，所以在星状结构中从节点过多，会降低主节点性能），保证主从的数据一致性。</li>
 </ol>
 <h2 id="数据同步">数据同步</h2>
-<h3 id="全量复制">全量复制</h3>
-<h3 id="部分复制">部分复制</h3>
+<p>在redis2.8之前使用的sync同步命令是将所有数据全部复制，如果之前复制到一半，后期重新连接上开始复制，又会重新复制所有数据，其实可以不用这样，因为之前已经复制了一部分，所以重试连接后的复制只要从断开的部分开始就行了。这就是psync新命令的效果。</p>
+<ol>
+<li>全量复制<br>
+一般发生在第一次复制连接，早期的版本全部是全量复制，这样操作在数据量大并且发生网络闪断时会严重拉低主节点的性能。</li>
+<li>部分复制<br>
+2.8版本后期添加的，相对于全量复制，部分复制在发生网络断开重连后不会复制全部数据，会接着没有复制完的数据继续复制任务。</li>
+</ol>
+<h3 id="psync命令">psync命令</h3>
 <h1 id="哨兵模式">哨兵模式</h1>
 <h1 id="集群">集群</h1>
 
@@ -155,8 +165,7 @@
 <li><a href="#%E5%A4%8D%E5%88%B6%E6%B5%81%E7%A8%8B">复制流程</a></li>
 <li><a href="#%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5">数据同步</a>
 <ul>
-<li><a href="#%E5%85%A8%E9%87%8F%E5%A4%8D%E5%88%B6">全量复制</a></li>
-<li><a href="#%E9%83%A8%E5%88%86%E5%A4%8D%E5%88%B6">部分复制</a></li>
+<li><a href="#psync%E5%91%BD%E4%BB%A4">psync命令</a></li>
 </ul>
 </li>
 </ul>
