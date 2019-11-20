@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Redis高可用 | Madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574156143226">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574221765771">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://hsxyhao.github.io">
-  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1574156143226" alt="">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1574221765771" alt="">
   </a>
   <h1 class="site-title">
     Madara
@@ -80,7 +80,7 @@
                 2019-11-19
               </span>
               <span>
-                2 min read
+                3 min read
               </span>
               
             </div>
@@ -98,7 +98,7 @@
 <li>复制原理：建立复制、全量复制、部分复制、心跳</li>
 <li>常见问题：读写分离、数据不一致、避免全量复制</li>
 </ol>
-<h2 id="复制流程">复制流程</h2>
+<h2 id="使用方式">使用方式</h2>
 <ol>
 <li>建立复制<br>
 将具有复制关系的两个redis的节点一个称为master节点，另一个称为salve节点。一个主节点可以拥有多个从节点，一个从节点主能拥有一个主节点</li>
@@ -113,7 +113,17 @@
 在从节点中执行salve no one，断开复制不会清除之前同步成功的数据。</li>
 <li>切换主节点<br>
 在一个已经有主节点的从节点中执行salve ${newHost} ${newPort}就会切换到新的节点，但是之前同步的数据会被清空掉，这个和断开复制有点区别。</li>
+<li>安全性<br>
+在建立主从复制关系的时候，可以考虑数据的重要性，决定是否需要对主节点添加requirepas配置，这样在从节点建立复制关系的时候就会需要输入一个密码，这样的话可以提高数据的安全性。</li>
+<li>只读性<br>
+在默认的情况下从节点的数据是只读的，是不允许修改数据的，可以通过修改salve-read-only配置修改从节点的读写模式，但是这样会导致从节点和主节点数据不一致，不建议试用。</li>
 </ol>
+<h2 id="复制拓扑结构">复制拓扑结构</h2>
+<ul>
+<li>一主一从：可以用来解决单点故障问题，并且当写命令并发量大且开启AOF持久化时，可以将AOF持久化的放在从节点上。但是由于主节点没有开启AOF，所以在重启后数据会是空的，这个时候从节点如果同步主节点，会将之前的数据清洗掉，所以安全的做法是从节点先断开主从复制。</li>
+<li>一主多从：又被称为星状结构，适用于读写分离的场景。建立复制连接之后，除了一开始的数据同步，在后期还会进行实时的写命令同步，这样如果从节点过多，并且写并发量比较大的话，那么会造成主节点的性能严重降低，还会增加网络带宽。</li>
+<li>树状结构：可以理解为是对星状结构的优化，可以有效降低主节点负载，并且减少主节点同步的数目。</li>
+</ul>
 <h1 id="哨兵模式">哨兵模式</h1>
 <h1 id="集群">集群</h1>
 
@@ -122,7 +132,8 @@
                 <ul class="markdownIt-TOC">
 <li><a href="#%E5%A4%8D%E5%88%B6">复制</a>
 <ul>
-<li><a href="#%E5%A4%8D%E5%88%B6%E6%B5%81%E7%A8%8B">复制流程</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F">使用方式</a></li>
+<li><a href="#%E5%A4%8D%E5%88%B6%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84">复制拓扑结构</a></li>
 </ul>
 </li>
 <li><a href="#%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F">哨兵模式</a></li>
