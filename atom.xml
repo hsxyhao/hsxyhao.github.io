@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2019-11-20T06:12:45.676Z</updated>
+    <updated>2019-11-20T06:28:07.802Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -53,7 +53,8 @@
 </ul>
 <h2 id="复制流程">复制流程</h2>
 <ol>
-<li>保存主节点信息</li>
+<li>保存主节点信息<br>
+执行salveof命令后从节点不会里面同步数据，只会先保存主节点的信息</li>
 <li>主从简历socket连接</li>
 <li>发送ping命令</li>
 <li>权限验证</li>

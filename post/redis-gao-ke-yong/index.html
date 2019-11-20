@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Redis高可用 | Madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574230362096">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574231285024">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
@@ -20,7 +20,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://hsxyhao.github.io">
-  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1574230362096" alt="">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1574231285024" alt="">
   </a>
   <h1 class="site-title">
     Madara
@@ -80,7 +80,7 @@
                 2019-11-19
               </span>
               <span>
-                3 min read
+                4 min read
               </span>
               
             </div>
@@ -126,7 +126,8 @@
 </ul>
 <h2 id="复制流程">复制流程</h2>
 <ol>
-<li>保存主节点信息</li>
+<li>保存主节点信息<br>
+执行salveof命令后从节点不会里面同步数据，只会先保存主节点的信息</li>
 <li>主从简历socket连接</li>
 <li>发送ping命令</li>
 <li>权限验证</li>
