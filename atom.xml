@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2019-11-23T07:35:11.380Z</updated>
+    <updated>2019-11-23T09:13:36.738Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -31,20 +31,20 @@
 <h1 id="使用方式">使用方式</h1>
 <ol>
 <li>建立复制<br>
-将具有复制关系的两个redis的节点一个称为master节点，另一个称为salve节点。一个主节点可以拥有多个从节点，一个从节点主能拥有一个主节点</li>
-</ol>
+将具有复制关系的两个redis的节点一个称为master节点，另一个称为salve节点。主节点可以拥有多个从节点，从节点主能拥有一个主节点。<br>
+建立连接方式:
 <ul>
 <li>配置文件：在redis从节点的配置文件中添加saveof ${masterHost} ${masterPort}配置</li>
 <li>启动命令：在redis启动命令中加入 --saveof ${masterHost} ${masterPort}命令</li>
 <li>运行时命令：在redis运行时直接使用 salveof ${masterHost} ${masterPort}命令</li>
 </ul>
-<ol start="2">
+</li>
 <li>断开复制<br>
 在从节点中执行salve no one，断开复制不会清除之前同步成功的数据。</li>
 <li>切换主节点<br>
-在一个已经有主节点的从节点中执行salve ${newHost} ${newPort}就会切换到新的节点，但是之前同步的数据会被清空掉，这个和断开复制有点区别。</li>
+在一个已经有主节点的从节点中执行slaveof ${newHost} ${newPort}就会切换到新的节点，但是之前同步的数据会被清空掉，这个和断开复制有点区别。</li>
 <li>安全性<br>
-在建立主从复制关系的时候，可以考虑数据的重要性，决定是否需要对主节点添加requirepas配置，这样在从节点建立复制关系的时候就会需要输入一个密码，这样的话可以提高数据的安全性。</li>
+在建立主从复制关系的时候，可以考虑数据的重要性，决定是否需要对主节点添加requirepas配置，这样在从节点建立复制关系的时候就会需要输入一个密码masterauth，这样的话可以提高数据的安全性。</li>
 <li>只读性<br>
 在默认的情况下从节点的数据是只读的，是不允许修改数据的，可以通过修改salve-read-only配置修改从节点的读写模式，但是这样会导致从节点和主节点数据不一致，不建议试用。</li>
 </ol>
@@ -181,6 +181,8 @@
 <p>当一个主节点有多个从节点(星状拓扑)，如果一旦主节点故障，重启成功后，那么会有多个从节点进行全量复制，这个会导致主节点发送RDB文件到多个从节点，严重降低主节点的性能，建议使用树状结构代替星状，减去主节点负担。还有个场景就是多个主节点部署在同一台机器上，这样也会造成单机复制风暴，就是主节点所在的服务器出现性能瓶颈，对于这种场景建议使用多机部署方案提高性能。</p>
 <h1 id="总结">总结</h1>
 <p>关于复制主要了解一下复制的每个步骤的具体操作，以及全量复制和部分复制相关的内容</p>
+<h1 id="参考文档">参考文档</h1>
+<p>《Redis开发与运维》</p>
 ]]></content>
     </entry>
     <entry>
