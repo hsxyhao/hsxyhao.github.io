@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Redis高可用 | Madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574668875939">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574676766212">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://hsxyhao.github.io">
-  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1574668875939" alt="">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1574676766212" alt="">
   </a>
   <h1 class="site-title">
     Madara
@@ -93,8 +93,12 @@
                 2019-11-23
               </span>
               <span>
-                3 min read
+                4 min read
               </span>
+              
+                <a href="https://hsxyhao.github.io/tag/redis" class="post-tag">
+                  # redis
+                </a>
               
             </div>
             
@@ -149,7 +153,38 @@
 <li>完成故障转移</li>
 </ol>
 <h2 id="sentinel实现的功能">Sentinel实现的功能</h2>
-<p>要想完成以上的故障转移任务，sentinel节点必须要具有以下几个功能才行。</p>
+<p>要想完成以上的故障转移任务，sentinel节点必须要具有以下几个功能才行</p>
+<ol>
+<li>监控：Sentinel节点会定期检测redis主节点以及其余的sentinel节点</li>
+<li>通知：通知应用方修改最新的mater节点信息</li>
+<li>主节点故障转移：实现从节点晋升为主节点</li>
+<li>配置提供者：Redis Sentinel客户端中可以获取到主节点相关的信息</li>
+</ol>
+<blockquote>
+<p>为什么sentinel节点要有多个？</p>
+<ul>
+<li>防止对主节点故障产生误判</li>
+<li>防止sentinel节点的单点故障</li>
+</ul>
+</blockquote>
+<h2 id="部署">部署</h2>
+<p>先配置一个主从结构的集群，在此基础上配置哨兵节点。<br>
+启动方式：</p>
+<ol>
+<li>使用redis-sentinel命令</li>
+</ol>
+<pre><code class="language-java">redis-sentinel redis-sentinel-23679.conf
+</code></pre>
+<ol start="2">
+<li>redis-server 命令外加--sentinel 参数</li>
+</ol>
+<pre><code class="language-java">redis-server redis-sentinel-23679.cconf --sentinel
+</code></pre>
+<ol start="3">
+<li>使用info Sentinel查看配置详情</li>
+</ol>
+<h2 id="哨兵模式拓扑图-2">哨兵模式拓扑图</h2>
+<figure data-type="image" tabindex="2"><img src="https://hsxyhao.github.io/post-images/1574675117496.png" alt=""></figure>
 
               </div>
               <div class="toc-container">
@@ -159,6 +194,8 @@
 <ul>
 <li><a href="#%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F%E6%8B%93%E6%89%91%E5%9B%BE">哨兵模式拓扑图</a></li>
 <li><a href="#sentinel%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8A%9F%E8%83%BD">Sentinel实现的功能</a></li>
+<li><a href="#%E9%83%A8%E7%BD%B2">部署</a></li>
+<li><a href="#%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F%E6%8B%93%E6%89%91%E5%9B%BE-2">哨兵模式拓扑图</a></li>
 </ul>
 </li>
 </ul>
