@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2019-11-26T10:16:49.819Z</updated>
+    <updated>2019-11-27T03:20:08.572Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -82,7 +82,7 @@
 </ul>
 </blockquote>
 <h2 id="部署">部署</h2>
-<p>先配置一个主从结构的集群，在此基础上配置哨兵节点。<br>
+<p>先配置一个主从结构的集群，在此基础上配置哨兵节点，配置文件可以使用src目录下默认的sentinel.conf文件，不同节点的配置文件将端口修改一下。<br>
 启动方式：</p>
 <ol>
 <li>使用redis-sentinel命令</li>
@@ -97,6 +97,55 @@
 <ol start="3">
 <li>使用info Sentinel查看配置详情</li>
 </ol>
+<blockquote>
+<p>部署成功之后sentinel对应节点的配置文件会出现一些变化，parallel-syncs、failover-timeout配置参数，其次还会新增sentinel known-replica(从节点)、sentinel known-sentinel(其它sentinel节点)等。</p>
+</blockquote>
+<h2 id="配置解析">配置解析</h2>
+<pre><code class="language-java">sentinel monitor &lt;master-name&gt; &lt;ip&gt; &lt;port&gt; &lt;quorum&gt;
+</code></pre>
+<p>ip和port表示主节点的地址，quorum和sentinel选举有关，在进行故障转移时会选举出一个leader进行故障转移，选举的算法为raft，quorum代表的是节点得到的票数只要大于quorum就会被选举为leader，但是quorum一般要大于半数。</p>
+<pre><code class="language-java">sentinel down-after-milliseconds &lt;master-name&gt; &lt;times&gt;
+</code></pre>
+<p>这个代表的是sentinel leader节点发送给follower节点以及redis主从节点的超时时间，如果超过这个时间则判断该节点不可达。times设置越大应用的延迟越高，设置的过小有可能会造成节点不可达误判。</p>
+<pre><code class="language-java">sentinel parallel-syncs &lt;master-name&gt; &lt;nums&gt;
+</code></pre>
+<p>表示选出新的主节点之后，允许多少个从节点同时进行复制操作，虽然复制操作时会fork出一个子进行程不会阻塞redis服务，但是会主节点所在机器的IO以及网络资源。</p>
+<pre><code class="language-java">sentinel failover-timeout
+</code></pre>
+<p>有些复杂，暂时不做了解</p>
+<pre><code class="language-java">sentinel auth-pass &lt;master-name&gt; &lt;password&gt;
+</code></pre>
+<p>如果主节点设置了requirepass参数配置，那么在部署哨兵服务的时候也要在配置上加上相关的权限校验配置。</p>
+<pre><code class="language-java">sentinel notification &lt;master-name&gt; &lt;script-path&gt;
+// 脚本demo
+#!/bin/sh
+#获取所有参数
+msg=$*
+# 报警脚本或者接口，将msg作为参数
+exit 0
+</code></pre>
+<p>在故障转移期间，当出现警告级别的事时（客官下线，主管下线）会触发相应的脚本，执行脚本时会传递相应的参数信息，这些参数信息可以用来发送邮件通知开发人员。</p>
+<pre><code class="language-java">sentinel client-reconfig-script &lt;master-name&gt; &lt;script-path&gt;
+// 脚本demo
+#!/bin/sh
+#获取所有参数
+msg=$*
+# 报警脚本或者接口，将msg作为参数
+exit 0
+</code></pre>
+<p>和notification脚本触发时间有些区别，该脚本是在故障转移成功之后触发。</p>
+<blockquote>
+<p>关于notification和reconfig脚本限制条件</p>
+<ul>
+<li>可执行权限，即使用chmod 777修改权限</li>
+<li>必须是shell脚本，即包含shell脚本头(#!/bin/sh)</li>
+<li>脚本最大执行不可以超过60s，如果超过了就会被kill</li>
+<li>如果redis sentinel节点过多，不建议使用脚本的方式进行通知</li>
+<li>exit 0正常退出，exit 1脚本稍后重试，exit 2(&gt;=2)不会重试</li>
+</ul>
+</blockquote>
+<h2 id="多节点监控">多节点监控</h2>
+<p>这里是指如何使用sentinel监控多个redis服务节点，在介绍上面配置的时候，所有的配置都有一个master-name参数，如果想要监控多个集群，那么只需要将所有监控命令重新在一个配置文件中再写一遍，用master-name区分。</p>
 <h2 id="哨兵模式拓扑图-2">哨兵模式拓扑图</h2>
 <figure data-type="image" tabindex="2"><img src="https://hsxyhao.github.io/post-images/1574675117496.png" alt=""></figure>
 ]]></content>
