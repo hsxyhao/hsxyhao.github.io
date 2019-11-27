@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Redis高可用 | Madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574841974685">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1574846806556">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://hsxyhao.github.io">
-  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1574841974685" alt="">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1574846806556" alt="">
   </a>
   <h1 class="site-title">
     Madara
@@ -93,7 +93,7 @@
                 2019-11-23
               </span>
               <span>
-                9 min read
+                11 min read
               </span>
               
                 <a href="https://hsxyhao.github.io/tag/redis" class="post-tag">
@@ -101,6 +101,8 @@
                 </a>
               
             </div>
+            
+              <img class="post-feature-image" src="https://hsxyhao.github.io/post-images/redis-gao-ke-yong.png" alt="">
             
             <div class="post-content-wrapper">
               <div class="post-content">
@@ -259,11 +261,37 @@ exit 0
 1秒的定时监控主要是用来做心跳检测的，sentinel节点每隔一秒钟会向所有节点（主从节点，其他sentinel节点）发送一次心跳。</li>
 </ol>
 <p><strong>redis sentinel监控图</strong><br>
-<img src="https://hsxyhao.github.io/post-images/1574841698165.png" alt=""></p>
+<img src="https://hsxyhao.github.io/post-images/1574844918230.png" alt=""></p>
 <blockquote>
-<p>本来准备摘自《Redis开发与运维》上的图，但是发现三张图有些占地方，所以就自己画了张图，由于画图软件的原因有两个地方画不出来就没有弄了，不过不影响整体。</p>
+<p>本来准备摘自《Redis开发与运维》上的图，但是发现三张图有些占地方，所以就自己画了张图，由于画图软件的原因有两个地方画不出来就没有弄了，不过不影响整体。虽然有些复杂但是如果把这个屡清楚了三个定时任务具体的功能也就清楚了。</p>
 </blockquote>
 <h3 id="主客观下线">主/客观下线</h3>
+<p><strong>主观下线</strong><br>
+当sentinel节点向redis服务节点发送ping心跳时，在down-after-milliseconds内服务没有回复的话就会被当前sentinel节点作失败判定，这个过程称为主观下线。<br>
+<strong>客观下线</strong><br>
+当被判定的节点是主节点的时候，那么该sentinel节点就会向其他节点询问主节点的状态，如果超过quorum个节点都判定为下线，那么就会做出客观下线的决定。</p>
+<blockquote>
+<p>向其他sentinel节点询问master节点的状况使用的是sentine is-master-down-by-addr命令，这里不做介绍。</p>
+</blockquote>
+<h3 id="领导选举">领导选举</h3>
+<p>当对master节点做出客观下线后，不会立马进行故障转移操作，首先会在所有的sentinel节点中选出一个leader来进行故障转移操作。通过raft算法选举出leader节点，关于raft算法书中介绍的不是很详细，这里提供两个资料帮助理解raft算法。</p>
+<ul>
+<li><a href="http://thesecretlivesofdata.com/raft/">raft算法动画演示</a></li>
+<li><a href="https://www.bilibili.com/video/av61558449/">b站白话讲解raft共识算法</a></li>
+</ul>
+<h3 id="故障转移">故障转移</h3>
+<p>在选出leader节点之后就会进行故障转移操作，故障转移操作也很简单，在进行转移的时候对从节点的信息做一些简单的判断，过滤出最优从节点晋升。具体过程如下：<br>
+<img src="https://hsxyhao.github.io/post-images/1574845720018.png" alt=""></p>
+<ol>
+<li>选择出新的主节点<br>
+a. 过滤出所有不健康的节点(主观下线、断线)，5秒内没有回复过sentinel节点，以及与主节点失联超过down-after-milliseconds * 10秒。<br>
+b. 判断有没有优先级高的从节点，即在配置文件中配置slave-priority属性的节点。<br>
+c. 选择复制偏移量最大的节点，即数据最接近主节点的从节点。<br>
+d. 选择runid最小的从节点(?)</li>
+<li>对选择出来的从节点执行slaveof no one命令，和之前的手动操作类似。</li>
+<li>sentinel节点会向其余的从节点发送命令，成为新主节点的从节点。</li>
+<li>持续关注已经挂掉的主节点，一旦联系上，就将他变为新的主节点的从节点。</li>
+</ol>
 
               </div>
               <div class="toc-container">
@@ -281,6 +309,8 @@ exit 0
 <ul>
 <li><a href="#%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7">定时监控</a></li>
 <li><a href="#%E4%B8%BB%E5%AE%A2%E8%A7%82%E4%B8%8B%E7%BA%BF">主/客观下线</a></li>
+<li><a href="#%E9%A2%86%E5%AF%BC%E9%80%89%E4%B8%BE">领导选举</a></li>
+<li><a href="#%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB">故障转移</a></li>
 </ul>
 </li>
 </ul>
