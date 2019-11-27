@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2019-11-27T03:20:08.572Z</updated>
+    <updated>2019-11-27T08:06:17.288Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -146,8 +146,38 @@ exit 0
 </blockquote>
 <h2 id="多节点监控">多节点监控</h2>
 <p>这里是指如何使用sentinel监控多个redis服务节点，在介绍上面配置的时候，所有的配置都有一个master-name参数，如果想要监控多个集群，那么只需要将所有监控命令重新在一个配置文件中再写一遍，用master-name区分。</p>
-<h2 id="哨兵模式拓扑图-2">哨兵模式拓扑图</h2>
-<figure data-type="image" tabindex="2"><img src="https://hsxyhao.github.io/post-images/1574675117496.png" alt=""></figure>
+<h2 id="客户端">客户端</h2>
+<p>如果使用了哨兵模式的集群，那么对应的客户端也需要做调整，传统的jedis使用方式就已经不支持了需要被替换。具体的使用方式不会介绍，内容太多了不方便记忆，而且使用方式内容和redis的原理性的内容稍微有点不一样，后面单独记录在项目中怎么继承redis-sentinel集群模式。</p>
+<h2 id="sentinel实现原理">sentinel实现原理</h2>
+<h3 id="定时监控">定时监控</h3>
+<ol>
+<li>10秒<br>
+每隔10秒，每个sentinel节点会向主节点和从节点发送info命令获取最新的拓扑结构。</li>
+</ol>
+<blockquote>
+<p>这就是为什么在配置sentinel节点的时候不需要添加从节点的信息了，对主节点使用info命令会返回主从复制的结构信息。</p>
+</blockquote>
+<ol start="2">
+<li>2秒<br>
+每个sentinel节点（不包含redis服务节点）每隔两秒向redis数据节点上的_sentinel_:hello频道发送该sentinel节点对于主节点的判断以及当前sentinel节点的信息，并且每个sentinel还会订阅该频道来了解其他节点对于主节点的判断。主要作用：</li>
+</ol>
+<ul>
+<li>发现新的sentinel节点，将自己的信息保存在_sentinel_:hello频道上，共享给其他sentinel节点</li>
+<li>sentinel交换主节点的状态，作为后面客官下线以及领导者选举的依据，从而使节点不可达的健全性得到保障。</li>
+</ul>
+<blockquote>
+<p>这段完全摘自《Redis开发与运维》第九章5小节，自己总结的实在是无法直视，索性直接搬过来。之前在实践redis sentinel集群模式的时候，发现sentinel配置文件中并没有配置几个节点关联起来监控一个redis集群，但是在启动之后，却发现redis集群可以被一个sentinel集群节点监控，当时自己就比较懵，我想此处应该就可以解决当时的困扰。</p>
+</blockquote>
+<ol start="3">
+<li>1秒<br>
+1秒的定时监控主要是用来做心跳检测的，sentinel节点每隔一秒钟会向所有节点（主从节点，其他sentinel节点）发送一次心跳。</li>
+</ol>
+<p><strong>redis sentinel监控图</strong><br>
+<img src="https://hsxyhao.github.io/post-images/1574841698165.png" alt=""></p>
+<blockquote>
+<p>本来准备摘自《Redis开发与运维》上的图，但是发现三张图有些占地方，所以就自己画了张图，由于画图软件的原因有两个地方画不出来就没有弄了，不过不影响整体。</p>
+</blockquote>
+<h3 id="主客观下线">主/客观下线</h3>
 ]]></content>
     </entry>
     <entry>
