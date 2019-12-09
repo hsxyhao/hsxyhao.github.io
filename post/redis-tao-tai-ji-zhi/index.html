@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Redis淘汰机制 | Madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1575863982929">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1575885402979">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://hsxyhao.github.io">
-  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1575863982929" alt="">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1575885402979" alt="">
   </a>
   <h1 class="site-title">
     Madara
@@ -93,7 +93,7 @@
                 2019-12-05
               </span>
               <span>
-                7 min read
+                10 min read
               </span>
               
             </div>
@@ -150,7 +150,7 @@
 <p>在每次随机选取的key，都会放进一个poll(默认为16)缓存池中，这里面的key是根据每个key的空闲时间大小排序的，每次随机选择的key都需要和poll中最小的key进行比较，只有大于最小的空闲值才会被放入poll中，在每次剔除key的时候都会选择一个最大的空闲值来剔除。</p>
 <p>一个redis实例中会有多个DB，对于每个DB都会创建一个poll淘汰缓存。为什么在这里单独提一下这个问题呢？在后面的LFU算法由来中会说道。</p>
 <h1 id="lfu算法">LFU算法</h1>
-<p>全称Least Frequently Used，与LRU不同的是，LFU是按照每个key访问频率进行淘汰的。</p>
+<p>全称Least Frequently Used，与LRU不同的是，LFU是按照每个key访问频率进行淘汰的，随着时间的变化，每个key的访问频率会发生递减。</p>
 <h2 id="由来">由来</h2>
 <blockquote>
 <p>Everything started from an open issue: when you have multiple databases<br>
@@ -161,6 +161,67 @@ one key from each DB. A more rational choice is of course to start<br>
 evicting keys from DB number 1, and only later to evict the other keys.</p>
 </blockquote>
 <p>上面是来自作者antire写<a href="http://antirez.com/news/109">lru算法blog</a>中的一段话，这段话的意思是当有两个DB时，一个DB全是空闲时间小的key，另一个DB全是空闲时间大的key，然而这个时候比较的是各自DB中的key数据，其实应该剔除的是空闲时间大的DB。后面作者提到，不管在lru的基础上怎么优化，在性能上都提高不了，所以作者后面就开始研究新的算法即LFU算法。具体作者怎么说的可以去看原文，<a href="http://antirez.com/news/109">原文链接</a>。</p>
+<h2 id="设计方案">设计方案</h2>
+<p>为了实现LFU方案，将LRU算法中一个24bit字段(用来保存访问时间的)拆分成16bit和8bit，分别用来保存Last decr time(最近递减时间)以及LOC_C(访问次数)。</p>
+<pre><code class="language-java">           16 bits      8 bits
+      +----------------+--------+
+      + Last decr time | LOG_C  |
+      +----------------+--------+
+</code></pre>
+<h3 id="lfu设计源码">LFU设计源码</h3>
+<pre><code class="language-c">// LFU更新
+void updateLFU(robj *val) {
+    unsigned long counter = LFUDecrAndReturn(val);//首先计算是否需要将counter衰减
+    counter = LFULogIncr(counter);//根据上述返回的counter计算新的counter
+    val-&gt;lru = (LFUGetTimeInMinutes()&lt;&lt;8) | counter; //robj中的lru字段只有24bits,lfu复用该字段。高16位存储一个分钟数级别的时间戳，低8位存储访问计数
+}
+// counter增加
+uint8_t LFULogIncr(uint8_t counter) {
+    if (counter == 255) return 255;//counter最大只能存储到255,到达后不再增加
+    double r = (double)rand()/RAND_MAX;//算一个随机的小数值，counter++是个概率事件🤣
+    double baseval = counter - LFU_INIT_VAL;//新加入的key初始counter设置为LFU_INIT_VAL,为5.不设置为0的原因是防止直接被逐出
+    if (baseval &lt; 0) baseval = 0;
+    double p = 1.0/(baseval*server.lfu_log_factor+1);//server.lfu_log_facotr默认为10
+    if (r &lt; p) counter++;//可以看到,counter越大,则p越小，随机值r小于p的概率就越小。换言之,counter增加起来会越来越缓慢
+    return counter;
+}
+// counter衰减
+unsigned long LFUDecrAndReturn(robj *o) {
+    unsigned long ldt = o-&gt;lru &gt;&gt; 8;//原来保存的时间戳
+    unsigned long counter = o-&gt;lru &amp; 255; //原来保存的counter
+    unsigned long num_periods = server.lfu_decay_time ? LFUTimeElapsed(ldt) / server.lfu_decay_time : 0;
+    //server.lfu_decay_time默认为1,每经过一分钟counter衰减1
+    if (num_periods)
+        counter = (num_periods &gt; counter) ? 0 : counter - num_periods;//如果需要衰减,则计算衰减后的值
+    return counter;
+}
+// 获取分级别的时间
+unsigned long LFUGetTimeInMinutes(void) {
+    return (server.unixtime/60) &amp; 65535;//获取分钟级别的时间戳
+}
+</code></pre>
+<p>想要了解LFU算法，一定要先看这段源码，这段摘自<a href="https://segmentfault.com/a/1190000017555834">思否的一篇文章</a>（尊重原创）。</p>
+<blockquote>
+<p>网上很多这段代码的注释，至于谁是原著不太了解，在这里我把学习时看到的原文放上去。</p>
+</blockquote>
+<ol>
+<li>counter更新<br>
+更新的方法中主要有三行代码，第一行代码判断counter是否需要递减，第二行对counter进行增加，第三行，更新counter以及最新的时间。</li>
+<li>counter衰减</li>
+<li>counter增加<br>
+在看源码的时候对于随机值p不是太理解，看到注释的时候才明白，原来counter值的增加也是一个概率事件，当counter越来越大的时候发生++的概率就越小。</li>
+</ol>
+<h2 id="lru-lfu算法测试">lru、lfu算法测试</h2>
+<p>redis官方提供了一个测试工具来测试lru算法以及lfu算法的效果，我们可以根据测试的结果了解lfu算法带来的效果优化。</p>
+<ol>
+<li>config set maxmemory 50m</li>
+<li>config set maxmemory-policy allkeys-lru</li>
+<li>./redis-cli -p 6380 --lru-test 1000000</li>
+<li>info 查看淘汰策略具体过程</li>
+</ol>
+<blockquote>
+<p>建议自己操作下lru算法和lfu算法，比对测试结果。这里的测试命令好像只有lru-test，不存在lfu-test😧。</p>
+</blockquote>
 <h1 id="参考链接">参考链接</h1>
 <ol>
 <li><a href="http://antirez.com/news/109">reids作者关于LRU算法的讲解</a></li>
@@ -181,6 +242,12 @@ evicting keys from DB number 1, and only later to evict the other keys.</p>
 <li><a href="#lfu%E7%AE%97%E6%B3%95">LFU算法</a>
 <ul>
 <li><a href="#%E7%94%B1%E6%9D%A5">由来</a></li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88">设计方案</a>
+<ul>
+<li><a href="#lfu%E8%AE%BE%E8%AE%A1%E6%BA%90%E7%A0%81">LFU设计源码</a></li>
+</ul>
+</li>
+<li><a href="#lru-lfu%E7%AE%97%E6%B3%95%E6%B5%8B%E8%AF%95">lru、lfu算法测试</a></li>
 </ul>
 </li>
 <li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
