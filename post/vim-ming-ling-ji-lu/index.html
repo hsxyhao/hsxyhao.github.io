@@ -1,8 +1,8 @@
 <html>
   <head>
-  <meta charset="utf-8" />
+    <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Madara</title>
+<title>vim命令 | Madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
 <link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1575863982929">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -83,16 +83,90 @@
   </div>
 </div>
 
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              vim命令
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-12-05
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+                <a href="https://hsxyhao.github.io/tag/vim" class="post-tag">
+                  # vim
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://hsxyhao.github.io/post-images/vim-ming-ling-ji-lu.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>记录让自己尴尬的vim命令😫</p>
+<!-- more -->
+<p>光标行编辑</p>
+<pre><code class="language-java">// 进入编辑模式
+:$ 文件最后一行
+:0 文件第一行
+:n 文件第n-1行
+$ 行尾
+0 行首
+</code></pre>
+<p>光标全文位置跳转</p>
+<pre><code class="language-java">gg 页首
+G 页末
+</code></pre>
 
-        <div class="tags-container">
-          
-            <a class="tag" href="https://hsxyhao.github.io/tag/vim">vim</a>
-          
-            <a class="tag" href="https://hsxyhao.github.io/tag/redis">redis</a>
-          
-            <a class="tag" href="https://hsxyhao.github.io/tag/uCHcXlB40">Gridea</a>
-          
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
         </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hsxyhao.github.io/post/redis-gao-ke-yong">
+              <h3 class="post-title">
+                Redis高可用
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '7daf0c9da2ee9a72ecba',
+    clientSecret: '39e3424bd496a5d8dcdbb618c370897256810975',
+    repo: 'hsxyhao.github.io',
+    owner: 'hsxyhao',
+    admin: ['hsxyhao'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
 
         <div class="site-footer">
   Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 

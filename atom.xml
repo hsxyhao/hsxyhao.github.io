@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2019-11-27T10:06:12.022Z</updated>
+    <updated>2019-12-09T03:59:45.340Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -11,14 +11,114 @@
     <icon>https://hsxyhao.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Madara</rights>
     <entry>
+        <title type="html"><![CDATA[Redis淘汰机制]]></title>
+        <id>https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi</id>
+        <link href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi">
+        </link>
+        <updated>2019-12-05T06:01:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>redis淘汰策略有哪些？lru、lfu，lru算法改进</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>redis淘汰策略有哪些？lru、lfu，lru算法改进</p>
+<!-- more -->
+<h1 id="淘汰策略">淘汰策略</h1>
+<blockquote>
+<p>说到redis的内存淘汰机制，然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似redis的内存淘汰机制了。</p>
+</blockquote>
+<p>redis的内存淘汰机制就是为了淘汰掉一些数据，保证redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
+<ul>
+<li>noeviction 不进行任何淘汰操作，当内存不够时写命令会报错</li>
+<li>allkeys-lru 在所有的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>volatile-lru 在设置过期时间的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>allkeys-random 在所有的key中随机移除某个key</li>
+<li>volatile-random 在设置了过期时间的key中随机移除某个key</li>
+<li>volatile-ttl 在设置了过期时间的key中，删除过期时间最早的key</li>
+<li>allkeys-lfu 在所有的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+<li>volatile-lfu 在设置过期时间的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+</ul>
+<blockquote>
+<p>这里删除的key其实只删除一个，这是因为redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
+</blockquote>
+<h1 id="lru算法">LRU算法</h1>
+<p>LRU（Least Recently Used）算法，即最近最少使用使用策略，淘汰掉最近最少使用的key。想要实现LRU算法很简单，只需要为每个key添加一个最近使用时间，在内存达到上限后，添加新的key时遍历所有key剔除空闲时间(idle time)最大的，访问频率最低的可以。或者可以使用另外一种方式，将所有的key放进一个队列中，如果达到内存上线，只需要将队尾的key剔除就行了。</p>
+<blockquote>
+<p>不论是上述的哪种实现方式，如果直接运用在redis中，都会影响性能，这显然与redis的高性能相悖。所以redis中采用是一种近似LRU算法。</p>
+</blockquote>
+<h2 id="lru算法由来">lru算法由来</h2>
+<p>如下图所示，分别有四个key，~代表1秒的时间间隔，第一条线A为五秒钟访问一次，第二条线B为2秒钟访问一次，第三条线C为10秒钟访问一次，第四条线D同样为10秒钟访问一次，只不过和C起始时间点不一样。|表示同一时间点，lru算法在置换key的时候会剔除空闲时间最大的key。根据lru算法的原理得知，在|时刻，D的空闲时间(idle time)是最小的，代表下一次最有可能访问的key是D，但是从整体上来看B是即将访问的key，虽然这种情况下lru算法会出现miss情况，但是在绝大多数的情况下还是可以按照期望运行的。</p>
+<blockquote>
+<p>这里为什么会用到置换一次呢，主要就是只有在新的key写入并且内存达到上线的时候才会出现剔除旧的key，所以置换一次就是用新的key替换旧的key。</p>
+</blockquote>
+<pre><code class="language-java">~~~~~A~~~~~A~~~~~A~~~~A~~~~~A~~~~~A~~|
+~~B~~B~~B~~B~~B~~B~~B~~B~~B~~B~~B~~B~|
+~~~~~~~~~~C~~~~~~~~~C~~~~~~~~~C~~~~~~|
+~~~~~D~~~~~~~~~~D~~~~~~~~~D~~~~~~~~~D|
+</code></pre>
+<h2 id="为什么采用近似的lru算法">为什么采用近似的LRU算法</h2>
+<p>redis中使用的LRU算法并不是真正的LRU算法，采用的是一种近似的LRU算法，如果每次添加key的时候查找所有key的最大空闲时间，显然在性能上会有所降低，本来这种剔除的策略就是一种概率的猜测，所以在选择最大的空闲时间key的时候，只要在概率上逼近真正lru算法就行了。过期算法是在redis2.8版本中加入的，并且在3.0中对其进行了优化。</p>
+<p>下图对lru算法进行了一些比较，左上角是理想的lru算法效果。上层是改进版即3.0后的版本与理想的lru算法的一个比较，下面两张图是2.8版本与3.0版本进行的一个比较。那么需要怎么理解这个图呢？<br>
+<img src="https://hsxyhao.github.io/post-images/1575603094713.png" alt=""><br>
+在这个图里面分为三个区域</p>
+<ul>
+<li>最上层的浅灰色区域代表需要淘汰的key</li>
+<li>中间层深灰色区域代表是旧的key</li>
+<li>最下层绿色的区域代表的是新增的key</li>
+</ul>
+<p>在了解这三个区域之后，那么怎样理解这个算法呢，在最上层区域中残留的深灰色点表示的是未被剔除的淘汰key，深灰色区域白色的点是被剔除掉的key，但是本来不应该被剔除掉，同理，浅绿色区域白色的点也是代表被剔除的key。lru算法的好坏程度就是是不是剔除了需要淘汰的key，在上图中可以看存储redis3.0算法是最接近理想的lru算法效果。</p>
+<h2 id="redis30中对lru算法的改进">redis3.0中对lru算法的改进</h2>
+<p>在每次随机选取的key，都会放进一个poll(默认为16)缓存池中，这里面的key是根据每个key的空闲时间大小排序的，每次随机选择的key都需要和poll中最小的key进行比较，只有大于最小的空闲值才会被放入poll中，在每次剔除key的时候都会选择一个最大的空闲值来剔除。</p>
+<p>一个redis实例中会有多个DB，对于每个DB都会创建一个poll淘汰缓存。为什么在这里单独提一下这个问题呢？在后面的LFU算法由来中会说道。</p>
+<h1 id="lfu算法">LFU算法</h1>
+<p>全称Least Frequently Used，与LRU不同的是，LFU是按照每个key访问频率进行淘汰的。</p>
+<h2 id="由来">由来</h2>
+<blockquote>
+<p>Everything started from an open issue: when you have multiple databases<br>
+with Redis 3.2, the algorithm evicts making local choices. So<br>
+if for example you have all keys with a small idle time in DB number 0,<br>
+and all keys with large idle time in DB number 1, Redis will evict<br>
+one key from each DB. A more rational choice is of course to start<br>
+evicting keys from DB number 1, and only later to evict the other keys.</p>
+</blockquote>
+<p>上面是来自作者antire写<a href="http://antirez.com/news/109">lru算法blog</a>中的一段话，这段话的意思是当有两个DB时，一个DB全是空闲时间小的key，另一个DB全是空闲时间大的key，然而这个时候比较的是各自DB中的key数据，其实应该剔除的是空闲时间大的DB。后面作者提到，不管在lru的基础上怎么优化，在性能上都提高不了，所以作者后面就开始研究新的算法即LFU算法。具体作者怎么说的可以去看原文，<a href="http://antirez.com/news/109">原文链接</a>。</p>
+<h1 id="参考链接">参考链接</h1>
+<ol>
+<li><a href="http://antirez.com/news/109">reids作者关于LRU算法的讲解</a></li>
+<li><a href="https://segmentfault.com/a/1190000017555834">redis源码分析</a></li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[vim命令]]></title>
+        <id>https://hsxyhao.github.io/post/vim-ming-ling-ji-lu</id>
+        <link href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu">
+        </link>
+        <updated>2019-12-05T01:00:51.000Z</updated>
+        <summary type="html"><![CDATA[<p>记录让自己尴尬的vim命令😫</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>记录让自己尴尬的vim命令😫</p>
+<!-- more -->
+<p>光标行编辑</p>
+<pre><code class="language-java">// 进入编辑模式
+:$ 文件最后一行
+:0 文件第一行
+:n 文件第n-1行
+$ 行尾
+0 行首
+</code></pre>
+<p>光标全文位置跳转</p>
+<pre><code class="language-java">gg 页首
+G 页末
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Redis高可用]]></title>
         <id>https://hsxyhao.github.io/post/redis-gao-ke-yong</id>
         <link href="https://hsxyhao.github.io/post/redis-gao-ke-yong">
         </link>
         <updated>2019-11-23T09:51:53.000Z</updated>
-        <summary type="html"><![CDATA[<p>Redis的高可用实现方案有哪些，为什么要选择官方的哨兵模式，自己开发自动化故障转移脚本有什么问题。</p>
+        <summary type="html"><![CDATA[<p>Redis的高可用实现方案有哪些，为什么要选择官方的哨兵模式，自己开发自动化故障转移脚本有什么问题。redis cluster重定向有几种？redis数据分区...</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>Redis的高可用实现方案有哪些，为什么要选择官方的哨兵模式，自己开发自动化故障转移脚本有什么问题。</p>
+        <content type="html"><![CDATA[<p>Redis的高可用实现方案有哪些，为什么要选择官方的哨兵模式，自己开发自动化故障转移脚本有什么问题。redis cluster重定向有几种？redis数据分区...</p>
 <!-- more -->
 <h1 id="主从复制的问题">主从复制的问题</h1>
 <p>一旦主节点发生故障，那么系统的写能力就会崩溃，这个时候需要手动的切换主节点，手动操作的显然不是一个明智的选择，所以redis官方提供了哨兵模式。</p>
@@ -145,9 +245,9 @@ exit 0
 </ul>
 </blockquote>
 <h2 id="多节点监控">多节点监控</h2>
-<p>这里是指如何使用sentinel监控多个redis服务节点，在介绍上面配置的时候，所有的配置都有一个master-name参数，如果想要监控多个集群，那么只需要将所有监控命令重新在一个配置文件中再写一遍，用master-name区分。</p>
+<p>这里是指如何使用sentinel监控多个redis主从复制集群，在介绍上面配置的时候，所有的配置都有一个master-name参数，如果想要监控多个集群，那么只需要将所有监控命令重新在一个配置文件中再写一遍，用master-name区分。</p>
 <h2 id="客户端">客户端</h2>
-<p>如果使用了哨兵模式的集群，那么对应的客户端也需要做调整，传统的jedis使用方式就已经不支持了需要被替换。具体的使用方式不会介绍，内容太多了不方便记忆，而且使用方式内容和redis的原理性的内容稍微有点不一样，后面单独记录在项目中怎么继承redis-sentinel集群模式。</p>
+<p>如果使用了哨兵模式的集群，那么对应的客户端也需要做调整，传统的jedis使用方式就已经不支持了需要被替换。具体的使用方式不会介绍，内容太多了不方便记忆，而且使用方式内容和redis的原理性的内容稍微有点不一样，后面单独记录在项目中怎么使用redis-sentinel集群模式。</p>
 <h2 id="sentinel实现原理">sentinel实现原理</h2>
 <h3 id="定时监控">定时监控</h3>
 <ol>
@@ -196,14 +296,142 @@ exit 0
 <img src="https://hsxyhao.github.io/post-images/1574845720018.png" alt=""></p>
 <ol>
 <li>选择出新的主节点<br>
-a. 过滤出所有不健康的节点(主观下线、断线)，5秒内没有回复过sentinel节点，以及与主节点失联超过down-after-milliseconds * 10秒。<br>
-b. 判断有没有优先级高的从节点，即在配置文件中配置slave-priority属性的节点。<br>
-c. 选择复制偏移量最大的节点，即数据最接近主节点的从节点。<br>
-d. 选择runid最小的从节点(?)</li>
+1). 过滤出所有不健康的节点(主观下线、断线)，5秒内没有回复过sentinel节点，以及与主节点失联超过down-after-milliseconds * 10秒。<br>
+2). 判断有没有优先级高的从节点，即在配置文件中配置slave-priority属性的节点。<br>
+3). 选择复制偏移量最大的节点，即数据最接近主节点的从节点。<br>
+4). 选择runid最小的从节点(?)</li>
 <li>对选择出来的从节点执行slaveof no one命令，和之前的手动操作类似。</li>
 <li>sentinel节点会向其余的从节点发送命令，成为新主节点的从节点。</li>
 <li>持续关注已经挂掉的主节点，一旦联系上，就将他变为新的主节点的从节点。</li>
 </ol>
+<h1 id="redis-cluster">Redis Cluster</h1>
+<p>redis cluster可以理解为是一种水平扩展的方式，将数据分散在多个节点上，解决单机内存瓶颈限制。</p>
+<h2 id="数据分布">数据分布</h2>
+<p>在分布式缓存中，需要怎样将数据存储在多个节点中，并且读取时还能正常获取到对应的值？一般有以下方法来解决该问题，节点取余算法、一致性哈希算法以及redis使用的虚拟槽分区算法。</p>
+<h3 id="算法介绍">算法介绍</h3>
+<ol>
+<li>节点取余分区<br>
+节点取余算法就是对其key进行hash，得到hash值后对其进行服务节点数取模，得出的值便是对应的服务器位置。</li>
+</ol>
+<p>优点：</p>
+<ul>
+<li>易理解、便实现</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>无法支持节点伸缩，即加机器和减机器</li>
+</ul>
+<ol start="2">
+<li>一致性哈希分区<br>
+首先抽象出一个哈希环，就是将一个环N（0~2<sup>32</sup>）份，将key哈希取值后的值顺时针映射到哈希环上的点。</li>
+</ol>
+<blockquote>
+<p>为什么要顺时针映射，hash(key)的值不一定会刚好落在哈希环的节点上，这里的节点即数据服务节点，这时需要找到最近的一个数据节点，其实不论顺时针还是逆时针都可以，但是必须要统一，否则在查询的时候就会获取不到数据。</p>
+</blockquote>
+<p>优点：</p>
+<ul>
+<li>在只影响少量数据的情况下支持节点伸缩</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>实现起来稍微麻烦一点</li>
+<li>当节点数过少时，进行节点伸缩还是会影响到大部分数据</li>
+</ul>
+<ol start="3">
+<li>虚拟槽分区<br>
+将数据和节点通过槽进行解耦，抽象出一个具有16384个槽位的点，并且每个数据服务节点均分这些槽的管理权，hash(key)的值先通过虚拟槽的映射，然后找到对应的存储数据节点。</li>
+</ol>
+<p>优点：</p>
+<ul>
+<li>支持节点伸缩</li>
+<li>通过解耦的方法降低了节点伸缩的难度</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>不支持部分redis命令</li>
+</ul>
+<h2 id="搭建集群">搭建集群</h2>
+<p>使用redis命令手动搭建一下集群，体会一下吐血的感受😫，搭建一个简单的小集群，只需要启动6个数据服务节点，不需要太多，不过有几点要注意。下面将展示搭建集群中用到的命令以及注意点的地方：<br>
+命令：</p>
+<pre><code class="language-java">cluster info
+</code></pre>
+<p>在redis客户端中使用这个命令可以查看到当前集群的信息，该命令只能查看到客户端连接集群节点信息，其他节点不能查看</p>
+<pre><code class="language-java">cluster meet {host} {ip}
+</code></pre>
+<p>节点握手，使用该命令可以将一个新节点添加到集群中</p>
+<pre><code class="language-java">cluster nodes
+</code></pre>
+<p>查看整个集群的拓扑信息，可以在输出的信息中了解到整个集群的节点信息、主从角色信息以及虚拟槽位点</p>
+<pre><code class="language-java">cluster replicate nodeId
+</code></pre>
+<p>在集群中一般每个节点都会有一个从节点，主要是防止单点故障，使用该命令可以是当前节点与指定nodeId的节点建立主从关系，当前节点为从节点。当前节点需要已经添加到集群环境中。</p>
+<pre><code class="language-java">redis-cli -h {host} -p {port} cluster addslots {0..16838}
+</code></pre>
+<p>在建立好集群关系后，还要为每个客户端分配槽，这里只对集群中主节点进行分配，只有当<strong>分配完16383</strong>个槽位之后集群才会处于上线状态。{a..b}为批量添加，即将a~b个槽位添加到节点中，且为闭区间，删除槽位可以使用delslots命令。</p>
+<pre><code class="language-java">cluster forget nodeId
+</code></pre>
+<p>将节点移除集群环境，一般在集群下线之后会将使用该命令退出集群。</p>
+<pre><code class="language-java">cluster keyslot key
+</code></pre>
+<p>计算出当前key的槽位，在集群环境中添加数据只有key属于那个槽位才能添加到节点中，否则会出现MODED错误信息。</p>
+<blockquote>
+<p>除了手动搭建节点，还可以使用官方提供的工具包搭建，但是要安装ruby环境，所以这里就不多做记录。</p>
+</blockquote>
+<p>注意：</p>
+<ol>
+<li>所有槽点都需要分配完才能进行读写</li>
+<li>在本机搭建集群的时候最好是将所有的关于集群的配置文件烦放在一个目录下，方便管理</li>
+<li>搭建好集群后，可以添加点数据到集群中，但是如果添加的数据，经过计算不属于当前节点是添加不进去的，会提示一个MOVED 10850 127.0.0.1:6380类似的错误，表示这个数据的槽位是10850，属于6380节点</li>
+</ol>
+<p>配置:</p>
+<pre><code class="language-java">port 6380
+pidfile /var/run/redis_6380.pid
+logfile &quot;6380.log&quot;
+dbfilename dump-6379.rdb
+cluster-enabled yes
+cluster-config-file nodes-6380.conf
+cluster-node-timeout 15000
+</code></pre>
+<blockquote>
+<p>一般集群实在多机器上部署的，但是我在测试的时候实在本机部署的，所以会增加一写关于端口的配置</p>
+</blockquote>
+<h2 id="节点通信">节点通信</h2>
+<p>redis分布式集群中会通过维护节点元数据信息来保证集群的可用性，常见的元数据维护方式有集中式和P2P两种，redis采用的是后者，以及基于Gossip协议实现节点通信。</p>
+<h2 id="集群伸缩">集群伸缩</h2>
+<blockquote>
+<p>暂时不做学习记录，不知道要记录哪些内容，感觉都是命令操作。</p>
+</blockquote>
+<h2 id="请求路由">请求路由</h2>
+<ol>
+<li>
+<p>请求重定向（MOVED）<br>
+在redis cluster集群环境中，如果将一个数据添加到集群中出现了MOVED错误提示，则表示当前节点不接受该数据，需要将数据添加到对应槽的节点中，这个过程称为请求重定向，在使用redis-cli启动客户端的时候，可以添加-c参数表示开启请求重定向，默认的客户端是不支持的。</p>
+</li>
+<li>
+<p>hash_tag<br>
+槽位是根据CRC16函数计算出来的，但是计算的内容并不是整个key，只计算有效内容。有效内容是通过{}包含起来的，这部分内容叫做hash_tag，可以使用hash_tag来进行优化，比如涉及到类似mget这种命令的，一次性获取多个key，但是一般多个key是在多个节点上的，mget是不支持这种场景的，使用hash_tag可以保证将多个key映射到同一个槽中。</p>
+</li>
+<li>
+<p>ASK重定向<br>
+ASK重定向是指发生在槽迁移的过程中，槽中的数据还没有迁移完成，数据一部分在源节点中，一部分在目标节点中。ASK重定向时客户端的命令流程：</p>
+</li>
+<li>
+<p>client根据本地slots缓存发送命令到source节点，如果存在则直接执行命令发挥结果给客户端。</p>
+</li>
+<li>
+<p>如果此时键不存在source节点，则会向客户端响应ASK异常信息。</p>
+</li>
+</ol>
+<blockquote>
+<p>(error) ASK {slot} {targetIP}:{targetPort}</p>
+</blockquote>
+<ol start="3">
+<li>client从异常提示新提取出节点关键信息，发送asking名到目标节点，如果key存在则返回数据，否则返回不存在信息</li>
+</ol>
+<blockquote>
+<p>之所以命名为ASK重定向，大概就取自asking这个命令吧</p>
+</blockquote>
+<p>目前对于客户端的重定向分为ASK重定向和MOVED重定向，但是两种重定向在slots缓存上有着本质的区别，ASK重定向不会更新本地的slots缓存，MOVED则会。ASK只是零时的重定向，不确定具体什么时候完成所以根本不需要更新slots缓存。</p>
 ]]></content>
     </entry>
     <entry>

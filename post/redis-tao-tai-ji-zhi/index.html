@@ -1,0 +1,282 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Redis淘汰机制 | Madara</title>
+<meta name="description" content="这个人很懒，什么都不想写..." />
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1575863982929">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152982956-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-152982956-1');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hsxyhao.github.io">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1575863982929" alt="">
+  </a>
+  <h1 class="site-title">
+    Madara
+  </h1>
+  <p class="site-description">
+    这个人很懒，什么都不想写...
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/hsxyhao" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Redis淘汰机制
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-12-05
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>redis淘汰策略有哪些？lru、lfu，lru算法改进</p>
+<!-- more -->
+<h1 id="淘汰策略">淘汰策略</h1>
+<blockquote>
+<p>说到redis的内存淘汰机制，然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似redis的内存淘汰机制了。</p>
+</blockquote>
+<p>redis的内存淘汰机制就是为了淘汰掉一些数据，保证redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
+<ul>
+<li>noeviction 不进行任何淘汰操作，当内存不够时写命令会报错</li>
+<li>allkeys-lru 在所有的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>volatile-lru 在设置过期时间的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>allkeys-random 在所有的key中随机移除某个key</li>
+<li>volatile-random 在设置了过期时间的key中随机移除某个key</li>
+<li>volatile-ttl 在设置了过期时间的key中，删除过期时间最早的key</li>
+<li>allkeys-lfu 在所有的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+<li>volatile-lfu 在设置过期时间的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+</ul>
+<blockquote>
+<p>这里删除的key其实只删除一个，这是因为redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
+</blockquote>
+<h1 id="lru算法">LRU算法</h1>
+<p>LRU（Least Recently Used）算法，即最近最少使用使用策略，淘汰掉最近最少使用的key。想要实现LRU算法很简单，只需要为每个key添加一个最近使用时间，在内存达到上限后，添加新的key时遍历所有key剔除空闲时间(idle time)最大的，访问频率最低的可以。或者可以使用另外一种方式，将所有的key放进一个队列中，如果达到内存上线，只需要将队尾的key剔除就行了。</p>
+<blockquote>
+<p>不论是上述的哪种实现方式，如果直接运用在redis中，都会影响性能，这显然与redis的高性能相悖。所以redis中采用是一种近似LRU算法。</p>
+</blockquote>
+<h2 id="lru算法由来">lru算法由来</h2>
+<p>如下图所示，分别有四个key，~代表1秒的时间间隔，第一条线A为五秒钟访问一次，第二条线B为2秒钟访问一次，第三条线C为10秒钟访问一次，第四条线D同样为10秒钟访问一次，只不过和C起始时间点不一样。|表示同一时间点，lru算法在置换key的时候会剔除空闲时间最大的key。根据lru算法的原理得知，在|时刻，D的空闲时间(idle time)是最小的，代表下一次最有可能访问的key是D，但是从整体上来看B是即将访问的key，虽然这种情况下lru算法会出现miss情况，但是在绝大多数的情况下还是可以按照期望运行的。</p>
+<blockquote>
+<p>这里为什么会用到置换一次呢，主要就是只有在新的key写入并且内存达到上线的时候才会出现剔除旧的key，所以置换一次就是用新的key替换旧的key。</p>
+</blockquote>
+<pre><code class="language-java">~~~~~A~~~~~A~~~~~A~~~~A~~~~~A~~~~~A~~|
+~~B~~B~~B~~B~~B~~B~~B~~B~~B~~B~~B~~B~|
+~~~~~~~~~~C~~~~~~~~~C~~~~~~~~~C~~~~~~|
+~~~~~D~~~~~~~~~~D~~~~~~~~~D~~~~~~~~~D|
+</code></pre>
+<h2 id="为什么采用近似的lru算法">为什么采用近似的LRU算法</h2>
+<p>redis中使用的LRU算法并不是真正的LRU算法，采用的是一种近似的LRU算法，如果每次添加key的时候查找所有key的最大空闲时间，显然在性能上会有所降低，本来这种剔除的策略就是一种概率的猜测，所以在选择最大的空闲时间key的时候，只要在概率上逼近真正lru算法就行了。过期算法是在redis2.8版本中加入的，并且在3.0中对其进行了优化。</p>
+<p>下图对lru算法进行了一些比较，左上角是理想的lru算法效果。上层是改进版即3.0后的版本与理想的lru算法的一个比较，下面两张图是2.8版本与3.0版本进行的一个比较。那么需要怎么理解这个图呢？<br>
+<img src="https://hsxyhao.github.io/post-images/1575603094713.png" alt=""><br>
+在这个图里面分为三个区域</p>
+<ul>
+<li>最上层的浅灰色区域代表需要淘汰的key</li>
+<li>中间层深灰色区域代表是旧的key</li>
+<li>最下层绿色的区域代表的是新增的key</li>
+</ul>
+<p>在了解这三个区域之后，那么怎样理解这个算法呢，在最上层区域中残留的深灰色点表示的是未被剔除的淘汰key，深灰色区域白色的点是被剔除掉的key，但是本来不应该被剔除掉，同理，浅绿色区域白色的点也是代表被剔除的key。lru算法的好坏程度就是是不是剔除了需要淘汰的key，在上图中可以看存储redis3.0算法是最接近理想的lru算法效果。</p>
+<h2 id="redis30中对lru算法的改进">redis3.0中对lru算法的改进</h2>
+<p>在每次随机选取的key，都会放进一个poll(默认为16)缓存池中，这里面的key是根据每个key的空闲时间大小排序的，每次随机选择的key都需要和poll中最小的key进行比较，只有大于最小的空闲值才会被放入poll中，在每次剔除key的时候都会选择一个最大的空闲值来剔除。</p>
+<p>一个redis实例中会有多个DB，对于每个DB都会创建一个poll淘汰缓存。为什么在这里单独提一下这个问题呢？在后面的LFU算法由来中会说道。</p>
+<h1 id="lfu算法">LFU算法</h1>
+<p>全称Least Frequently Used，与LRU不同的是，LFU是按照每个key访问频率进行淘汰的。</p>
+<h2 id="由来">由来</h2>
+<blockquote>
+<p>Everything started from an open issue: when you have multiple databases<br>
+with Redis 3.2, the algorithm evicts making local choices. So<br>
+if for example you have all keys with a small idle time in DB number 0,<br>
+and all keys with large idle time in DB number 1, Redis will evict<br>
+one key from each DB. A more rational choice is of course to start<br>
+evicting keys from DB number 1, and only later to evict the other keys.</p>
+</blockquote>
+<p>上面是来自作者antire写<a href="http://antirez.com/news/109">lru算法blog</a>中的一段话，这段话的意思是当有两个DB时，一个DB全是空闲时间小的key，另一个DB全是空闲时间大的key，然而这个时候比较的是各自DB中的key数据，其实应该剔除的是空闲时间大的DB。后面作者提到，不管在lru的基础上怎么优化，在性能上都提高不了，所以作者后面就开始研究新的算法即LFU算法。具体作者怎么说的可以去看原文，<a href="http://antirez.com/news/109">原文链接</a>。</p>
+<h1 id="参考链接">参考链接</h1>
+<ol>
+<li><a href="http://antirez.com/news/109">reids作者关于LRU算法的讲解</a></li>
+<li><a href="https://segmentfault.com/a/1190000017555834">redis源码分析</a></li>
+</ol>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5">淘汰策略</a></li>
+<li><a href="#lru%E7%AE%97%E6%B3%95">LRU算法</a>
+<ul>
+<li><a href="#lru%E7%AE%97%E6%B3%95%E7%94%B1%E6%9D%A5">lru算法由来</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%87%E7%94%A8%E8%BF%91%E4%BC%BC%E7%9A%84lru%E7%AE%97%E6%B3%95">为什么采用近似的LRU算法</a></li>
+<li><a href="#redis30%E4%B8%AD%E5%AF%B9lru%E7%AE%97%E6%B3%95%E7%9A%84%E6%94%B9%E8%BF%9B">redis3.0中对lru算法的改进</a></li>
+</ul>
+</li>
+<li><a href="#lfu%E7%AE%97%E6%B3%95">LFU算法</a>
+<ul>
+<li><a href="#%E7%94%B1%E6%9D%A5">由来</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu">
+              <h3 class="post-title">
+                vim命令
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '7daf0c9da2ee9a72ecba',
+    clientSecret: '39e3424bd496a5d8dcdbb618c370897256810975',
+    repo: 'hsxyhao.github.io',
+    owner: 'hsxyhao',
+    admin: ['hsxyhao'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
