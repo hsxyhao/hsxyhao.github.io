@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2019-12-13T01:14:13.991Z</updated>
+    <updated>2019-12-13T01:18:01.259Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -865,12 +865,14 @@ AOF刷新策略</p>
 <blockquote>
 <p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.</p>
 </blockquote>
+<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1576199763145.png" alt=""></figure>
 <p>上面一段话取自Redis官方的介绍，为什么要把它放在这里，我觉得这是介绍Redis最为标准的一段话，从用途、数据结构已经功能等多方面介绍，如果以后面试官叫你介绍下redis的话，我觉得可以直接把这段话背下来😌。至于为什么把Redis称为瑞士军刀，相信用过redis的人都会这么认为。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>redis有哪些基础数据结构，什么是快速链表，什么是跳跃链表，使用redis特有的数据类型可以实现哪些有趣的功能。</p>
 <blockquote>
 <p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.</p>
 </blockquote>
+<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1576199763145.png" alt=""></figure>
 <p>上面一段话取自Redis官方的介绍，为什么要把它放在这里，我觉得这是介绍Redis最为标准的一段话，从用途、数据结构已经功能等多方面介绍，如果以后面试官叫你介绍下redis的话，我觉得可以直接把这段话背下来😌。至于为什么把Redis称为瑞士军刀，相信用过redis的人都会这么认为。</p>
 <!-- more -->
 <h1 id="redis-key">Redis key</h1>
