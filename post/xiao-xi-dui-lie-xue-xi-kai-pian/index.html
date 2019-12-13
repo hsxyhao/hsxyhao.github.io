@@ -1,0 +1,323 @@
+<html>
+  <head>
+      <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Madara</title>
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576199489994">
+<link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
+<meta name="description" content="这个人很懒，什么都不想写..." />
+
+<link rel="stylesheet" href="/media/fonts/iconfont.css">
+<link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="head-top-line"></div>
+    <div class="header-box">
+      <header class="header">
+  <div class="blog-header">
+    <div class="site-meta">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-title">
+        <a href="/" class="brand">
+          <span>Madara</span>
+        </a>
+      </div>
+      <p class="subtitle">Quick notes</p>
+    </div>
+    <nav class="site-nav" id="site_nav">
+      <ul>
+        <li class="nav-item nav-item-active">
+          
+            
+              
+                <a href="/">
+                  <i class="iconfont icon-home"></i> 首页
+                </a>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+        </li>
+        <li class="nav-item">
+          
+            
+          
+            
+              
+                <a href="/archives">
+                  <i class="iconfont icon-archive"></i> 归档
+                </a>
+              
+            
+          
+            
+          
+            
+          
+        </li>
+        <li class="nav-item">
+          
+            
+          
+            
+          
+            
+              
+                <a href="/tags">
+                  <i class="iconfont icon-tags"></i> 标签
+                </a>
+              
+            
+          
+            
+          
+        </li>
+        <li class="nav-item">
+          <a>
+            <i class="iconfont icon-search"></i> 搜索
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+    </div>
+    <div class="main-continer">
+      <div class="section-layout">
+        <div class="section-layout-wrapper">
+          <div class="sidebar">
+  <div class="sidebar-wrapper">
+    <div class="post-list-sidebar">
+      <div class="sidebar-title">
+        <span class="sidebar-title-item sidebar-title-active">文章目录</span>
+        <span class="sidebar-title-item">站点概览</span>
+      </div>
+    </div>
+    <div class="post-sidebar-body">
+      <div class="post-toc">
+        <ul class="markdownIt-TOC">
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
+<li><a href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">应用场景</a>
+<ul>
+<li><a href="#%E5%89%8A%E5%B3%B0">削峰</a></li>
+<li><a href="#%E5%BC%82%E6%AD%A5">异步</a></li>
+<li><a href="#%E8%A7%A3%E8%80%A6">解耦</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">常见的消息队列</a>
+<ul>
+<li><a href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">如何选择消息队列</a>
+<ul>
+<li><a href="#%E9%98%9F%E5%88%97">队列</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+</ul>
+
+      </div>
+      <div class="post-side-meta"></div>
+    </div>
+  </div>
+</div>
+          <div class="section-box">
+            <div class="section">
+              <div class="article-box">
+    <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian">
+      消息队列学习开篇
+    </a>
+  </h1>
+  <div class="post-meta">
+    <span class="meta-item">
+      <i class="iconfont icon-calendar_empty"></i>
+      <span class="pc-show">发布于</span>
+      <span>2019-12-10</span>
+    </span>
+    
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="iconfont icon-comment_alt"></i>
+      <a href="">
+        <span>18Comments</span>
+      </a>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="iconfont icon-eye_open"></i>
+      <span class="pc-show">阅读次数</span>
+    </span>
+  </div>
+</header>
+</div>
+              <div class="post-body">
+                <p>什么是消息队列？消息队列有哪些？又解决了哪些问题？该怎么选择消息队列？使用消息队列的时候会遇到哪些问题？带着这些疑问先对消息队列进行初步了解。<br>
+<img src="https://hsxyhao.github.io/post-images/1576199469901.png" alt=""></p>
+<h1 id="介绍">介绍</h1>
+<blockquote>
+<p>在计算机科学中，消息队列（英语：Message queue）是一种进程间通信或同一进程的不同线程间的通信方式，软件的贮列用来处理一系列的输入，通常是来自用户。消息队列提供了异步的通信协议，每一个贮列中的纪录包含详细说明的数据，包含发生的时间，输入设备的种类，以及特定的输入参数，也就是说：消息的发送者和接收者不需要同时与消息队列交互。消息会保存在队列中，直到接收者取回它。<br>
+一个 WIMP 环境像是 Microsoft Windows，借由优先的某些形式（通常是事件的时间或是重要性的顺序）来存储用户产生的事件到一个 事件贮列 中。系统把每个事件从事件贮列中传递给目标的应用程序。<br>
+<a href="https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">——摘自维基百科</a></p>
+</blockquote>
+<p>维基百科中的解释，但是总感觉一大串术语，又是进程又是通信的，还有各种设备什么的。对于小白来说就用最简单的一句话就行了，消息队列就是用来发送和接收消息的<strong>队列</strong>，发送消息方叫作<strong>生产者</strong>，接收消息方叫作<strong>消费者</strong>。</p>
+<blockquote>
+<p>不要纠结这些专业术语了，我们了解消息队列主要用来业务上的问题的，老是按照专业的角度去理解多费事😜</p>
+</blockquote>
+<!-- more -->
+<h1 id="应用场景">应用场景</h1>
+<p>消息队列的应用场景主要有削峰、异步、解耦。</p>
+<h2 id="削峰">削峰</h2>
+<p>对于一些平时访问量不是很大的接口，但是在某些特殊时期的访问会陡然剧增，这个时候机器部署如果在不使用消息队列的情况下需要配置最大化，但是这在非特殊时期完全是资源浪费，这个时候就可以考虑使用消息中间件了，在不增加机器的情况下，还能抗住特殊时期的大量请求。不知道有没有说的明白，其实我想说的就是秒杀的场景，平时接口的访问量不是很大，但是在大促期间的访问却很大。</p>
+<h2 id="异步">异步</h2>
+<p>异步也是一个主要的应用场景，就是对于一个耗时的操作，用户完全没有必要等到所有的流程都走完，耗时的那部分完全可以产生一条消息，稍后处理，直接返回给用户端，提高用户体验。</p>
+<h2 id="解耦">解耦</h2>
+<p>解耦应该是这三个场景描述的解释中最难拿捏的，</p>
+<h1 id="常见的消息队列">常见的消息队列</h1>
+<p><a href="http://kafka.apache.org">Kafka</a>、<a href="http://pulsar.apache.org">Pulsar</a>、<a href="http://rocketmq.apache.org/">RocketMQ</a>、<a href="http://activemq.apache.org">ActiveMQ</a>、<a href="https://www.rabbitmq.com">RabbitMQ</a>等</p>
+<blockquote>
+<p>业界主流的消息队列大概就这些了，基本上都是各大公司开源的系统，并交由apache孵化的。</p>
+</blockquote>
+<h2 id="如何选择消息队列">如何选择消息队列</h2>
+<p>既然业界有那么多的消息中间件，那在业务中我们如果遇到了需要使用消息中间件的场景，我们又该如何去选择合适的消息中间件呢？一般可以从社区的活跃度、支持的语言、以及消息队列的功能来进行筛选，接下来将详细介绍消息中间件所具有的功能。</p>
+<h3 id="队列">队列</h3>
+<p>在消息中间件中，队列是一个不可或缺的角色，除了生产者和消费者之外，消息中间件提供了很多特殊功能的队列。一般的队列都是先进先出，但是下面的这些队列还具有其他特色。</p>
+<ol>
+<li>
+<p>优先级队列<br>
+在优先级队列中，消息是具有优先级的，并不是传统的先进先出模式，在优先级队列中，优先级较高的消息会被优先消费。优先消费只有在有消息堆积的情况下才会产生，如果生产者生产消息的速度远远小于消费者消费消息的速度，那么消息队列中就不会有过多的消息，生产者刚生产完一条消息就被消费掉，不存在优先消费的现象。</p>
+</li>
+<li>
+<p>延迟队列<br>
+延迟队列是指消息队列中的消息不会立即被消费者消费，需要经过一定的延迟才会被消费者消费。延迟队列一般有两种实现方式，消息延迟和队列延迟。消息延迟的队列在新添加消息的时候需要进行排序，在性能上不如后者，延迟队列的设计方案一般会创建对个延迟级别的队列，这样就不需要对消息进行排序了。</p>
+</li>
+</ol>
+<blockquote>
+<p>大家上网搜关于延迟队列的应用场景，大多数都是关于订单支付的场景。在购物时，我们选好商品进行结算，但是正在输入支付密码或者刷脸的时候，领导过来了，交代你一个任务，此时你必须立马执行，那么此时支付就失败了，但是电商后台的订单记录还是存在的，并且这个商品是处于正在出售的状态，别的顾客是不能购买的，那么对于商家来说肯定是亏本的，他不管卖给谁，主要是把货卖出去。更糟糕的情况是如果你完成任务后，忘了支付。这个时候对于卖家来说就想骂人了，本来商品一天就可以买掉的，结果现在的情况是又多等了一天。如果这个时候在提交订单的时候往消息队列当中发送一条取消订单的延迟消息，那么在用户忘记支付的时候，延迟队列可以实现自动取消支付订单，让其他顾客来买，不是更加优雅吗？</p>
+</blockquote>
+<ol>
+<li>
+<p>死信队列<br>
+当消息无法被正确的投递，即消费者服务从消息队列中获取消息。</p>
+</li>
+<li>
+<p>回退队列<br>
+正常的队列在消息被消费发生异常时，没有进行ack，那么消息永远处于队列顶端，这个时候异常的消息会阻碍其他消息被消费。如果为这个队列设置</p>
+</li>
+<li>
+<p>重试队列</p>
+</li>
+</ol>
+<h1 id="总结">总结</h1>
+<p>对于一名初学者来说，要想从一个上帝的视角介绍所有的消息队列，显然是不可能的，本片文章大部分摘自朱小厮的<a href="https://mp.weixin.qq.com/s/ad7jibTb5nTzh3nDQYKFeg">消息中间件选型分析</a>，把看过的心得体会记录下来。😍强烈推荐看一遍😍</p>
+
+              </div>
+              <div class="post-footer">
+                <ul class="post-copyright">
+                  <li class="post-copyright-author">
+                    <strong>本文作者：</strong>
+                    Madara
+                  </li>
+                  <li class="post-copyright-link">
+                    <strong>本文链接：</strong>
+                    <a href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian" title="消息队列学习开篇">https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian</a>
+                  </li>
+                  <li class="post-copyright-license">
+                    <strong>版权声明： </strong>
+                    本博客所有文章除特别声明外,转载请注明出处！
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      © 2019-2020 <i class="iconfont icon-heart"></i> HsxyHao
+    </div>
+    <div class="poweredby">
+      <div class="power-left">Power By<a href="https://github.com/hsxyhao"> HsxyHao</a></div>
+      <div>Copy<a href="https://github.com/iissnan/hexo-theme-next"> Hexo Next Theme</div>
+    </div>
+  </footer>
+  <div class="back-to-top" id="back_to_top">
+    <i class="iconfont icon-arrow_up"></i>
+    <span class="scrollpercent">
+      <span id="back_to_top_text">100</span>%
+    </span>
+  </div>
+</div>
+    </div>
+  </body>
+  <script type="text/javascript"> 
+ 
+  let showNav = true,
+  body = document.body;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav'),
+  back2Top = document.querySelector('#back_to_top'),
+  back2TopText = document.querySelector('#back_to_top_text');
+
+  function initEvent() {
+    navToggle.addEventListener('click',navClick);
+  }
+
+  function navClick() {
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+  }
+
+  function scrollAnimation(currentY, targetY) {
+    // 获取当前位置方法
+    // const currentY = document.documentElement.scrollTop || document.body.scrollTop
+
+    // 计算需要移动的距离
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      // 一次调用滑动帧数，每次调用会不一样
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      // 如果移动幅度小于十个像素，直接移动，否则递归调用，实现动画效果
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function(e) {
+    scrollAnimation(body.scrollTop, 0);
+    e.stopPropagation();
+  });
+  window.addEventListener("load", initEvent);
+  window.addEventListener('scroll', function(e) {
+    let percent = body.scrollTop / (body.scrollHeight - body.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    back2TopText.textContent = Math.floor(percent);
+  });
+</script>
+</html>

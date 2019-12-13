@@ -1,107 +1,172 @@
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Redis淘汰机制 | Madara</title>
-<meta name="description" content="这个人很懒，什么都不想写..." />
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1575885672165">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+      <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Madara</title>
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576199489994">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
+<meta name="description" content="这个人很懒，什么都不想写..." />
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152982956-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-152982956-1');
-</script>
-
-
+<link rel="stylesheet" href="/media/fonts/iconfont.css">
+<link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://hsxyhao.github.io">
-  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1575885672165" alt="">
-  </a>
-  <h1 class="site-title">
-    Madara
-  </h1>
-  <p class="site-description">
-    这个人很懒，什么都不想写...
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
+    <div class="head-top-line"></div>
+    <div class="header-box">
+      <header class="header">
+  <div class="blog-header">
+    <div class="site-meta">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-title">
+        <a href="/" class="brand">
+          <span>Madara</span>
         </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+      </div>
+      <p class="subtitle">Quick notes</p>
+    </div>
+    <nav class="site-nav" id="site_nav">
+      <ul>
+        <li class="nav-item nav-item-active">
+          
+            
+              
+                <a href="/">
+                  <i class="iconfont icon-home"></i> 首页
+                </a>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+        </li>
+        <li class="nav-item">
+          
+            
+          
+            
+              
+                <a href="/archives">
+                  <i class="iconfont icon-archive"></i> 归档
+                </a>
+              
+            
+          
+            
+          
+            
+          
+        </li>
+        <li class="nav-item">
+          
+            
+          
+            
+          
+            
+              
+                <a href="/tags">
+                  <i class="iconfont icon-tags"></i> 标签
+                </a>
+              
+            
+          
+            
+          
+        </li>
+        <li class="nav-item">
+          <a>
+            <i class="iconfont icon-search"></i> 搜索
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
-  <div class="social-container">
-    
-      
-        <a href="https://github.com/hsxyhao" target="_blank">
-          <i class="fab fa-github"></i>
-        </a>
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+</header>
+
+    </div>
+    <div class="main-continer">
+      <div class="section-layout">
+        <div class="section-layout-wrapper">
+          <div class="sidebar">
+  <div class="sidebar-wrapper">
+    <div class="post-list-sidebar">
+      <div class="sidebar-title">
+        <span class="sidebar-title-item sidebar-title-active">文章目录</span>
+        <span class="sidebar-title-item">站点概览</span>
+      </div>
+    </div>
+    <div class="post-sidebar-body">
+      <div class="post-toc">
+        <ul class="markdownIt-TOC">
+<li><a href="#%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5">淘汰策略</a></li>
+<li><a href="#lru%E7%AE%97%E6%B3%95">LRU算法</a>
+<ul>
+<li><a href="#lru%E7%AE%97%E6%B3%95%E7%94%B1%E6%9D%A5">lru算法由来</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%87%E7%94%A8%E8%BF%91%E4%BC%BC%E7%9A%84lru%E7%AE%97%E6%B3%95">为什么采用近似的LRU算法</a></li>
+<li><a href="#redis30%E4%B8%AD%E5%AF%B9lru%E7%AE%97%E6%B3%95%E7%9A%84%E6%94%B9%E8%BF%9B">redis3.0中对lru算法的改进</a></li>
+</ul>
+</li>
+<li><a href="#lfu%E7%AE%97%E6%B3%95">LFU算法</a>
+<ul>
+<li><a href="#%E7%94%B1%E6%9D%A5">由来</a></li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88">设计方案</a>
+<ul>
+<li><a href="#lfu%E8%AE%BE%E8%AE%A1%E6%BA%90%E7%A0%81">LFU设计源码</a></li>
+</ul>
+</li>
+<li><a href="#lru-lfu%E7%AE%97%E6%B3%95%E6%B5%8B%E8%AF%95">lru、lfu算法测试</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
+</ul>
+
+      </div>
+      <div class="post-side-meta"></div>
+    </div>
   </div>
 </div>
-
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              Redis淘汰机制
-            </h2>
-            <div class="post-info">
-              <span>
-                2019-12-05
-              </span>
-              <span>
-                10 min read
-              </span>
-              
-            </div>
-            
-              <img class="post-feature-image" src="https://hsxyhao.github.io/post-images/redis-tao-tai-ji-zhi.png" alt="">
-            
-            <div class="post-content-wrapper">
-              <div class="post-content">
+          <div class="section-box">
+            <div class="section">
+              <div class="article-box">
+    <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi">
+      Redis淘汰机制
+    </a>
+  </h1>
+  <div class="post-meta">
+    <span class="meta-item">
+      <i class="iconfont icon-calendar_empty"></i>
+      <span class="pc-show">发布于</span>
+      <span>2019-12-05</span>
+    </span>
+    
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="iconfont icon-comment_alt"></i>
+      <a href="">
+        <span>18Comments</span>
+      </a>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="iconfont icon-eye_open"></i>
+      <span class="pc-show">阅读次数</span>
+    </span>
+  </div>
+</header>
+</div>
+              <div class="post-body">
                 <p>redis淘汰策略有哪些？lru、lfu，lru算法改进</p>
 <!-- more -->
 <h1 id="淘汰策略">淘汰策略</h1>
@@ -231,121 +296,99 @@ unsigned long LFUGetTimeInMinutes(void) {
 </ol>
 
               </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5">淘汰策略</a></li>
-<li><a href="#lru%E7%AE%97%E6%B3%95">LRU算法</a>
-<ul>
-<li><a href="#lru%E7%AE%97%E6%B3%95%E7%94%B1%E6%9D%A5">lru算法由来</a></li>
-<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%87%E7%94%A8%E8%BF%91%E4%BC%BC%E7%9A%84lru%E7%AE%97%E6%B3%95">为什么采用近似的LRU算法</a></li>
-<li><a href="#redis30%E4%B8%AD%E5%AF%B9lru%E7%AE%97%E6%B3%95%E7%9A%84%E6%94%B9%E8%BF%9B">redis3.0中对lru算法的改进</a></li>
-</ul>
-</li>
-<li><a href="#lfu%E7%AE%97%E6%B3%95">LFU算法</a>
-<ul>
-<li><a href="#%E7%94%B1%E6%9D%A5">由来</a></li>
-<li><a href="#%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88">设计方案</a>
-<ul>
-<li><a href="#lfu%E8%AE%BE%E8%AE%A1%E6%BA%90%E7%A0%81">LFU设计源码</a></li>
-</ul>
-</li>
-<li><a href="#lru-lfu%E7%AE%97%E6%B3%95%E6%B5%8B%E8%AF%95">lru、lfu算法测试</a></li>
-</ul>
-</li>
-<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
-</ul>
-
+              <div class="post-footer">
+                <ul class="post-copyright">
+                  <li class="post-copyright-author">
+                    <strong>本文作者：</strong>
+                    Madara
+                  </li>
+                  <li class="post-copyright-link">
+                    <strong>本文链接：</strong>
+                    <a href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi" title="Redis淘汰机制">https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi</a>
+                  </li>
+                  <li class="post-copyright-license">
+                    <strong>版权声明： </strong>
+                    本博客所有文章除特别声明外,转载请注明出处！
+                  </li>
+                </ul>
               </div>
             </div>
-          </article>
-        </div>
-
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu">
-              <h3 class="post-title">
-                vim命令
-              </h3>
-            </a>
           </div>
-        
-
-        
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '7daf0c9da2ee9a72ecba',
-    clientSecret: '39e3424bd496a5d8dcdbb618c370897256810975',
-    repo: 'hsxyhao.github.io',
-    owner: 'hsxyhao',
-    admin: ['hsxyhao'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-          
-
-          
-        
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
-  <a class="rss" href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
-</div>
-
-<script>
-  hljs.initHighlightingOnLoad()
-
-  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
-
-  // This should probably be throttled.
-  // Especially because it triggers during smooth scrolling.
-  // https://lodash.com/docs/4.17.10#throttle
-  // You could do like...
-  // window.addEventListener("scroll", () => {
-  //    _.throttle(doThatStuff, 100);
-  // });
-  // Only not doing it here to keep this Pen dependency-free.
-
-  window.addEventListener("scroll", event => {
-    let fromTop = window.scrollY;
-
-    mainNavLinks.forEach((link, index) => {
-      let section = document.getElementById(decodeURI(link.hash).substring(1));
-      let nextSection = null
-      if (mainNavLinks[index + 1]) {
-        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-      }
-      if (section.offsetTop <= fromTop) {
-        if (nextSection) {
-          if (nextSection.offsetTop > fromTop) {
-            link.classList.add("current");
-          } else {
-            link.classList.remove("current");    
-          }
-        } else {
-          link.classList.add("current");
-        }
-      } else {
-        link.classList.remove("current");
-      }
-    });
-  });
-
-</script>
-
+        </div>
       </div>
+      <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      © 2019-2020 <i class="iconfont icon-heart"></i> HsxyHao
+    </div>
+    <div class="poweredby">
+      <div class="power-left">Power By<a href="https://github.com/hsxyhao"> HsxyHao</a></div>
+      <div>Copy<a href="https://github.com/iissnan/hexo-theme-next"> Hexo Next Theme</div>
+    </div>
+  </footer>
+  <div class="back-to-top" id="back_to_top">
+    <i class="iconfont icon-arrow_up"></i>
+    <span class="scrollpercent">
+      <span id="back_to_top_text">100</span>%
+    </span>
+  </div>
+</div>
     </div>
   </body>
+  <script type="text/javascript"> 
+ 
+  let showNav = true,
+  body = document.body;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav'),
+  back2Top = document.querySelector('#back_to_top'),
+  back2TopText = document.querySelector('#back_to_top_text');
+
+  function initEvent() {
+    navToggle.addEventListener('click',navClick);
+  }
+
+  function navClick() {
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+  }
+
+  function scrollAnimation(currentY, targetY) {
+    // 获取当前位置方法
+    // const currentY = document.documentElement.scrollTop || document.body.scrollTop
+
+    // 计算需要移动的距离
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      // 一次调用滑动帧数，每次调用会不一样
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      // 如果移动幅度小于十个像素，直接移动，否则递归调用，实现动画效果
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function(e) {
+    scrollAnimation(body.scrollTop, 0);
+    e.stopPropagation();
+  });
+  window.addEventListener("load", initEvent);
+  window.addEventListener('scroll', function(e) {
+    let percent = body.scrollTop / (body.scrollHeight - body.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    back2TopText.textContent = Math.floor(percent);
+  });
+</script>
 </html>
