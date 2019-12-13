@@ -1,0 +1,224 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Madara</title>
+<meta name="description" content="这个人很懒，什么都不想写..." />
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576203652778">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152982956-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-152982956-1');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hsxyhao.github.io">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1576203652778" alt="">
+  </a>
+  <h1 class="site-title">
+    Madara
+  </h1>
+  <p class="site-description">
+    这个人很懒，什么都不想写...
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/hsxyhao" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+    
+        
+
+<div class="archives-container">
+  
+    <h2 class="year">2019</h2>
+    
+      
+        <a href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian" class="post">
+          <h2 class="post-title">
+            消息队列学习开篇
+          </h2>
+          <div class="time">2019-12-10</div>
+        </a>
+      
+    
+      
+        <a href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi" class="post">
+          <h2 class="post-title">
+            Redis淘汰机制
+          </h2>
+          <div class="time">2019-12-05</div>
+        </a>
+      
+    
+      
+        <a href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu" class="post">
+          <h2 class="post-title">
+            vim命令
+          </h2>
+          <div class="time">2019-12-05</div>
+        </a>
+      
+    
+      
+        <a href="https://hsxyhao.github.io/post/redis-gao-ke-yong" class="post">
+          <h2 class="post-title">
+            Redis高可用
+          </h2>
+          <div class="time">2019-11-23</div>
+        </a>
+      
+    
+      
+        <a href="https://hsxyhao.github.io/post/redis-copy" class="post">
+          <h2 class="post-title">
+            Redis复制
+          </h2>
+          <div class="time">2019-11-19</div>
+        </a>
+      
+    
+      
+        <a href="https://hsxyhao.github.io/post/redis-chi-jiu-hua" class="post">
+          <h2 class="post-title">
+            Redis 持久化
+          </h2>
+          <div class="time">2019-11-16</div>
+        </a>
+      
+    
+      
+        <a href="https://hsxyhao.github.io/post/rui-shi-jun-dao-redis" class="post">
+          <h2 class="post-title">
+            Redis入门知识点
+          </h2>
+          <div class="time">2019-11-14</div>
+        </a>
+      
+    
+      
+        <a href="https://hsxyhao.github.io/post/gridea-setup" class="post">
+          <h2 class="post-title">
+            Gridea搭建个人博客
+          </h2>
+          <div class="time">2019-11-13</div>
+        </a>
+      
+    
+  
+</div>
+
+    
+        <div class="pagination-container">
+  
+  
+</div>
+
+    
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

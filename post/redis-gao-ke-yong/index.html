@@ -1,197 +1,111 @@
 <html>
   <head>
-      <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576199797081">
-<link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Redis高可用 | Madara</title>
 <meta name="description" content="这个人很懒，什么都不想写..." />
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576203652778">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 
-<link rel="stylesheet" href="/media/fonts/iconfont.css">
-<link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152982956-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-152982956-1');
+</script>
+
+
   </head>
   <body>
-    <div class="head-top-line"></div>
-    <div class="header-box">
-      <header class="header">
-  <div class="blog-header">
-    <div class="site-meta">
-      <div class="nav-toggle" id="nav_toggle">
-        <div class="toggle-box">
-          <div class="line line-top"></div>
-          <div class="line line-center"></div>
-          <div class="line line-bottom"></div>
-        </div>
-      </div>
-      <div class="site-title">
-        <a href="/" class="brand">
-          <span>Madara</span>
-        </a>
-      </div>
-      <p class="subtitle">Quick notes</p>
-    </div>
-    <nav class="site-nav" id="site_nav">
-      <ul>
-        <li class="nav-item nav-item-active">
-          
-            
-              
-                <a href="/">
-                  <i class="iconfont icon-home"></i> 首页
-                </a>
-              
-            
-          
-            
-          
-            
-          
-            
-          
-        </li>
-        <li class="nav-item">
-          
-            
-          
-            
-              
-                <a href="/archives">
-                  <i class="iconfont icon-archive"></i> 归档
-                </a>
-              
-            
-          
-            
-          
-            
-          
-        </li>
-        <li class="nav-item">
-          
-            
-          
-            
-          
-            
-              
-                <a href="/tags">
-                  <i class="iconfont icon-tags"></i> 标签
-                </a>
-              
-            
-          
-            
-          
-        </li>
-        <li class="nav-item">
-          <a>
-            <i class="iconfont icon-search"></i> 搜索
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-    </div>
-    <div class="main-continer">
-      <div class="section-layout">
-        <div class="section-layout-wrapper">
-          <div class="sidebar">
-  <div class="sidebar-wrapper">
-    <div class="post-list-sidebar">
-      <div class="sidebar-title">
-        <span class="sidebar-title-item sidebar-title-active">文章目录</span>
-        <span class="sidebar-title-item">站点概览</span>
-      </div>
-    </div>
-    <div class="post-sidebar-body">
-      <div class="post-toc">
-        <ul class="markdownIt-TOC">
-<li><a href="#%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E7%9A%84%E9%97%AE%E9%A2%98">主从复制的问题</a></li>
-<li><a href="#redis-sentinel">Redis Sentinel</a>
-<ul>
-<li><a href="#%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F%E6%8B%93%E6%89%91%E5%9B%BE">哨兵模式拓扑图</a></li>
-<li><a href="#sentinel%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8A%9F%E8%83%BD">Sentinel实现的功能</a></li>
-<li><a href="#%E9%83%A8%E7%BD%B2">部署</a></li>
-<li><a href="#%E9%85%8D%E7%BD%AE%E8%A7%A3%E6%9E%90">配置解析</a></li>
-<li><a href="#%E5%A4%9A%E8%8A%82%E7%82%B9%E7%9B%91%E6%8E%A7">多节点监控</a></li>
-<li><a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF">客户端</a></li>
-<li><a href="#sentinel%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86">sentinel实现原理</a>
-<ul>
-<li><a href="#%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7">定时监控</a></li>
-<li><a href="#%E4%B8%BB%E5%AE%A2%E8%A7%82%E4%B8%8B%E7%BA%BF">主/客观下线</a></li>
-<li><a href="#%E9%A2%86%E5%AF%BC%E9%80%89%E4%B8%BE">领导选举</a></li>
-<li><a href="#%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB">故障转移</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#redis-cluster">Redis Cluster</a>
-<ul>
-<li><a href="#%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83">数据分布</a>
-<ul>
-<li><a href="#%E7%AE%97%E6%B3%95%E4%BB%8B%E7%BB%8D">算法介绍</a></li>
-</ul>
-</li>
-<li><a href="#%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4">搭建集群</a></li>
-<li><a href="#%E8%8A%82%E7%82%B9%E9%80%9A%E4%BF%A1">节点通信</a></li>
-<li><a href="#%E9%9B%86%E7%BE%A4%E4%BC%B8%E7%BC%A9">集群伸缩</a></li>
-<li><a href="#%E8%AF%B7%E6%B1%82%E8%B7%AF%E7%94%B1">请求路由</a></li>
-</ul>
-</li>
-</ul>
-
-      </div>
-      <div class="post-side-meta"></div>
-    </div>
-  </div>
-</div>
-          <div class="section-box">
-            <div class="section">
-              <div class="article-box">
-    <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://hsxyhao.github.io/post/redis-gao-ke-yong">
-      Redis高可用
-    </a>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://hsxyhao.github.io">
+  <img class="avatar" src="https://hsxyhao.github.io/images/avatar.png?v=1576203652778" alt="">
+  </a>
+  <h1 class="site-title">
+    Madara
   </h1>
-  <div class="post-meta">
-    <span class="meta-item">
-      <i class="iconfont icon-calendar_empty"></i>
-      <span class="pc-show">发布于</span>
-      <span>2019-11-23</span>
-    </span>
+  <p class="site-description">
+    这个人很懒，什么都不想写...
+  </p>
+  <div class="menu-container">
     
-      <span class="meta-item">
-        <span class="post-meta-divider">|</span>
-        <i class="iconfont icon-folder_open_alt"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="">
-              <span>redis</span>
-            </a>
-          
-        
-      </span>
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
     
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="iconfont icon-comment_alt"></i>
-      <a href="">
-        <span>18Comments</span>
-      </a>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="iconfont icon-eye_open"></i>
-      <span class="pc-show">阅读次数</span>
-    </span>
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
   </div>
-</header>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/hsxyhao" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
 </div>
-              <div class="post-body">
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Redis高可用
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-11-23
+              </span>
+              <span>
+                18 min read
+              </span>
+              
+                <a href="https://hsxyhao.github.io/tag/redis" class="post-tag">
+                  # redis
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://hsxyhao.github.io/post-images/redis-gao-ke-yong.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
                 <p>Redis的高可用实现方案有哪些，为什么要选择官方的哨兵模式，自己开发自动化故障转移脚本有什么问题。redis cluster重定向有几种？redis数据分区...</p>
 <!-- more -->
 <h1 id="主从复制的问题">主从复制的问题</h1>
@@ -508,99 +422,133 @@ ASK重定向是指发生在槽迁移的过程中，槽中的数据还没有迁�
 <p>目前对于客户端的重定向分为ASK重定向和MOVED重定向，但是两种重定向在slots缓存上有着本质的区别，ASK重定向不会更新本地的slots缓存，MOVED则会。ASK只是零时的重定向，不确定具体什么时候完成所以根本不需要更新slots缓存。</p>
 
               </div>
-              <div class="post-footer">
-                <ul class="post-copyright">
-                  <li class="post-copyright-author">
-                    <strong>本文作者：</strong>
-                    Madara
-                  </li>
-                  <li class="post-copyright-link">
-                    <strong>本文链接：</strong>
-                    <a href="https://hsxyhao.github.io/post/redis-gao-ke-yong" title="Redis高可用">https://hsxyhao.github.io/post/redis-gao-ke-yong</a>
-                  </li>
-                  <li class="post-copyright-license">
-                    <strong>版权声明： </strong>
-                    本博客所有文章除特别声明外,转载请注明出处！
-                  </li>
-                </ul>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E7%9A%84%E9%97%AE%E9%A2%98">主从复制的问题</a></li>
+<li><a href="#redis-sentinel">Redis Sentinel</a>
+<ul>
+<li><a href="#%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F%E6%8B%93%E6%89%91%E5%9B%BE">哨兵模式拓扑图</a></li>
+<li><a href="#sentinel%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8A%9F%E8%83%BD">Sentinel实现的功能</a></li>
+<li><a href="#%E9%83%A8%E7%BD%B2">部署</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E8%A7%A3%E6%9E%90">配置解析</a></li>
+<li><a href="#%E5%A4%9A%E8%8A%82%E7%82%B9%E7%9B%91%E6%8E%A7">多节点监控</a></li>
+<li><a href="#%E5%AE%A2%E6%88%B7%E7%AB%AF">客户端</a></li>
+<li><a href="#sentinel%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86">sentinel实现原理</a>
+<ul>
+<li><a href="#%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7">定时监控</a></li>
+<li><a href="#%E4%B8%BB%E5%AE%A2%E8%A7%82%E4%B8%8B%E7%BA%BF">主/客观下线</a></li>
+<li><a href="#%E9%A2%86%E5%AF%BC%E9%80%89%E4%B8%BE">领导选举</a></li>
+<li><a href="#%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB">故障转移</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#redis-cluster">Redis Cluster</a>
+<ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83">数据分布</a>
+<ul>
+<li><a href="#%E7%AE%97%E6%B3%95%E4%BB%8B%E7%BB%8D">算法介绍</a></li>
+</ul>
+</li>
+<li><a href="#%E6%90%AD%E5%BB%BA%E9%9B%86%E7%BE%A4">搭建集群</a></li>
+<li><a href="#%E8%8A%82%E7%82%B9%E9%80%9A%E4%BF%A1">节点通信</a></li>
+<li><a href="#%E9%9B%86%E7%BE%A4%E4%BC%B8%E7%BC%A9">集群伸缩</a></li>
+<li><a href="#%E8%AF%B7%E6%B1%82%E8%B7%AF%E7%94%B1">请求路由</a></li>
+</ul>
+</li>
+</ul>
+
               </div>
             </div>
-          </div>
+          </article>
         </div>
-      </div>
-      <div class="footer-box">
-  <footer class="footer">
-    <div class="copyright">
-      © 2019-2020 <i class="iconfont icon-heart"></i> HsxyHao
-    </div>
-    <div class="poweredby">
-      <div class="power-left">Power By<a href="https://github.com/hsxyhao"> HsxyHao</a></div>
-      <div>Copy<a href="https://github.com/iissnan/hexo-theme-next"> Hexo Next Theme</div>
-    </div>
-  </footer>
-  <div class="back-to-top" id="back_to_top">
-    <i class="iconfont icon-arrow_up"></i>
-    <span class="scrollpercent">
-      <span id="back_to_top_text">100</span>%
-    </span>
-  </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://hsxyhao.github.io/post/redis-copy">
+              <h3 class="post-title">
+                Redis复制
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '7daf0c9da2ee9a72ecba',
+    clientSecret: '39e3424bd496a5d8dcdbb618c370897256810975',
+    repo: 'hsxyhao.github.io',
+    owner: 'hsxyhao',
+    admin: ['hsxyhao'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
 </div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
+
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
+
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
+
+</script>
+
+      </div>
     </div>
   </body>
-  <script type="text/javascript"> 
- 
-  let showNav = true,
-  body = document.body;
-
-  let navToggle = document.querySelector('#nav_toggle'),
-  siteNav = document.querySelector('#site_nav'),
-  back2Top = document.querySelector('#back_to_top'),
-  back2TopText = document.querySelector('#back_to_top_text');
-
-  function initEvent() {
-    navToggle.addEventListener('click',navClick);
-  }
-
-  function navClick() {
-    navToggle.classList.toggle('nav-toggle-active');
-    siteNav.classList.toggle('nav-menu-active');
-  }
-
-  function scrollAnimation(currentY, targetY) {
-    // 获取当前位置方法
-    // const currentY = document.documentElement.scrollTop || document.body.scrollTop
-
-    // 计算需要移动的距离
-    let needScrollTop = targetY - currentY
-    let _currentY = currentY
-    setTimeout(() => {
-      // 一次调用滑动帧数，每次调用会不一样
-      const dist = Math.ceil(needScrollTop / 10)
-      _currentY += dist
-      window.scrollTo(_currentY, currentY)
-      // 如果移动幅度小于十个像素，直接移动，否则递归调用，实现动画效果
-      if (needScrollTop > 10 || needScrollTop < -10) {
-        scrollAnimation(_currentY, targetY)
-      } else {
-        window.scrollTo(_currentY, targetY)
-      }
-    }, 1)
-  }
-
-  back2Top.addEventListener("click", function(e) {
-    scrollAnimation(body.scrollTop, 0);
-    e.stopPropagation();
-  });
-  window.addEventListener("load", initEvent);
-  window.addEventListener('scroll', function(e) {
-    let percent = body.scrollTop / (body.scrollHeight - body.clientHeight) * 100;
-    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
-      back2Top.classList.add('back-top-active');
-    }
-    if (percent == 0) {
-      back2Top.classList.remove('back-top-active');
-    }
-    back2TopText.textContent = Math.floor(percent);
-  });
-</script>
 </html>

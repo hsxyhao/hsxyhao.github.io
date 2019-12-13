@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2019-12-13T01:18:01.259Z</updated>
+    <updated>2019-12-13T02:21:28.755Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -1012,12 +1012,16 @@ OK
         <link href="https://hsxyhao.github.io/post/gridea-setup">
         </link>
         <updated>2019-11-13T05:47:44.000Z</updated>
-        <summary type="html"><![CDATA[<p>使用Gridea搭建静态博客，记录踩坑血史🤓</p>
+        <summary type="html"><![CDATA[<p>上大学的时候一直想弄一个博客系统，但是当时自己还是初学者，根本完不成，心想着等到以后技术长进一点之后准备弄一个，可是一直等到现在都没有弄起来。期间也玩过hexo、typecho等静态博客平台，但是当时没有好好管理，搭建好的博客在服务器到期后就没再弄了。无意间在掘金上看到了<a href="https://gridea.dev/">Gridea</a>，进入官网后发现颜值还挺高的，后面慢慢的了解后，才发现目前还是个小众平台，主题以及平台的功能都还不完善。但是平台提供写文章的功能还不错(好像当时没有使用hexo就是因为没有一个写文章的地方)，后来就决定使用它了。<br>
+<img src="https://hsxyhao.github.io/post-images/1576203380178.png" alt=""><br>
+顺带一张高颜值的美图欣赏一下🤣</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>使用Gridea搭建静态博客，记录踩坑血史🤓</p>
+        <content type="html"><![CDATA[<p>上大学的时候一直想弄一个博客系统，但是当时自己还是初学者，根本完不成，心想着等到以后技术长进一点之后准备弄一个，可是一直等到现在都没有弄起来。期间也玩过hexo、typecho等静态博客平台，但是当时没有好好管理，搭建好的博客在服务器到期后就没再弄了。无意间在掘金上看到了<a href="https://gridea.dev/">Gridea</a>，进入官网后发现颜值还挺高的，后面慢慢的了解后，才发现目前还是个小众平台，主题以及平台的功能都还不完善。但是平台提供写文章的功能还不错(好像当时没有使用hexo就是因为没有一个写文章的地方)，后来就决定使用它了。<br>
+<img src="https://hsxyhao.github.io/post-images/1576203380178.png" alt=""><br>
+顺带一张高颜值的美图欣赏一下🤣</p>
 <!-- more -->
-<h2 id="搭建教程">搭建教程</h2>
-<h3 id="1github相关配置">1.github相关配置</h3>
+<h1 id="搭建教程">搭建教程</h1>
+<h2 id="1github相关配置">1.github相关配置</h2>
 <p>创建github pages、token以及开通oauth认证。</p>
 <ol>
 <li>新建一个名为XXX.github.io的仓库，就是一个普通的github仓库只不过名字需要有一定的规则</li>
@@ -1030,7 +1034,7 @@ OK
 </ul>
 </li>
 </ol>
-<h3 id="2安装gridea客户端">2.安装Gridea客户端</h3>
+<h2 id="2安装gridea客户端">2.安装Gridea客户端</h2>
 <p>把Gridea项目克隆到本地git clone https://github.com/getgridea/gridea，按照官方的命令启动客户端，这里要使用yarn命令，没有的话安装一下。</p>
 <pre><code class="language-java"># Node version &gt; v10.0.0 is requied
 $ git clone https://github.com/getgridea/gridea.git
@@ -1039,21 +1043,21 @@ $ yarn
 $ yarn electron:serve
 $ yarn electron:build
 </code></pre>
-<h3 id="3绑定github信息">3.绑定github信息</h3>
+<h2 id="3绑定github信息">3.绑定github信息</h2>
 <p>将之前创建的token、仓库、域名等信息配置一下，配置好之后保存一下。<br>
 <img src="https://hsxyhao.github.io/post-images/1573627331402.jpg" alt=""></p>
-<h3 id="4添加gittalk评论">4.添加Gittalk评论</h3>
+<h2 id="4添加gittalk评论">4.添加Gittalk评论</h2>
 <p>开通评论，需要使用到oauth账号，填写好之后，保存一下。<br>
 <img src="https://hsxyhao.github.io/post-images/1573627495172.png" alt=""></p>
-<h3 id="5完结散花">5.完结散花🍂</h3>
+<h2 id="5完结散花">5.完结散花🍂</h2>
 <p>最后一步，点击左下角同步一下就可以了。如果同步出现问题，请移步到文章尾部，看看是否能帮助到你。</p>
-<h2 id="帮助">帮助</h2>
+<h1 id="帮助">帮助</h1>
 <p>最后再补充一下搭建过程中遇到的问题，希望能帮助的你。</p>
-<h3 id="踩坑">踩坑</h3>
+<h2 id="踩坑">踩坑</h2>
 <ol>
 <li>在所有信息配置完之后，点击同步或者检测远程连接会出现失败的情况，如果你是第一次使用Gridea的话，那么需要将Gridea的output目录初始化为一个git仓库，然后添加远程的github地址，就是刚刚建立的XXX.github.io仓库的地址，output路径在系统中的源文件夹处可以看到。如果是从hexo迁移过来的话，这个时候一般只要拷贝一下就行了，但是需要保证之前的git origin 地址是正确的。</li>
 </ol>
-<h2 id="参考文档">参考文档</h2>
+<h1 id="参考文档">参考文档</h1>
 <p>搭建过程中查阅的相关文档，其实就是官方的文档😜</p>
 <ul>
 <li><a href="https://gridea.dev/">Gridea文档</a></li>
