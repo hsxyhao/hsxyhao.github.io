@@ -492,6 +492,7 @@ li {
 }
 .post-body {
   font-family: 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
+  overflow-x: hidden;
 }
 .post-body h2,
 .post-body h3,
@@ -968,6 +969,14 @@ h1 {
 .archive-timeline-box .tag-node:hover::before {
   background: #666;
 }
+.expanded ul {
+  padding: 0 2px 5px 10px;
+  display: block;
+}
+.closed ul {
+  padding: 0 2px 5px 10px;
+  display: none;
+}
 .toc-wrapper a {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -991,11 +1000,8 @@ h1 {
   color: #000;
   border-bottom-color: #000;
 }
-.markdownIt-TOC ul {
-  padding: 0 2px 5px 10px;
-}
-.markdownIt-TOC ul.active-hidden {
-  display: none;
+.markdownIt-TOC .active-show > ul {
+  display: block;
 }
 .toc-wrapper .active-hidden > ul {
   display: block;
@@ -1013,6 +1019,16 @@ h1 {
   text-overflow: ellipsis;
   white-space: nowrap;
   line-height: 1.8;
+}
+@media (max-width: 961px) and (min-width: 768px) {
+  .toc-box {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .toc-box {
+    display: none;
+  }
 }
 blockquote {
   color: #9a9a9a;
