@@ -976,7 +976,7 @@ h1 {
   color: #666;
   border-bottom: 1px solid #ccc;
 }
-.toc-box .toc-wrapper .active > a {
+.toc-box .toc-wrapper .active-current > a {
   color: #fc6423;
   border-bottom-color: #fc6423;
 }
@@ -990,6 +990,29 @@ h1 {
 .markdownIt-TOC a:hover {
   color: #000;
   border-bottom-color: #000;
+}
+.markdownIt-TOC ul {
+  padding: 0 2px 5px 10px;
+}
+.markdownIt-TOC ul.active-hidden {
+  display: none;
+}
+.toc-wrapper .active-hidden > ul {
+  display: block;
+}
+.toc-box .toc-wrapper .active-show > a {
+  color: #fc6423;
+  border-bottom-color: #fc6423;
+}
+.toc-box .toc-wrapper .active-hidden > a {
+  color: #fc6423;
+  border-bottom-color: #fc6423;
+}
+.markdownIt-TOC li {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.8;
 }
 blockquote {
   color: #9a9a9a;
