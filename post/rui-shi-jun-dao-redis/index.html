@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576295695793">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576311243664">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -116,7 +116,7 @@
       <div class="section-layout">
         <div class="section-layout-wrapper">
           <div class="sidebar">
-  <div class="sidebar-wrapper">
+  <div class="sidebar-wrapper" id="sidebar">
     <div class="post-list-sidebar">
       <div class="sidebar-title">
         <span class="sidebar-title-item sidebar-title-active">文章目录</span>
@@ -126,37 +126,93 @@
     <div class="post-sidebar-body">
       <div class="post-toc">
         <div class="toc-box">
-  <ul class="markdownIt-TOC">
+  <div class="toc-wrapper" id="toc_wrapper">
+    <ul class="markdownIt-TOC">
 <li><a href="#redis-key">Redis key</a></li>
 <li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a>
 <ul>
-<li><a href="#1-string%E7%B1%BB%E5%9E%8B">1. string类型</a></li>
-<li><a href="#2-list%E7%B1%BB%E5%9E%8B">2. list类型</a>
+<li><a href="#string%E7%B1%BB%E5%9E%8B">string类型</a></li>
+<li><a href="#list%E7%B1%BB%E5%9E%8B">list类型</a>
 <ul>
 <li><a href="#%E5%BF%AB%E9%80%9F%E9%93%BE%E8%A1%A8">快速链表</a></li>
 <li><a href="#list%E6%89%A9%E5%B1%95%E5%BA%94%E7%94%A8">list扩展应用</a></li>
 </ul>
 </li>
-<li><a href="#3-hash%E7%B1%BB%E5%9E%8B">3. hash类型</a>
+<li><a href="#hash%E7%B1%BB%E5%9E%8B">hash类型</a>
 <ul>
 <li><a href="#rehash">rehash</a></li>
 <li><a href="#%E4%B8%8Estring%E5%BA%94%E7%94%A8%E6%AF%94%E8%BE%83">与string应用比较</a></li>
 </ul>
 </li>
-<li><a href="#4-set%E7%B1%BB%E5%9E%8B">4. set类型</a></li>
-<li><a href="#5-zset%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88">5. zset(有序集合)</a></li>
+<li><a href="#set%E7%B1%BB%E5%9E%8B">set类型</a></li>
+<li><a href="#zset%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88">zset(有序集合)</a></li>
 </ul>
 </li>
 <li><a href="#%E6%9C%80%E5%90%8E">最后</a></li>
 <li><a href="#%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3">相关文档</a></li>
 </ul>
 
+  </div>
 </div>
+
+<script>
+
+let lis = [];
+
+function addTocNumber(elem, deep) {
+  let prop = elem.__proto__;
+
+  if (prop === HTMLUListElement.prototype) {
+    for (let i = 0; i < elem.children.length; i++) {
+      addTocNumber(elem.children[i], deep + (i + 1) + '.');
+    }
+  } else if (prop === HTMLLIElement.prototype) {
+    lis.push(elem);
+    // 保存li元素
+    for (let i = 0; i < elem.children.length; i++) {
+      let cur = elem.children[i];
+      if (cur.__proto__ === HTMLAnchorElement.prototype) {
+        cur.text =  deep + ' ' + cur.text;
+      } else if (cur.__proto__ === HTMLUListElement.prototype) {
+        addTocNumber(cur, deep);
+      }
+    }
+  }
+}
+
+let tocWrapper = document.querySelector('#toc_wrapper')
+let tocContent = tocWrapper.children[0];
+
+window.addEventListener('scroll', function(e) {
+  let scrollTop = document.body.scrollTop;
+});
+
+addTocNumber(tocContent, '')
+
+</script>
       </div>
       <div class="post-side-meta"></div>
     </div>
   </div>
 </div>
+<script>
+  let sidebar = document.querySelector('#sidebar');
+  let limitTop = sidebar.offsetTop;
+  let hasFix = false;
+  window.addEventListener('scroll', function(e) {
+    if (document.body.scrollTop >= limitTop) {
+      if (!hasFix) {
+        sidebar.classList.add('sidebar-fixed');
+        hasFix = true;
+      }
+    } else {
+      if (hasFix) {
+        sidebar.classList.remove('sidebar-fixed');
+        hasFix = false;
+      }
+    }
+  });
+</script>
           <div class="section-box">
             <div class="section">
               <div class="article-box">
@@ -194,7 +250,7 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">2283字数</span>
+      <span class="pc-show">2278字数</span>
     </span>
   </div>
 </header>
@@ -211,7 +267,7 @@
 <p>Redis密钥是二进制安全的，任何二进制序列的字符串都可以作为密钥，空字符串也是有效的键。虽然key的有效长度为512M，但是在日常开发中不建议把key的长度设置太长，或者过短，最友好的一种做法是将key和业务结合起来命名，一般推荐使用user:{id}这样的方式。</p>
 <h1 id="数据类型"><a href="https://redis.io/topics/data-types-intro">数据类型</a></h1>
 <p>从redis的官方介绍中就可以得出，redis的基础数据类型有五种，分别为：string，hash，list，set，以及zset。至于后面提到的hyperloglogs、geospatial、bitmaps的类型，有的是后面的版本增加的，有的是基础数据类型扩展来的。相对于其他的nosql数据库来说，redis的数据类型已经很充分了。redis内置的这些类型，对于学过java的同学可以使用java中的HashMap来辅助记忆，比如说string类型就是Map&lt;String,String&gt;,list类型就类比为Map&lt;String,List<String>&gt;，hash则为Map&lt;String,Map&lt;String,String&gt;&gt;。通过这样的辅助记忆，就可以很快的记住redis的数据类型，对于后期各种类型的命令使用也起到一定的帮助。从上面的类比中我们可以看到redis是一个key，value的数据存储系统，key都是字符串类型，value则对应redis着以上几种数据类型。</p>
-<h2 id="1-string类型">1. string类型</h2>
+<h2 id="string类型">string类型</h2>
 <p>string类型，可以说是redis中使用到最多的一种类型了，开发中有很多开发人员把一些热点数据的序列化成json，存储到redis中，最后访问的时候后再取出来反序列化返回到客户端。<br>
 <img src="https://hsxyhao.github.io/post-images/1573721308127.png" alt=""><br>
 重点记忆：</p>
@@ -236,7 +292,7 @@ OK
 &gt; incrby counter 50
 (integer) 152
 </code></pre>
-<h2 id="2-list类型">2. list类型</h2>
+<h2 id="list类型">list类型</h2>
 <p>Redis中的list相当于java中的LinkedList，不是ArrayList，也就是说他是一个链表。结合*pop和*push命令可以实现队列或者栈这种数据结构。<br>
 <img src="https://hsxyhao.github.io/post-images/1573722527155.gif" alt=""></p>
 <h3 id="快速链表">快速链表</h3>
@@ -270,7 +326,7 @@ OK
 &gt; llen books
 (integer) 0
 </code></pre>
-<h2 id="3-hash类型">3. hash类型</h2>
+<h2 id="hash类型">hash类型</h2>
 <p>hash类型可以类比成java中HashMap，一种键值对类型，只不过这里的key只能是string类型。</p>
 <h3 id="rehash">rehash</h3>
 <p>相信大多数java开发人员在面试的时候都会被问到rehash，这个过程在数据量大的时候是一个性能相当低的操作，而redis为了提高性能，就采取了另一种方式进行rehash——渐近式，就是在rehash的时候不立马进行rehash，保存一个新的hash结构的同时，旧的也保存下来，在后续的定时任务中，或者有hash操作的时候进行迁移，当数据迁移完成之后，旧的hash就会被新的取代。</p>
@@ -304,7 +360,7 @@ OK
 &gt; hincrby user-laoqian age 1
 (integer) 30
 </code></pre>
-<h2 id="4-set类型">4. set类型</h2>
+<h2 id="set类型">set类型</h2>
 <p>同样的set类型可以类比为java中的HashSet，是一种键值对唯一的数据结构，大家都知道java中的HashSet是由HashMap“变异”的，相对于HashMap，HashSet的所有value都是Null。set具有自动去重的功能，可以保证set中的可以是唯一的。<br>
 <img src="https://hsxyhao.github.io/post-images/1573804430835.gif" alt=""><br>
 命令：</p>
@@ -327,7 +383,7 @@ OK
 &gt; spop books  # 弹出一个
 &quot;java&quot;
 </code></pre>
-<h2 id="5-zset有序集合">5. zset(有序集合)</h2>
+<h2 id="zset有序集合">zset(有序集合)</h2>
 <p>set是一个无序不重复集合，zset是一个有序的不重复集合，redis内部是通过跳跃链表来实现的。要想对一个链表排序，普通的链表肯定是不行的。需要对普通链表进行改进，改造后就是跳跃链表了。<br>
 <img src="https://hsxyhao.github.io/post-images/1573807555093.png" alt=""><br>
 上图就是跳跃链表的一个简化示意图，相信不熟悉的人看到这里肯定会懵，这个“跳跃”二字如何解释，在这里跳跃是指层与层之间的一个切换，不是元素和元素之间。层是代表高度词，所以用跳跃来形容也比较合适。</p>
@@ -419,25 +475,9 @@ OK
       back2Top.classList.remove('back-top-active');
     }
     back2TopText.textContent = Math.floor(percent);
-    console.log('scroll 2')
   });
-
-  window.onload = function () {
-    let eles = document.querySelectorAll('.slide-anim')
-    console.log(eles)
-    eles.forEach(function(elem) {
-      elem.style = 'opacity: 1; transform: translateY(-15px) translateZ(0px);'
-    });
-  }
 
 </script>
     </div>
   </body>
-  <script>
-    let headerHeight = document.querySelector('#id').clientHeight;
-    console.log(headerHeight);
-    window.addEventListener('scroll', function(e) {
-      console.log('scroll 1');
-    });
-  </script>
 </html>

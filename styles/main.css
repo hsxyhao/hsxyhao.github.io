@@ -152,11 +152,11 @@ body {
 }
 .sidebar {
   margin-top: 310px;
-  width: 240px;
   box-shadow: none;
 }
 .sidebar-wrapper {
   width: auto;
+  width: 240px;
   box-sizing: border-box;
   color: #555;
   background: #fff;
@@ -734,8 +734,13 @@ li {
   background-color: #f9f9f9;
   list-style: none;
 }
+.sidebar-fixed {
+  position: fixed;
+  top: 0px;
+}
 .post-list-sidebar {
   position: relative;
+  margin: 0 0 20px;
 }
 .sidebar-title {
   display: flex;
@@ -962,6 +967,29 @@ h1 {
 }
 .archive-timeline-box .tag-node:hover::before {
   background: #666;
+}
+.toc-wrapper a {
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  transition-property: all;
+  color: #666;
+  border-bottom: 1px solid #ccc;
+}
+.toc-box .toc-wrapper .active > a {
+  color: #fc6423;
+  border-bottom-color: #fc6423;
+}
+.markdownIt-TOC {
+  margin: 0;
+  padding: 0 2px 5px 10px;
+  text-align: left;
+  list-style: none;
+  font-size: 14px;
+}
+.markdownIt-TOC a:hover {
+  color: #000;
+  border-bottom-color: #000;
 }
 blockquote {
   color: #9a9a9a;
