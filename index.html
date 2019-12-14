@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576247249226">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576295695793">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -14,7 +14,7 @@
     <div class="head-top-line"></div>
     <div class="header-box">
       <header class="header">
-  <div class="blog-header">
+  <div class="blog-header" id="header">
     <div class="site-meta">
       <div class="nav-toggle" id="nav_toggle">
         <div class="toggle-box">
@@ -23,7 +23,7 @@
           <div class="line line-bottom"></div>
         </div>
       </div>
-      <div class="site-title">
+      <div class="site-title slide-in">
         <a href="/" class="brand">
           <span>Madara</span>
         </a>
@@ -206,19 +206,16 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">4字数</span>
+      <span class="pc-show">29字数</span>
     </span>
   </div>
 </header>
     <div class="post-body">
-      
+      <p>测试分页<br>
+这是我测试的第一个分页页面，这里除了摘要没有其他信息</p>
+
       <!--noindex-->
-      <div class="post-button text-center">
-        <a class="btn" href="https://hsxyhao.github.io/post/ce-shi-fen-ye-9" rel="contents">
-          阅读全文 »
-        </a>
-      </div>
-      <!--/noindex-->
+      
     </div>
     <footer class="post-footer">
       <div class="post-eof"></div>
@@ -265,14 +262,10 @@
   </div>
 </header>
     <div class="post-body">
-      
+      <p>测试分页</p>
+
       <!--noindex-->
-      <div class="post-button text-center">
-        <a class="btn" href="https://hsxyhao.github.io/post/ce-shi-fen-ye-8" rel="contents">
-          阅读全文 »
-        </a>
-      </div>
-      <!--/noindex-->
+      
     </div>
     <footer class="post-footer">
       <div class="post-eof"></div>
@@ -319,14 +312,10 @@
   </div>
 </header>
     <div class="post-body">
-      
+      <p>测试分页</p>
+
       <!--noindex-->
-      <div class="post-button text-center">
-        <a class="btn" href="https://hsxyhao.github.io/post/ce-shi-fen-ye-7" rel="contents">
-          阅读全文 »
-        </a>
-      </div>
-      <!--/noindex-->
+      
     </div>
     <footer class="post-footer">
       <div class="post-eof"></div>
@@ -382,7 +371,7 @@
       
     
     
-      <li>
+      <li class="pagination-dir">
         <a href="/page/2">
           <i class="iconfont icon-angle_right"></i>
         </a>
@@ -401,7 +390,7 @@
     </div>
     <div class="poweredby">
       <div class="power-left">Power By<a href="https://github.com/hsxyhao"> HsxyHao</a></div>
-      <div>Copy<a href="https://github.com/iissnan/hexo-theme-next"> Hexo Next Theme</div>
+      <div>Copy<a href="https://github.com/iissnan/hexo-theme-next"> Hexo Next Theme</a></div>
     </div>
   </footer>
   <div class="back-to-top" id="back_to_top">
@@ -418,11 +407,6 @@
 
   let back2Top = document.querySelector('#back_to_top'),
   back2TopText = document.querySelector('#back_to_top_text');
-
-  function navClick() {
-    navToggle.classList.toggle('nav-toggle-active');
-    siteNav.classList.toggle('nav-menu-active');
-  }
 
   function scrollAnimation(currentY, targetY) {
     // 获取当前位置方法
@@ -448,6 +432,7 @@
   back2Top.addEventListener("click", function(e) {
     scrollAnimation(body.scrollTop, 0);
     e.stopPropagation();
+    return false;
   });
   
   window.addEventListener('scroll', function(e) {
@@ -459,7 +444,17 @@
       back2Top.classList.remove('back-top-active');
     }
     back2TopText.textContent = Math.floor(percent);
+    console.log('scroll 2')
   });
+
+  window.onload = function () {
+    let eles = document.querySelectorAll('.slide-anim')
+    console.log(eles)
+    eles.forEach(function(elem) {
+      elem.style = 'opacity: 1; transform: translateY(-15px) translateZ(0px);'
+    });
+  }
+
 </script>
     </div>
   </body>

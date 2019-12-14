@@ -151,7 +151,7 @@ body {
   position: relative;
 }
 .sidebar {
-  margin-top: 330px;
+  margin-top: 310px;
   width: 240px;
   box-shadow: none;
 }
@@ -472,6 +472,13 @@ li {
 }
 .pagination-ul a:hover {
   border-top: 1px solid #222;
+}
+.pagination-dir a {
+  width: 32px;
+  height: 33px;
+  line-height: 35px;
+  display: inline-block;
+  border-top: 1px solid transparent;
 }
 .post-body img {
   width: 100%;
@@ -969,4 +976,20 @@ blockquote:before {
   content: "\201c";
   font: 700 62px/1 serif;
   color: rgba(0, 0, 0, 0.1);
+}
+.slide-anim {
+  transition: transform 0.2s ease-in;
+}
+.slide-in {
+  animation: slide-in 0.5s ease;
+}
+@keyframes slide-down-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) translateZ(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px) translateZ(0px);
+  }
 }
