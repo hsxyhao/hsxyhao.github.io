@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2019-12-14T15:54:10.180Z</updated>
+    <updated>2019-12-14T16:45:05.103Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -10,83 +10,6 @@
     <logo>https://hsxyhao.github.io/images/avatar.png</logo>
     <icon>https://hsxyhao.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Madara</rights>
-    <entry>
-        <title type="html"><![CDATA[测试分页9]]></title>
-        <id>https://hsxyhao.github.io/post/ce-shi-fen-ye-9</id>
-        <link href="https://hsxyhao.github.io/post/ce-shi-fen-ye-9">
-        </link>
-        <updated>2019-12-13T07:10:59.000Z</updated>
-        <summary type="html"><![CDATA[<p>测试分页<br>
-这是我测试的第一个分页页面，这里除了摘要没有其他信息</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>测试分页<br>
-这是我测试的第一个分页页面，这里除了摘要没有其他信息</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[测试分页8]]></title>
-        <id>https://hsxyhao.github.io/post/ce-shi-fen-ye-8</id>
-        <link href="https://hsxyhao.github.io/post/ce-shi-fen-ye-8">
-        </link>
-        <updated>2019-12-13T07:10:53.000Z</updated>
-        <summary type="html"><![CDATA[<p>测试分页</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>测试分页</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[测试分页7]]></title>
-        <id>https://hsxyhao.github.io/post/ce-shi-fen-ye-7</id>
-        <link href="https://hsxyhao.github.io/post/ce-shi-fen-ye-7">
-        </link>
-        <updated>2019-12-13T07:10:45.000Z</updated>
-        <summary type="html"><![CDATA[<p>测试分页</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>测试分页</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[测试分页6]]></title>
-        <id>https://hsxyhao.github.io/post/ce-shi-fen-ye-6</id>
-        <link href="https://hsxyhao.github.io/post/ce-shi-fen-ye-6">
-        </link>
-        <updated>2019-12-13T07:10:36.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[测试分页5]]></title>
-        <id>https://hsxyhao.github.io/post/ce-shi-fen-ye-5</id>
-        <link href="https://hsxyhao.github.io/post/ce-shi-fen-ye-5">
-        </link>
-        <updated>2019-12-13T07:10:08.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[测试分页4]]></title>
-        <id>https://hsxyhao.github.io/post/ce-shi-fen-ye-4</id>
-        <link href="https://hsxyhao.github.io/post/ce-shi-fen-ye-4">
-        </link>
-        <updated>2019-12-13T07:09:58.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[测试分页3]]></title>
-        <id>https://hsxyhao.github.io/post/ce-shi-fen-ye-3</id>
-        <link href="https://hsxyhao.github.io/post/ce-shi-fen-ye-3">
-        </link>
-        <updated>2019-12-13T07:09:50.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[测试分页2]]></title>
-        <id>https://hsxyhao.github.io/post/ce-shi-fen-ye-2</id>
-        <link href="https://hsxyhao.github.io/post/ce-shi-fen-ye-2">
-        </link>
-        <updated>2019-12-13T07:09:40.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[测试分页1]]></title>
-        <id>https://hsxyhao.github.io/post/ce-shi-fen-ye-1</id>
-        <link href="https://hsxyhao.github.io/post/ce-shi-fen-ye-1">
-        </link>
-        <updated>2019-12-13T07:09:27.000Z</updated>
-    </entry>
     <entry>
         <title type="html"><![CDATA[消息队列学习开篇]]></title>
         <id>https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian</id>
@@ -118,6 +41,97 @@
 <blockquote>
 <p>不要纠结这些专业术语了，我们了解消息队列主要用来业务上的问题的，老是按照专业的角度去理解多费事😜</p>
 </blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Redis淘汰机制]]></title>
+        <id>https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi</id>
+        <link href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi">
+        </link>
+        <updated>2019-12-05T06:01:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>redis淘汰策略有哪些？lru、lfu，lru算法改进</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>redis淘汰策略有哪些？lru、lfu，lru算法改进</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Vim命令]]></title>
+        <id>https://hsxyhao.github.io/post/vim-ming-ling-ji-lu</id>
+        <link href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu">
+        </link>
+        <updated>2019-12-05T01:00:51.000Z</updated>
+        <summary type="html"><![CDATA[<p>记录让自己尴尬的vim命令😫</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>记录让自己尴尬的vim命令😫</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Redis高可用]]></title>
+        <id>https://hsxyhao.github.io/post/redis-gao-ke-yong</id>
+        <link href="https://hsxyhao.github.io/post/redis-gao-ke-yong">
+        </link>
+        <updated>2019-11-23T09:51:53.000Z</updated>
+        <summary type="html"><![CDATA[<p>Redis的高可用实现方案有哪些，为什么要选择官方的哨兵模式，自己开发自动化故障转移脚本有什么问题。redis cluster重定向有几种？redis数据分区...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Redis的高可用实现方案有哪些，为什么要选择官方的哨兵模式，自己开发自动化故障转移脚本有什么问题。redis cluster重定向有几种？redis数据分区...</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Redis复制]]></title>
+        <id>https://hsxyhao.github.io/post/redis-copy</id>
+        <link href="https://hsxyhao.github.io/post/redis-copy">
+        </link>
+        <updated>2019-11-19T08:19:22.000Z</updated>
+        <summary type="html"><![CDATA[<p>什么是redis的复制，为什么要有复制功能，全量复制有什么问题，部分复制又解决了哪些问题。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>什么是redis的复制，为什么要有复制功能，全量复制有什么问题，部分复制又解决了哪些问题。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Redis 持久化]]></title>
+        <id>https://hsxyhao.github.io/post/redis-chi-jiu-hua</id>
+        <link href="https://hsxyhao.github.io/post/redis-chi-jiu-hua">
+        </link>
+        <updated>2019-11-16T09:04:43.000Z</updated>
+        <summary type="html"><![CDATA[<p>持久化有哪几种方式，各有什么问题。每种持久化的流程是什么样的，AOF重写是什么机制，解决了什么问题，fork底层函数，COW机制。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>持久化有哪几种方式，各有什么问题。每种持久化的流程是什么样的，AOF重写是什么机制，解决了什么问题，fork底层函数，COW机制。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Redis入门知识点]]></title>
+        <id>https://hsxyhao.github.io/post/rui-shi-jun-dao-redis</id>
+        <link href="https://hsxyhao.github.io/post/rui-shi-jun-dao-redis">
+        </link>
+        <updated>2019-11-14T07:49:23.000Z</updated>
+        <summary type="html"><![CDATA[<p>redis有哪些基础数据结构，什么是快速链表，什么是跳跃链表，使用redis特有的数据类型可以实现哪些有趣的功能。</p>
+<blockquote>
+<p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1576199763145.png" alt=""></figure>
+<p>上面一段话取自Redis官方的介绍，为什么要把它放在这里，我觉得这是介绍Redis最为标准的一段话，从用途、数据结构已经功能等多方面介绍，如果以后面试官叫你介绍下redis的话，我觉得可以直接把这段话背下来😌。至于为什么把Redis称为瑞士军刀，相信用过redis的人都会这么认为。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>redis有哪些基础数据结构，什么是快速链表，什么是跳跃链表，使用redis特有的数据类型可以实现哪些有趣的功能。</p>
+<blockquote>
+<p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1576199763145.png" alt=""></figure>
+<p>上面一段话取自Redis官方的介绍，为什么要把它放在这里，我觉得这是介绍Redis最为标准的一段话，从用途、数据结构已经功能等多方面介绍，如果以后面试官叫你介绍下redis的话，我觉得可以直接把这段话背下来😌。至于为什么把Redis称为瑞士军刀，相信用过redis的人都会这么认为。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Gridea搭建个人博客]]></title>
+        <id>https://hsxyhao.github.io/post/gridea-setup</id>
+        <link href="https://hsxyhao.github.io/post/gridea-setup">
+        </link>
+        <updated>2019-11-13T05:47:44.000Z</updated>
+        <summary type="html"><![CDATA[<p>上大学的时候一直想弄一个博客系统，但是当时自己还是初学者，根本完不成，心想着等到以后技术长进一点之后准备弄一个，可是一直等到现在都没有弄起来。期间也玩过hexo、typecho等静态博客平台，但是当时没有好好管理，搭建好的博客在服务器到期后就没再弄了。无意间在掘金上看到了<a href="https://gridea.dev/">Gridea</a>，进入官网后发现颜值还挺高的，后面慢慢的了解后，才发现目前还是个小众平台，主题以及平台的功能都还不完善。但是平台提供写文章的功能还不错(好像当时没有使用hexo就是因为没有一个写文章的地方)，后来就决定使用它了。<br>
+<img src="https://hsxyhao.github.io/post-images/1576203380178.png" alt=""><br>
+顺带一张高颜值的美图欣赏一下🤣</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>上大学的时候一直想弄一个博客系统，但是当时自己还是初学者，根本完不成，心想着等到以后技术长进一点之后准备弄一个，可是一直等到现在都没有弄起来。期间也玩过hexo、typecho等静态博客平台，但是当时没有好好管理，搭建好的博客在服务器到期后就没再弄了。无意间在掘金上看到了<a href="https://gridea.dev/">Gridea</a>，进入官网后发现颜值还挺高的，后面慢慢的了解后，才发现目前还是个小众平台，主题以及平台的功能都还不完善。但是平台提供写文章的功能还不错(好像当时没有使用hexo就是因为没有一个写文章的地方)，后来就决定使用它了。<br>
+<img src="https://hsxyhao.github.io/post-images/1576203380178.png" alt=""><br>
+顺带一张高颜值的美图欣赏一下🤣</p>
 ]]></content>
     </entry>
 </feed>

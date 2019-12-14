@@ -153,16 +153,16 @@ body {
 .sidebar {
   margin-top: 310px;
   box-shadow: none;
+  width: 240px;
 }
 .sidebar-wrapper {
-  width: auto;
-  width: 240px;
-  box-sizing: border-box;
   color: #555;
   background: #fff;
   box-shadow: initial;
   border-radius: initial;
   padding: 20px 10px;
+  box-sizing: border-box;
+  transition: opacity 0.1s ease-in-out;
 }
 .footer-box {
   position: relative;
@@ -738,6 +738,7 @@ li {
 .sidebar-fixed {
   position: fixed;
   top: 0px;
+  width: 240px;
 }
 .post-list-sidebar {
   position: relative;
@@ -755,6 +756,9 @@ li {
   color: #555;
   padding: 0 5px;
   margin-right: 10px;
+}
+.sidebar-title-item:hover {
+  color: #fc6423;
 }
 .sidebar-title-active {
   color: #fc6423;
