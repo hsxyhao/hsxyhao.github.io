@@ -117,13 +117,8 @@
     <div class="main-continer">
       <div class="section-layout">
         <div class="section-layout-wrapper">
-          
-<div class="sidebar">
-  <div class="sidebar-wrapper" id="sidebar" style="opacity: 0">
-    
-    <div class="post-sidebar-body">
-      
-        <div class="sidebar-wrapper">
+          <div class="sidebar">
+    <div class="sidebar-wrapper">
   <div class="sidebar-item">
     <img class="site-author-image" src="https://hsxyhao.github.io/images/avatar.png"/>
     <p class="site-author-name">Madara</p>
@@ -174,113 +169,64 @@
     </div>
   </div>
 </div>
-      
-    </div>
-  </div>
 </div>
-<script>
-  let sidebar = document.querySelector('#sidebar');
-  let limitTop = sidebar.offsetTop;
-  let hasFix = false;
-  window.addEventListener('scroll', function(e) {
-    if (document.body.scrollTop >= limitTop) {
-      if (!hasFix) {
-        sidebar.classList.add('sidebar-fixed');
-        hasFix = true;
-      }
-    } else {
-      if (hasFix) {
-        sidebar.classList.remove('sidebar-fixed');
-        hasFix = false;
-      }
-    }
-  });
-</script>
           <div class="section-box">
-            <div class="section">
-              <div class="article-box">
-    <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://hsxyhao.github.io/post/ce-shi-fen-ye-5">
-      测试分页5
-    </a>
-  </h1>
-  <div class="post-meta">
-    <span class="meta-item">
-      <i class="iconfont icon-calendar_empty"></i>
-      <span class="pc-show">发布于</span>
-      <span>2019-12-13</span>
-    </span>
+            <section class="section posts-expand">
+              <div class="tag-timeline-box">
+  <div class="tag-timeline-wrapper">
+    <div class="tag-timeline-title">
+      <h2>
+        Test
+        <small>标签</small>
+      </h2>
+    </div>
     
-      <span class="meta-item">
-        <span class="post-meta-divider">|</span>
-        <i class="iconfont icon-folder_open_alt"></i>
-        <span class="pc-show">分类于</span>
+      
         
-          
-            <a href="https://hsxyhao.github.io/tag/test">
-              <span>Test</span>
-            </a>
-          
+          <a href="https://hsxyhao.github.io/post/ce-shi-fen-ye-1">
+            <article class="tag-node">
+              <h1>
+                12-13
+                <small>微博、微信公众号开放API</small>
+              </h1>
+            </article>  
+          </a>
         
-      </span>
+      
     
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="iconfont icon-time"></i>
-      <span>1分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">4字数</span>
-    </span>
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
   </div>
-</header>
 </div>
-              <div class="post-body" id="post_body">
-                <p>测试分页</p>
-
-              </div>
-              <div class="post-footer">
-                <ul class="post-copyright">
-                  <li class="post-copyright-author">
-                    <strong>本文作者：</strong>
-                    Madara
-                  </li>
-                  <li class="post-copyright-link">
-                    <strong>本文链接：</strong>
-                    <a href="https://hsxyhao.github.io/post/ce-shi-fen-ye-5" title="测试分页5">https://hsxyhao.github.io/post/ce-shi-fen-ye-5</a>
-                  </li>
-                  <li class="post-copyright-license">
-                    <strong>版权声明： </strong>
-                    本博客所有文章除特别声明外,转载请注明出处！
-                  </li>
-                </ul>
-              </div>
-              
-                
-                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-  var gitalk = new Gitalk({
-    clientID: '7daf0c9da2ee9a72ecba',
-    clientSecret: '39e3424bd496a5d8dcdbb618c370897256810975',
-    repo: 'hsxyhao.github.io',
-    owner: 'hsxyhao',
-    admin: ['hsxyhao'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-  gitalk.render('gitalk-container')
-</script>
-                
-                
-              
-            </div>
+            </section>
           </div>
         </div>
       </div>

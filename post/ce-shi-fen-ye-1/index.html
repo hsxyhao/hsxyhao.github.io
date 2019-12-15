@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576340376919">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576400078092">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -131,20 +131,20 @@
   </div>
   <div class="sidebar-item side-item-stat">
     <div class="sidebar-item-box">
-      <a href="">
-        <span class="site-item-stat-count">8</span>
+      <a href="/archives/">
+        <span class="site-item-stat-count">9</span>
         <span class="site-item-stat-name">日志</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-count">4</span>
         <span class="site-item-stat-name">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
-      <a href="">
-        <span class="site-item-stat-count">3</span>
+      <a href="/tags/">
+        <span class="site-item-stat-count">4</span>
         <span class="site-item-stat-name">标签</span>
       </a>
     </div>
@@ -157,7 +157,7 @@
   </div>
   <div class="sidebar-item sidebar-item-social">
     <div class="social-item">
-      <a href="">
+      <a href="https://www.github.com/hsxyhao">
         <i class="iconfont icon-github"></i> GitHub
       </a>
       <a href="">
@@ -202,7 +202,7 @@
     <header class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://hsxyhao.github.io/post/ce-shi-fen-ye-1">
-      测试分页1
+      微博、微信公众号开放API
     </a>
   </h1>
   <div class="post-meta">
@@ -228,18 +228,212 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-time"></i>
-      <span>1分钟</span>
+      <span>5分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">5字数</span>
+      <span class="pc-show">1297字数</span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body" id="post_body">
-                <p>测试分页1</p>
+                <p><a href="https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Receiving_standard_messages.html">微信公众号开发者接口</a></p>
+<table>
+<thead>
+<tr>
+<th>接口类型</th>
+<th>接口描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>接收普通消息</td>
+<td>当普通微信用户向公众账号发消息时，微信服务器将POST消息的XML数据包到开发者填写的URL上。</td>
+</tr>
+<tr>
+<td>接收时间推送</td>
+<td>在微信用户和公众号产生交互的过程中，用户的某些操作会使得微信服务器通过事件推送的形式通知到开发者在开发者中心处设置的服务器地址，从而开发者可以获取到该信息。</td>
+</tr>
+<tr>
+<td>被动回复用户信息</td>
+<td>当用户发送消息给公众号时（或某些特定的用户操作引发的事件推送时），会产生一个POST请求，开发者可以在响应包（Get）中返回特定XML结构，来对该消息进行响应（现支持回复文本、图片、图文、语音、视频、音乐）。严格来说，发送被动响应消息其实并不是一种接口，而是对微信服务器发过来消息的一次回复。</td>
+</tr>
+<tr>
+<td>客服消息</td>
+<td>当用户和公众号产生特定动作的交互时（具体动作列表请见下方说明），微信将会把消息数据推送给开发者，开发者可以在一段时间内（目前修改为48小时）调用客服接口，通过POST一个JSON数据包来发送消息给普通用户。此接口主要用于客服等有人工消息处理环节的功能，方便开发者为用户提供更加优质的服务。</td>
+</tr>
+<tr>
+<td>群发接口和原创校验</td>
+<td>在公众平台网站上，为订阅号提供了每天一条的群发权限，为服务号提供每月（自然月）4条的群发权限。而对于某些具备开发能力的公众号运营者，可以通过高级群发接口，实现更灵活的群发能力。</td>
+</tr>
+<tr>
+<td>模板消息接口</td>
+<td>模板消息仅用于公众号向用户发送重要的服务通知，只能用于符合其要求的服务场景中，如信用卡刷卡通知，商品购买成功通知等。</td>
+</tr>
+<tr>
+<td>一次性订阅消息</td>
+<td>开发者可以通过一次性订阅消息授权让微信用户授权第三方移动应用（接入说明）或公众号，获得发送一次订阅消息给到授权微信用户的机会。授权微信用户可以不需要关注公众号。微信用户每授权一次，开发者可获得一次下发消息的权限。</td>
+</tr>
+<tr>
+<td>模板消息运营规范</td>
+<td>模板消息用来帮助公众号进行业务通知，是开发者在模板内容中设定参数（参数必须以“{ {”开头，且以“.DATA} }”结尾），并在调用时为这些参数赋值并发送的消息。模板消息的定位是用户触发后的通知消息，不允许在用户没做任何操作或未经用户同意接收的前提下，主动下发消息给用户。</td>
+</tr>
+<tr>
+<td>接口调用频次限制说明</td>
+<td>公众号调用接口并不是无限制的。为了防止公众号的程序错误而引发微信服务器负载异常，默认情况下，每个公众号调用接口都不能超过一定限制，当超过一定限制时，调用对应接口会收到如下错误返回码</td>
+</tr>
+<tr>
+<td>获取公众号自动回复规则</td>
+<td>开发者可以通过该接口，获取公众号当前使用的自动回复规则，包括关注后自动回复、消息自动回复（60分钟内触发一次）、关键词自动回复</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://open.weibo.com/wiki/%E5%BE%AE%E5%8D%9AAPI#.E5.BE.AE.E5.8D.9A">微博开发者接口文档</a></p>
+<table>
+<thead>
+<tr>
+<th>接口类型</th>
+<th>接口信息</th>
+<th>接口描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读取接口</td>
+<td>接收消息</td>
+<td>接收用户私信、关注、取消关注、@等消息接口</td>
+</tr>
+<tr>
+<td>写入接口</td>
+<td>发送消息</td>
+<td>向用户回复私信消息接口</td>
+</tr>
+<tr>
+<td></td>
+<td>生成带参数的二维码</td>
+<td>生成带参数的二维码接口</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>接口类型</th>
+<th>接口信息</th>
+<th>接口描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读取接口</td>
+<td>statuses/home_timeline</td>
+<td>获取当前登录用户及其所关注用户的最新微博</td>
+</tr>
+<tr>
+<td></td>
+<td>statuses/user_timeline</td>
+<td>获取用户发布的微博</td>
+</tr>
+<tr>
+<td></td>
+<td>statuses/repost_timeline</td>
+<td>返回一条原创微博的最新转发微博</td>
+</tr>
+<tr>
+<td></td>
+<td>statuses/mentions</td>
+<td>获取@当前用户的最新微博</td>
+</tr>
+<tr>
+<td></td>
+<td>statuses/show</td>
+<td>根据ID获取单条微博信息</td>
+</tr>
+<tr>
+<td></td>
+<td>statuses/count</td>
+<td>批量获取指定微博的转发数评论数</td>
+</tr>
+<tr>
+<td></td>
+<td>statuses/go</td>
+<td>根据ID跳转到单条微博页</td>
+</tr>
+<tr>
+<td></td>
+<td>emotions</td>
+<td>获取官方表情</td>
+</tr>
+<tr>
+<td>写入接口</td>
+<td>statuses/share</td>
+<td>第三方分享链接到微博</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>接口类型</th>
+<th>接口信息</th>
+<th>接口描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读取接口</td>
+<td>comments/show</td>
+<td>获取某条微博的评论列表</td>
+</tr>
+<tr>
+<td></td>
+<td>comments/by_me</td>
+<td>我发出的评论列表</td>
+</tr>
+<tr>
+<td></td>
+<td>comments/to_me</td>
+<td>我收到的评论列表</td>
+</tr>
+<tr>
+<td></td>
+<td>comments/timeline</td>
+<td>获取用户发送及收到的评论列表</td>
+</tr>
+<tr>
+<td></td>
+<td>comments/mentions</td>
+<td>获取@到我的评论</td>
+</tr>
+<tr>
+<td></td>
+<td>comments/show_batch</td>
+<td>批量获取评论内容</td>
+</tr>
+<tr>
+<td>写入接口</td>
+<td>comments/create</td>
+<td>评论一条微博</td>
+</tr>
+<tr>
+<td></td>
+<td>comments/destroy</td>
+<td>删除一条我的评论</td>
+</tr>
+<tr>
+<td></td>
+<td>comments/destroy_batch</td>
+<td>批量删除我的评论</td>
+</tr>
+<tr>
+<td></td>
+<td>comments/reply</td>
+<td>回复一条我收到的评论</td>
+</tr>
+</tbody>
+</table>
 
               </div>
               <div class="post-footer">
@@ -250,7 +444,7 @@
                   </li>
                   <li class="post-copyright-link">
                     <strong>本文链接：</strong>
-                    <a href="https://hsxyhao.github.io/post/ce-shi-fen-ye-1" title="测试分页1">https://hsxyhao.github.io/post/ce-shi-fen-ye-1</a>
+                    <a href="https://hsxyhao.github.io/post/ce-shi-fen-ye-1" title="微博、微信公众号开放API">https://hsxyhao.github.io/post/ce-shi-fen-ye-1</a>
                   </li>
                   <li class="post-copyright-license">
                     <strong>版权声明： </strong>
