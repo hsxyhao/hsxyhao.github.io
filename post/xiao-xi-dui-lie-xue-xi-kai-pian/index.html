@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576468648951">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576491516474">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -147,6 +147,7 @@
 <li><a href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">如何选择消息队列</a>
 <ul>
 <li><a href="#%E9%98%9F%E5%88%97">队列</a></li>
+<li><a href="#%E6%B6%88%E8%B4%B9%E6%A8%A1%E5%BC%8F">消费模式</a></li>
 </ul>
 </li>
 </ul>
@@ -308,19 +309,19 @@ window.addEventListener('load', function() {
   <div class="sidebar-item side-item-stat">
     <div class="sidebar-item-box">
       <a href="/archives/">
-        <span class="site-item-stat-count">9</span>
+        <span class="site-item-stat-count">8</span>
         <span class="site-item-stat-name">日志</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-count">3</span>
         <span class="site-item-stat-name">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-count">3</span>
         <span class="site-item-stat-name">标签</span>
       </a>
     </div>
@@ -392,12 +393,12 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-time"></i>
-      <span>6分钟</span>
+      <span>7分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">1725字数</span>
+      <span class="pc-show">2006字数</span>
     </span>
   </div>
 </header>
@@ -453,12 +454,19 @@ window.addEventListener('load', function() {
 </li>
 <li>
 <p>回退队列<br>
-正常的队列在消息被消费发生异常时，没有进行ack，那么消息永远处于队列顶端，这个时候异常的消息会阻碍其他消息被消费。如果为这个队列设置</p>
+正常的队列在消息被消费发生异常时，消息会被回退，这个时候消费者在此消费被回退的消息继续发生异常回退，反复回退消费，那么消息永远处于队列顶端，阻碍了其他消息被消费。如果为这个正常的队列设置一个回退队列，发生上述情况时，将消息放入回退队列中，这样就不会阻碍其他消息被消费了。</p>
 </li>
 <li>
-<p>重试队列</p>
+<p>重试队列<br>
+重试队列是指发生异常消费时，将消息添加到重试队列，达到重新投递延迟后在此被消费者消费。重试队列分为很多等级，每一个等级的投递延迟都不一样，被消费异常的消息随着重试的次数增加会被回退到更高等级的重试队列，意味着重试次数越多再次投递越久。当消息重试次数达到上限后，就会被放入到死信队列。</p>
 </li>
 </ol>
+<blockquote>
+<p>延迟队列和重试队列都有投递延迟，但是两者却有着本质的却别，延迟队列只会投递一次，并且由消息队列内部触发；重试队列会投递很多次但是有上线限制，并且由消费者控制。</p>
+</blockquote>
+<h3 id="消费模式">消费模式</h3>
+<p>推(Push)模式<br>
+拉(Pull)模式</p>
 <h1 id="总结">总结</h1>
 <p>对于一名初学者来说，要想从一个上帝的视角介绍所有的消息队列，显然是不可能的，本片文章大部分摘自朱小厮的<a href="https://mp.weixin.qq.com/s/ad7jibTb5nTzh3nDQYKFeg">消息中间件选型分析</a>，把看过的心得体会记录下来。😍强烈推荐看一遍😍</p>
 
@@ -483,9 +491,6 @@ window.addEventListener('load', function() {
   </div>
   <div class="nav">
     <div class="nav-prev">
-      
-        <i class="iconfont icon-angle_left"></i>
-        <a href="https://hsxyhao.github.io/post/ce-shi-fen-ye-1">微博、微信公众号开放API</a>
       
     </div>
     <div class="nav-next">

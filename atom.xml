@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2019-12-16T07:23:32.688Z</updated>
+    <updated>2019-12-16T10:19:14.947Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -10,13 +10,6 @@
     <logo>https://hsxyhao.github.io/images/avatar.png</logo>
     <icon>https://hsxyhao.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Madara</rights>
-    <entry>
-        <title type="html"><![CDATA[微博、微信公众号开放API]]></title>
-        <id>https://hsxyhao.github.io/post/ce-shi-fen-ye-1</id>
-        <link href="https://hsxyhao.github.io/post/ce-shi-fen-ye-1">
-        </link>
-        <updated>2019-12-13T07:09:27.000Z</updated>
-    </entry>
     <entry>
         <title type="html"><![CDATA[消息队列学习开篇]]></title>
         <id>https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian</id>
@@ -56,9 +49,37 @@
         <link href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi">
         </link>
         <updated>2019-12-05T06:01:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>redis淘汰策略有哪些？lru、lfu，lru算法改进</p>
+        <summary type="html"><![CDATA[<p>说到redis的内存淘汰机制，然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似redis的内存淘汰机制了。</p>
+<h1 id="淘汰策略">淘汰策略</h1>
+<p>redis的内存淘汰机制就是为了淘汰掉一些数据，保证redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
+<ul>
+<li>noeviction 不进行任何淘汰操作，当内存不够时写命令会报错</li>
+<li>allkeys-lru 在所有的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>volatile-lru 在设置过期时间的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>allkeys-random 在所有的key中随机移除某个key</li>
+<li>volatile-random 在设置了过期时间的key中随机移除某个key</li>
+<li>volatile-ttl 在设置了过期时间的key中，删除过期时间最早的key</li>
+<li>allkeys-lfu 在所有的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+<li>volatile-lfu 在设置过期时间的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+</ul>
+<p><strong>备注</strong><br>
+这里删除的key其实只删除一个，这是因为redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>redis淘汰策略有哪些？lru、lfu，lru算法改进</p>
+        <content type="html"><![CDATA[<p>说到redis的内存淘汰机制，然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似redis的内存淘汰机制了。</p>
+<h1 id="淘汰策略">淘汰策略</h1>
+<p>redis的内存淘汰机制就是为了淘汰掉一些数据，保证redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
+<ul>
+<li>noeviction 不进行任何淘汰操作，当内存不够时写命令会报错</li>
+<li>allkeys-lru 在所有的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>volatile-lru 在设置过期时间的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>allkeys-random 在所有的key中随机移除某个key</li>
+<li>volatile-random 在设置了过期时间的key中随机移除某个key</li>
+<li>volatile-ttl 在设置了过期时间的key中，删除过期时间最早的key</li>
+<li>allkeys-lfu 在所有的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+<li>volatile-lfu 在设置过期时间的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+</ul>
+<p><strong>备注</strong><br>
+这里删除的key其实只删除一个，这是因为redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
 ]]></content>
     </entry>
     <entry>
@@ -67,9 +88,11 @@
         <link href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu">
         </link>
         <updated>2019-12-05T01:00:51.000Z</updated>
-        <summary type="html"><![CDATA[<p>记录让自己尴尬的vim命令😫</p>
+        <summary type="html"><![CDATA[<p>今天在公司领导问了个vim的命令，当时脑子一片空白，一时间语无伦次，场面甚是尴尬，真是书到用时方恨少啊！😰<br>
+作为一名后端开发，在日常开发的过程中肯定会接触到使用vim快捷命令，基本上都是用到的时候直接度娘，虽然会接触到一些常用的vim命令，毕竟不是运维，过段时间基本上会再次忘掉，下次在遇见的时候在度娘。期间难免会耽搁不少时间。但是我觉得特地学一下vim，又感觉有点力不从心，上班不比上学，不是每天都可以划水。最后想了县该是觉得把用到的vim命令记录下来，方便下次查阅，后面有时间的时候也翻一下，就当做记单词了吧。</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>记录让自己尴尬的vim命令😫</p>
+        <content type="html"><![CDATA[<p>今天在公司领导问了个vim的命令，当时脑子一片空白，一时间语无伦次，场面甚是尴尬，真是书到用时方恨少啊！😰<br>
+作为一名后端开发，在日常开发的过程中肯定会接触到使用vim快捷命令，基本上都是用到的时候直接度娘，虽然会接触到一些常用的vim命令，毕竟不是运维，过段时间基本上会再次忘掉，下次在遇见的时候在度娘。期间难免会耽搁不少时间。但是我觉得特地学一下vim，又感觉有点力不从心，上班不比上学，不是每天都可以划水。最后想了县该是觉得把用到的vim命令记录下来，方便下次查阅，后面有时间的时候也翻一下，就当做记单词了吧。</p>
 ]]></content>
     </entry>
     <entry>
@@ -90,8 +113,24 @@
         </link>
         <updated>2019-11-19T08:19:22.000Z</updated>
         <summary type="html"><![CDATA[<p>什么是redis的复制，为什么要有复制功能，全量复制有什么问题，部分复制又解决了哪些问题。</p>
+<p>复制就是将redis节点中的数据复制完同步到其他节点中，在redis中参与复制一般有主节点(master)以及从节点(slave)，将数据从主节点复制到从节点，并且复制的方式是单向的，不能逆向复制，在建立复制关系之后主节点的数据会同步到从节点直到解除主从关系。不论是哨兵模式还是redis集群都是在复制的基础上完成的。</p>
+<p><strong>记忆点</strong></p>
+<ol>
+<li>使用方式：建立、断开复制、安全性、只读性</li>
+<li>适用场景：哨兵、集群</li>
+<li>复制原理：建立复制、全量复制、部分复制、心跳</li>
+<li>常见问题：读写分离、数据不一致、避免全量复制</li>
+</ol>
 ]]></summary>
         <content type="html"><![CDATA[<p>什么是redis的复制，为什么要有复制功能，全量复制有什么问题，部分复制又解决了哪些问题。</p>
+<p>复制就是将redis节点中的数据复制完同步到其他节点中，在redis中参与复制一般有主节点(master)以及从节点(slave)，将数据从主节点复制到从节点，并且复制的方式是单向的，不能逆向复制，在建立复制关系之后主节点的数据会同步到从节点直到解除主从关系。不论是哨兵模式还是redis集群都是在复制的基础上完成的。</p>
+<p><strong>记忆点</strong></p>
+<ol>
+<li>使用方式：建立、断开复制、安全性、只读性</li>
+<li>适用场景：哨兵、集群</li>
+<li>复制原理：建立复制、全量复制、部分复制、心跳</li>
+<li>常见问题：读写分离、数据不一致、避免全量复制</li>
+</ol>
 ]]></content>
     </entry>
     <entry>
@@ -101,8 +140,24 @@
         </link>
         <updated>2019-11-16T09:04:43.000Z</updated>
         <summary type="html"><![CDATA[<p>持久化有哪几种方式，各有什么问题。每种持久化的流程是什么样的，AOF重写是什么机制，解决了什么问题，fork底层函数，COW机制。</p>
+<h1 id="面试">面试</h1>
+<p>在面试的时候如果被问到Redis持久化的时候，怎么回答比较好？我想从以下几个角度展开，一定会让面试官眼前一亮。</p>
+<ul>
+<li>RDB冷备份以及AOF热备份</li>
+<li>fork函数</li>
+<li>COW（Copy on write）写时复制机制</li>
+<li>AOF命令重写</li>
+</ul>
 ]]></summary>
         <content type="html"><![CDATA[<p>持久化有哪几种方式，各有什么问题。每种持久化的流程是什么样的，AOF重写是什么机制，解决了什么问题，fork底层函数，COW机制。</p>
+<h1 id="面试">面试</h1>
+<p>在面试的时候如果被问到Redis持久化的时候，怎么回答比较好？我想从以下几个角度展开，一定会让面试官眼前一亮。</p>
+<ul>
+<li>RDB冷备份以及AOF热备份</li>
+<li>fork函数</li>
+<li>COW（Copy on write）写时复制机制</li>
+<li>AOF命令重写</li>
+</ul>
 ]]></content>
     </entry>
     <entry>

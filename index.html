@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576468648951">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576491516474">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -127,19 +127,19 @@
   <div class="sidebar-item side-item-stat">
     <div class="sidebar-item-box">
       <a href="/archives/">
-        <span class="site-item-stat-count">9</span>
+        <span class="site-item-stat-count">8</span>
         <span class="site-item-stat-name">日志</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-count">3</span>
         <span class="site-item-stat-name">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-count">3</span>
         <span class="site-item-stat-name">标签</span>
       </a>
     </div>
@@ -176,62 +176,6 @@
   <article class="post-list-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://hsxyhao.github.io/post/ce-shi-fen-ye-1">
-      微博、微信公众号开放API
-    </a>
-  </h1>
-  <div class="post-meta">
-    <span class="meta-item">
-      <i class="iconfont icon-calendar_empty"></i>
-      <span class="pc-show">发布于</span>
-      <span>2019-12-13</span>
-    </span>
-    
-      <span class="meta-item">
-        <span class="post-meta-divider">|</span>
-        <i class="iconfont icon-folder_open_alt"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://hsxyhao.github.io/tag/test">
-              <span>Test</span>
-            </a>
-          
-        
-      </span>
-    
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="iconfont icon-time"></i>
-      <span>5分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">1297字数</span>
-    </span>
-  </div>
-</header>
-    <div class="post-body">
-      
-      <!--noindex-->
-      
-      <div class="post-button text-center">
-        <a class="btn" href="https://hsxyhao.github.io/post/ce-shi-fen-ye-1" rel="contents">
-          阅读全文 »
-        </a>
-      </div>
-      <!--/noindex-->
-      
-    </div>
-    <footer class="post-footer">
-      <div class="post-eof"></div>
-    </footer>
-  </article>
-
-  <article class="post-list-box">
-    <header class="post-header">
-  <h1 class="post-title">
     <a class="post-title-link" href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian">
       消息队列学习开篇
     </a>
@@ -246,12 +190,12 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-time"></i>
-      <span>6分钟</span>
+      <span>7分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">1725字数</span>
+      <span class="pc-show">2006字数</span>
     </span>
   </div>
 </header>
@@ -319,17 +263,89 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">2595字数</span>
+      <span class="pc-show">2582字数</span>
     </span>
   </div>
 </header>
     <div class="post-body">
-      <p>redis淘汰策略有哪些？lru、lfu，lru算法改进</p>
+      <p>说到redis的内存淘汰机制，然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似redis的内存淘汰机制了。</p>
+<h1 id="淘汰策略">淘汰策略</h1>
+<p>redis的内存淘汰机制就是为了淘汰掉一些数据，保证redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
+<ul>
+<li>noeviction 不进行任何淘汰操作，当内存不够时写命令会报错</li>
+<li>allkeys-lru 在所有的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>volatile-lru 在设置过期时间的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>allkeys-random 在所有的key中随机移除某个key</li>
+<li>volatile-random 在设置了过期时间的key中随机移除某个key</li>
+<li>volatile-ttl 在设置了过期时间的key中，删除过期时间最早的key</li>
+<li>allkeys-lfu 在所有的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+<li>volatile-lfu 在设置过期时间的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+</ul>
+<p><strong>备注</strong><br>
+这里删除的key其实只删除一个，这是因为redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
 
       <!--noindex-->
       
       <div class="post-button text-center">
         <a class="btn" href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi" rel="contents">
+          阅读全文 »
+        </a>
+      </div>
+      <!--/noindex-->
+      
+    </div>
+    <footer class="post-footer">
+      <div class="post-eof"></div>
+    </footer>
+  </article>
+
+  <article class="post-list-box">
+    <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu">
+      Vim命令
+    </a>
+  </h1>
+  <div class="post-meta">
+    <span class="meta-item">
+      <i class="iconfont icon-calendar_empty"></i>
+      <span class="pc-show">发布于</span>
+      <span>2019-12-05</span>
+    </span>
+    
+      <span class="meta-item">
+        <span class="post-meta-divider">|</span>
+        <i class="iconfont icon-folder_open_alt"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://hsxyhao.github.io/tag/Vim">
+              <span>Vim</span>
+            </a>
+          
+        
+      </span>
+    
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="iconfont icon-time"></i>
+      <span>1分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="iconfont icon-keyboard"></i>
+      <span class="pc-show">273字数</span>
+    </span>
+  </div>
+</header>
+    <div class="post-body">
+      <p>今天在公司领导问了个vim的命令，当时脑子一片空白，一时间语无伦次，场面甚是尴尬，真是书到用时方恨少啊！😰<br>
+作为一名后端开发，在日常开发的过程中肯定会接触到使用vim快捷命令，基本上都是用到的时候直接度娘，虽然会接触到一些常用的vim命令，毕竟不是运维，过段时间基本上会再次忘掉，下次在遇见的时候在度娘。期间难免会耽搁不少时间。但是我觉得特地学一下vim，又感觉有点力不从心，上班不比上学，不是每天都可以划水。最后想了县该是觉得把用到的vim命令记录下来，方便下次查阅，后面有时间的时候也翻一下，就当做记单词了吧。</p>
+
+      <!--noindex-->
+      
+      <div class="post-button text-center">
+        <a class="btn" href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu" rel="contents">
           阅读全文 »
         </a>
       </div>
