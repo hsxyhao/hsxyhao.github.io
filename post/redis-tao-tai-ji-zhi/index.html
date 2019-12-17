@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576551773078">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576555466222">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -382,7 +382,7 @@ window.addEventListener('load', function() {
     <header class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi">
-      Redis淘汰机制
+      c淘汰机制
     </a>
   </h1>
   <div class="post-meta">
@@ -419,9 +419,9 @@ window.addEventListener('load', function() {
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <p>说到redis的内存淘汰机制，然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似redis的内存淘汰机制了。</p>
+                <p>说到Redis的内存淘汰机制，然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似Redis的内存淘汰机制了。</p>
 <h1 id="淘汰策略">淘汰策略</h1>
-<p>redis的内存淘汰机制就是为了淘汰掉一些数据，保证redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
+<p>Redis的内存淘汰机制就是为了淘汰掉一些数据，保证Redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
 <ul>
 <li>noeviction 不进行任何淘汰操作，当内存不够时写命令会报错</li>
 <li>allkeys-lru 在所有的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
@@ -433,12 +433,12 @@ window.addEventListener('load', function() {
 <li>volatile-lfu 在设置过期时间的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
 </ul>
 <p><strong>备注</strong><br>
-这里删除的key其实只删除一个，这是因为redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
+这里删除的key其实只删除一个，这是因为Redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
 <!-- more -->
 <h1 id="lru算法">LRU算法</h1>
 <p>LRU（Least Recently Used）算法，即最近最少使用使用策略，淘汰掉最近最少使用的key。想要实现LRU算法很简单，只需要为每个key添加一个最近使用时间，在内存达到上限后，添加新的key时遍历所有key剔除空闲时间(idle time)最大的，访问频率最低的可以。或者可以使用另外一种方式，将所有的key放进一个队列中，如果达到内存上线，只需要将队尾的key剔除就行了。</p>
 <blockquote>
-<p>不论是上述的哪种实现方式，如果直接运用在redis中，都会影响性能，这显然与redis的高性能相悖。所以redis中采用是一种近似LRU算法。</p>
+<p>不论是上述的哪种实现方式，如果直接运用在Redis中，都会影响性能，这显然与Redis的高性能相悖。所以Redis中采用是一种近似LRU算法。</p>
 </blockquote>
 <h2 id="lru算法由来">lru算法由来</h2>
 <p>如下图所示，分别有四个key，~代表1秒的时间间隔，第一条线A为五秒钟访问一次，第二条线B为2秒钟访问一次，第三条线C为10秒钟访问一次，第四条线D同样为10秒钟访问一次，只不过和C起始时间点不一样。|表示同一时间点，lru算法在置换key的时候会剔除空闲时间最大的key。根据lru算法的原理得知，在|时刻，D的空闲时间(idle time)是最小的，代表下一次最有可能访问的key是D，但是从整体上来看B是即将访问的key，虽然这种情况下lru算法会出现miss情况，但是在绝大多数的情况下还是可以按照期望运行的。</p>
@@ -552,7 +552,7 @@ unsigned long LFUGetTimeInMinutes(void) {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi" title="Redis淘汰机制">https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi</a>
+      <a href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi" title="c淘汰机制">https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
