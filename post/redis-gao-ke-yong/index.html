@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576491516474">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576551773078">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -306,6 +306,7 @@ window.addEventListener('load', function() {
     addTocNumber(tocContent, '');
   }
   document.querySelector('#sidebar').style='display: block;';
+  tocWrapper.classList.add('toc-active');
 })
 
 
@@ -328,13 +329,13 @@ window.addEventListener('load', function() {
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-count">5</span>
         <span class="site-item-stat-name">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-count">5</span>
         <span class="site-item-stat-name">标签</span>
       </a>
     </div>
@@ -429,7 +430,7 @@ window.addEventListener('load', function() {
   </div>
 </header>
 </div>
-              <div class="post-body next-mk-body" id="post_body">
+              <div class="post-body next-md-body" id="post_body">
                 <p>Redis的高可用实现方案有哪些，为什么要选择官方的哨兵模式，自己开发自动化故障转移脚本有什么问题。redis cluster重定向有几种？redis数据分区...</p>
 <!-- more -->
 <h1 id="主从复制的问题">主从复制的问题</h1>
