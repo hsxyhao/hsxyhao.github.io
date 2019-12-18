@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576637292471">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576637594786">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -202,6 +202,9 @@ function addTocNumber(elem, deep) {
 
 
 document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
   let scrollTop = document.body.scrollTop;
   let dir;
 
@@ -215,36 +218,40 @@ document.addEventListener('scroll', function(e) {
   if (scrollTop <= 0) {
     if (lastIndex >= 0 && lastIndex < hList.length) {
       lList[lastIndex].classList.remove(activeClass);
-      lastIndex = -1;
     }
     return;
   }
 
-  let current = 0;
+  let current = 0, hasFind = false;
   for (let i = 0; i < hList.length; i++) {
     if (hList[i].offsetTop > scrollTop) {
       current = i;
+      hasFind = true;
       break;
     }
   }
-  current--;
-    if (dir === 'down') {
-      if (current > lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex) 
-        lastIndex = current;
-        removeParentActiveClass();
-        addActiveLiElemment(lList[current].parentElement,tocContent);
-      }
-    } else {
-      if (current < lastIndex) {
-        addActiveClass(current);
-        removeActiveClass(lastIndex);
-        lastIndex = current;
-        removeParentActiveClass();
-        lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-      }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
     }
+  } else {
+    current--;
+    console.log(current)
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
 });
 
 function removeParentActiveClass() {
@@ -293,15 +300,17 @@ window.addEventListener('load', function() {
       tocContent.classList.add('expanded');
     }
 
-    if ("createEvent" in document) {
-      let evt = document.createEvent("HTMLEvents");
-      evt.initEvent("scroll", false, true);
-      document.dispatchEvent(evt);
-    }
-    else {
-      document.fireEvent("scroll");
-    }
     addTocNumber(tocContent, '');
+    setTimeout(function() {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
   }
   document.querySelector('#sidebar').style='display: block;';
   tocWrapper.classList.add('toc-active');
@@ -327,13 +336,13 @@ window.addEventListener('load', function() {
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-count">6</span>
         <span class="site-item-stat-name">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="/tags/">
-        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-count">6</span>
         <span class="site-item-stat-name">标签</span>
       </a>
     </div>
