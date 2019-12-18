@@ -269,7 +269,6 @@ blockquote:before {
   color: #fff;
 }
 .brand {
-  position: relative;
   display: inline-block;
   padding: 0 40px;
   color: #fff;
@@ -1852,21 +1851,10 @@ blockquote:before {
 .next-md-body .pl-12 {
   padding-left: 128px!important;
 }
-.slide-anim {
-  transition: transform 0.2s ease-in;
-}
-.slide-in {
-  animation: slide-in 0.5s ease;
-}
-@keyframes slide-down-in {
-  from {
-    opacity: 0;
-    transform: translateY(-12px) translateZ(0px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0px) translateZ(0px);
-  }
+.slide-down-in {
+  position: relative;
+  top: -10px;
+  opacity: 0;
 }
 .hljs {
   display: block;
