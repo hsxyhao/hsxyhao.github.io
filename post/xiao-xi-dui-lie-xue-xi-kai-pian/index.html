@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576637594786">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576639165436">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -123,7 +123,7 @@
     
       <div class="post-list-sidebar">
         <div class="sidebar-title">
-          <span id="tocSideBar" class="sidebar-title-item ">文章目录</span>
+          <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
           <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
         </div>
       </div>
@@ -135,13 +135,7 @@
   <div class="toc-wrapper" id="toc_wrapper">
     <ul class="markdownIt-TOC">
 <li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
-<li><a href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">应用场景</a>
-<ul>
-<li><a href="#%E5%89%8A%E5%B3%B0">削峰</a></li>
-<li><a href="#%E5%BC%82%E6%AD%A5">异步</a></li>
-<li><a href="#%E8%A7%A3%E8%80%A6">解耦</a></li>
-</ul>
-</li>
+<li><a href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">应用场景</a></li>
 <li><a href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">常见的消息队列</a>
 <ul>
 <li><a href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">如何选择消息队列</a>
@@ -221,6 +215,8 @@ document.addEventListener('scroll', function(e) {
   }
   if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
     current = hList.length - 1;
+  } else {
+    current--;
   }
   if (dir === 'down') {
     if (current > lastIndex) {
@@ -231,8 +227,6 @@ document.addEventListener('scroll', function(e) {
       lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
     }
   } else {
-    current--;
-    console.log(current)
     if (current < lastIndex) {
       addActiveClass(current);
       removeActiveClass(lastIndex);
@@ -272,8 +266,7 @@ function addActiveLiElemment(elem, parent) {
     addActiveLiElemment(elem.parentElement, parent);
   }
 }
-
-window.addEventListener('load', function() {
+document.body.onload = function () {
   if (tocWrapper) {
     postBody = document.querySelector('#post_body');
     for (let i = 0; i < postBody.children.length; i++) {
@@ -303,6 +296,9 @@ window.addEventListener('load', function() {
   }
   document.querySelector('#sidebar').style='display: block;';
   tocWrapper.classList.add('toc-active');
+}
+document.addEventListener('load', function() {
+  
 })
 
 
@@ -460,12 +456,14 @@ window.addEventListener('load', function() {
 <!-- more -->
 <h1 id="应用场景">应用场景</h1>
 <p>消息队列的应用场景主要有削峰、异步、解耦。</p>
-<h2 id="削峰">削峰</h2>
-<p>对于一些平时访问量不是很大的接口，但是在某些特殊时期的访问会陡然剧增，这个时候机器部署如果在不使用消息队列的情况下需要配置最大化，但是这在非特殊时期完全是资源浪费，这个时候就可以考虑使用消息中间件了，在不增加机器的情况下，还能抗住特殊时期的大量请求。不知道有没有说的明白，其实我想说的就是秒杀的场景，平时接口的访问量不是很大，但是在大促期间的访问却很大。</p>
-<h2 id="异步">异步</h2>
-<p>异步也是一个主要的应用场景，就是对于一个耗时的操作，用户完全没有必要等到所有的流程都走完，耗时的那部分完全可以产生一条消息，稍后处理，直接返回给用户端，提高用户体验。</p>
-<h2 id="解耦">解耦</h2>
-<p>解耦应该是这三个场景描述的解释中最难拿捏的，</p>
+<ol>
+<li>削峰<br>
+对于一些平时访问量不是很大的接口，但是在某些特殊时期的访问会陡然剧增，这个时候机器部署如果在不使用消息队列的情况下需要配置最大化，但是这在非特殊时期完全是资源浪费，这个时候就可以考虑使用消息中间件了，在不增加机器的情况下，还能抗住特殊时期的大量请求。不知道有没有说的明白，其实我想说的就是秒杀的场景，平时接口的访问量不是很大，但是在大促期间的访问却很大。</li>
+<li>异步<br>
+异步也是一个主要的应用场景，就是对于一个耗时的操作，用户完全没有必要等到所有的流程都走完，耗时的那部分完全可以产生一条消息，稍后处理，直接返回给用户端，提高用户体验。</li>
+<li>解耦<br>
+解耦应该是这三个场景描述的解释中最难拿捏的，</li>
+</ol>
 <h1 id="常见的消息队列">常见的消息队列</h1>
 <p><a href="http://kafka.apache.org">Kafka</a>、<a href="http://pulsar.apache.org">Pulsar</a>、<a href="http://rocketmq.apache.org/">RocketMQ</a>、<a href="http://activemq.apache.org">ActiveMQ</a>、<a href="https://www.rabbitmq.com">RabbitMQ</a>等</p>
 <blockquote>
