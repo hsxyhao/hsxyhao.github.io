@@ -877,8 +877,8 @@ blockquote:before {
   margin: 60px 0;
 }
 .tag-timeline-box .tag-post-node {
-  margin: 30px 0;
   position: relative;
+  margin: 30px 0;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
@@ -994,13 +994,16 @@ blockquote:before {
 }
 .archive-timeline-box .tag-node {
   margin: 30px 0;
-  position: relative;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
   transition-property: border;
   border-bottom: 1px dashed #ccc;
   cursor: pointer;
+}
+.motion-warpper {
+  position: relative;
+  z-index: 1000;
 }
 .tag-year {
   opacity: 0;
@@ -1035,15 +1038,18 @@ blockquote:before {
   font-size: 16px;
 }
 .archive-timeline-box .tag-node:hover {
-  border-bottom-color: #666;
+  border-bottom-color: #222;
 }
 .archive-timeline-box .tag-node:hover::before {
-  background: #666;
+  background: #222;
 }
 @media (max-width: 767px) {
   .archive-timeline-box {
     margin-left: 0px;
   }
+}
+.markdownIt-TOC ul {
+  display: none;
 }
 .expanded ul {
   padding: 0 2px 5px 10px;
@@ -1056,9 +1062,6 @@ blockquote:before {
 .toc-wrapper {
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
-}
-.markdownIt-TOC ul {
-  display: none;
 }
 .toc-wrapper a {
   transition-duration: 0.2s;
