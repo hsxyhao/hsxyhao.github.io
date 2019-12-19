@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576718053352">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576747130261">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -276,12 +276,12 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">2582字数</span>
+      <span class="pc-show">2583字数</span>
     </span>
   </div>
 </header>
     <div class="post-body">
-      <p>说到Redis的内存淘汰机制，然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似Redis的内存淘汰机制了。</p>
+      <p>说到Redis的内存淘汰机制，突然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似Redis的内存淘汰机制了。</p>
 <h1 id="淘汰策略">淘汰策略</h1>
 <p>Redis的内存淘汰机制就是为了淘汰掉一些数据，保证Redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
 <ul>
