@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576655936873">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576718053352">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -28,13 +28,13 @@
         </div>
       </div>
       <div class="site-title">
-        <a href="/" class="brand slide-down-in">
+        <a href="/" class="brand">
           <span>Madara</span>
         </a>
       </div>
-      <p class="subtitle slide-down-in">Quick notes</p>
+      <p class="subtitle">Quick notes</p>
     </div>
-    <nav class="site-nav slide-down-in" id="site_nav">
+    <nav class="site-nav" id="site_nav">
       <ul>
         <li class="nav-item ">
           
@@ -416,7 +416,7 @@ document.body.onload = function () {
   });
 </script>
           <div class="section-box">
-            <div class="section">
+            <div class="section post">
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
@@ -744,28 +744,10 @@ document.body.onload = function () {
     back2TopText.textContent = Math.floor(percent);
   });
 
-  window.addEventListener("load", function() {
-    let slideUpIns = document.querySelectorAll('.slide-down-in')
-    let sequence = [];
-    for(let i = 0; i < slideUpIns.length; i++) {
-      sequence.push({
-        e: slideUpIns[i],
-        p: {
-          top: 0,
-          opacity: 1
-        },
-        o: {
-          duration: 300,
-          easing: 'easeIn'
-        }
-      });
-    }
-    window.Velocity.RunSequence(sequence);
-  });
-
   // 代码高亮
   hljs.initHighlightingOnLoad();
 </script>
     </div>
   </body>
+  <script src="/media/js/motion.js"></script>
 </html>

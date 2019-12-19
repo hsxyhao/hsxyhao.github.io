@@ -274,6 +274,14 @@ blockquote:before {
   color: #fff;
   background: #222;
   border-bottom: none;
+  position: relative;
+  top: -10px;
+  opacity: 0;
+}
+.subtitle {
+  position: relative;
+  top: -10px;
+  opacity: 0;
 }
 .sub-title {
   margin: 10px 10px 0;
@@ -287,10 +295,7 @@ blockquote:before {
   transition: all 0.3s linear;
 }
 .nav-item {
-  transition-property: background;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-  transition-delay: 0s;
+  opacity: 0;
 }
 .nav-item-active a:after {
   content: " ";
@@ -736,6 +741,9 @@ blockquote:before {
 .post-meta-divider {
   margin: 0 0.5em;
 }
+.post {
+  opacity: 0;
+}
 .post-copyright {
   margin: 2em 0 0;
   padding: 0.5em 1em;
@@ -819,6 +827,9 @@ blockquote:before {
 .post-side-meta {
   display: none;
 }
+.cloud-tag {
+  opacity: 0;
+}
 .tag-cloud-title {
   text-align: center;
   font-size: 16px;
@@ -865,7 +876,7 @@ blockquote:before {
   position: relative;
   margin: 60px 0;
 }
-.tag-timeline-box .tag-node {
+.tag-timeline-box .tag-post-node {
   margin: 30px 0;
   position: relative;
   transition-duration: 0.2s;
@@ -875,10 +886,13 @@ blockquote:before {
   border-bottom: 1px dashed #ccc;
   cursor: pointer;
 }
-.tag-timeline-box .tag-node:hover {
+.tag-timeline-box .tag-post-node:hover {
   border-bottom-color: #666;
 }
-.tag-timeline-wrapper .tag-node::before {
+.tag-post-node {
+  opacity: 0;
+}
+.tag-timeline-wrapper .tag-post-node::before {
   content: " ";
   position: absolute;
   left: 0;
@@ -895,7 +909,7 @@ blockquote:before {
   transition-property: background;
   z-index: 1000;
 }
-.tag-timeline-wrapper .tag-node:hover::before {
+.tag-timeline-wrapper .tag-post-node:hover::before {
   background: #666;
 }
 .tag-timeline-title small {
@@ -991,6 +1005,12 @@ blockquote:before {
   transition-property: border;
   border-bottom: 1px dashed #ccc;
   cursor: pointer;
+}
+.tag-year {
+  opacity: 0;
+}
+.tag-node {
+  opacity: 0;
 }
 .archive-timeline-box .tag-node::before {
   content: " ";
@@ -1850,11 +1870,6 @@ blockquote:before {
 }
 .next-md-body .pl-12 {
   padding-left: 128px!important;
-}
-.slide-down-in {
-  position: relative;
-  top: -10px;
-  opacity: 0;
 }
 .hljs {
   display: block;
