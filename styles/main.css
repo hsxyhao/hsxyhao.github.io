@@ -903,10 +903,6 @@ blockquote:before {
   background: #bbb;
   border-radius: 50%;
   border: 1px solid #fff;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-  transition-delay: 0s;
-  transition-property: background;
   z-index: 1000;
 }
 .tag-timeline-wrapper .tag-post-node:hover::before {
@@ -1009,7 +1005,7 @@ blockquote:before {
 .tag-year {
   opacity: 0;
 }
-.tag-node {
+.tag-archive-node {
   opacity: 0;
 }
 .archive-timeline-box .tag-node::before {
