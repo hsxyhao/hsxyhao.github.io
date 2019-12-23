@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576747398719">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577095352655">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -116,19 +116,72 @@
         <div class="section-layout-wrapper">
           
 <div class="sidebar">
-  <div class="sidebar-wrapper" id="sidebar">
-    
-      <div class="post-list-sidebar">
-        <div class="sidebar-title">
-          <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
-          <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
-        </div>
-      </div>
-    
-    <div class="post-sidebar-body">
+    <div class="sidebar-wrapper" id="sidebar">
       
-        <div class="post-toc" id="post_toc">
-          <div class="toc-box">
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body" id="sidebar_body">
+        
+          <div class="post-side-meta" id="post_side_meta">
+            <div class="sidebar-wrapper">
+  <div class="sidebar-item">
+    <img class="site-author-image" src="https://hsxyhao.github.io/images/avatar.png"/>
+    <p class="site-author-name">Madara</p>
+    <p class="site-description">这个人很懒，什么都不想写...</p>
+  </div>
+  <div class="sidebar-item side-item-stat">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        <span class="site-item-stat-count">8</span>
+        <span class="site-item-stat-name">日志</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">6</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">6</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
+  </div>
+  <div class="sidebar-item">
+    <span class="site-item-rss">
+        <i class="iconfont icon-rss"></i>
+        <a href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
+    </span>
+  </div>
+  <div class="sidebar-item sidebar-item-social">
+    <div class="social-item">
+      <a href="https://www.github.com/hsxyhao">
+        <i class="iconfont icon-github"></i> GitHub
+      </a>
+      <a href="">
+        <i class="iconfont icon-twitter"></i> Twitter
+      </a>
+    </div>
+    <div class="social-item">
+      <a href="">
+        <i class="iconfont icon-globe"></i> 豆瓣
+      </a>
+      <a href="">
+        <i class="iconfont icon-globe"></i> 知乎
+      </a>
+    </div>
+  </div>
+</div>
+          </div>
+          <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+            <div class="toc-box">
   <div class="toc-wrapper" id="toc_wrapper">
     <ul class="markdownIt-TOC">
 <li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
@@ -137,13 +190,22 @@
 <ul>
 <li><a href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">如何选择消息队列</a>
 <ul>
+<li><a href="#%E5%8A%9F%E8%83%BD%E7%BB%B4%E5%BA%A6">功能维度</a>
+<ul>
 <li><a href="#%E9%98%9F%E5%88%97">队列</a></li>
 <li><a href="#%E6%B6%88%E8%B4%B9%E6%A8%A1%E5%BC%8F">消费模式</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E7%89%B9%E6%80%A7">其他特性</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%A7%E8%83%BD">性能</a></li>
+<li><a href="#%E9%AB%98%E5%8F%AF%E7%94%A8">高可用</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li><a href="#kafka%E5%92%8Crabbitmq%E5%AF%B9%E6%AF%94">Kafka和RabbitMQ对比</a></li>
 <li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+<li><a href="#%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5">相关链接</a></li>
 </ul>
 
   </div>
@@ -300,90 +362,65 @@ window.addEventListener('load', function() {
 })
 
 </script>
-        </div>
-        <div class="post-side-meta" id="post_side_meta">
-          <div class="sidebar-wrapper">
-  <div class="sidebar-item">
-    <img class="site-author-image" src="https://hsxyhao.github.io/images/avatar.png"/>
-    <p class="site-author-name">Madara</p>
-    <p class="site-description">这个人很懒，什么都不想写...</p>
-  </div>
-  <div class="sidebar-item side-item-stat">
-    <div class="sidebar-item-box">
-      <a href="/archives/">
-        <span class="site-item-stat-count">8</span>
-        <span class="site-item-stat-name">日志</span>
-      </a>
+          </div>
+        
+      </div>
     </div>
-    <div class="sidebar-item-box">
-      <a href="">
-        <span class="site-item-stat-count">6</span>
-        <span class="site-item-stat-name">分类</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="/tags/">
-        <span class="site-item-stat-count">6</span>
-        <span class="site-item-stat-name">标签</span>
-      </a>
-    </div>
-  </div>
-  <div class="sidebar-item">
-    <span class="site-item-rss">
-        <i class="iconfont icon-rss"></i>
-        <a href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
-    </span>
-  </div>
-  <div class="sidebar-item sidebar-item-social">
-    <div class="social-item">
-      <a href="https://www.github.com/hsxyhao">
-        <i class="iconfont icon-github"></i> GitHub
-      </a>
-      <a href="">
-        <i class="iconfont icon-twitter"></i> Twitter
-      </a>
-    </div>
-    <div class="social-item">
-      <a href="">
-        <i class="iconfont icon-globe"></i> 豆瓣
-      </a>
-      <a href="">
-        <i class="iconfont icon-globe"></i> 知乎
-      </a>
-    </div>
-  </div>
-</div>
-        </div>
-      
-    </div>
-  </div>
 </div>
 <script>
   const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
   const SLIDE_UP_IN = 'slide-up-in';
 
   let sidebar = document.querySelector('#sidebar'),
   tocSideBar = document.querySelector('#tocSideBar'),
   metaSideBar = document.querySelector('#metaSideBar'),
   postToc = document.querySelector('#post_toc'),
-  postSiteMeta = document.querySelector('#post_side_meta');
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
 
-  tocSideBar.addEventListener('click', function() {
-    metaSideBar.classList.remove(SIDEBAR_TITLE_ACTIVE);
-    this.classList.add(SIDEBAR_TITLE_ACTIVE);
-    postToc.classList.add(SLIDE_UP_IN);
-    postToc.style = 'opacity: 1; transform: translateY(0px);';
+  tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
   });
+
+  metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+
+  }
 
   postToc.addEventListener('transitionend', function() {
     this.classList.remove(SLIDE_UP_IN);
-  });
-
-  metaSideBar.addEventListener('click', function() {
-    tocSideBar.classList.remove(SIDEBAR_TITLE_ACTIVE);
-    this.classList.add(SIDEBAR_TITLE_ACTIVE);
-    postSiteMeta.classList.add(SIDEBAR_BODY_ACTIVE);
-    postToc.classList.remove(SIDEBAR_BODY_ACTIVE);
   });
 
   let limitTop = sidebar.offsetTop;
@@ -440,12 +477,12 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-time"></i>
-      <span>7分钟</span>
+      <span>10分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">2006字数</span>
+      <span class="pc-show">2838字数</span>
     </span>
   </div>
 </header>
@@ -478,7 +515,8 @@ window.addEventListener('load', function() {
 </blockquote>
 <h2 id="如何选择消息队列">如何选择消息队列</h2>
 <p>既然业界有那么多的消息中间件，那在业务中我们如果遇到了需要使用消息中间件的场景，我们又该如何去选择合适的消息中间件呢？一般可以从社区的活跃度、支持的语言、以及消息队列的功能来进行筛选，接下来将详细介绍消息中间件所具有的功能。</p>
-<h3 id="队列">队列</h3>
+<h3 id="功能维度">功能维度</h3>
+<h4 id="队列">队列</h4>
 <p>在消息中间件中，队列是一个不可或缺的角色，除了生产者和消费者之外，消息中间件提供了很多特殊功能的队列。一般的队列都是先进先出，但是下面的这些队列还具有其他特色。</p>
 <ol>
 <li>
@@ -510,11 +548,133 @@ window.addEventListener('load', function() {
 <blockquote>
 <p>延迟队列和重试队列都有投递延迟，但是两者却有着本质的却别，延迟队列只会投递一次，并且由消息队列内部触发；重试队列会投递很多次但是有上线限制，并且由消费者控制。</p>
 </blockquote>
-<h3 id="消费模式">消费模式</h3>
-<p>推(Push)模式<br>
-拉(Pull)模式</p>
+<h4 id="消费模式">消费模式</h4>
+<ol>
+<li>推(Push)模式<br>
+由Broker节点主动推送消息至消费端，实时性较好，需要保证发送的消息不会压垮消费端。</li>
+<li>拉(Pull)模式<br>
+由消费者主动从Broker节点拉取消息，可以根据消费端自身的消费能力处理消息，不过实时性较差。</li>
+</ol>
+<h4 id="其他特性">其他特性</h4>
+<ol>
+<li>广播消费<br>
+消息的传递模式有两种：点对点模式和发布订阅模式。</li>
+<li>消息回溯<br>
+被消费者消费过的消息还能被再次读取到，消息回溯的作用有很多，常见的场景有索引恢复、本地缓存构建以及消息丢失排查。</li>
+<li>消息堆积&amp;持久化<br>
+在之前提到的流量削峰场景中，当有大量的消息发送到Broker节点，这个时候就需要依赖消息堆积将消息保存下来，等着消费者来消费。</li>
+<li>消息追踪<br>
+消息追踪就是指需要了解到消息从哪来以及发送到哪</li>
+<li>消息过滤<br>
+按照指定的规则为消费者提供消息</li>
+<li>多租户<br>
+多租户有点类似在一台电脑上开多个账户，目前还没接触到此类的业务，不太理解其作用。</li>
+</ol>
+<h3 id="性能">性能</h3>
+<p>这里有一篇阿里中间件团队关于主流消息的性能测试对比文章，详情<a href="http://jm.taobao.org/2016/04/01/kafka-vs-rabbitmq-vs-rocketmq-message-send-performance/#">移步这里</a>，通过对比可以了解到在同一配置下，Kafka(17w/s) &gt; RocketMQ(11w/s) &gt; RabbitMQ(5w/s)。</p>
+<h3 id="高可用">高可用</h3>
+<p>高可用一般包含两个方面：可靠性和可用性，消息队列中的可靠性主要是指对消息不丢失的保障程度；可用性是指无故障运行的时间百分比（就是经常网上看到的99.999%类似数据）。</p>
+<h1 id="kafka和rabbitmq对比">Kafka和RabbitMQ对比</h1>
+<table>
+<thead>
+<tr>
+<th>功能项</th>
+<th>Kafka(1.1.0版本)</th>
+<th>RabbitMQ(3.6.10版本)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>优先级队列</td>
+<td>不支持</td>
+<td>支持、建议优先级设置在0-10之间</td>
+</tr>
+<tr>
+<td>死信队列</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>延迟队列</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>重试队列</td>
+<td>不支持</td>
+<td>原生不支持，可以根据借助延迟队列在消费端结合业务实现</td>
+</tr>
+<tr>
+<td>消费模式</td>
+<td>推模式</td>
+<td>推模式 + 拉模式</td>
+</tr>
+<tr>
+<td>广播模式</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>消息回溯</td>
+<td>支持，可以根据offset读取已经消费过的消息</td>
+<td>不支持，消息消费后会被删除</td>
+</tr>
+<tr>
+<td>消息过滤</td>
+<td>支持，客户端级别</td>
+<td>原生不支持，需二次封装</td>
+</tr>
+<tr>
+<td>多租户</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>多协议支持</td>
+<td>支持定义协议</td>
+<td>AMQP、MQTT、STOMP等</td>
+</tr>
+<tr>
+<td>跨语言支持</td>
+<td>支持多语言客户端</td>
+<td>支持多语言客户端</td>
+</tr>
+<tr>
+<td>流量控制</td>
+<td>消费者和生产者都可以控制</td>
+<td>生产者控制</td>
+</tr>
+<tr>
+<td>消息顺序</td>
+<td>严格意义上不支持，但是可以通过单分区实现</td>
+<td>不支持，但是当消费者和生产者都是单线程时，可以实现</td>
+</tr>
+<tr>
+<td>安全机制</td>
+<td>TSL/SSL、SASL身份认证和(读写)权限控制</td>
+<td>TSL/SSL、SASL身份认证和(读写)权限控制</td>
+</tr>
+<tr>
+<td>幂等性</td>
+<td>支持单个生产者单分区会话的幂等性</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>事务性消息</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>这段对比也是抄自网上的文章，主要是想记的更深一点，就手动抄了一遍</p>
+</blockquote>
 <h1 id="总结">总结</h1>
 <p>对于一名初学者来说，要想从一个上帝的视角介绍所有的消息队列，显然是不可能的，本片文章大部分摘自朱小厮的<a href="https://mp.weixin.qq.com/s/ad7jibTb5nTzh3nDQYKFeg">消息中间件选型分析</a>，把看过的心得体会记录下来。😍强烈推荐看一遍😍</p>
+<h1 id="相关链接">相关链接</h1>
+<ol>
+<li><a href="https://mp.weixin.qq.com/s/ad7jibTb5nTzh3nDQYKFeg">消息中间件选型分析</a></li>
+</ol>
 
               </div>
               <div class="post-footer">
@@ -545,8 +705,9 @@ window.addEventListener('load', function() {
     </div>
     <div class="nav-next">
       
-          <a href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi">Redis淘汰机制</a>
-          <i class="iconfont icon-angle_right"></i>
+        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi">Redis淘汰机制</a>
+        <a class="nav-mobile-next" href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi">下一篇</a>
+        <i class="iconfont icon-angle_right"></i>
       
     </div>
   </div>

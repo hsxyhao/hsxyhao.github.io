@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1576747398719">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577095352655">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -116,19 +116,72 @@
         <div class="section-layout-wrapper">
           
 <div class="sidebar">
-  <div class="sidebar-wrapper" id="sidebar">
-    
-      <div class="post-list-sidebar">
-        <div class="sidebar-title">
-          <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
-          <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
-        </div>
-      </div>
-    
-    <div class="post-sidebar-body">
+    <div class="sidebar-wrapper" id="sidebar">
       
-        <div class="post-toc" id="post_toc">
-          <div class="toc-box">
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body" id="sidebar_body">
+        
+          <div class="post-side-meta" id="post_side_meta">
+            <div class="sidebar-wrapper">
+  <div class="sidebar-item">
+    <img class="site-author-image" src="https://hsxyhao.github.io/images/avatar.png"/>
+    <p class="site-author-name">Madara</p>
+    <p class="site-description">这个人很懒，什么都不想写...</p>
+  </div>
+  <div class="sidebar-item side-item-stat">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        <span class="site-item-stat-count">8</span>
+        <span class="site-item-stat-name">日志</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">6</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">6</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
+  </div>
+  <div class="sidebar-item">
+    <span class="site-item-rss">
+        <i class="iconfont icon-rss"></i>
+        <a href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
+    </span>
+  </div>
+  <div class="sidebar-item sidebar-item-social">
+    <div class="social-item">
+      <a href="https://www.github.com/hsxyhao">
+        <i class="iconfont icon-github"></i> GitHub
+      </a>
+      <a href="">
+        <i class="iconfont icon-twitter"></i> Twitter
+      </a>
+    </div>
+    <div class="social-item">
+      <a href="">
+        <i class="iconfont icon-globe"></i> 豆瓣
+      </a>
+      <a href="">
+        <i class="iconfont icon-globe"></i> 知乎
+      </a>
+    </div>
+  </div>
+</div>
+          </div>
+          <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+            <div class="toc-box">
   <div class="toc-wrapper" id="toc_wrapper">
     <ul class="markdownIt-TOC">
 <li><a href="#%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B">搭建教程</a>
@@ -302,90 +355,65 @@ window.addEventListener('load', function() {
 })
 
 </script>
-        </div>
-        <div class="post-side-meta" id="post_side_meta">
-          <div class="sidebar-wrapper">
-  <div class="sidebar-item">
-    <img class="site-author-image" src="https://hsxyhao.github.io/images/avatar.png"/>
-    <p class="site-author-name">Madara</p>
-    <p class="site-description">这个人很懒，什么都不想写...</p>
-  </div>
-  <div class="sidebar-item side-item-stat">
-    <div class="sidebar-item-box">
-      <a href="/archives/">
-        <span class="site-item-stat-count">8</span>
-        <span class="site-item-stat-name">日志</span>
-      </a>
+          </div>
+        
+      </div>
     </div>
-    <div class="sidebar-item-box">
-      <a href="">
-        <span class="site-item-stat-count">6</span>
-        <span class="site-item-stat-name">分类</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="/tags/">
-        <span class="site-item-stat-count">6</span>
-        <span class="site-item-stat-name">标签</span>
-      </a>
-    </div>
-  </div>
-  <div class="sidebar-item">
-    <span class="site-item-rss">
-        <i class="iconfont icon-rss"></i>
-        <a href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
-    </span>
-  </div>
-  <div class="sidebar-item sidebar-item-social">
-    <div class="social-item">
-      <a href="https://www.github.com/hsxyhao">
-        <i class="iconfont icon-github"></i> GitHub
-      </a>
-      <a href="">
-        <i class="iconfont icon-twitter"></i> Twitter
-      </a>
-    </div>
-    <div class="social-item">
-      <a href="">
-        <i class="iconfont icon-globe"></i> 豆瓣
-      </a>
-      <a href="">
-        <i class="iconfont icon-globe"></i> 知乎
-      </a>
-    </div>
-  </div>
-</div>
-        </div>
-      
-    </div>
-  </div>
 </div>
 <script>
   const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
   const SLIDE_UP_IN = 'slide-up-in';
 
   let sidebar = document.querySelector('#sidebar'),
   tocSideBar = document.querySelector('#tocSideBar'),
   metaSideBar = document.querySelector('#metaSideBar'),
   postToc = document.querySelector('#post_toc'),
-  postSiteMeta = document.querySelector('#post_side_meta');
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
 
-  tocSideBar.addEventListener('click', function() {
-    metaSideBar.classList.remove(SIDEBAR_TITLE_ACTIVE);
-    this.classList.add(SIDEBAR_TITLE_ACTIVE);
-    postToc.classList.add(SLIDE_UP_IN);
-    postToc.style = 'opacity: 1; transform: translateY(0px);';
+  tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
   });
+
+  metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+
+  }
 
   postToc.addEventListener('transitionend', function() {
     this.classList.remove(SLIDE_UP_IN);
-  });
-
-  metaSideBar.addEventListener('click', function() {
-    tocSideBar.classList.remove(SIDEBAR_TITLE_ACTIVE);
-    this.classList.add(SIDEBAR_TITLE_ACTIVE);
-    postSiteMeta.classList.add(SIDEBAR_BODY_ACTIVE);
-    postToc.classList.remove(SIDEBAR_BODY_ACTIVE);
   });
 
   let limitTop = sidebar.offsetTop;
@@ -521,7 +549,8 @@ $ yarn electron:build
     <div class="nav-prev">
       
         <i class="iconfont icon-angle_left"></i>
-        <a href="https://hsxyhao.github.io/post/rui-shi-jun-dao-redis">Redis入门知识点</a>
+        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/rui-shi-jun-dao-redis">Redis入门知识点</a class="nav-pc-next">
+        <a class="nav-mobile-prev" href="https://hsxyhao.github.io/post/rui-shi-jun-dao-redis">上一篇</a>
       
     </div>
     <div class="nav-next">

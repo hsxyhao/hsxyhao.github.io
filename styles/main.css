@@ -171,7 +171,6 @@ blockquote:before {
   border-radius: initial;
   padding: 20px 10px;
   box-sizing: border-box;
-  transition: opacity 0.1s ease-in-out;
 }
 .footer-box {
   position: relative;
@@ -792,6 +791,24 @@ blockquote:before {
   font-weight: bold;
   color: black;
 }
+.nav-mobile-next,
+.nav-mobile-prev {
+  display: none;
+}
+.nav-pc-next,
+.nav-pc-prev {
+  display: inline-block;
+}
+@media (max-width: 767px) {
+  .nav-pc-next,
+  .nav-pc-prev {
+    display: none;
+  }
+  .nav-mobile-next,
+  .nav-mobile-prev {
+    display: inline-block;
+  }
+}
 .sidebar-fixed {
   position: fixed;
   top: 0px;
@@ -821,11 +838,19 @@ blockquote:before {
   color: #fc6423;
   border-bottom-color: #fc6423;
 }
+.sidebar-wrapper .post-toc,
+.sidebar-wrapper .post-side-meta {
+  display: none;
+  opacity: 0;
+}
+.sidebar-wrapper .sidebar-body-active {
+  display: block;
+}
 .post-sidebar-body {
   position: relative;
 }
-.post-side-meta {
-  display: none;
+.sidebar-inner {
+  background-color: #FFF;
 }
 .cloud-tag {
   opacity: 0;
@@ -1058,10 +1083,6 @@ blockquote:before {
 .closed ul {
   padding: 0 2px 5px 10px;
   display: none;
-}
-.toc-wrapper {
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
 }
 .toc-wrapper a {
   transition-duration: 0.2s;
@@ -1519,6 +1540,15 @@ blockquote:before {
 .next-md-body ul {
   margin-bottom: 16px;
   margin-top: 0;
+}
+.next-md-body table {
+  font-size: 15px;
+}
+.next-md-body th {
+  text-align: left;
+}
+.next-md-body td {
+  vertical-align: middle;
 }
 .next-md-body hr {
   background-color: #e1e4e8;
