@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577167510634">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577184075458">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -124,7 +124,7 @@
   <div class="sidebar-item side-item-stat">
     <div class="sidebar-item-box">
       <a href="/archives/">
-        <span class="site-item-stat-count">9</span>
+        <span class="site-item-stat-count">10</span>
         <span class="site-item-stat-name">日志</span>
       </a>
     </div>
@@ -170,6 +170,77 @@
           <div class="section-box">
             <section class="section posts-expand slide-down-in">
               
+  <article class="post-list-box post">
+    <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi">
+      Redis淘汰机制
+    </a>
+  </h1>
+  <div class="post-meta">
+    <span class="meta-item">
+      <i class="iconfont icon-calendar_empty"></i>
+      <span class="pc-show">发布于</span>
+      <span>2019-12-05</span>
+    </span>
+    
+      <span class="meta-item">
+        <span class="post-meta-divider">|</span>
+        <i class="iconfont icon-folder_open_alt"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://hsxyhao.github.io/tag/redis">
+              <span>Redis</span>
+            </a>
+          
+        
+      </span>
+    
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="iconfont icon-time"></i>
+      <span>10分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="iconfont icon-keyboard"></i>
+      <span class="pc-show">2583字数</span>
+    </span>
+  </div>
+</header>
+    <div class="post-body">
+      <p>说到Redis的内存淘汰机制，突然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似Redis的内存淘汰机制了。</p>
+<h1 id="淘汰策略">淘汰策略</h1>
+<p>Redis的内存淘汰机制就是为了淘汰掉一些数据，保证Redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
+<ul>
+<li>noeviction 不进行任何淘汰操作，当内存不够时写命令会报错</li>
+<li>allkeys-lru 在所有的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>volatile-lru 在设置过期时间的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>allkeys-random 在所有的key中随机移除某个key</li>
+<li>volatile-random 在设置了过期时间的key中随机移除某个key</li>
+<li>volatile-ttl 在设置了过期时间的key中，删除过期时间最早的key</li>
+<li>allkeys-lfu 在所有的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+<li>volatile-lfu 在设置过期时间的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+</ul>
+<p><strong>备注</strong><br>
+这里删除的key其实只删除一个，这是因为Redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
+
+      <!--noindex-->
+      
+      <div class="post-button text-center">
+        <a class="btn" href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi" rel="contents">
+          阅读全文 »
+        </a>
+      </div>
+      <!--/noindex-->
+      
+    </div>
+    <footer class="post-footer">
+      <div class="post-eof"></div>
+    </footer>
+  </article>
+
   <article class="post-list-box post">
     <header class="post-header">
   <h1 class="post-title">
@@ -290,71 +361,6 @@
       <div class="post-eof"></div>
     </footer>
   </article>
-
-  <article class="post-list-box post">
-    <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://hsxyhao.github.io/post/redis-copy">
-      Redis复制
-    </a>
-  </h1>
-  <div class="post-meta">
-    <span class="meta-item">
-      <i class="iconfont icon-calendar_empty"></i>
-      <span class="pc-show">发布于</span>
-      <span>2019-11-19</span>
-    </span>
-    
-      <span class="meta-item">
-        <span class="post-meta-divider">|</span>
-        <i class="iconfont icon-folder_open_alt"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://hsxyhao.github.io/tag/redis">
-              <span>Redis</span>
-            </a>
-          
-        
-      </span>
-    
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="iconfont icon-time"></i>
-      <span>15分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">4316字数</span>
-    </span>
-  </div>
-</header>
-    <div class="post-body">
-      <p>什么是redis的复制，为什么要有复制功能，全量复制有什么问题，部分复制又解决了哪些问题。</p>
-<p>复制就是将redis节点中的数据复制完同步到其他节点中，在redis中参与复制一般有主节点(master)以及从节点(slave)，将数据从主节点复制到从节点，并且复制的方式是单向的，不能逆向复制，在建立复制关系之后主节点的数据会同步到从节点直到解除主从关系。不论是哨兵模式还是redis集群都是在复制的基础上完成的。</p>
-<p><strong>记忆点</strong></p>
-<ol>
-<li>使用方式：建立、断开复制、安全性、只读性</li>
-<li>适用场景：哨兵、集群</li>
-<li>复制原理：建立复制、全量复制、部分复制、心跳</li>
-<li>常见问题：读写分离、数据不一致、避免全量复制</li>
-</ol>
-
-      <!--noindex-->
-      
-      <div class="post-button text-center">
-        <a class="btn" href="https://hsxyhao.github.io/post/redis-copy" rel="contents">
-          阅读全文 »
-        </a>
-      </div>
-      <!--/noindex-->
-      
-    </div>
-    <footer class="post-footer">
-      <div class="post-eof"></div>
-    </footer>
-  </article>
   
               
 <div class="page">
@@ -383,6 +389,12 @@
         <li class="pagination-li ">
             <a href="/page/3">
               3
+            </a>
+        </li>
+      
+        <li class="pagination-li ">
+            <a href="/page/4">
+              4
             </a>
         </li>
       

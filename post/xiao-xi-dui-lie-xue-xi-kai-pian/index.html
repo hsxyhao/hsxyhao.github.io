@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577167510634">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577184075458">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -137,7 +137,7 @@
   <div class="sidebar-item side-item-stat">
     <div class="sidebar-item-box">
       <a href="/archives/">
-        <span class="site-item-stat-count">9</span>
+        <span class="site-item-stat-count">10</span>
         <span class="site-item-stat-name">日志</span>
       </a>
     </div>
@@ -477,12 +477,12 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-time"></i>
-      <span>11分钟</span>
+      <span>12分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">3138字数</span>
+      <span class="pc-show">3251字数</span>
     </span>
   </div>
 </header>
@@ -558,7 +558,9 @@ window.addEventListener('load', function() {
 <h4 id="其他特性">其他特性</h4>
 <ol>
 <li>广播消费<br>
-消息的传递模式有两种：点对点模式和发布订阅模式。</li>
+消息的传递模式有两种：点对点模式和发布订阅模式。<br>
+点对点模型：在一群系统中，系统A给系统B发送消息，只能被B接收，不能被其他系统弄接收<br>
+发布订阅模型：在此模型中，发送发被称为发布者，接受者被称为订阅者，发布者与订阅者通过主题关联，多个发布者可以给同一个主题发送消息，一个主题也可以被多个订阅者订阅消息。</li>
 <li>消息回溯<br>
 被消费者消费过的消息还能被再次读取到，消息回溯的作用有很多，常见的场景有索引恢复、本地缓存构建以及消息丢失排查。</li>
 <li>消息堆积&amp;持久化<br>
