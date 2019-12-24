@@ -184,28 +184,8 @@
             <div class="toc-box">
   <div class="toc-wrapper" id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#redis-key">Redis key</a></li>
-<li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a>
-<ul>
-<li><a href="#string%E7%B1%BB%E5%9E%8B">string类型</a></li>
-<li><a href="#list%E7%B1%BB%E5%9E%8B">list类型</a>
-<ul>
-<li><a href="#%E5%BF%AB%E9%80%9F%E9%93%BE%E8%A1%A8">快速链表</a></li>
-<li><a href="#list%E6%89%A9%E5%B1%95%E5%BA%94%E7%94%A8">list扩展应用</a></li>
-</ul>
-</li>
-<li><a href="#hash%E7%B1%BB%E5%9E%8B">hash类型</a>
-<ul>
-<li><a href="#rehash">rehash</a></li>
-<li><a href="#%E4%B8%8Estring%E5%BA%94%E7%94%A8%E6%AF%94%E8%BE%83">与string应用比较</a></li>
-</ul>
-</li>
-<li><a href="#set%E7%B1%BB%E5%9E%8B">set类型</a></li>
-<li><a href="#zset%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88">zset(有序集合)</a></li>
-</ul>
-</li>
-<li><a href="#%E6%9C%80%E5%90%8E">最后</a></li>
-<li><a href="#%E7%9B%B8%E5%85%B3%E6%96%87%E6%A1%A3">相关文档</a></li>
+<li><a href="#kafka%E9%9D%A2%E8%AF%95%E9%A2%98">Kafka面试题</a></li>
+<li><a href="#%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99">学习资料</a></li>
 </ul>
 
   </div>
@@ -444,15 +424,15 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://hsxyhao.github.io/post/rui-shi-jun-dao-redis">
-      Redis入门知识点
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/kafka-xue-qian-zhun-bei">
+      Kafka学前准备
     </a>
   </h1>
   <div class="post-meta">
     <span class="meta-item">
       <i class="iconfont icon-calendar_empty"></i>
       <span class="pc-show">发布于</span>
-      <span>2019-11-14</span>
+      <span>2019-12-13</span>
     </span>
     
       <span class="meta-item">
@@ -461,8 +441,8 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://hsxyhao.github.io/tag/redis">
-              <span>Redis</span>
+            <a href="https://hsxyhao.github.io/tag/Kafka">
+              <span>Kafka</span>
             </a>
           
         
@@ -471,153 +451,83 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-time"></i>
-      <span>10分钟</span>
+      <span>5分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">2278字数</span>
+      <span class="pc-show">1372字数</span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <p>redis有哪些基础数据结构，什么是快速链表，什么是跳跃链表，使用redis特有的数据类型可以实现哪些有趣的功能。</p>
-<blockquote>
-<p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.</p>
-</blockquote>
-<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1576199763145.png" alt=""></figure>
-<p>上面一段话取自Redis官方的介绍，为什么要把它放在这里，我觉得这是介绍Redis最为标准的一段话，从用途、数据结构已经功能等多方面介绍，如果以后面试官叫你介绍下redis的话，我觉得可以直接把这段话背下来😌。至于为什么把Redis称为瑞士军刀，相信用过redis的人都会这么认为。</p>
+                <p>不知道大家在学习一门新的技术之前是怎么做准备的，不过我想每个人都会遇到过学习完一门知识长时间不接触会立马忘记的情况。就像我之前学的JVM和Redis一样，学习的时候对每个细节都非常了解，可是时间一长之后又会立马忘得一干二净，我觉得大多数人都无法避免这种现象，毕竟你没有过目不忘的本领。既然无法避免那就只能想办法可以快速的再次拾起，就像物理实验中的误差一样，不可避免只能降低。所以在此推荐大家每当学习一个新的知识点的时候，一定要做好学习前的规划以及笔记，不然到头来又是一场空。等到面试的时候再把它拿出来看看，其中重要的点着重回顾，我想一定会有所帮助。还有一点就是记笔记最好整理成博客放在自己的博客或者三方博客平台上，强迫自己把笔记写的自己能看懂外还要别人也能看懂，而且还能和别人一起交流经验，一起学习。<br>
+<img src="https://hsxyhao.github.io/post-images/1577156196399.jpeg" alt=""></p>
 <!-- more -->
-<h1 id="redis-key">Redis key</h1>
-<p>Redis密钥是二进制安全的，任何二进制序列的字符串都可以作为密钥，空字符串也是有效的键。虽然key的有效长度为512M，但是在日常开发中不建议把key的长度设置太长，或者过短，最友好的一种做法是将key和业务结合起来命名，一般推荐使用user:{id}这样的方式。</p>
-<h1 id="数据类型"><a href="https://redis.io/topics/data-types-intro">数据类型</a></h1>
-<p>从redis的官方介绍中就可以得出，redis的基础数据类型有五种，分别为：string，hash，list，set，以及zset。至于后面提到的hyperloglogs、geospatial、bitmaps的类型，有的是后面的版本增加的，有的是基础数据类型扩展来的。相对于其他的nosql数据库来说，redis的数据类型已经很充分了。redis内置的这些类型，对于学过java的同学可以使用java中的HashMap来辅助记忆，比如说string类型就是Map&lt;String,String&gt;,list类型就类比为Map&lt;String,List<String>&gt;，hash则为Map&lt;String,Map&lt;String,String&gt;&gt;。通过这样的辅助记忆，就可以很快的记住redis的数据类型，对于后期各种类型的命令使用也起到一定的帮助。从上面的类比中我们可以看到redis是一个key，value的数据存储系统，key都是字符串类型，value则对应redis着以上几种数据类型。</p>
-<h2 id="string类型">string类型</h2>
-<p>string类型，可以说是redis中使用到最多的一种类型了，开发中有很多开发人员把一些热点数据的序列化成json，存储到redis中，最后访问的时候后再取出来反序列化返回到客户端。<br>
-<img src="https://hsxyhao.github.io/post-images/1573721308127.png" alt=""><br>
-重点记忆：</p>
+<h1 id="kafka面试题">Kafka面试题</h1>
+<p>为了学习好kafka，从学习的资料上拷贝了一些面试题，在学习之前，看下面试题，带着问题学习，说不定会事半功倍，等自己学习完之后在借助面试题回顾自己所学的内容，加深印象。面试前也可以拿出来看一看，一举三得，倍儿棒😆</p>
 <ul>
-<li>最大能存储512M的内容</li>
-<li>value的值是可以修改的，内部采取的是一种预扩容机制来减少频繁的扩容，如图中所示，内部为当前字符串实际分配的空间 capacity 一般要高于实际字符串长度 len。当字符串长度小于 1M 时，扩容都是加倍现有的空间，如果超过 1M，扩容时一次只会多扩 1M 的空间。需要注意的是字符串最大长度为 512M。</li>
+<li><a href="/post/xiao-xi-dui-lie-xue-xi-kai-pian/#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">Kafka 的用途有哪些？使用场景如何？</a></li>
+<li>Kafka 中的 ISR、AR 又代表什么？ISR 的伸缩又指什么</li>
+<li>Kafka 中的 HW、LEO、LSO、LW 等分别代表什么？</li>
+<li>Kafka 中是怎么体现消息顺序性的？</li>
+<li>Kafka 中的分区器、序列化器、拦截器是否了解？它们之间的处理顺序是什么？</li>
+<li>Kafka 生产者客户端的整体结构是什么样子的？</li>
+<li>Kafka 生产者客户端中使用了几个线程来处理？分别是什么？</li>
+<li>Kafka 的旧版 Scala 的消费者客户端的设计有什么缺陷？</li>
+<li>“消费组中的消费者个数如果超过 topic 的分区，那么就会有消费者消费不到数据”这句话是否正确？如果正确，那么有没有什么 hack 的手段？</li>
+<li>消费者提交消费位移时提交的是当前消费到的最新消息的 offset 还是 offset+1?</li>
+<li>有哪些情形会造成重复消费？</li>
+<li>那些情景下会造成消息漏消费？</li>
+<li>KafkaConsumer 是非线程安全的，那么怎么样实现多线程消费？</li>
+<li>简述消费者与消费组之间的关系</li>
+<li>当你使用 kafka-topics.sh 创建（删除）了一个 topic 之后，Kafka 背后会执行什么逻辑？</li>
+<li>topic 的分区数可不可以增加？如果可以怎么增加？如果不可以，那又是为什么？</li>
+<li>topic 的分区数可不可以减少？如果可以怎么减少？如果不可以，那又是为什么？</li>
+<li>创建 topic 时如何选择合适的分区数？</li>
+<li>Kafka 目前有哪些内部 topic，它们都有什么特征？各自的作用又是什么？</li>
+<li>优先副本是什么？它有什么特殊的作用？</li>
+<li>Kafka 有哪几处地方有分区分配的概念？简述大致的过程及原理。</li>
+<li>简述 Kafka 的日志目录结构</li>
+<li>Kafka 中有那些索引文件？</li>
+<li>如果我指定了一个 offset，Kafka 怎么查找到对应的消息？</li>
+<li>如果我指定了一个 timestamp，Kafka 怎么查找到对应的消息？</li>
+<li>聊一聊你对 Kafka 的 Log Retention 的理解</li>
+<li>聊一聊你对 Kafka 的 Log Compaction 的理解</li>
+<li>聊一聊你对 Kafka 底层存储的理解（页缓存、内核层、块层、设备层）</li>
+<li>聊一聊 Kafka 的延时操作的原理</li>
+<li>聊一聊 Kafka 控制器的作用</li>
+<li>消费再均衡的原理是什么？（提示：消费者协调器和消费组协调器）</li>
+<li>Kafka 中的幂等是怎么实现的？</li>
+<li>Kafka 中的事务是怎么实现的？</li>
+<li>Kafka 中有那些地方需要选举？这些地方的选举策略又有哪些？</li>
+<li>失效副本是指什么？有那些应对措施？</li>
+<li>多副本下，各个副本中的 HW 和 LEO 的演变过程</li>
+<li>为什么 Kafka 不支持读写分离？</li>
+<li>Kafka 在可靠性方面做了哪些改进？（HW, LeaderEpoch）</li>
+<li>Kafka 中怎么实现死信队列和重试队列？</li>
+<li>Kafka 中的延迟队列怎么实现</li>
+<li>Kafka 中怎么做消息审计？</li>
+<li>Kafka 中怎么做消息轨迹？</li>
+<li>Kafka 中有那些配置参数比较有意思？聊一聊你的看法</li>
+<li>Kafka 中有那些命名比较有意思？聊一聊你的看法</li>
+<li>Kafka 有哪些指标需要着重关注？</li>
+<li>怎么计算 Lag？(注意read_uncommitted和read_committed状态下的不同)</li>
+<li>Kafka 的那些设计让它有如此高的性能？</li>
+<li>Kafka 有什么优缺点？</li>
+<li>还用过什么同质类的其它产品，与 Kafka 相比有什么优缺点？</li>
+<li>为什么选择 Kafka ?</li>
+<li>在使用 Kafka 的过程中遇到过什么困难？怎么解决的？</li>
+<li>怎么样才能确保 Kafka 极大程度上的可靠性？</li>
+<li>聊一聊你对 Kafka 生态的理解</li>
 </ul>
-<p>命令：</p>
-<pre><code class="language-java">// 添加一个键值对
-&gt; set key1 value1
-OK
-// 添加多个键值对，改名相当于多次使用set名，mset可以减少网络请求
-&gt; mset key1 value1 key2 value2 
-OK
-// 当value是int类型的时候可以进行加减操作，超过signed long（Long.Max）则会报错
-&gt; set counter 100
-OK
-&gt; incr counter
-(integer) 101
-&gt; incr counter
-(integer) 102
-&gt; incrby counter 50
-(integer) 152
-</code></pre>
-<h2 id="list类型">list类型</h2>
-<p>Redis中的list相当于java中的LinkedList，不是ArrayList，也就是说他是一个链表。结合*pop和*push命令可以实现队列或者栈这种数据结构。<br>
-<img src="https://hsxyhao.github.io/post-images/1573722527155.gif" alt=""></p>
-<h3 id="快速链表">快速链表</h3>
-<p><img src="https://hsxyhao.github.io/post-images/1573801624670.png" alt=""><br>
-准确的说list类型的底层实现是快速链表，普通链表在数据量量大的情况下性能是非常低的，所以需要对list进行优化。在列表开始数据量少的情况下，会直接申请一块<strong>连续</strong>的内存存储，这块内存的结构就是ziplist(压缩列表)，当数据量比较多的时候会切换成quicklist，就是多个ziplist结合成的链表。</p>
-<h3 id="list扩展应用">list扩展应用</h3>
-<ol>
-<li>结合rpush以及lpop（或者lpush和rpop）可以实现redis版的队列，右进左出（或左进右出）。</li>
-<li>使用rpush以及rpop（或者lpush和lpop）可以实现redis版的栈，右进右出（左进左出）。</li>
-</ol>
-<p>命令:</p>
+<h1 id="学习资料">学习资料</h1>
 <ul>
-<li>ltrim [start_index, end_index]命令，会保留start_index和end_index之间的部分</li>
-<li>lindex相当于链表的get方法，时间复杂度为O(n),index越大性能越低。</li>
+<li><a href="https://juejin.im/book/5c7d467e5188251b9156fdc0">图解 Kafka 之实战指南</a></li>
+<li><a href="https://time.geekbang.org/column/intro/100029201">Kafka核心技术与实战</a></li>
+<li><a href="https://book.douban.com/subject/27179953/">Kafka技术内蒙</a></li>
 </ul>
-<pre><code class="language-java">&gt; rpush books python java golang
-(integer) 3
-&gt; lindex books 1  # O(n) 慎用
-&quot;java&quot;
-&gt; lrange books 0 -1  # 获取所有元素，O(n) 慎用
-1) &quot;python&quot;
-2) &quot;java&quot;
-3) &quot;golang&quot;
-&gt; ltrim books 1 -1 # O(n) 慎用
-OK
-&gt; lrange books 0 -1
-1) &quot;java&quot;
-2) &quot;golang&quot;
-&gt; ltrim books 1 0 # 这其实是清空了整个列表，因为区间范围长度为负
-OK
-&gt; llen books
-(integer) 0
-</code></pre>
-<h2 id="hash类型">hash类型</h2>
-<p>hash类型可以类比成java中HashMap，一种键值对类型，只不过这里的key只能是string类型。</p>
-<h3 id="rehash">rehash</h3>
-<p>相信大多数java开发人员在面试的时候都会被问到rehash，这个过程在数据量大的时候是一个性能相当低的操作，而redis为了提高性能，就采取了另一种方式进行rehash——渐近式，就是在rehash的时候不立马进行rehash，保存一个新的hash结构的同时，旧的也保存下来，在后续的定时任务中，或者有hash操作的时候进行迁移，当数据迁移完成之后，旧的hash就会被新的取代。</p>
-<h3 id="与string应用比较">与string应用比较</h3>
-<p>hash也可以用来保存用户信息的类似操作，但是相对于string来说，hash可以保存一个用户的单个属性，在数据量以及请求非常大的情况下，获取单个属性相比较或者所有属性来说，更加节约网络流量，但是hash的存储结构消耗要高于string。</p>
-<p>命令</p>
-<pre><code class="language-java">&gt; hset books java &quot;think in java&quot;  # 命令行的字符串如果包含空格，要用引号括起来
-(integer) 1
-&gt; hset books golang &quot;concurrency in go&quot;
-(integer) 1
-&gt; hset books python &quot;python cookbook&quot;
-(integer) 1
-&gt; hgetall books  # entries()，key 和 value 间隔出现
-1) &quot;java&quot;
-2) &quot;think in java&quot;
-3) &quot;golang&quot;
-4) &quot;concurrency in go&quot;
-5) &quot;python&quot;
-6) &quot;python cookbook&quot;
-&gt; hlen books
-(integer) 3
-&gt; hget books java
-&quot;think in java&quot;
-&gt; hset books golang &quot;learning go programming&quot;  # 因为是更新操作，所以返回 0
-(integer) 0
-&gt; hget books golang
-&quot;learning go programming&quot;
-&gt; hmset books java &quot;effective java&quot; python &quot;learning python&quot; golang &quot;modern golang programming&quot;  # 批量 set
-OK
-# 整形变量的自增操作
-&gt; hincrby user-laoqian age 1
-(integer) 30
-</code></pre>
-<h2 id="set类型">set类型</h2>
-<p>同样的set类型可以类比为java中的HashSet，是一种键值对唯一的数据结构，大家都知道java中的HashSet是由HashMap“变异”的，相对于HashMap，HashSet的所有value都是Null。set具有自动去重的功能，可以保证set中的可以是唯一的。<br>
-<img src="https://hsxyhao.github.io/post-images/1573804430835.gif" alt=""><br>
-命令：</p>
-<pre><code class="language-java">&gt; sadd books python
-(integer) 1
-&gt; sadd books python  #  重复
-(integer) 0
-&gt; sadd books java golang
-(integer) 2
-&gt; smembers books  # 注意顺序，和插入的并不一致，因为 set 是无序的
-1) &quot;java&quot;
-2) &quot;python&quot;
-3) &quot;golang&quot;
-&gt; sismember books java  # 查询某个 value 是否存在，相当于 contains(o)
-(integer) 1
-&gt; sismember books rust
-(integer) 0
-&gt; scard books  # 获取长度相当于 count()
-(integer) 3
-&gt; spop books  # 弹出一个
-&quot;java&quot;
-</code></pre>
-<h2 id="zset有序集合">zset(有序集合)</h2>
-<p>set是一个无序不重复集合，zset是一个有序的不重复集合，redis内部是通过跳跃链表来实现的。要想对一个链表排序，普通的链表肯定是不行的。需要对普通链表进行改进，改造后就是跳跃链表了。<br>
-<img src="https://hsxyhao.github.io/post-images/1573807555093.png" alt=""><br>
-上图就是跳跃链表的一个简化示意图，相信不熟悉的人看到这里肯定会懵，这个“跳跃”二字如何解释，在这里跳跃是指层与层之间的一个切换，不是元素和元素之间。层是代表高度词，所以用跳跃来形容也比较合适。</p>
-<h1 id="最后">最后</h1>
-<p>这里只是对Redis的基本数据类型进行一个简单记录，将所有重要的地方都记录下来，但是没有详细记录，在面试的时候如果聊到Redis，可以简单的做个大概介绍，后面再慢慢深入，后续的文章中会对文中的一些点进行详细的学习记录。本篇文章主要根据网上的资料进行总结，说不上复制，如果单纯的把别人的东西复制过来放在自己的博客上，行为上本身就是可耻的（未标明原著），其次在效果上也是微乎其微 。建议大家平时看过一些东西之后转换成自己的理解后记录下来，这样的话效果也会好很多🤓。</p>
-<h1 id="相关文档">相关文档</h1>
-<p><a href="https://redis.io/topics/data-types-intro">Redis官方文档</a><br>
-<a href="https://juejin.im/book/5afc2e5f6fb9a07a9b362527">Redis 深度历险：核心原理与应用实践</a></p>
 
               </div>
               <div class="post-footer">
@@ -628,7 +538,7 @@ OK
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://hsxyhao.github.io/post/rui-shi-jun-dao-redis" title="Redis入门知识点">https://hsxyhao.github.io/post/rui-shi-jun-dao-redis</a>
+      <a href="https://hsxyhao.github.io/post/kafka-xue-qian-zhun-bei" title="Kafka学前准备">https://hsxyhao.github.io/post/kafka-xue-qian-zhun-bei</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -637,21 +547,17 @@ OK
   </ul>
   <div class="tags">
     
-      <a href="https://hsxyhao.github.io/tag/redis"># Redis</a>
+      <a href="https://hsxyhao.github.io/tag/Kafka"># Kafka</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="iconfont icon-angle_left"></i>
-        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/redis-chi-jiu-hua">Redis 持久化</a class="nav-pc-next">
-        <a class="nav-mobile-prev" href="https://hsxyhao.github.io/post/redis-chi-jiu-hua">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/gridea-setup">Gridea搭建个人博客</a>
-        <a class="nav-mobile-next" href="https://hsxyhao.github.io/post/gridea-setup">下一篇</a>
+        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian">消息队列学习开篇</a>
+        <a class="nav-mobile-next" href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian">下一篇</a>
         <i class="iconfont icon-angle_right"></i>
       
     </div>
