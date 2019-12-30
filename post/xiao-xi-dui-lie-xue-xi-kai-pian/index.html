@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577242945848">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577690595697">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -137,7 +137,7 @@
   <div class="sidebar-item side-item-stat">
     <div class="sidebar-item-box">
       <a href="/archives/">
-        <span class="site-item-stat-count">10</span>
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name">日志</span>
       </a>
     </div>
@@ -482,14 +482,14 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">3251字数</span>
+      <span class="pc-show">3249字数</span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
                 <p>什么是消息队列？消息队列有哪些？又解决了哪些问题？该怎么选择消息队列？使用消息队列的时候会遇到哪些问题？带着这些疑问先对消息队列进行初步了解。<br>
-<img src="https://hsxyhao.github.io/post-images/1576199469901.png" alt=""></p>
+<img src="https://hsxyhao.github.io/post-images/1576199469901.png" alt="" loading="lazy"></p>
 <h1 id="介绍">介绍</h1>
 <p>在计算机科学中，消息队列（英语：Message queue）是一种进程间通信或同一进程的不同线程间的通信方式，软件的贮列用来处理一系列的输入，通常是来自用户。消息队列提供了异步的通信协议，每一个贮列中的纪录包含详细说明的数据，包含发生的时间，输入设备的种类，以及特定的输入参数，也就是说：消息的发送者和接收者不需要同时与消息队列交互。消息会保存在队列中，直到接收者取回它。<br>
 一个 WIMP 环境像是 Microsoft Windows，借由优先的某些形式（通常是事件的时间或是重要性的顺序）来存储用户产生的事件到一个 事件贮列 中。系统把每个事件从事件贮列中传递给目标的应用程序。          <a href="https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">——摘自维基百科</a></p>
@@ -673,7 +673,7 @@ window.addEventListener('load', function() {
 <p>这段对比也是抄自网上的文章，主要是想记的更深一点，就手动抄了一遍</p>
 </blockquote>
 <h1 id="总结">总结</h1>
-<p>记得第一次接触消息队列是一个计费系统，在设计之初选择的是RabbitMQ，当时主要考虑的是消息的100%不丢失特性，毕竟涉及到钱的每一笔订单都很关键，但是后期组长要求换成Kafka，当时对消息队列不是很了解，就盲目的换掉了，这也是我为什么收集资料整理这篇文章的主要目的，希望以后再做消息队列选型的时候不会再盲目选择。当然在了解过这些知识之后我觉得当时应该首选RabbitMQ的，毕竟计费计费系统有很多功能上需要借助其来实现，目前没有用到只能说明现在的业务还不是很复杂。<br>
+<p>记得第一次接触消息队列是一个计费系统，在设计之初选择的是RabbitMQ，当时主要考虑的是消息的100%不丢失特性，毕竟涉及到钱的每一笔订单都很关键，但是后期组长要求换成Kafka，当时对消息队列不是很了解，就盲目的换掉了，这也是我为什么收集资料整理这篇文章的主要目的，希望以后再做消息队列选型的时候不会再盲目选择。当然在了解过这些知识之后我觉得当时应该首选RabbitMQ的，毕竟计费系统有很多功能上需要借助其来实现，目前没有用到只能说明现在的业务还不是很复杂。<br>
 对于一名初学者来说，要想从一个上帝的视角介绍所有的消息队列，显然是不可能的，本片文章大部分摘自朱小厮的<a href="https://mp.weixin.qq.com/s/ad7jibTb5nTzh3nDQYKFeg">消息中间件选型分析</a>，把看过的心得体会记录下来。😍强烈推荐看一遍😍</p>
 <h1 id="相关链接">相关链接</h1>
 <ol>

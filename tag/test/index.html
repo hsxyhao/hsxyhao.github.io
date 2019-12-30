@@ -3,18 +3,22 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="http://localhost:4000/favicon.ico?v=1576233598507">
-<link rel="stylesheet" href="http://localhost:4000/styles/main.css">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577690595697">
+<link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
 <link rel="stylesheet" href="/media/fonts/iconfont.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
   </head>
   <body>
     <div class="head-top-line"></div>
     <div class="header-box">
       <header class="header">
-  <div class="blog-header">
+  <div class="blog-header" id="header">
     <div class="site-meta">
       <div class="nav-toggle" id="nav_toggle">
         <div class="toggle-box">
@@ -49,7 +53,7 @@
             
           
         </li>
-        <li class="nav-item nav-item-active">
+        <li class="nav-item ">
           
             
           
@@ -99,17 +103,12 @@
   let navToggle = document.querySelector('#nav_toggle'),
   siteNav = document.querySelector('#site_nav');
   
-  function initEvent() {
-    navToggle.addEventListener('click',navClick);
-  }
-
   function navClick() {
     navToggle.classList.toggle('nav-toggle-active');
     siteNav.classList.toggle('nav-menu-active');
   }
 
-  window.addEventListener("load", initEvent);
-  
+  navToggle.addEventListener('click',navClick);  
 </script>
     </div>
     <div class="main-continer">
@@ -118,26 +117,26 @@
           <div class="sidebar">
     <div class="sidebar-wrapper">
   <div class="sidebar-item">
-    <img class="site-author-image" src="http://localhost:4000/images/avatar.png"/>
+    <img class="site-author-image" src="https://hsxyhao.github.io/images/avatar.png"/>
     <p class="site-author-name">Madara</p>
     <p class="site-description">这个人很懒，什么都不想写...</p>
   </div>
   <div class="sidebar-item side-item-stat">
     <div class="sidebar-item-box">
-      <a href="">
-        <span class="site-item-stat-count">17</span>
+      <a href="/archives/">
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name">日志</span>
       </a>
     </div>
     <div class="sidebar-item-box">
       <a href="">
-        <span class="site-item-stat-count">4</span>
+        <span class="site-item-stat-count">6</span>
         <span class="site-item-stat-name">分类</span>
       </a>
     </div>
     <div class="sidebar-item-box">
-      <a href="">
-        <span class="site-item-stat-count">4</span>
+      <a href="/tags/">
+        <span class="site-item-stat-count">6</span>
         <span class="site-item-stat-name">标签</span>
       </a>
     </div>
@@ -145,12 +144,12 @@
   <div class="sidebar-item">
     <span class="site-item-rss">
         <i class="iconfont icon-rss"></i>
-        <a href="http://localhost:4000/atom.xml" target="_blank">RSS</a>
+        <a href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
     </span>
   </div>
   <div class="sidebar-item sidebar-item-social">
     <div class="social-item">
-      <a href="">
+      <a href="https://www.github.com/hsxyhao">
         <i class="iconfont icon-github"></i> GitHub
       </a>
       <a href="">
@@ -170,101 +169,98 @@
 </div>
           <div class="section-box">
             <section class="section posts-expand">
-              <div class="archive-timeline-box">
-  <div class="archive-timeline-title">
+              <div class="tag-timeline-box">
+  <div class="tag-timeline-wrapper">
+    <div class="tag-timeline-title">
+      <h2>
+        Test
+        <small>标签</small>
+      </h2>
+    </div>
     
-      <h2>非常好！目前共计17篇日志，继续努力！</h2>
+      
+    
+      
+        
+          <a href="https://hsxyhao.github.io/post/ce-shi-fen-ye-4">
+            <div class="motion-warpper">
+              <div class="tag-post-node">
+                <h1>
+                  12-13
+                  <small>极客时间-Kafka核心技术与实战笔记</small>
+                </h1>
+              </div>  
+            </div>
+          </a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a href="https://hsxyhao.github.io/post/ce-shi-fen-ye-1">
+            <div class="motion-warpper">
+              <div class="tag-post-node">
+                <h1>
+                  12-13
+                  <small>微博、微信公众号开放API</small>
+                </h1>
+              </div>  
+            </div>
+          </a>
+        
+      
+    
+      
+        
+      
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+        
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
     
   </div>
-  
-    <a href="http://localhost:4000/post/ce-shi-fen-ye-1">
-      <article class="tag-node">
-        <h1>
-          12-13
-          <small>测试分页1</small>
-        </h1>
-      </article>  
-    </a>
-  
-    <a href="http://localhost:4000/post/xiao-xi-dui-lie-xue-xi-kai-pian">
-      <article class="tag-node">
-        <h1>
-          12-10
-          <small>消息队列学习开篇</small>
-        </h1>
-      </article>  
-    </a>
-  
-    <a href="http://localhost:4000/post/redis-tao-tai-ji-zhi">
-      <article class="tag-node">
-        <h1>
-          12-05
-          <small>Redis淘汰机制</small>
-        </h1>
-      </article>  
-    </a>
-  
-    <a href="http://localhost:4000/post/vim-ming-ling-ji-lu">
-      <article class="tag-node">
-        <h1>
-          12-05
-          <small>Vim命令</small>
-        </h1>
-      </article>  
-    </a>
-  
-</div>
-
-<div class="page">
-  <ul class="pagination-ul">
-    
-      <li>
-        <a href="http://localhost:4000/archives/page/2/">
-          <i class="iconfont icon-angle_left"></i>
-        </a>
-      </li>
-    
-    
-      
-        <li class="pagination-li ">
-            <a href="/archives/page/../">
-              1
-            </a>
-        </li>
-      
-        <li class="pagination-li ">
-            <a href="/archives/page/2">
-              2
-            </a>
-        </li>
-      
-        <li class="pagination-li pagination-active">
-            <a href="/archives/page/3">
-              3
-            </a>
-        </li>
-      
-        <li class="pagination-li ">
-            <a href="/archives/page/4">
-              4
-            </a>
-        </li>
-      
-        <li class="pagination-li ">
-            <a href="/archives/page/5">
-              5
-            </a>
-        </li>
-      
-    
-    
-      <li>
-        <a href="/archives/page/4">
-          <i class="iconfont icon-angle_right"></i>
-        </a>
-      </li>
-    
-  </ul>
 </div>
             </section>
           </div>
@@ -277,7 +273,7 @@
     </div>
     <div class="poweredby">
       <div class="power-left">Power By<a href="https://github.com/hsxyhao"> HsxyHao</a></div>
-      <div>Copy<a href="https://github.com/iissnan/hexo-theme-next"> Hexo Next Theme</div>
+      <div>Copy<a href="https://github.com/iissnan/hexo-theme-next"> Hexo Next Theme</a></div>
     </div>
   </footer>
   <div class="back-to-top" id="back_to_top">
@@ -295,24 +291,14 @@
   let back2Top = document.querySelector('#back_to_top'),
   back2TopText = document.querySelector('#back_to_top_text');
 
-  function navClick() {
-    navToggle.classList.toggle('nav-toggle-active');
-    siteNav.classList.toggle('nav-menu-active');
-  }
-
   function scrollAnimation(currentY, targetY) {
-    // 获取当前位置方法
-    // const currentY = document.documentElement.scrollTop || document.body.scrollTop
-
-    // 计算需要移动的距离
+   
     let needScrollTop = targetY - currentY
     let _currentY = currentY
     setTimeout(() => {
-      // 一次调用滑动帧数，每次调用会不一样
       const dist = Math.ceil(needScrollTop / 10)
       _currentY += dist
       window.scrollTo(_currentY, currentY)
-      // 如果移动幅度小于十个像素，直接移动，否则递归调用，实现动画效果
       if (needScrollTop > 10 || needScrollTop < -10) {
         scrollAnimation(_currentY, targetY)
       } else {
@@ -324,6 +310,7 @@
   back2Top.addEventListener("click", function(e) {
     scrollAnimation(body.scrollTop, 0);
     e.stopPropagation();
+    return false;
   });
   
   window.addEventListener('scroll', function(e) {
@@ -336,7 +323,11 @@
     }
     back2TopText.textContent = Math.floor(percent);
   });
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
 </script>
     </div>
   </body>
+  <script src="/media/js/motion.js"></script>
 </html>

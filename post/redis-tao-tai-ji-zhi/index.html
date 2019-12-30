@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577242945848">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577690595697">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -137,7 +137,7 @@
   <div class="sidebar-item side-item-stat">
     <div class="sidebar-item-box">
       <a href="/archives/">
-        <span class="site-item-stat-count">10</span>
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name">日志</span>
       </a>
     </div>
@@ -184,6 +184,7 @@
             <div class="toc-box">
   <div class="toc-wrapper" id="toc_wrapper">
     <ul class="markdownIt-TOC">
+<li><a href="#%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5">删除策略</a></li>
 <li><a href="#%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5">淘汰策略</a></li>
 <li><a href="#lru%E7%AE%97%E6%B3%95">LRU算法</a>
 <ul>
@@ -469,18 +470,24 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-time"></i>
-      <span>10分钟</span>
+      <span>11分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">2583字数</span>
+      <span class="pc-show">2751字数</span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
                 <p>说到Redis的内存淘汰机制，突然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似Redis的内存淘汰机制了。</p>
+<h1 id="删除策略">删除策略</h1>
+<ul>
+<li>定时删除:在设置键的过期时间的同时，创建一个定时器 timer). 让定时器在键的过期 时间来临时，立即执行对键的删除操作。</li>
+<li>惰性删除:放任键过期不管，但是每次从键空间中获取键时，都检查取得的键是否过 期，如果过期的话，就删除该键;如果没有过期，就返回该键。</li>
+<li>定期删除:每隔一段时间程序就对数据库进行一次检查，删除里面的过期键。至于要 删除多少过期键，以及要检查多少个数据库，则由算法决定。</li>
+</ul>
 <h1 id="淘汰策略">淘汰策略</h1>
 <p>Redis的内存淘汰机制就是为了淘汰掉一些数据，保证Redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
 <ul>
@@ -514,7 +521,7 @@ window.addEventListener('load', function() {
 <h2 id="为什么采用近似的lru算法">为什么采用近似的LRU算法</h2>
 <p>redis中使用的LRU算法并不是真正的LRU算法，采用的是一种近似的LRU算法，如果每次添加key的时候查找所有key的最大空闲时间，显然在性能上会有所降低，本来这种剔除的策略就是一种概率的猜测，所以在选择最大的空闲时间key的时候，只要在概率上逼近真正lru算法就行了。过期算法是在redis2.8版本中加入的，并且在3.0中对其进行了优化。</p>
 <p>下图对lru算法进行了一些比较，左上角是理想的lru算法效果。上层是改进版即3.0后的版本与理想的lru算法的一个比较，下面两张图是2.8版本与3.0版本进行的一个比较。那么需要怎么理解这个图呢？<br>
-<img src="https://hsxyhao.github.io/post-images/1575603094713.png" alt=""><br>
+<img src="https://hsxyhao.github.io/post-images/1575603094713.png" alt="" loading="lazy"><br>
 在这个图里面分为三个区域</p>
 <ul>
 <li>最上层的浅灰色区域代表需要淘汰的key</li>

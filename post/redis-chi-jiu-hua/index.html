@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577242945848">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577690595697">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -137,7 +137,7 @@
   <div class="sidebar-item side-item-stat">
     <div class="sidebar-item-box">
       <a href="/archives/">
-        <span class="site-item-stat-count">10</span>
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name">日志</span>
       </a>
     </div>
@@ -524,7 +524,7 @@ window.addEventListener('load', function() {
 </ul>
 <h2 id="bgsave流程">bgsave流程</h2>
 <p>bgsave命令首先会判断是否存在RBD或者AOF子进程，如果没有则创建，若存在则直接返回。紧接着父进程会fork一个子进程，fork这段时间会出现短时间阻塞，然后父进程继续响应客户端，子进程生成RBD文件，完成持久化之后通知父进程。<br>
-<img src="https://hsxyhao.github.io/post-images/1573897466755.png" alt=""><br>
+<img src="https://hsxyhao.github.io/post-images/1573897466755.png" alt="" loading="lazy"><br>
 bgsave命令流程说明，图片摘自《Redis开发与运维》一书</p>
 <h2 id="rbd文件">RBD文件</h2>
 <p>RDB的保存于dir配置指定下的目录，除此之外还可以使用config set dir动态修改RDB文件的位置以及config set dbfilename动态修改RBD文件的名称，这个在线上环境的磁盘出现问题或者写满的时候有用。</p>
@@ -544,7 +544,7 @@ bgsave命令流程说明，图片摘自《Redis开发与运维》一书</p>
 <p>相对于RDB来说，AOF是可以进行实时(秒级)持久化的。比较适合用来做热备份，通过配置文件中的appendonly yes来开启，appendfilename为AOF持久化的文件名，默认为appendonly.aof。</p>
 <h2 id="aof工作流程">AOF工作流程</h2>
 <p>AOF持久化首先会将客户端请求的命令放入到AOF缓存中，然后根据磁盘的刷新策略写入到磁盘中，当AOF文件达到上限时，会进行AOF重写，对文件进行瘦身，最后在redis重启的时候重新加载下AOF文件即可。<br>
-<img src="https://hsxyhao.github.io/post-images/1573900560042.png" alt=""></p>
+<img src="https://hsxyhao.github.io/post-images/1573900560042.png" alt="" loading="lazy"></p>
 <h3 id="命令写入过程">命令写入过程</h3>
 <p>服务端接收到客户端按照RESP协议文本格式的命令后，会将其直接写入到aof缓存区内。使用aof缓存可以提高redis的性能，以及使用不同缓存区刷新策略，可以在性能和安全方面做出平衡。<br>
 AOF刷新策略</p>
@@ -569,7 +569,7 @@ AOF刷新策略</p>
 </blockquote>
 <h3 id="aof重写流程">AOF重写流程</h3>
 <p>AOFfork的子进程只是用来重写已经存在AOF文件，AOF写入还是由父进程来完成。<br>
-<img src="https://hsxyhao.github.io/post-images/1574070629984.png" alt=""><br>
+<img src="https://hsxyhao.github.io/post-images/1574070629984.png" alt="" loading="lazy"><br>
 1.执行AOF重写请求<br>
 如果当前已经存在AOF重写任务，则当次请求不执行，如果已经有bgsave正在执行，则当前请求会等待该任务执行完成后启动。<br>
 2.父进程fork一个子进程用来重写AOF文件，将客户端的命令<strong>同时</strong>保存到aof_buf以及aof_rewrite_buf中</p>

@@ -1,0 +1,786 @@
+<html>
+  <head>
+      <meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Madara</title>
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577690595697">
+<link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
+<meta name="description" content="这个人很懒，什么都不想写..." />
+
+<link rel="stylesheet" href="/media/fonts/iconfont.css">
+<link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+  </head>
+  <body>
+    <div class="head-top-line"></div>
+    <div class="header-box">
+      <header class="header">
+  <div class="blog-header" id="header">
+    <div class="site-meta">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-title">
+        <a href="/" class="brand">
+          <span>Madara</span>
+        </a>
+      </div>
+      <p class="subtitle">Quick notes</p>
+    </div>
+    <nav class="site-nav" id="site_nav">
+      <ul>
+        <li class="nav-item ">
+          
+            
+              
+                <a href="/">
+                  <i class="iconfont icon-home"></i> 首页
+                </a>
+              
+            
+          
+            
+          
+            
+          
+            
+          
+        </li>
+        <li class="nav-item ">
+          
+            
+          
+            
+              
+                <a href="/archives">
+                  <i class="iconfont icon-archive"></i> 归档
+                </a>
+              
+            
+          
+            
+          
+            
+          
+        </li>
+        <li class="nav-item ">
+          
+            
+          
+            
+          
+            
+              
+                <a href="/tags">
+                  <i class="iconfont icon-tags"></i> 标签
+                </a>
+              
+            
+          
+            
+          
+        </li>
+        <li class="nav-item">
+          <a>
+            <i class="iconfont icon-search"></i> 搜索
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+    </div>
+    <div class="main-continer">
+      <div class="section-layout">
+        <div class="section-layout-wrapper">
+          
+<div class="sidebar">
+    <div class="sidebar-wrapper" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body" id="sidebar_body">
+        
+          <div class="post-side-meta" id="post_side_meta">
+            <div class="sidebar-wrapper">
+  <div class="sidebar-item">
+    <img class="site-author-image" src="https://hsxyhao.github.io/images/avatar.png"/>
+    <p class="site-author-name">Madara</p>
+    <p class="site-description">这个人很懒，什么都不想写...</p>
+  </div>
+  <div class="sidebar-item side-item-stat">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-name">日志</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">6</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">6</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
+  </div>
+  <div class="sidebar-item">
+    <span class="site-item-rss">
+        <i class="iconfont icon-rss"></i>
+        <a href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
+    </span>
+  </div>
+  <div class="sidebar-item sidebar-item-social">
+    <div class="social-item">
+      <a href="https://www.github.com/hsxyhao">
+        <i class="iconfont icon-github"></i> GitHub
+      </a>
+      <a href="">
+        <i class="iconfont icon-twitter"></i> Twitter
+      </a>
+    </div>
+    <div class="social-item">
+      <a href="">
+        <i class="iconfont icon-globe"></i> 豆瓣
+      </a>
+      <a href="">
+        <i class="iconfont icon-globe"></i> 知乎
+      </a>
+    </div>
+  </div>
+</div>
+          </div>
+          <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+            <div class="toc-box">
+  <div class="toc-wrapper" id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AFredis">什么是Redis？</a></li>
+<li><a href="#redis%E4%BC%98%E5%8A%BF">Redis优势</a></li>
+<li><a href="#redis%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">Redis的数据类型?</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8-redis-%E6%9C%89%E5%93%AA%E4%BA%9B%E5%A5%BD%E5%A4%84">使用 Redis 有哪些好处?</a></li>
+<li><a href="#redis%E7%9B%B8%E6%AF%94memcached%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BC%98%E5%8A%BF">Redis相比Memcached有哪些优势?</a></li>
+<li><a href="#memcache%E4%B8%8Eredis%E7%9A%84%E5%8C%BA%E5%88%AB%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B">Memcache与Redis的区别都有哪些?</a></li>
+<li><a href="#redis%E6%98%AF%E5%8D%95%E8%BF%9B%E7%A8%8B%E5%8D%95%E7%BA%BF%E7%A8%8B%E7%9A%84">Redis是单进程单线程的?</a></li>
+<li><a href="#%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%80%BC%E8%83%BD%E5%AD%98%E5%82%A8%E6%9C%80%E5%AE%B9%E9%87%8F%E6%98%AF%E5%A4%9A%E5%B0%91">一个字符串类型的值能存储最容量是多少?</a></li>
+<li><a href="#redis-%E7%9A%84%E6%8C%81%E4%B9%85%E5%8C%96%E6%9C%BA%E5%88%B6%E6%98%AF%E4%BB%80%E4%B9%88%E5%90%84%E8%87%AA%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9">Redis 的持久化机制是什么?各自的优缺点?</a></li>
+<li><a href="#redis-%E5%B8%B8%E8%A7%81%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">Redis 常见性能问题和解决方案</a></li>
+<li><a href="#redis-%E8%BF%87%E6%9C%9F%E9%94%AE%E7%9A%84%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5">redis 过期键的删除策略?</a></li>
+<li><a href="#redis-%E7%9A%84%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5">Redis 的回收策略(淘汰策略)?</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88-redis-%E9%9C%80%E8%A6%81%E6%8A%8A%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE%E6%94%BE-%E5%88%B0%E5%86%85%E5%AD%98%E4%B8%AD">为什么 Redis 需要把所有数据放 到内存中?</a></li>
+<li><a href="#redis-%E7%9A%84%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6%E4%BA%86%E8%A7%A3%E4%B9%88">Redis 的同步机制了解么?</a></li>
+<li><a href="#pipeline-%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84%E4%B8%BA%E4%BB%80%E4%B9%88-%E8%A6%81%E7%94%A8-pipeline">Pipeline 有什么好处，为什么 要用 pipeline?</a></li>
+<li><a href="#%E6%98%AF%E5%90%A6%E4%BD%BF%E7%94%A8%E8%BF%87-redis-%E9%9B%86%E7%BE%A4%E9%9B%86%E7%BE%A4-%E7%9A%84%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88">是否使用过 Redis 集群，集群 的原理是什么?</a></li>
+<li><a href="#redis-%E9%9B%86%E7%BE%A4%E6%96%B9%E6%A1%88%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E4%BC%9A%E5%AF%BC-%E8%87%B4%E6%95%B4%E4%B8%AA%E9%9B%86%E7%BE%A4%E4%B8%8D%E5%8F%AF%E7%94%A8">Redis 集群方案什么情况下会导 致整个集群不可用?</a></li>
+<li><a href="#redis-%E6%94%AF%E6%8C%81%E7%9A%84-java-%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%83%BD%E6%9C%89-%E5%93%AA%E4%BA%9B%E5%AE%98%E6%96%B9%E6%8E%A8%E8%8D%90%E7%94%A8%E5%93%AA%E4%B8%AA">Redis 支持的 Java 客户端都有 哪些?官方推荐用哪个?</a></li>
+<li><a href="#jedis-%E4%B8%8E-redisson-%E5%AF%B9%E6%AF%94%E6%9C%89%E4%BB%80%E4%B9%88-%E4%BC%98%E7%BC%BA%E7%82%B9">Jedis 与 Redisson 对比有什么 优缺点?</a></li>
+<li><a href="#redis-%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81%E5%8F%8A%E9%AA%8C%E8%AF%81%E5%AF%86-%E7%A0%81">Redis 如何设置密码及验证密 码?</a></li>
+<li><a href="#%E8%AF%B4%E8%AF%B4-redis-%E5%93%88%E5%B8%8C%E6%A7%BD%E7%9A%84%E6%A6%82%E5%BF%B5">说说 Redis 哈希槽的概念?</a></li>
+<li><a href="#redis-%E9%9B%86%E7%BE%A4%E7%9A%84%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E6%A8%A1%E5%9E%8B%E6%98%AF%E6%80%8E-%E6%A0%B7%E7%9A%84">Redis 集群的主从复制模型是怎 样的?</a></li>
+<li><a href="#redis-%E9%9B%86%E7%BE%A4%E4%BC%9A%E6%9C%89%E5%86%99%E6%93%8D%E4%BD%9C%E4%B8%A2%E5%A4%B1%E5%90%97-%E4%B8%BA%E4%BB%80%E4%B9%88">Redis 集群会有写操作丢失吗? 为什么?</a></li>
+<li><a href="#redis-%E9%9B%86%E7%BE%A4%E4%B9%8B%E9%97%B4%E6%98%AF%E5%A6%82%E4%BD%95%E5%A4%8D%E5%88%B6%E7%9A%84">Redis 集群之间是如何复制的?</a></li>
+<li><a href="#redis-%E9%9B%86%E7%BE%A4%E6%9C%80%E5%A4%A7%E8%8A%82%E7%82%B9%E4%B8%AA%E6%95%B0%E6%98%AF%E5%A4%9A-%E5%B0%91">Redis 集群最大节点个数是多 少?</a></li>
+<li><a href="#redis-%E9%9B%86%E7%BE%A4%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E5%BA%93">Redis 集群如何选择数据库?</a></li>
+<li><a href="#%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3-redis-%E4%BA%8B%E5%8A%A1">怎么理解 Redis 事务?</a></li>
+<li><a href="#redis-%E4%BA%8B%E5%8A%A1%E7%9B%B8%E5%85%B3%E7%9A%84%E5%91%BD%E4%BB%A4%E6%9C%89%E5%93%AA%E5%87%A0-%E4%B8%AA">Redis 事务相关的命令有哪几 个?</a></li>
+<li><a href="#redis-%E5%A6%82%E4%BD%95%E5%81%9A%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96">Redis 如何做内存优化?</a></li>
+<li><a href="#redis-%E6%9C%80%E9%80%82%E5%90%88%E7%9A%84%E5%9C%BA%E6%99%AF">Redis 最适合的场景?</a></li>
+<li><a href="#%E5%81%87%E5%A6%82-redis-%E9%87%8C%E9%9D%A2%E6%9C%89-1-%E4%BA%BF%E4%B8%AA-key%E5%85%B6%E4%B8%AD%E6%9C%89-10w-%E4%B8%AA-key-%E6%98%AF%E4%BB%A5%E6%9F%90%E4%B8%AA-%E5%9B%BA%E5%AE%9A%E7%9A%84%E5%B7%B2%E7%9F%A5%E7%9A%84%E5%89%8D%E7%BC%80%E5%BC%80%E5%A4%B4%E7%9A%84%E5%A6%82%E6%9E%9C%E5%B0%86%E5%AE%83-%E4%BB%AC%E5%85%A8%E9%83%A8%E6%89%BE%E5%87%BA%E6%9D%A5">假如 Redis 里面有 1 亿个 key，其中有 10w 个 key 是以某个 固定的已知的前缀开头的，如果将它 们全部找出来?</a></li>
+<li><a href="#%E5%A6%82%E6%9E%9C%E6%9C%89%E5%A4%A7%E9%87%8F%E7%9A%84-key-%E9%9C%80%E8%A6%81%E8%AE%BE%E7%BD%AE%E5%90%8C-%E4%B8%80%E6%97%B6%E9%97%B4%E8%BF%87%E6%9C%9F%E4%B8%80%E8%88%AC%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E4%B9%88">如果有大量的 key 需要设置同 一时间过期，一般需要注意什么?</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E8%BF%87-redis-%E5%81%9A%E5%BC%82%E6%AD%A5%E9%98%9F%E5%88%97%E4%B9%88-%E4%BD%A0%E6%98%AF%E6%80%8E%E4%B9%88%E7%94%A8%E7%9A%84">使用过 Redis 做异步队列么， 你是怎么用的?</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E8%BF%87-redis-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E4%B9%88%E5%AE%83-%E6%98%AF%E4%BB%80%E4%B9%88%E5%9B%9E%E4%BA%8B">使用过 Redis 分布式锁么，它 是什么回事?</a></li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
+let active = 'active-show', activeClass = 'active-current';
+let tocWrapper = document.querySelector('#toc_wrapper');
+let tocContent = tocWrapper.children[0];
+
+function addTocNumber(elem, deep) {
+  if (!elem) {
+    return;
+  }
+  let prop = elem.__proto__;
+
+  if (prop === HTMLUListElement.prototype) {
+    for (let i = 0; i < elem.children.length; i++) {
+      addTocNumber(elem.children[i], deep + (i + 1) + '.');
+    }
+  } else if (prop === HTMLLIElement.prototype) {
+    // 保存li元素
+    lList.push(elem);
+    for (let i = 0; i < elem.children.length; i++) {
+      let cur = elem.children[i];
+      if (cur.__proto__ === HTMLAnchorElement.prototype) {
+        cur.text =  deep + ' ' + cur.text;
+      } else if (cur.__proto__ === HTMLUListElement.prototype) {
+        addTocNumber(cur, deep);
+      }
+    }
+  }
+}
+
+
+document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
+  let scrollTop = document.body.scrollTop;
+  let dir;
+
+  if (lastTop - scrollTop > 0) {
+    dir = 'up';
+  } else {
+    dir = 'down';
+  }
+
+  lastTop = scrollTop;
+  if (scrollTop <= 0) {
+    if (lastIndex >= 0 && lastIndex < hList.length) {
+      lList[lastIndex].classList.remove(activeClass);
+    }
+    return;
+  }
+
+  let current = 0, hasFind = false;
+  for (let i = 0; i < hList.length; i++) {
+    if (hList[i].offsetTop > scrollTop) {
+      current = i;
+      hasFind = true;
+      break;
+    }
+  }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  } else {
+    current--;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  } else {
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
+});
+
+function removeParentActiveClass() {
+  let parents = tocContent.querySelectorAll('.'+active)
+  parents.forEach(function(elem) {
+    elem.classList.remove(active);
+  });
+}
+
+function addActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.add(activeClass);
+  }
+}
+
+function removeActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.remove(activeClass);
+  }
+}
+
+function addActiveLiElemment(elem, parent) {
+  if (!elem || elem === parent) {
+    return;
+  } else {
+    if (elem.__proto__ === HTMLLIElement.prototype) {
+      elem.classList.add(active);
+    }
+    addActiveLiElemment(elem.parentElement, parent);
+  }
+}
+
+function showToc() {
+  if (tocWrapper) {
+    postBody = document.querySelector('#post_body');
+    for (let i = 0; i < postBody.children.length; i++) {
+      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+        hList.push(postBody.children[i]);
+      }
+    }
+
+    if (hList.length > 10) {
+      active = 'active-hidden'
+      tocContent.classList.add('closed');
+    } else {
+      tocContent.classList.add('expanded');
+    }
+  }
+}
+addTocNumber(tocContent, '');
+
+window.addEventListener('load', function() {
+  showToc();
+  document.querySelector('#sidebar').style='display: block;';
+  tocWrapper.classList.add('toc-active');
+  setTimeout(function() {
+    if ("createEvent" in document) {
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("scroll", false, true);
+      document.dispatchEvent(evt);
+    }
+    else {
+      document.fireEvent("scroll");
+    }
+  }, 500)
+})
+
+</script>
+          </div>
+        
+      </div>
+    </div>
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+
+  }
+
+  postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  let limitTop = sidebar.offsetTop;
+  let hasFix = false;
+  window.addEventListener('scroll', function(e) {
+    if (document.body.scrollTop >= limitTop) {
+      if (!hasFix) {
+        sidebar.classList.add('sidebar-fixed');
+        hasFix = true;
+      }
+    } else {
+      if (hasFix) {
+        sidebar.classList.remove('sidebar-fixed');
+        hasFix = false;
+      }
+    }
+  });
+</script>
+          <div class="section-box">
+            <div class="section post">
+              <div class="article-box">
+    <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/redis-chang-kao-mian-shi-ti">
+      Redis常考面试题
+    </a>
+  </h1>
+  <div class="post-meta">
+    <span class="meta-item">
+      <i class="iconfont icon-calendar_empty"></i>
+      <span class="pc-show">发布于</span>
+      <span>2019-12-30</span>
+    </span>
+    
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="iconfont icon-time"></i>
+      <span>18分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="iconfont icon-keyboard"></i>
+      <span class="pc-show">5020字数</span>
+    </span>
+  </div>
+</header>
+</div>
+              <div class="post-body next-md-body" id="post_body">
+                <p>前段时间学习了一下redis，并且也做了些学习笔记，刚过一周的时候，就已经忘得一干二净，实在是惭愧啊。不过唯一的安慰就是当时的笔记灵感都记录下来了，尤其是难点都做了详细的笔记。本来准备过段时间再回顾一下，今天同事丢了本redis面试题给我，大概看了下，基本上前段时间看的内容都有提到，所以就准备将这些面试题和我之前做的笔记结合起来做一个回忆索引。<br>
+<img src="https://hsxyhao.github.io/post-images/1577675564766.jpg" alt="" loading="lazy"></p>
+<!-- more -->
+<h1 id="什么是redis"><a href="/post/rui-shi-jun-dao-redis/">什么是Redis？</a></h1>
+<p>Redis是完全开源免费的，遵守 BSD 协议，是一个高性能的key-value数据库。 Redis与其他key-value缓存产品有以下三个特点:<br>
+1. Redis 支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次 加载进行使用。<br>
+2. Redis 不仅仅支持简单的 key-value 类型的数据，同时还提供 list，set，zset， hash 等数据结构的存储。<br>
+3. Redis 支持数据的备份，即 master-slave 模式的数据备份。</p>
+<h1 id="redis优势">Redis优势</h1>
+<ol>
+<li>性能极高 – Redis 能读的速度是 110000 次/s,写的速度是 81000 次/s 。</li>
+<li>丰富的数据类型 – Redis 支持二进制案例的 Strings, Lists, Hashes, Sets 及Ordered Sets 数据类型操作。</li>
+<li>原子 – Redis 的所有操作都是原子性的，意思就是要么成功执行要么失败完全不执 行。单个操作是原子性的。多个操作也支持事务，即原子性，通过 MULTI 和 EXEC指令包 起来。</li>
+<li>丰富的特性 – Redis 还支持 publish/subscribe, 通知, key 过期等等特性。</li>
+</ol>
+<h1 id="redis的数据类型"><a href="/post/rui-shi-jun-dao-redis#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">Redis的数据类型?</a></h1>
+<p>答:Redis支持五种数据类型:string(字符串)，hash(哈希)，list(列表)，set(集 合)及 zsetsorted set:有序集合)。<br>
+我们实际项目中比较常用的是string，hash如果你是Redis中高级用户，还需要加上下面几种数据结构 HyperLogLog、Geo、Pub/Sub。如果你说还玩过Redis Module，像 BloomFilter，RedisSearch，Redis-ML，面试官得眼睛就开始发亮了。</p>
+<h1 id="使用-redis-有哪些好处">使用 Redis 有哪些好处?</h1>
+<ol>
+<li>速度快，因为数据存在内存中，类似于 HashMap，HashMap 的优势就是查找和操 作的时间复杂度都是 O1)</li>
+<li>支持丰富数据类型，支持 string，list，set，Zset，hash 等</li>
+<li>支持事务，操作都是原子性，所谓的原子性就是对数据的更改要么全部执行，要么全部不执行</li>
+<li>丰富的特性:可用于缓存，消息，按 key 设置过期时间，过期后将会自动删除</li>
+</ol>
+<h1 id="redis相比memcached有哪些优势">Redis相比Memcached有哪些优势?</h1>
+<ol>
+<li>Memcached所有的值均是简单的字符串，redis作为其替代者，支持更为丰富的数据类型</li>
+<li>Redis的速度比Memcached快很多</li>
+<li>Redis可以持久化其数据</li>
+</ol>
+<h1 id="memcache与redis的区别都有哪些">Memcache与Redis的区别都有哪些?</h1>
+<ol>
+<li>存储方式Memecache把数据全部存在内存之中，断电后会挂掉，数据不能超过内存大小。 Redis有部份存在硬盘上，这样能保证数据的持久性。</li>
+<li>数据支持类型Memcache对数据类型支持相对简单。Redis有复杂的数据类型。</li>
+<li>使用底层模型不同它们之间底层实现方式以及与客户端之间通信的应用协议不一 样。 Redis 直接自己构建了VM机制，因为一般的系统调用系统函数的话，会浪费一定的时间去移动和请求。</li>
+</ol>
+<h1 id="redis是单进程单线程的">Redis是单进程单线程的?</h1>
+<p>答:Redis是单进程单线程的，redis利用队列技术将并发访问变为串行访问，消除了传统数据库串行控制的开销。</p>
+<h1 id="一个字符串类型的值能存储最容量是多少"><a href="/post/rui-shi-jun-dao-redis/#string%E7%B1%BB%E5%9E%8B">一个字符串类型的值能存储最容量是多少?</a></h1>
+<p>答:512M</p>
+<h1 id="redis-的持久化机制是什么各自的优缺点">Redis 的持久化机制是什么?各自的优缺点?</h1>
+<ol>
+<li>
+<p><a href="/post/redis-chi-jiu-hua/#rbd">RDB(Redis DataBase)持久化方式</a>: 是指用数据集快照的方式半持久化模式)记录 redis 数据库的所有键值对,在某个时间点将数 据写入一个临时文件，持久化结束后，用这个临时文件替换上次持久化的文件，达到数据 恢复。<br>
+<a href="/post/redis-chi-jiu-hua/#rdb-%E4%BC%98%E7%BC%BA%E7%82%B9">优点:</a></p>
+<ol>
+<li>只有一个文件 dump.rdb，方便持久化。</li>
+<li>容灾性好，一个文件可以保存到安全的磁盘。</li>
+<li>性能最大化，fork 子进程来完成写操作，让主进程继续处理命令，所以是 IO最大 化。使用单独子进程来进行持久化，主进程不会进行任何 IO 操作，保证了 redis的高性能)</li>
+<li>相对于数据集大时，比 AOF 的启动效率更高。<br>
+缺点</li>
+<li>数据安全性低。RDB 是间隔一段时间进行持久化，如果持久化之间 redis 发生故障，会发 生数据丢失。所以这种方式更适合数据要求不严谨的时候</li>
+</ol>
+</li>
+<li>
+<p><a href="/post/redis-chi-jiu-hua/#aof">AOF(Append-only file)持久化方式:</a> 是指所有的命令行记录以 redis 命令请求协议的格式完全持久化存储)保存为 aof 文件。<br>
+<a href="">优点</a></p>
+<ol>
+<li>数据安全，aof 持久化可以配置 appendfsync 属性，有 always，每进行一次命令操 作就记录到 aof 文件中一次。</li>
+<li>通过 append 模式写文件，即使中途服务器宕机，可以通过 redis-check-aof工具解 决数据一致性问题。</li>
+<li>通过 append 模式写文件，即使中途服务器宕机，可以通过 redis-check-aof工具解 决数据一致性问题。<br>
+缺点</li>
+<li>AOF 文件比 RDB 文件大，且恢复速度慢。</li>
+<li>数据集大的时候，比 rdb 启动效率低。</li>
+</ol>
+</li>
+</ol>
+<h1 id="redis-常见性能问题和解决方案">Redis 常见性能问题和解决方案</h1>
+<ol>
+<li>Master 最好不要写内存快照，如果 Master 写内存快照，save 命令调度 rdbSave函 数，会阻塞主线程的工作，当快照比较大时对性能影响是非常大的，会间断性暂停服务</li>
+<li>如果数据比较重要，某个 Slave 开启 AOF 备份数据，策略设置为每秒同步一</li>
+<li>为了主从复制的速度和连接的稳定性，Master 和 Slave 最好在同一个局域网</li>
+<li>尽量避免在压力很大的主库上增加从</li>
+<li>主从复制<a href="/post/redis-copy/#%E5%A4%8D%E5%88%B6%E9%A3%8E%E6%9A%B4">不要用图状结构</a>，用<a href="/post/redis-copy/#%E5%A4%8D%E5%88%B6%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84">单向链表结构</a>更为稳定，即:Master &lt;- Slave1&lt;- Slave2 &lt;- Slave3...这样的结构方便解决单点故障问题，实现 Slave 对 Master的替换。如 果 Master 挂了，可以立刻启用 Slave1 做 Master，其他不变。</li>
+</ol>
+<h1 id="redis-过期键的删除策略"><a href="/post/redis-tao-tai-ji-zhi/#%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5">redis 过期键的删除策略?</a></h1>
+<ol>
+<li>定时删除:在设置键的过期时间的同时，创建一个定时器 timer). 让定时器在键的过期 时间来临时，立即执行对键的删除操作。</li>
+<li>惰性删除:放任键过期不管，但是每次从键空间中获取键时，都检查取得的键是否过 期，如果过期的话，就删除该键;如果没有过期，就返回该键。</li>
+<li>定期删除:每隔一段时间程序就对数据库进行一次检查，删除里面的过期键。至于要 删除多少过期键，以及要检查多少个数据库，则由算法决定。</li>
+</ol>
+<h1 id="redis-的回收策略淘汰策略"><a href="/post/redis-tao-tai-ji-zhi/#%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5">Redis 的回收策略(淘汰策略)?</a></h1>
+<ul>
+<li>volatile-lru:从已设置过期时间的数据集(server.db[i].expires)中挑选最近最少使用的 数据淘汰</li>
+<li>volatile-ttl:从已设置过期时间的数据集(server.db[i].expires)中挑选将要过期的数据 淘汰</li>
+<li>volatile-random:从已设置过期时间的数据集(server.db[i].expires)中任意选择数据淘 汰</li>
+<li>allkeys-lru:从数据集(server.db[i].dict)中挑选最近最少使用的数据淘汰</li>
+<li>allkeys-random:从数据集(server.db[i].dict)中任意选择数据淘汰</li>
+<li>no-enviction(驱逐):禁止驱逐数据</li>
+</ul>
+<p>注意这里的 6 种机制，volatile 和 allkeys 规定了是对已设置过期时间的数据集淘汰数据还 是从全部数据集淘汰数据，后面的 lru、ttl 以及 random 是三种不同的淘汰策略，再加上 一种 no-enviction 永不回收的策略。<br>
+使用策略规则:</p>
+<ol>
+<li>如果数据呈现幂律分布，也就是一部分数据访问频率高，一部分数据访问频率低，则 使用 allkeys-lru</li>
+<li>如果数据呈现平等分布，也就是所有的数据访问频率都相同，则使用allkeys- random</li>
+</ol>
+<h1 id="为什么-redis-需要把所有数据放-到内存中">为什么 Redis 需要把所有数据放 到内存中?</h1>
+<p>答 :Redis 为了达到最快的读写速度将数据都读到内存中，并通过异步的方式将数据写入 磁盘。所以 redis 具有快速和数据持久化的特征。如果不将数据放在内存中，磁盘 I/O 速 度为严重影响 redis 的性能。在内存越来越便宜的今天，redis 将会越来越受欢迎。如果设 置了最大使用的内存，则数据已有记录数达到内存限值后不能继续插入新值。</p>
+<h1 id="redis-的同步机制了解么"><a href="/post/redis-copy/#%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5">Redis 的同步机制了解么?</a></h1>
+<p>答:Redis 可以使用主从同步，从从同步。第一次同步时，主节点做一次 bgsave，并同时 将后续修改操作记录到内存 buffer，待完成后将 rdb 文件全量同步到复制节点，复制节点 接受完成后将 rdb 镜像加载到内存。加载完成后，再通知主节点将期间修改的操作记录同 步到复制节点进行重放就完成了同步过程。</p>
+<h1 id="pipeline-有什么好处为什么-要用-pipeline">Pipeline 有什么好处，为什么 要用 pipeline?</h1>
+<p>答:可以将多次 IO 往返的时间缩减为一次，前提是 pipeline 执行的指令之间没有因果相 关性。使用 redis-benchmark 进行压测的时候可以发现影响 redis 的 QPS峰值的一个重 要因素是 pipeline 批次指令的数目。</p>
+<h1 id="是否使用过-redis-集群集群-的原理是什么"><a href="/post/redis-gao-ke-yong/">是否使用过 Redis 集群，集群 的原理是什么?</a></h1>
+<ol>
+<li><a href="/post/redis-gao-ke-yong/#redis-sentinel">Redis Sentinal</a> 着眼于高可用，在 master 宕机时会自动将 slave 提升为master，继 续提供服务。</li>
+<li><a href="/post/redis-gao-ke-yong/#redis-cluster">Redis Cluster</a> 着眼于扩展性，在单个 redis 内存不足时，使用 Cluster 进行分片存 储。</li>
+</ol>
+<h1 id="redis-集群方案什么情况下会导-致整个集群不可用">Redis 集群方案什么情况下会导 致整个集群不可用?</h1>
+<p>答:有 A，B，C 三个节点的集群,在没有复制模型的情况下,如果节点 B 失败了，那么整个 集群就会以为缺少 5501-11000 这个范围的槽而不可用。</p>
+<h1 id="redis-支持的-java-客户端都有-哪些官方推荐用哪个">Redis 支持的 Java 客户端都有 哪些?官方推荐用哪个?</h1>
+<p>答:Redisson、Jedis、lettuce 等等，官方推荐使用 Redisson。</p>
+<h1 id="jedis-与-redisson-对比有什么-优缺点">Jedis 与 Redisson 对比有什么 优缺点?</h1>
+<p>答:Jedis 是 Redis 的 Java 实现的客户端，其 API 提供了比较全面的 Redis 命令的支 持;Redisson 实现了分布式和可扩展的 Java 数据结构，和 Jedis 相比，功能较为简单， 不支持字符串操作，不支持排序、事务、管道、分区等 Redis 特性。<br>
+Redisson 的宗旨是促进使用者对 Redis 的关注分离，从而让使用者能够将精力更集中地放 在处理业务逻辑上。</p>
+<h1 id="redis-如何设置密码及验证密-码">Redis 如何设置密码及验证密 码?</h1>
+<p>设置密码:config set requirepass 123456<br>
+授权密码:auth 123456</p>
+<h1 id="说说-redis-哈希槽的概念"><a href="/post/redis-gao-ke-yong/#%E7%AE%97%E6%B3%95%E4%BB%8B%E7%BB%8D">说说 Redis 哈希槽的概念?</a></h1>
+<p>答:Redis 集群没有使用一致性 hash,而是引入了哈希槽的概念，Redis 集群有16384 个哈 希槽，每个 key 通过 CRC16 校验后对 16384 取模来决定放置哪个槽，集群的每个节点负 责一部分 hash 槽。</p>
+<h1 id="redis-集群的主从复制模型是怎-样的">Redis 集群的主从复制模型是怎 样的?</h1>
+<p>答:为了使在部分节点失败或者大部分节点无法通信的情况下集群仍然可用，所以集群使用了主从复制模型,每个节点都会有 N-1 个复制品.</p>
+<h1 id="redis-集群会有写操作丢失吗-为什么">Redis 集群会有写操作丢失吗? 为什么?</h1>
+<p>答 :Redis 并不能保证数据的强一致性，这意味这在实际中集群在特定的条件下可能会丢 失写操作。</p>
+<h1 id="redis-集群之间是如何复制的"><a href="/post/redis-copy/">Redis 集群之间是如何复制的?</a></h1>
+<p>答:异步复制</p>
+<blockquote>
+<p>关于复制这块要讲的内容实在是太多了，而且复制是整个集群模式的基石，没有复制可以说不管是哨兵还是Cluster都是鸡肋。复制在不同的redis版本中实现是不一样的，主要分为全量复制和部分复制，具体的讲解可以移步<a href="/post/redis-copy/">这篇文章</a></p>
+</blockquote>
+<h1 id="redis-集群最大节点个数是多-少">Redis 集群最大节点个数是多 少?</h1>
+<p>答:16384 个。</p>
+<h1 id="redis-集群如何选择数据库">Redis 集群如何选择数据库?</h1>
+<p>答:Redis 集群目前无法做数据库选择，默认在 0 数据库。</p>
+<h1 id="怎么理解-redis-事务">怎么理解 Redis 事务?</h1>
+<p>答:</p>
+<ol>
+<li>事务是一个单独的隔离操作:事务中的所有命令都会序列化、按顺序地执行。事务在 执行的过程中，不会被其他客户端发送来的命令请求所打断。</li>
+<li>事务是一个原子操作:事务中的命令要么全部被执行，要么全部都不执行。</li>
+</ol>
+<h1 id="redis-事务相关的命令有哪几-个">Redis 事务相关的命令有哪几 个?</h1>
+<p>答:MULTI、EXEC、DISCARD、WATCH</p>
+<h1 id="redis-如何做内存优化">Redis 如何做内存优化?</h1>
+<p>答:尽可能使用散列表(hashes)，散列表(是说散列表里面存储的数少)使用的内存非 常小，所以你应该尽可能的将你的数据模型抽象到一个散列表里面。比如你的 web 系统中 有一个用户对象，不要为这个用户的名称，姓氏，邮箱，密码设置单独的 key,而是应该把 这个用户的所有信息存储到一张散列表里面。</p>
+<h1 id="redis-最适合的场景">Redis 最适合的场景?</h1>
+<ol>
+<li>
+<p>会话缓存(Session Cache)<br>
+最常用的一种使用 Redis 的情景是会话缓存(session cache)。用 Redis 缓存会话比其 他存储(如 Memcached)的优势在于:Redis 提供持久化。当维护一个不是严格要求一 致性的缓存时，如果用户的购物车信息全部丢失，大部分人都会不高兴的，现在，他们还 会这样吗? 幸运的是，随着 Redis 这些年的改进，很容易找到怎么恰当的使用 Redis 来缓 存会话的文档。甚至广为人知的商业平台Magento 也提供 Redis 的插件。</p>
+</li>
+<li>
+<p>全页缓存(FPC)<br>
+除基本的会话 token 之外，Redis 还提供很简便的 FPC 平台。回到一致性问题，即使重启 了 Redis 实例，因为有磁盘的持久化，用户也不会看到页面加载速度的下降，这是一个极 大改进，类似 PHP 本地 FPC。 再次以 Magento 为例，Magento提供一个插件来使用 Redis 作为全页缓存后端。 此外，对 WordPress 的用户来说，Pantheon 有一个非常好 的插件 wp-redis，这个插件能帮助你以最快速度加载你曾浏览过的页面。</p>
+</li>
+<li>
+<p>队列<br>
+Reids 在内存存储引擎领域的一大优点是提供 list 和 set 操作，这使得 Redis能作为一个很 好的消息队列平台来使用。Redis 作为队列使用的操作，就类似于本地程序语言(如 Python)对 list 的 push/pop 操作。 如果你快速的在 Google中搜索“Redis queues”，你马上就能找到大量的开源项目，这些项目的目的就是利用 Redis 创建非常好 的后端工具，以满足各种队列需求。例如，Celery 有一个后台就是使用 Redis 作为 broker，你可以从这里去查看。</p>
+</li>
+<li>
+<p>排行榜/计数器<br>
+Redis 在内存中对数字进行递增或递减的操作实现的非常好。集合(Set)和有序集合 (Sorted Set)也使得我们在执行这些操作的时候变的非常简单，Redis 只是正好提供了 这两种数据结构。所以，我们要从排序集合中获取到排名最靠前的 10个用户–我们称之 为“user_scores”，我们只需要像下面一样执行即可: 当然，这是假定你是根据你用户的 分数做递增的排序。如果你想返回用户及用户的分数，你需要这样执行: ZRANGE user_scores 0 10 WITHSCORES Agora Games 就是一个很好的例子，用 Ruby 实现的， 它的排行榜就是使用 Redis 来存储数据的，你可以在这里看到。</p>
+</li>
+<li>
+<p>发布/订阅<br>
+最后(但肯定不是最不重要的)是 Redis 的发布/订阅功能。发布/订阅的使用场景确实非 常多。我已看见人们在社交网络连接中使用，还可作为基于发布/订阅的脚本触发器，甚至 用 Redis 的发布/订阅功能来建立聊天系统!</p>
+</li>
+</ol>
+<h1 id="假如-redis-里面有-1-亿个-key其中有-10w-个-key-是以某个-固定的已知的前缀开头的如果将它-们全部找出来">假如 Redis 里面有 1 亿个 key，其中有 10w 个 key 是以某个 固定的已知的前缀开头的，如果将它 们全部找出来?</h1>
+<p>答:使用 keys 指令可以扫出指定模式的 key 列表。<br>
+对方接着追问:如果这个 redis 正在给线上的业务提供服务，那使用 keys 指令会有什么问 题?<br>
+这个时候你要回答redis关键的一个特性:redis 的单线程的。keys 指令会导致线程阻塞 一段时间，线上服务会停顿，直到指令执行完毕，服务才能恢复。这个时候可以使用 scan 指令，scan 指令可以无阻塞的提取出指定模式的 key 列表，但是会有一定的重复概率，在 客户端做一次去重就可以了，但是整体所花费的时间会比直接用 keys 指令长。</p>
+<h1 id="如果有大量的-key-需要设置同-一时间过期一般需要注意什么">如果有大量的 key 需要设置同 一时间过期，一般需要注意什么?</h1>
+<p>答:如果大量的key过期时间设置的过于集中，到过期的那个时间点，redis可能会出现短暂的卡顿现象。一般需要在时间上加一个随机值，使得过期时间分散一些。</p>
+<h1 id="使用过-redis-做异步队列么-你是怎么用的">使用过 Redis 做异步队列么， 你是怎么用的?</h1>
+<p>答:一般使用list结构作为队列，rpush 生产消息lpop消费消息。当lpop没有消息的时候，要适当sleep一会再重试。如果对方追问可不可以不用sleep呢?list还有个指令叫blpop，在没有消息的时候，它会阻塞住直到消息到来。如果对方追问能不能生产一次消费多次呢?使用 pub/sub 主题订阅者模式，可以实现1:N 的消息队列。<br>
+如果对方追问pub/sub有什么缺点? 在消费者下线的情况下，生产的消息会丢失，得使用专业的消息队列如 RabbitMQ等。 如果对方追问 redis 如何实现延时队列?<br>
+我估计现在你很想把面试官一棒打死如果你手上有一根棒球棍的话，怎么问的这么详细。 但是你很克制，然后神态自若的回答道:使用 sortedset，拿时间戳作为score，消息内容作为 key调用zadd来生产消息，消费者用zrangebyscore指令获取N秒之前的数据轮询进行处理。到这里，面试官暗地里已经对你竖起了大拇指。但是他不知道的是此刻你却 竖起了中指，在椅子背后。</p>
+<h1 id="使用过-redis-分布式锁么它-是什么回事">使用过 Redis 分布式锁么，它 是什么回事?</h1>
+<p>先拿setnx来争抢锁，抢到之后，再用expire给锁加一个过期时间防止锁忘记了释放。<br>
+这时候对方会告诉你说你回答得不错，然后接着问如果在setnx之后执行expire之前进程意外crash或者要重启维护了，那会怎么样?这时候你要给予惊讶的反馈:唉，是喔，这个锁就永远得不到释放了。紧接着你需要抓一抓自己得脑袋，故作思考片刻，好像接下来的结果是你主动思考出来的，然后回答:我记得set指令有非常复杂的参数，这个应该是可以同时把setnx和expire合成一条指令来用的!对方这时会显露笑容，心里开始默念: 摁，这小子还不错。</p>
+
+              </div>
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Madara
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://hsxyhao.github.io/post/redis-chang-kao-mian-shi-ti" title="Redis常考面试题">https://hsxyhao.github.io/post/redis-chang-kao-mian-shi-ti</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外,转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/kafka-chu-shi">Kafka初识</a>
+        <a class="nav-mobile-next" href="https://hsxyhao.github.io/post/kafka-chu-shi">下一篇</a>
+        <i class="iconfont icon-angle_right"></i>
+      
+    </div>
+  </div>
+</div>
+              
+                
+                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '7daf0c9da2ee9a72ecba',
+    clientSecret: '39e3424bd496a5d8dcdbb618c370897256810975',
+    repo: 'hsxyhao.github.io',
+    owner: 'hsxyhao',
+    admin: ['hsxyhao'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+  gitalk.render('gitalk-container')
+</script>
+                
+                
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-box">
+  <footer class="footer">
+    <div class="copyright">
+      © 2019-2020 <i class="iconfont icon-heart"></i> HsxyHao
+    </div>
+    <div class="poweredby">
+      <div class="power-left">Power By<a href="https://github.com/hsxyhao"> HsxyHao</a></div>
+      <div>Copy<a href="https://github.com/iissnan/hexo-theme-next"> Hexo Next Theme</a></div>
+    </div>
+  </footer>
+  <div class="back-to-top" id="back_to_top">
+    <i class="iconfont icon-arrow_up"></i>
+    <span class="scrollpercent">
+      <span id="back_to_top_text">100</span>%
+    </span>
+  </div>
+</div>
+
+<script>
+
+  let body = document.body;
+
+  let back2Top = document.querySelector('#back_to_top'),
+  back2TopText = document.querySelector('#back_to_top_text');
+
+  function scrollAnimation(currentY, targetY) {
+   
+    let needScrollTop = targetY - currentY
+    let _currentY = currentY
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10)
+      _currentY += dist
+      window.scrollTo(_currentY, currentY)
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY)
+      } else {
+        window.scrollTo(_currentY, targetY)
+      }
+    }, 1)
+  }
+
+  back2Top.addEventListener("click", function(e) {
+    scrollAnimation(body.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+  
+  window.addEventListener('scroll', function(e) {
+    let percent = body.scrollTop / (body.scrollHeight - body.clientHeight) * 100;
+    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
+      back2Top.classList.add('back-top-active');
+    }
+    if (percent == 0) {
+      back2Top.classList.remove('back-top-active');
+    }
+    back2TopText.textContent = Math.floor(percent);
+  });
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+</script>
+    </div>
+  </body>
+  <script src="/media/js/motion.js"></script>
+</html>
