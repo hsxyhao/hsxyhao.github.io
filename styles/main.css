@@ -159,7 +159,8 @@ blockquote:before {
 .sidebar {
   box-shadow: none;
   width: 240px;
-  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s linear;
 }
 .sidebar a {
   border: none;
