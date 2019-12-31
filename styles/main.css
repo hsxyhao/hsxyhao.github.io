@@ -249,6 +249,7 @@ blockquote:before {
 }
 .header li {
   list-style-type: none;
+  line-height: 32px;
 }
 .site-meta {
   position: relative;
