@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577769386505">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577771920488">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -100,8 +100,15 @@
   siteNav = document.querySelector('#site_nav');
   
   function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
     navToggle.classList.toggle('nav-toggle-active');
     siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
   }
 
   navToggle.addEventListener('click',navClick);  
@@ -169,31 +176,31 @@
   <article class="post-list-box post">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu">
-      Vim命令
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian">
+      消息队列学习开篇
     </a>
   </h1>
   <div class="post-meta">
-    <span class="meta-item">
+    <span class="meta-item pc-show">
       <i class="iconfont icon-calendar_empty"></i>
-      <span class="pc-show">发布于</span>
-      <span>2019-12-05</span>
+      <span>发布于</span>
+      <span>2019-12-10</span>
     </span>
     
       <span class="meta-item">
-        <span class="post-meta-divider">|</span>
+        <span class="post-meta-divider pc-show">|</span>
         <i class="iconfont icon-folder_open_alt"></i>
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://hsxyhao.github.io/tag/vim">
-              <span>Vim</span>
+            <a href="https://hsxyhao.github.io/tag/mq">
+              <span>MQ</span>
             </a>、
           
         
           
-            <a href="https://hsxyhao.github.io/tag/hot-key">
-              <span>快捷键</span>
+            <a href="https://hsxyhao.github.io/tag/Kafka">
+              <span>Kafka</span>
             </a>
           
         
@@ -202,23 +209,30 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-time"></i>
-      <span>1分钟</span>
+      <span>12分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">273字数</span>
+      <span>3249<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
     <div class="post-body">
-      <p>今天在公司领导问了个vim的命令，当时脑子一片空白，一时间语无伦次，场面甚是尴尬，真是书到用时方恨少啊！😰<br>
-作为一名后端开发，在日常开发的过程中肯定会接触到使用vim快捷命令，基本上都是用到的时候直接度娘，虽然会接触到一些常用的vim命令，毕竟不是运维，过段时间基本上会再次忘掉，下次在遇见的时候再度娘。期间难免会耽搁不少时间，但是我觉得特地学一下vim，又感觉有点力不从心，上班不比上学，不是每天都可以划水。最后想了下觉得应该把用到的vim命令记录下来，方便下次查阅，后面有时间的时候也翻一下，就当做记单词了吧。</p>
+      <p>什么是消息队列？消息队列有哪些？又解决了哪些问题？该怎么选择消息队列？使用消息队列的时候会遇到哪些问题？带着这些疑问先对消息队列进行初步了解。<br>
+<img src="https://hsxyhao.github.io/post-images/1576199469901.png" alt="" loading="lazy"></p>
+<h1 id="介绍">介绍</h1>
+<p>在计算机科学中，消息队列（英语：Message queue）是一种进程间通信或同一进程的不同线程间的通信方式，软件的贮列用来处理一系列的输入，通常是来自用户。消息队列提供了异步的通信协议，每一个贮列中的纪录包含详细说明的数据，包含发生的时间，输入设备的种类，以及特定的输入参数，也就是说：消息的发送者和接收者不需要同时与消息队列交互。消息会保存在队列中，直到接收者取回它。<br>
+一个 WIMP 环境像是 Microsoft Windows，借由优先的某些形式（通常是事件的时间或是重要性的顺序）来存储用户产生的事件到一个 事件贮列 中。系统把每个事件从事件贮列中传递给目标的应用程序。          <a href="https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">——摘自维基百科</a></p>
+<blockquote>
+<p>维基百科中的解释，但是总感觉一大串术语，又是进程又是通信的，还有各种设备什么的。对于小白来说就用最简单的一句话就行了，消息队列就是用来发送和接收消息的<strong>队列</strong>，发送消息方叫作<strong>生产者</strong>，接收消息方叫作<strong>消费者</strong>。<br>
+不要纠结这些专业术语了，我们了解消息队列主要用来业务上的问题的，老是按照专业的角度去理解多费事，入门简单的了解它是干什么的解决了什么问题就行了😜</p>
+</blockquote>
 
       <!--noindex-->
       
       <div class="post-button text-center">
-        <a class="btn" href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu" rel="contents">
+        <a class="btn" href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian" rel="contents">
           阅读全文 »
         </a>
       </div>
@@ -233,19 +247,19 @@
   <article class="post-list-box post">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://hsxyhao.github.io/post/redis-gao-ke-yong">
-      Redis高可用
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi">
+      Redis淘汰机制
     </a>
   </h1>
   <div class="post-meta">
-    <span class="meta-item">
+    <span class="meta-item pc-show">
       <i class="iconfont icon-calendar_empty"></i>
-      <span class="pc-show">发布于</span>
-      <span>2019-11-23</span>
+      <span>发布于</span>
+      <span>2019-12-05</span>
     </span>
     
       <span class="meta-item">
-        <span class="post-meta-divider">|</span>
+        <span class="post-meta-divider pc-show">|</span>
         <i class="iconfont icon-folder_open_alt"></i>
         <span class="pc-show">分类于</span>
         
@@ -260,87 +274,42 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-time"></i>
-      <span>18分钟</span>
+      <span>11分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">4857字数</span>
+      <span>2751<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
     <div class="post-body">
-      <p>Redis的高可用实现方案有哪些，为什么要选择官方的哨兵模式，自己开发自动化故障转移脚本有什么问题。redis cluster重定向有几种？redis数据分区...</p>
+      <p>说到Redis的内存淘汰机制，突然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似Redis的内存淘汰机制了。</p>
+<h1 id="删除策略">删除策略</h1>
+<ul>
+<li>定时删除:在设置键的过期时间的同时，创建一个定时器 timer). 让定时器在键的过期 时间来临时，立即执行对键的删除操作。</li>
+<li>惰性删除:放任键过期不管，但是每次从键空间中获取键时，都检查取得的键是否过 期，如果过期的话，就删除该键;如果没有过期，就返回该键。</li>
+<li>定期删除:每隔一段时间程序就对数据库进行一次检查，删除里面的过期键。至于要 删除多少过期键，以及要检查多少个数据库，则由算法决定。</li>
+</ul>
+<h1 id="淘汰策略">淘汰策略</h1>
+<p>Redis的内存淘汰机制就是为了淘汰掉一些数据，保证Redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
+<ul>
+<li>noeviction 不进行任何淘汰操作，当内存不够时写命令会报错</li>
+<li>allkeys-lru 在所有的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>volatile-lru 在设置过期时间的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>allkeys-random 在所有的key中随机移除某个key</li>
+<li>volatile-random 在设置了过期时间的key中随机移除某个key</li>
+<li>volatile-ttl 在设置了过期时间的key中，删除过期时间最早的key</li>
+<li>allkeys-lfu 在所有的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+<li>volatile-lfu 在设置过期时间的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+</ul>
+<p><strong>备注</strong><br>
+这里删除的key其实只删除一个，这是因为Redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
 
       <!--noindex-->
       
       <div class="post-button text-center">
-        <a class="btn" href="https://hsxyhao.github.io/post/redis-gao-ke-yong" rel="contents">
-          阅读全文 »
-        </a>
-      </div>
-      <!--/noindex-->
-      
-    </div>
-    <footer class="post-footer">
-      <div class="post-eof"></div>
-    </footer>
-  </article>
-
-  <article class="post-list-box post">
-    <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://hsxyhao.github.io/post/redis-copy">
-      Redis复制
-    </a>
-  </h1>
-  <div class="post-meta">
-    <span class="meta-item">
-      <i class="iconfont icon-calendar_empty"></i>
-      <span class="pc-show">发布于</span>
-      <span>2019-11-19</span>
-    </span>
-    
-      <span class="meta-item">
-        <span class="post-meta-divider">|</span>
-        <i class="iconfont icon-folder_open_alt"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://hsxyhao.github.io/tag/redis">
-              <span>Redis</span>
-            </a>
-          
-        
-      </span>
-    
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="iconfont icon-time"></i>
-      <span>15分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="iconfont icon-keyboard"></i>
-      <span class="pc-show">4316字数</span>
-    </span>
-  </div>
-</header>
-    <div class="post-body">
-      <p>什么是redis的复制，为什么要有复制功能，全量复制有什么问题，部分复制又解决了哪些问题。</p>
-<p>复制就是将redis节点中的数据复制完同步到其他节点中，在redis中参与复制一般有主节点(master)以及从节点(slave)，将数据从主节点复制到从节点，并且复制的方式是单向的，不能逆向复制，在建立复制关系之后主节点的数据会同步到从节点直到解除主从关系。不论是哨兵模式还是redis集群都是在复制的基础上完成的。</p>
-<p><strong>记忆点</strong></p>
-<ol>
-<li>使用方式：建立、断开复制、安全性、只读性</li>
-<li>适用场景：哨兵、集群</li>
-<li>复制原理：建立复制、全量复制、部分复制、心跳</li>
-<li>常见问题：读写分离、数据不一致、避免全量复制</li>
-</ol>
-
-      <!--noindex-->
-      
-      <div class="post-button text-center">
-        <a class="btn" href="https://hsxyhao.github.io/post/redis-copy" rel="contents">
+        <a class="btn" href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi" rel="contents">
           阅读全文 »
         </a>
       </div>
@@ -364,29 +333,46 @@
       </li>
     
     
+      <!-- 1 2 3 4 ... N -->
       
-        <li class="pagination-li ">
-            <a href="/page/../">
-              1
-            </a>
+        
+          
+            <li class="pagination-li ">
+              <a href="/">1</a>
+            </li>
+          
+        
+          
+            <li class="pagination-li ">
+              <a href="/page/2">
+                2
+              </a>
+            </li>
+          
+        
+          
+            <li class="pagination-li pagination-active">
+              <a href="/page/3">
+                3
+              </a>
+            </li>
+          
+        
+          
+            <li class="pagination-li ">
+              <a href="/page/4">
+                4
+              </a>
+            </li>
+          
+        
+        <li class="pagination-li">
+          …
         </li>
-      
-        <li class="pagination-li ">
-            <a href="/page/2">
-              2
-            </a>
-        </li>
-      
-        <li class="pagination-li pagination-active">
-            <a href="/page/3">
-              3
-            </a>
-        </li>
-      
-        <li class="pagination-li ">
-            <a href="/page/4">
-              4
-            </a>
+        <li class="pagination-li">
+          <a href="/page/6">
+            6
+          </a>
         </li>
       
     
