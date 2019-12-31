@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577690595697">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577768350217">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -13,11 +13,17 @@
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
   </head>
   <body>
     <div class="head-top-line"></div>
     <div class="header-box">
-      <header class="header">
+      
+<header class="header">
   <div class="blog-header" id="header">
     <div class="site-meta">
       <div class="nav-toggle" id="nav_toggle">
@@ -35,58 +41,48 @@
       <p class="subtitle">Quick notes</p>
     </div>
     <nav class="site-nav" id="site_nav">
-      <ul>
-        <li class="nav-item ">
-          
+      <ul id="nav_ul">
+        
+          <li class="nav-item ">
             
-              
-                <a href="/">
-                  <i class="iconfont icon-home"></i> 首页
-                </a>
-              
+              <a href="/">
+                <i class="iconfont icon-home"></i> 我的首页
+              </a>
             
-          
+          </li>
+        
+          <li class="nav-item ">
             
-          
+              <a href="/archives">
+                <i class="iconfont icon-archive"></i> 归档
+              </a>
             
-          
+          </li>
+        
+          <li class="nav-item ">
             
-          
-        </li>
-        <li class="nav-item ">
-          
+              <a href="/tags">
+                <i class="iconfont icon-tags"></i> 珍贵标签
+              </a>
             
-          
+          </li>
+        
+          <li class="nav-item ">
             
-              
-                <a href="/archives">
-                  <i class="iconfont icon-archive"></i> 归档
-                </a>
-              
+              <a href="/post/about">
+                <i class="iconfont icon-info_sign"></i> 关于
+              </a>
             
-          
+          </li>
+        
+          <li class="nav-item ">
             
-          
+              <a href="https://juejin.im/user/57b70cd9df0eea0063295a73" target="_blank">
+                <i class="iconfont icon-globe"></i> 我的掘金
+              </a>
             
-          
-        </li>
-        <li class="nav-item ">
-          
-            
-          
-            
-          
-            
-              
-                <a href="/tags">
-                  <i class="iconfont icon-tags"></i> 标签
-                </a>
-              
-            
-          
-            
-          
-        </li>
+          </li>
+        
         <li class="nav-item">
           <a>
             <i class="iconfont icon-search"></i> 搜索
@@ -124,7 +120,7 @@
   <div class="sidebar-item side-item-stat">
     <div class="sidebar-item-box">
       <a href="/archives/">
-        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-count">17</span>
         <span class="site-item-stat-name">日志</span>
       </a>
     </div>
@@ -178,6 +174,12 @@
       </h2>
     </div>
     
+      
+        
+      
+    
+      
+        
       
     
       
@@ -323,6 +325,13 @@
     }
     back2TopText.textContent = Math.floor(percent);
   });
+
+  window.addEventListener('load', function(e){
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    let top = navUl.children.length * 42 + 162;
+    sideBar.style = 'margin-top:' + top + 'px; visibility: visible;';
+  })
 
   // 代码高亮
   hljs.initHighlightingOnLoad();

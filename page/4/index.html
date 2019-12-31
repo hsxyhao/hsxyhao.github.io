@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577690595697">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577768350217">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -13,11 +13,17 @@
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
   </head>
   <body>
     <div class="head-top-line"></div>
     <div class="header-box">
-      <header class="header">
+      
+<header class="header">
   <div class="blog-header" id="header">
     <div class="site-meta">
       <div class="nav-toggle" id="nav_toggle">
@@ -35,58 +41,48 @@
       <p class="subtitle">Quick notes</p>
     </div>
     <nav class="site-nav" id="site_nav">
-      <ul>
-        <li class="nav-item nav-item-active">
-          
+      <ul id="nav_ul">
+        
+          <li class="nav-item nav-item-active">
             
-              
-                <a href="/">
-                  <i class="iconfont icon-home"></i> 首页
-                </a>
-              
+              <a href="/">
+                <i class="iconfont icon-home"></i> 我的首页
+              </a>
             
-          
+          </li>
+        
+          <li class="nav-item ">
             
-          
+              <a href="/archives">
+                <i class="iconfont icon-archive"></i> 归档
+              </a>
             
-          
+          </li>
+        
+          <li class="nav-item ">
             
-          
-        </li>
-        <li class="nav-item ">
-          
+              <a href="/tags">
+                <i class="iconfont icon-tags"></i> 珍贵标签
+              </a>
             
-          
+          </li>
+        
+          <li class="nav-item ">
             
-              
-                <a href="/archives">
-                  <i class="iconfont icon-archive"></i> 归档
-                </a>
-              
+              <a href="/post/about">
+                <i class="iconfont icon-info_sign"></i> 关于
+              </a>
             
-          
+          </li>
+        
+          <li class="nav-item ">
             
-          
+              <a href="https://juejin.im/user/57b70cd9df0eea0063295a73" target="_blank">
+                <i class="iconfont icon-globe"></i> 我的掘金
+              </a>
             
-          
-        </li>
-        <li class="nav-item ">
-          
-            
-          
-            
-          
-            
-              
-                <a href="/tags">
-                  <i class="iconfont icon-tags"></i> 标签
-                </a>
-              
-            
-          
-            
-          
-        </li>
+          </li>
+        
         <li class="nav-item">
           <a>
             <i class="iconfont icon-search"></i> 搜索
@@ -124,7 +120,7 @@
   <div class="sidebar-item side-item-stat">
     <div class="sidebar-item-box">
       <a href="/archives/">
-        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-count">17</span>
         <span class="site-item-stat-name">日志</span>
       </a>
     </div>
@@ -173,6 +169,71 @@
   <article class="post-list-box post">
     <header class="post-header">
   <h1 class="post-title">
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/redis-chi-jiu-hua">
+      Redis 持久化
+    </a>
+  </h1>
+  <div class="post-meta">
+    <span class="meta-item">
+      <i class="iconfont icon-calendar_empty"></i>
+      <span class="pc-show">发布于</span>
+      <span>2019-11-16</span>
+    </span>
+    
+      <span class="meta-item">
+        <span class="post-meta-divider">|</span>
+        <i class="iconfont icon-folder_open_alt"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://hsxyhao.github.io/tag/redis">
+              <span>Redis</span>
+            </a>
+          
+        
+      </span>
+    
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="iconfont icon-time"></i>
+      <span>9分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="iconfont icon-keyboard"></i>
+      <span class="pc-show">2304字数</span>
+    </span>
+  </div>
+</header>
+    <div class="post-body">
+      <p>持久化有哪几种方式，各有什么问题。每种持久化的流程是什么样的，AOF重写是什么机制，解决了什么问题，fork底层函数，COW机制。</p>
+<h1 id="面试">面试</h1>
+<p>在面试的时候如果被问到Redis持久化的时候，怎么回答比较好？我想从以下几个角度展开，一定会让面试官眼前一亮。</p>
+<ul>
+<li>RDB冷备份以及AOF热备份</li>
+<li>fork函数</li>
+<li>COW（Copy on write）写时复制机制</li>
+<li>AOF命令重写</li>
+</ul>
+
+      <!--noindex-->
+      
+      <div class="post-button text-center">
+        <a class="btn" href="https://hsxyhao.github.io/post/redis-chi-jiu-hua" rel="contents">
+          阅读全文 »
+        </a>
+      </div>
+      <!--/noindex-->
+      
+    </div>
+    <footer class="post-footer">
+      <div class="post-eof"></div>
+    </footer>
+  </article>
+
+  <article class="post-list-box post">
+    <header class="post-header">
+  <h1 class="post-title">
     <a class="post-title-link" href="https://hsxyhao.github.io/post/rui-shi-jun-dao-redis">
       Redis入门知识点
     </a>
@@ -212,9 +273,9 @@
     <div class="post-body">
       <p>redis有哪些基础数据结构，什么是快速链表，什么是跳跃链表，使用redis特有的数据类型可以实现哪些有趣的功能。</p>
 <blockquote>
-<p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.</p>
+<p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.<br>
+<img src="https://hsxyhao.github.io/post-images/1577761648931.png" alt="" loading="lazy"></p>
 </blockquote>
-<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1576199763145.png" alt="" loading="lazy"></figure>
 <p>上面一段话取自Redis官方的介绍，为什么要把它放在这里，我觉得这是介绍Redis最为标准的一段话，从用途、数据结构已经功能等多方面介绍，如果以后面试官叫你介绍下redis的话，我觉得可以直接把这段话背下来😌。至于为什么把Redis称为瑞士军刀，相信用过redis的人都会这么认为。</p>
 
       <!--noindex-->
@@ -292,6 +353,7 @@
   </article>
   
               
+              
 <div class="page">
   <ul class="pagination-ul">
     
@@ -302,34 +364,30 @@
       </li>
     
     
-      <!-- 1 2 3 4 ... N -->
       
-        <!-- 1 ... N-2 N-1 N-->
-        <li class="pagination-li">
-          <a href="/">1</a>
+        <li class="pagination-li ">
+            <a href="/page/../">
+              1
+            </a>
         </li>
-        <li class="pagination-li">
-          …
+      
+        <li class="pagination-li ">
+            <a href="/page/2">
+              2
+            </a>
         </li>
-        
-          <li class="pagination-li ">
+      
+        <li class="pagination-li ">
+            <a href="/page/3">
+              3
+            </a>
+        </li>
+      
+        <li class="pagination-li pagination-active">
             <a href="/page/4">
               4
             </a>
-          </li>
-        
-          <li class="pagination-li ">
-            <a href="/page/5">
-              5
-            </a>
-          </li>
-        
-          <li class="pagination-li pagination-active">
-            <a href="#">
-              6
-            </a>
-          </li>
-        
+        </li>
       
     
     
@@ -396,6 +454,13 @@
     }
     back2TopText.textContent = Math.floor(percent);
   });
+
+  window.addEventListener('load', function(e){
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    let top = navUl.children.length * 42 + 162;
+    sideBar.style = 'margin-top:' + top + 'px; visibility: visible;';
+  })
 
   // 代码高亮
   hljs.initHighlightingOnLoad();
