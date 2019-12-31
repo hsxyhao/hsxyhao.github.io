@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2019-12-31T08:09:32.006Z</updated>
+    <updated>2019-12-31T10:18:13.909Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -10,6 +10,19 @@
     <logo>https://hsxyhao.github.io/images/avatar.png</logo>
     <icon>https://hsxyhao.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Madara</rights>
+    <entry>
+        <title type="html"><![CDATA[说一下NexT主题]]></title>
+        <id>https://hsxyhao.github.io/post/shuo-yi-xia-next-zhu-ti</id>
+        <link href="https://hsxyhao.github.io/post/shuo-yi-xia-next-zhu-ti">
+        </link>
+        <updated>2019-12-31T06:31:36.000Z</updated>
+        <summary type="html"><![CDATA[<p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，一旦出现了bug立马想着赶紧修复，不然就糗大了。我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
+<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1577775304094.jpeg" alt="" loading="lazy"></figure>
+]]></summary>
+        <content type="html"><![CDATA[<p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，一旦出现了bug立马想着赶紧修复，不然就糗大了。我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
+<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1577775304094.jpeg" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[KaTeX数学公式支持测试]]></title>
         <id>https://hsxyhao.github.io/post/ce-shi-md-shu-xue-gong-shi</id>
@@ -193,33 +206,6 @@
 <li>复制原理：建立复制、全量复制、部分复制、心跳</li>
 <li>常见问题：读写分离、数据不一致、避免全量复制</li>
 </ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Redis 持久化]]></title>
-        <id>https://hsxyhao.github.io/post/redis-chi-jiu-hua</id>
-        <link href="https://hsxyhao.github.io/post/redis-chi-jiu-hua">
-        </link>
-        <updated>2019-11-16T09:04:43.000Z</updated>
-        <summary type="html"><![CDATA[<p>持久化有哪几种方式，各有什么问题。每种持久化的流程是什么样的，AOF重写是什么机制，解决了什么问题，fork底层函数，COW机制。</p>
-<h1 id="面试">面试</h1>
-<p>在面试的时候如果被问到Redis持久化的时候，怎么回答比较好？我想从以下几个角度展开，一定会让面试官眼前一亮。</p>
-<ul>
-<li>RDB冷备份以及AOF热备份</li>
-<li>fork函数</li>
-<li>COW（Copy on write）写时复制机制</li>
-<li>AOF命令重写</li>
-</ul>
-]]></summary>
-        <content type="html"><![CDATA[<p>持久化有哪几种方式，各有什么问题。每种持久化的流程是什么样的，AOF重写是什么机制，解决了什么问题，fork底层函数，COW机制。</p>
-<h1 id="面试">面试</h1>
-<p>在面试的时候如果被问到Redis持久化的时候，怎么回答比较好？我想从以下几个角度展开，一定会让面试官眼前一亮。</p>
-<ul>
-<li>RDB冷备份以及AOF热备份</li>
-<li>fork函数</li>
-<li>COW（Copy on write）写时复制机制</li>
-<li>AOF命令重写</li>
-</ul>
 ]]></content>
     </entry>
 </feed>

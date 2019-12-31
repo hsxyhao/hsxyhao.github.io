@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577779769823">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577786222795">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -140,8 +140,9 @@
   <div class="sidebar-item side-item-stat">
     <div class="sidebar-item-box">
       <a href="/archives/">
-        <span class="site-item-stat-count">18</span>
-        <span class="site-item-stat-name">日志</span>
+        
+        <span class="site-item-stat-count">13</span>
+        <span class="site-item-stat-name">文章</span>
       </a>
     </div>
     <div class="sidebar-item-box">
@@ -188,6 +189,9 @@
   <div class="toc-wrapper" id="toc_wrapper">
     <ul class="markdownIt-TOC">
 <li><a href="#%E7%9B%AE%E5%89%8D%E7%9A%84">目前的🐞</a></li>
+<li><a href="#%E6%9C%AA%E6%9D%A5%E7%9A%84next">未来的NexT</a></li>
+<li><a href="#%E8%81%94%E7%B3%BB">联系</a></li>
+<li><a href="#%E6%84%9F%E8%B0%A2">感谢</a></li>
 </ul>
 
   </div>
@@ -440,41 +444,51 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
+      <span>6分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>546<span class="pc-show">字数</span></span>
+      <span>1612<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，一旦出现了bug立马想着赶紧修复，不然就糗大了。我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
+                <p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，一旦出现了bug立马想着赶紧修复，不然就糗大了。我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
 <figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1577775304094.jpeg" alt="" loading="lazy"></figure>
 <!-- more -->
 <h1 id="目前的">目前的🐞</h1>
 <p>NexT主题毕竟是从hexo平台搬过来的，两个不同的平台，所在肯定会存在差异，有些功能在gridea就无法实现，或者实现的不是很好，但是我相信不论是gridea还是next都会变得越来越优秀，也希望大家多点耐心。<br>
 目前主题已经开发出来了，实际上还是存在着很多的问题：</p>
 <ol>
-<li>站内搜索功能</li>
-<li>自定义菜单icon</li>
-<li>自定义菜单的导航栏跟踪</li>
-<li>站点预览的分类</li>
-<li>NexT主题的其他风格</li>
-<li>标签页标签云顺序总是变动</li>
-<li>浏览器兼容性</li>
+<li>站内搜索功能<br>
+看了下hexo的站内搜索功能是基于hexo插件，目前gridea暂时还不支持插件，不过作者已经表示后期会支持，相信不久就可以实现站内搜索了。</li>
+<li>自定义菜单icon<br>
+目前gridea平台虽然支持自定义菜单项，目前next主题的菜单项都带有icon，但是gridea不支持该选项，所以我这在设计的时候会自动添加一些常用的菜单icon，有的不常见会显示地球仪状的icon。</li>
+<li>自定义菜单的导航栏跟踪<br>
+就是“首页”菜单右边的那个小点点，目前会对首页、归档、标签三个菜单有跟踪效果，其他自定义的菜单还不支持，后期我会联系作者看看有没有解决方案。</li>
+<li>站点预览的分类<br>
+hexo-next上主要分为文章、分类、标签，但是gridea不支持分类，不过在issue中好像看到有人反馈过这个问题，后期支持的话，也会立马更新。</li>
+<li>NexT主题的其他风格<br>
+NexT主题支持很多种布局风格，目前只开发出了默认的风格，想要在gridea支持多种风格除了代码上需要作支持外，还需要平台的支持，这个后期再考虑。</li>
+<li>标签页标签云顺序总是变动<br>
+标签云的顺序总是变动主要的原因是由于平台会对编辑过的标签做改动，目前还控制不了</li>
+<li>浏览器兼容性<br>
+目前在浏览器上的兼容还有些问题，IE的我测试了一下，IE10以下基本上不管用，其他的浏览器还可以</li>
+<li>文章封面的问题<br>
+一般的文章都有一个封面的配置，gridea也有这个配置，但是 next主题对封面不支持，大多数主题在展示的时候都是将封面放在摘要的前面，可是next主题的封面是放在摘要里面的，所以如果想要给文章添加一个封面，需要在摘要中将封面以markdown的形式添加。虽然next主题不需要设置封面，但是其他主题基本需要，所以为了以后切换其他主题，最好还是把封面也配置一下，不然后期一个一个添加会很麻烦。</li>
 </ol>
-<blockquote>
-<p>就是“首页”菜单右边的那个小点点<br>
-目前google浏览器的体验是最佳的，微软的体验是最差的</p>
-</blockquote>
 <p>上面所列出的问题，基本上是由于平台的限制不好实现，后期会尽力和作者沟通看看有没有什么解决方案，争取都解决掉。<br>
 在这里首先感谢提过问题帅哥靓女，你们提的每一个问题，我都去尽快修复，希望在大家的帮助下NexT可以变得更加完善。</p>
-<blockquote>
-<p>20191230晚帅哥提的问题都已经修复了哦，赶紧试试吧@Te***zone</p>
-</blockquote>
+<h1 id="未来的next">未来的NexT</h1>
+<p>虽然next是copy的，但是未来还是会有根据社区的反馈做其他的改动。至于我对未来的next规划，大概主要集中于交互以及评论系统上。之前提到过next主题最主要的特点就是简单，但是我觉得在交互上还是要有所改进，让用户体验的更爽一点(不要想歪啦😬)，其次就是评论功能，现在的评论功能感觉不是很适合技术交流，而且加载时间太长，用户体验极差。我觉得微信阅读的评论就做的很好，不知道大家有没有用过，与其说他是评论，还不如说是做笔记，微信阅读里面，可以对文章的内容进行划线、评论等操作，总觉的这样更适合技术交流，后期会考虑如何去实现这样一个评论系统，敬请期待！<br>
+至于其他方面的改进暂时还没有想到，后面有什么新的想法再来补充吧。</p>
+<h1 id="联系">联系</h1>
+<p>如果在使用主题的时候遇到任何问题可以通过微信联系我(wh806649821)，不过在添加好友的时候添加一下备注NexT。目前用户量还不是很大，所以有什么更新的话会直接发朋友圈，等用户多了在考虑建群，相信大家不论是工作还是家庭都已经有很多群里，这里就先不添堵了，免得大家反感。除了微信反馈，还可以直接通过issue提bug，这样会更好点，防止出现重复的问题，节约大家的时间。</p>
+<h1 id="感谢">感谢</h1>
+<p>先声明一下，后期如果有使用上问题欢迎大家反馈“骚扰”。<br>
+在这里首先要感谢一位网友，之前开发完next之后自己简单的测试了下，发现没有太大问题，就直接发布了，导致有的人在使用的时候遇见各种各样的问题，在这里先说声抱歉，后期会保证尽量少犯这种错误，再次感谢@Tec***one，@T*m网友的反馈。当然还要感谢@EryouHao，给大家提供了一个优秀的平台。</p>
 
               </div>
               <div class="post-footer">
@@ -500,6 +514,10 @@ window.addEventListener('load', function() {
       
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/ce-shi-md-shu-xue-gong-shi">KaTeX数学公式支持测试</a>
+        <a class="nav-mobile-next" href="https://hsxyhao.github.io/post/ce-shi-md-shu-xue-gong-shi">下一篇</a>
+        <i class="fa fa-angle-right"></i>
       
     </div>
   </div>
