@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577868400878">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577871967407">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -166,7 +166,7 @@
   </div>
   <div class="sidebar-item sidebar-item-social">
     <div class="social-item">
-      <a href="https://www.github.com/hsxyhao">
+      <a href="">
         <i class="fa fa-github"></i> GitHub
       </a>
       <a href="">
@@ -188,7 +188,19 @@
             <div class="toc-box">
   <div class="toc-wrapper" id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#%E7%9B%AE%E5%89%8D%E7%9A%84">目前的🐞</a></li>
+<li><a href="#%E7%9B%AE%E5%89%8D%E7%9A%84">目前的🐞</a>
+<ul>
+<li><a href="#%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD">站内搜索功能</a></li>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95icon">自定义菜单icon</a></li>
+<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95%E7%9A%84%E5%AF%BC%E8%88%AA%E6%A0%8F%E8%B7%9F%E8%B8%AA">自定义菜单的导航栏跟踪</a></li>
+<li><a href="#%E7%AB%99%E7%82%B9%E9%A2%84%E8%A7%88%E7%9A%84%E5%88%86%E7%B1%BB">站点预览的分类</a></li>
+<li><a href="#next%E4%B8%BB%E9%A2%98%E7%9A%84%E5%85%B6%E4%BB%96%E9%A3%8E%E6%A0%BC">NexT主题的其他风格</a></li>
+<li><a href="#%E6%A0%87%E7%AD%BE%E9%A1%B5%E6%A0%87%E7%AD%BE%E4%BA%91%E9%A1%BA%E5%BA%8F%E6%80%BB%E6%98%AF%E5%8F%98%E5%8A%A8">标签页标签云顺序总是变动</a></li>
+<li><a href="#%E5%85%BC%E5%AE%B9%E6%80%A7">兼容性</a></li>
+<li><a href="#%E6%96%87%E7%AB%A0%E5%B0%81%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98">文章封面的问题</a></li>
+<li><a href="#%E4%B8%BB%E9%A2%98%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE">主题自定义配置</a></li>
+</ul>
+</li>
 <li><a href="#%E6%9C%AA%E6%9D%A5%E7%9A%84next">未来的NexT</a></li>
 <li><a href="#%E8%81%94%E7%B3%BB">联系</a></li>
 <li><a href="#%E6%84%9F%E8%B0%A2">感谢</a></li>
@@ -461,31 +473,27 @@ window.addEventListener('load', function() {
 <h1 id="目前的">目前的🐞</h1>
 <p>NexT主题毕竟是从hexo平台搬过来的，两个不同的平台，所在肯定会存在差异，有些功能在gridea就无法实现，或者实现的不是很好，但是我相信不论是gridea还是next都会变得越来越优秀，也希望大家多点耐心。<br>
 目前主题已经开发出来了，实际上还是存在着很多的问题：</p>
-<ol>
-<li>站内搜索功能<br>
-看了下hexo的站内搜索功能是基于hexo插件，目前gridea暂时还不支持插件，这个功能暂时无法开发，不过作者已经表示后期会支持，相信不久就可以实现站内搜索了。</li>
-<li>自定义菜单icon<br>
-next主题的菜单项都带有icon，目前gridea平台虽然支持自定义菜单项，但是gridea不支持图标的选项，在这里目前只能按照约定展示一些常见的图标</li>
-</ol>
+<h2 id="站内搜索功能">站内搜索功能</h2>
+<p>看了下hexo的站内搜索功能是基于hexo插件，目前gridea暂时还不支持插件，这个功能暂时无法开发，不过作者已经表示后期会支持，相信不久就可以实现站内搜索了。</p>
+<h2 id="自定义菜单icon">自定义菜单icon</h2>
+<p>next主题的菜单项都带有icon，目前gridea平台虽然支持自定义菜单项，但是gridea不支持图标的选项，在这里目前只能按照约定展示一些常见的图标</p>
 <blockquote>
 <p>约定：首页、归档、标签三个菜单项的链接地址必须设置为/、/archives、/tags</p>
 </blockquote>
-<ol>
-<li>自定义菜单的导航栏跟踪<br>
-就是“首页”菜单右边的那个小点点，目前会对首页、归档、标签三个菜单有跟踪效果，其他自定义的菜单还不支持，后期我会联系作者看看有没有解决方案。</li>
-<li>站点预览的分类<br>
-hexo-next上主要分为文章、分类、标签，但是gridea不支持分类，不过在issue中好像看到有人反馈过这个问题，后期支持的话，也会立马更新。</li>
-<li>NexT主题的其他风格<br>
-NexT主题支持很多种布局风格，目前只开发出了默认的风格，想要在gridea支持多种风格除了代码上需要作支持外，还需要平台的支持，这个后期再考虑。</li>
-<li>标签页标签云顺序总是变动<br>
-标签云的顺序总是变动主要的原因是由于平台会对编辑过的标签做改动，目前还控制不了</li>
-<li>兼容性<br>
-主题对于浏览器的兼容做的还不是很好，目前IE10以下不支持，其他浏览器也尽量保持较新的版本才可以，移动端也是如此。除了浏览器的兼容性以外还有电脑系统的兼容，目前mac的兼容效果最佳，windows后期会慢慢跟进。</li>
-<li>文章封面的问题<br>
-一般的文章都有一个封面的配置，gridea也有这个配置，但是 next主题对封面不支持，大多数主题在展示的时候都是将封面放在摘要的前面，可是next主题的封面是放在摘要里面的，所以如果想要给文章添加一个封面，需要在摘要中将封面以markdown的形式添加。虽然next主题不需要设置封面，但是其他主题基本需要，所以为了以后切换其他主题，最好还是把封面也配置一下，不然后期一个一个添加会很麻烦。</li>
-<li>主题自定义配置<br>
-个人感觉gridea的自定义主题配置不是很完善，所以暂时不支持对主题进行自定义配置</li>
-</ol>
+<h2 id="自定义菜单的导航栏跟踪">自定义菜单的导航栏跟踪</h2>
+<p>就是“首页”菜单右边的那个小点点，目前会对首页、归档、标签三个菜单有跟踪效果，其他自定义的菜单还不支持，后期我会联系作者看看有没有解决方案。</p>
+<h2 id="站点预览的分类">站点预览的分类</h2>
+<p>hexo-next上主要分为文章、分类、标签，但是gridea不支持分类，不过在issue中好像看到有人反馈过这个问题，后期支持的话，也会立马更新。</p>
+<h2 id="next主题的其他风格">NexT主题的其他风格</h2>
+<p>NexT主题支持很多种布局风格，目前只开发出了默认的风格，想要在gridea支持多种风格除了代码上需要作支持外，还需要平台的支持，这个后期再考虑。</p>
+<h2 id="标签页标签云顺序总是变动">标签页标签云顺序总是变动</h2>
+<p>标签云的顺序总是变动主要的原因是由于平台会对编辑过的标签做改动，目前还控制不了</p>
+<h2 id="兼容性">兼容性</h2>
+<p>主题对于浏览器的兼容做的还不是很好，目前IE10以下不支持，其他浏览器也尽量保持较新的版本才可以，移动端也是如此。除了浏览器的兼容性以外还有电脑系统的兼容，目前mac的兼容效果最佳，windows后期会慢慢跟进。</p>
+<h2 id="文章封面的问题">文章封面的问题</h2>
+<p>一般的文章都有一个封面的配置，gridea也有这个配置，但是 next主题对封面不支持，大多数主题在展示的时候都是将封面放在摘要的前面，可是next主题的封面是放在摘要里面的，所以如果想要给文章添加一个封面，需要在摘要中将封面以markdown的形式添加。虽然next主题不需要设置封面，但是其他主题基本需要，所以为了以后切换其他主题，最好还是把封面也配置一下，不然后期一个一个添加会很麻烦。</p>
+<h2 id="主题自定义配置">主题自定义配置</h2>
+<p>个人感觉gridea的自定义主题配置不是很完善，所以暂时不支持对主题进行自定义配置</p>
 <p>上面所列出的问题，基本上是由于平台的限制不好实现，后期会尽力和作者沟通看看有没有什么解决方案，争取都解决掉。<br>
 在这里首先感谢提过问题帅哥靓女，你们提的每一个问题，我都去尽快修复，希望在大家的帮助下NexT可以变得更加完善。</p>
 <h1 id="未来的next">未来的NexT</h1>
