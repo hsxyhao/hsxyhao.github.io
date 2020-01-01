@@ -3,7 +3,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577792506707">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1577868294709">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <meta name="description" content="这个人很懒，什么都不想写..." />
 
@@ -141,7 +141,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">13</span>
+        <span class="site-item-stat-count">15</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -449,13 +449,13 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1612<span class="pc-show">字数</span></span>
+      <span>1729<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，一旦出现了bug立马想着赶紧修复，不然就糗大了。我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
+                <p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，经常是一旦出现了bug就加班加点的修复，虽然累一点，但是反而快乐了许多。最后我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
 <figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1577787675038.jpg" alt="" loading="lazy"></figure>
 <!-- more -->
 <h1 id="目前的">目前的🐞</h1>
@@ -463,9 +463,14 @@ window.addEventListener('load', function() {
 目前主题已经开发出来了，实际上还是存在着很多的问题：</p>
 <ol>
 <li>站内搜索功能<br>
-看了下hexo的站内搜索功能是基于hexo插件，目前gridea暂时还不支持插件，不过作者已经表示后期会支持，相信不久就可以实现站内搜索了。</li>
+看了下hexo的站内搜索功能是基于hexo插件，目前gridea暂时还不支持插件，这个功能暂时无法开发，不过作者已经表示后期会支持，相信不久就可以实现站内搜索了。</li>
 <li>自定义菜单icon<br>
-目前gridea平台虽然支持自定义菜单项，目前next主题的菜单项都带有icon，但是gridea不支持该选项，所以我这在设计的时候会自动添加一些常用的菜单icon，有的不常见会显示地球仪状的icon。</li>
+next主题的菜单项都带有icon，目前gridea平台虽然支持自定义菜单项，但是gridea不支持图标的选项，在这里目前只能按照约定展示一些常见的图标</li>
+</ol>
+<blockquote>
+<p>约定：首页、归档、标签三个菜单项的链接地址必须设置为/、/archives、/tags</p>
+</blockquote>
+<ol>
 <li>自定义菜单的导航栏跟踪<br>
 就是“首页”菜单右边的那个小点点，目前会对首页、归档、标签三个菜单有跟踪效果，其他自定义的菜单还不支持，后期我会联系作者看看有没有解决方案。</li>
 <li>站点预览的分类<br>
@@ -474,10 +479,12 @@ hexo-next上主要分为文章、分类、标签，但是gridea不支持分类�
 NexT主题支持很多种布局风格，目前只开发出了默认的风格，想要在gridea支持多种风格除了代码上需要作支持外，还需要平台的支持，这个后期再考虑。</li>
 <li>标签页标签云顺序总是变动<br>
 标签云的顺序总是变动主要的原因是由于平台会对编辑过的标签做改动，目前还控制不了</li>
-<li>浏览器兼容性<br>
-目前在浏览器上的兼容还有些问题，IE的我测试了一下，IE10以下基本上不管用，其他的浏览器还可以</li>
+<li>兼容性<br>
+主题对于浏览器的兼容做的还不是很好，目前IE10以下不支持，其他浏览器也尽量保持较新的版本才可以，移动端也是如此。除了浏览器的兼容性以外还有电脑系统的兼容，目前mac的兼容效果最佳，windows后去会慢慢跟进。</li>
 <li>文章封面的问题<br>
 一般的文章都有一个封面的配置，gridea也有这个配置，但是 next主题对封面不支持，大多数主题在展示的时候都是将封面放在摘要的前面，可是next主题的封面是放在摘要里面的，所以如果想要给文章添加一个封面，需要在摘要中将封面以markdown的形式添加。虽然next主题不需要设置封面，但是其他主题基本需要，所以为了以后切换其他主题，最好还是把封面也配置一下，不然后期一个一个添加会很麻烦。</li>
+<li>主题自定义配置<br>
+个人感觉gridea的自定义主题配置不是很完善，所以暂时不支持对主题进行自定义配置</li>
 </ol>
 <p>上面所列出的问题，基本上是由于平台的限制不好实现，后期会尽力和作者沟通看看有没有什么解决方案，争取都解决掉。<br>
 在这里首先感谢提过问题帅哥靓女，你们提的每一个问题，我都去尽快修复，希望在大家的帮助下NexT可以变得更加完善。</p>
@@ -512,12 +519,16 @@ NexT主题支持很多种布局风格，目前只开发出了默认的风格，�
   <div class="nav">
     <div class="nav-prev">
       
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/ce-shi-2020">测试2020这一最想干的事情是什么呢是大大大的，我了个擦还不够长吗</a class="nav-pc-next">
+        <a class="nav-mobile-prev" href="https://hsxyhao.github.io/post/ce-shi-2020">上一篇</a>
+      
     </div>
     <div class="nav-next">
       
         <a class="nav-pc-next" href="https://hsxyhao.github.io/post/ce-shi-md-shu-xue-gong-shi">KaTeX数学公式支持测试</a>
         <a class="nav-mobile-next" href="https://hsxyhao.github.io/post/ce-shi-md-shu-xue-gong-shi">下一篇</a>
-        <i class="fa fa-angle-right"></i>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>

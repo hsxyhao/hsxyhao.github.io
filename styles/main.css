@@ -790,7 +790,8 @@ blockquote:before {
   border-bottom-color: #222;
 }
 .post-footer .nav {
-  display: table;
+  display: flex;
+  justify-content: space-between;
   margin-top: 15px;
   width: 100%;
   border-top: 1px solid #eee;
@@ -801,9 +802,9 @@ blockquote:before {
 }
 .post-footer .nav-next,
 .post-footer .nav-prev {
-  display: table-cell;
+  display: flex;
+  align-items: center;
   padding: 10px 0 0 0;
-  width: 45%;
   vertical-align: top;
 }
 .post-footer .nav-next {
@@ -824,6 +825,13 @@ blockquote:before {
 .nav-pc-next,
 .nav-pc-prev {
   display: inline-block;
+  max-width: 280px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.nav i {
+  padding: 0 5px;
 }
 @media (max-width: 767px) {
   .nav-pc-next,
