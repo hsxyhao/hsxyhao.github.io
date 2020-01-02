@@ -1969,6 +1969,15 @@ blockquote:before {
   .next-md-body ul {
     padding-left: 1.5em;
   }
+  .katex-display > .katex {
+    white-space: normal !important;
+  }
+  .katex {
+    font-size: 12px;
+  }
+  .katex .base {
+    margin-bottom: 10px;
+  }
 }
 .hljs {
   display: block;
@@ -2047,3 +2056,4 @@ blockquote:before {
 .hljs-strong {
   font-weight: bold;
 }
+undefined
