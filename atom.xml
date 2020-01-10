@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2020-01-10T07:55:13.262Z</updated>
+    <updated>2020-01-10T08:00:58.363Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -16,6 +16,12 @@
         <link href="https://hsxyhao.github.io/post/gridea_help">
         </link>
         <updated>2020-01-10T05:29:55.000Z</updated>
+        <summary type="html"><![CDATA[<p>最近在gridea的群聊发现很多新人在安装好gridea点击远程连接的时候都会出现问题，大部分都是类似no  such remote这样的提示信息，之前我第一次安装的时候也出现过这样的问题，本来以为就我一个人会有，后面发现有这个问题的人也不少，经常群里有人问题这样的问题。自己也在群里解决了一些，但是这样总不是办法，还是需要写一个文档出来，节约大家的时间，这也是写这篇文章的原因，希望这篇文章可以帮助大家解决问题，如果不能解决，可以在下面评论，我会尽力解决，后期也方便其他新手再次遇到类似的问题。<br>
+<img src="https://hsxyhao.github.io/post-images/1578642807761.jpg" alt="" loading="lazy"></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>最近在gridea的群聊发现很多新人在安装好gridea点击远程连接的时候都会出现问题，大部分都是类似no  such remote这样的提示信息，之前我第一次安装的时候也出现过这样的问题，本来以为就我一个人会有，后面发现有这个问题的人也不少，经常群里有人问题这样的问题。自己也在群里解决了一些，但是这样总不是办法，还是需要写一个文档出来，节约大家的时间，这也是写这篇文章的原因，希望这篇文章可以帮助大家解决问题，如果不能解决，可以在下面评论，我会尽力解决，后期也方便其他新手再次遇到类似的问题。<br>
+<img src="https://hsxyhao.github.io/post-images/1578642807761.jpg" alt="" loading="lazy"></p>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[MySQL恶心的周跨年问题]]></title>
