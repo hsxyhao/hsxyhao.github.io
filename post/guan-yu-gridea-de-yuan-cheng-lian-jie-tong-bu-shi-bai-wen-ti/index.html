@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Kafka学前准备 | Madara</title>
+<title>关于Gridea的远程连接、同步失败问题 | Madara</title>
 <link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1578635721048">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 
@@ -17,8 +17,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
-    <meta name="description" content="Kafka学前准备" />
-    <meta name="keywords" content="Kafka" />
+    <meta name="description" content="关于Gridea的远程连接、同步失败问题" />
+    <meta name="keywords" content="Gridea" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -173,8 +173,12 @@
             <div class="toc-box right-motion">
   <div class="toc-wrapper auto-number no_compress" id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li><a href="#kafka%E9%9D%A2%E8%AF%95%E9%A2%98">Kafka面试题</a></li>
-<li><a href="#%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99">学习资料</a></li>
+<li><a href="#%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%87%BA%E9%94%99">远程连接出错</a>
+<ul>
+<li><a href="#%E5%8E%9F%E5%9B%A0">原因</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">解决方案</a></li>
+</ul>
+</li>
 </ul>
 
   </div>
@@ -424,15 +428,15 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://hsxyhao.github.io/post/kafka-xue-qian-zhun-bei">
-      Kafka学前准备
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/guan-yu-gridea-de-yuan-cheng-lian-jie-tong-bu-shi-bai-wen-ti">
+      关于Gridea的远程连接、同步失败问题
     </a>
   </h1>
   <div class="post-meta">
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-12-13</span>
+      <span>2020-01-10</span>
     </span>
     
       <span class="meta-item">
@@ -441,8 +445,8 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://hsxyhao.github.io/tag/Kafka">
-              <span>Kafka</span>
+            <a href="https://hsxyhao.github.io/tag/uCHcXlB40">
+              <span>Gridea</span>
             </a>
           
         
@@ -451,84 +455,30 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
+      <span>2分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1390<span class="pc-show">字数</span></span>
+      <span>433<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <p>不知道大家在学习一门新的技术之前是怎么做准备的，不过我想每个人都会遇到过学习完一门知识长时间不接触会立马忘记的情况。就像我之前学的JVM和Redis一样，学习的时候对每个细节都非常了解，可是时间一长之后又会立马忘得一干二净，我觉得大多数人都无法避免这种现象，毕竟你没有过目不忘的本领。既然无法避免那就只能想办法可以快速的再次拾起，就像物理实验中的误差一样，不可避免只能降低。所以在此推荐大家每当学习一个新的知识点的时候，一定要做好学习前的规划以及笔记，不然到头来又是一场空。等到面试的时候再把它拿出来看看，其中重要的点着重回顾，我想一定会有所帮助。还有一点就是记笔记最好整理成博客放在自己的博客或者三方博客平台上，强迫自己把笔记写的自己能看懂外还要别人也能看懂，而且还能和别人一起交流经验，一起学习。<br>
-<img src="https://hsxyhao.github.io/post-images/1577156196399.jpeg" alt="" loading="lazy"></p>
-<!-- more -->
-<h1 id="kafka面试题">Kafka面试题</h1>
-<p>为了学习好kafka，从学习的资料上拷贝了一些面试题，在学习之前，看下面试题，带着问题学习，说不定会事半功倍，等自己学习完之后在借助面试题回顾自己所学的内容，加深印象。面试前也可以拿出来看一看，一举三得，倍儿棒😆</p>
-<ul>
-<li><a href="/post/xiao-xi-dui-lie-xue-xi-kai-pian/#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">Kafka 的用途有哪些？使用场景如何？</a></li>
-<li>Kafka 中的 ISR、AR 又代表什么？ISR 的伸缩又指什么</li>
-<li>Kafka 中的 HW、LEO、LSO、LW 等分别代表什么？</li>
-<li>Kafka 中是怎么体现消息顺序性的？</li>
-<li>Kafka 中的分区器、序列化器、拦截器是否了解？它们之间的处理顺序是什么？</li>
-<li>Kafka 生产者客户端的整体结构是什么样子的？</li>
-<li>Kafka 生产者客户端中使用了几个线程来处理？分别是什么？</li>
-<li>Kafka 的旧版 Scala 的消费者客户端的设计有什么缺陷？</li>
-<li>“消费组中的消费者个数如果超过 topic 的分区，那么就会有消费者消费不到数据”这句话是否正确？如果正确，那么有没有什么 hack 的手段？</li>
-<li>消费者提交消费位移时提交的是当前消费到的最新消息的 offset 还是 offset+1?</li>
-<li>有哪些情形会造成重复消费？</li>
-<li>哪些情景下会造成消息漏消费？</li>
-<li>KafkaConsumer 是非线程安全的，那么怎么样实现多线程消费？</li>
-<li>简述消费者与消费组之间的关系</li>
-<li>当你使用 kafka-topics.sh 创建（删除）了一个 topic 之后，Kafka 背后会执行什么逻辑？</li>
-<li>topic 的分区数可不可以增加？如果可以怎么增加？如果不可以，那又是为什么？</li>
-<li>topic 的分区数可不可以减少？如果可以怎么减少？如果不可以，那又是为什么？</li>
-<li>创建 topic 时如何选择合适的分区数？</li>
-<li>Kafka 目前有哪些内部 topic，它们都有什么特征？各自的作用又是什么？</li>
-<li>优先副本是什么？它有什么特殊的作用？</li>
-<li>Kafka 有哪几处地方有分区分配的概念？简述大致的过程及原理。</li>
-<li>简述 Kafka 的日志目录结构</li>
-<li>Kafka 中有那些索引文件？</li>
-<li>如果我指定了一个 offset，Kafka 怎么查找到对应的消息？</li>
-<li>如果我指定了一个 timestamp，Kafka 怎么查找到对应的消息？</li>
-<li>聊一聊你对 Kafka 的 Log Retention 的理解</li>
-<li>聊一聊你对 Kafka 的 Log Compaction 的理解</li>
-<li>聊一聊你对 Kafka 底层存储的理解（页缓存、内核层、块层、设备层）</li>
-<li>聊一聊 Kafka 的延时操作的原理</li>
-<li>聊一聊 Kafka 控制器的作用</li>
-<li>消费再均衡的原理是什么？（提示：消费者协调器和消费组协调器）</li>
-<li>Kafka 中的幂等是怎么实现的？</li>
-<li>Kafka 中的事务是怎么实现的？</li>
-<li>Kafka 中有那些地方需要选举？这些地方的选举策略又有哪些？</li>
-<li>失效副本是指什么？有那些应对措施？</li>
-<li>多副本下，各个副本中的 HW 和 LEO 的演变过程</li>
-<li>为什么 Kafka 不支持读写分离？</li>
-<li>Kafka 在可靠性方面做了哪些改进？（HW, LeaderEpoch）</li>
-<li>Kafka 中怎么实现死信队列和重试队列？</li>
-<li>Kafka 中的延迟队列怎么实现</li>
-<li>Kafka 中怎么做消息审计？</li>
-<li>Kafka 中怎么做消息轨迹？</li>
-<li>Kafka 中有那些配置参数比较有意思？聊一聊你的看法</li>
-<li>Kafka 中有那些命名比较有意思？聊一聊你的看法</li>
-<li>Kafka 有哪些指标需要着重关注？</li>
-<li>怎么计算 Lag？(注意read_uncommitted和read_committed状态下的不同)</li>
-<li>Kafka 的那些设计让它有如此高的性能？</li>
-<li>Kafka 有什么优缺点？</li>
-<li>还用过什么同质类的其它产品，与 Kafka 相比有什么优缺点？</li>
-<li>为什么选择 Kafka ?</li>
-<li>在使用 Kafka 的过程中遇到过什么困难？怎么解决的？</li>
-<li>怎么样才能确保 Kafka 极大程度上的可靠性？</li>
-<li>聊一聊你对 Kafka 生态的理解</li>
-</ul>
-<p>这段内容摘自掘金小册<a href="https://juejin.im/book/5c7d467e5188251b9156fdc0">图解 Kafka 之实战指南</a></p>
-<h1 id="学习资料">学习资料</h1>
-<ul>
-<li><a href="https://juejin.im/book/5c7d467e5188251b9156fdc0">图解Kafka之实战指南</a></li>
-<li><a href="https://time.geekbang.org/column/intro/100029201">Kafka核心技术与实战</a></li>
-<li><a href="https://book.douban.com/subject/27179953/">Kafka技术内幕</a></li>
-</ul>
+                <p>最近在gridea的群聊发现很多新人在安装好gridea点击远程连接的时候都会出现问题，大部分都是类似no  such remote这样的提示信息，之前我第一次安装的时候也出现过这样的问题，本来以为就我一个人会有，后面发现有这个问题的人也不少，经常群里有人问题这样的问题。自己也在群里解决了一些，但是这样总不是办法，还是需要写一个文档出来，节约大家的时间，这也是写这篇文章的原因，希望这篇文章可以帮助大家解决问题，如果不能解决，可以在下面评论，我会尽力解决，后期也方便其他新手再次遇到类似的问题。</p>
+<h1 id="远程连接出错">远程连接出错</h1>
+<p>这个问题其实在Gridea的issue已经有解决方案了，<a href="https://github.com/getgridea/gridea/issues/403">点击查看详情</a>（windows系统类似）。issue有两个方法，一个是我经常使用的（新手不友好），一个是另一个网友提出的方法，直接删除.git隐藏文件，这个方法比较简单高效推荐使用。不过在这之前要先找到.git仓库的文件地址，可以在0.9.1版本中的左下角的版本中找到，老版本的在设置也可以找到。</p>
+<h2 id="原因">原因</h2>
+<p>一般远程连接出错，都是git的远程地址配置没有配置，出错的提示如下图所示。<br>
+<img src="https://hsxyhao.github.io/post-images/1578635170895.png" alt="" loading="lazy"><br>
+可以在Gridea的ouput文件中打开终端输入git remote命令校验</p>
+<h2 id="解决方案">解决方案</h2>
+<ol>
+<li>mac下在启动台的搜索里输入<strong>terminal</strong>，点击打开，然后使用以下命令</li>
+</ol>
+<pre><code class="language-shell">cd ~/Documents/Gridea/output
+</code></pre>
 
               </div>
               <div class="post-footer">
@@ -539,7 +489,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://hsxyhao.github.io/post/kafka-xue-qian-zhun-bei" title="Kafka学前准备">Kafka学前准备</a>
+      <a href="https://hsxyhao.github.io/post/guan-yu-gridea-de-yuan-cheng-lian-jie-tong-bu-shi-bai-wen-ti" title="关于Gridea的远程连接、同步失败问题">关于Gridea的远程连接、同步失败问题</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -548,21 +498,17 @@ window.addEventListener('load', function() {
   </ul>
   <div class="tags">
     
-      <a href="https://hsxyhao.github.io/tag/Kafka"># Kafka</a>
+      <a href="https://hsxyhao.github.io/tag/uCHcXlB40"># Gridea</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/kafka-chu-shi">Kafka初识</a class="nav-pc-next">
-        <a class="nav-mobile-prev" href="https://hsxyhao.github.io/post/kafka-chu-shi">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian">消息队列学习开篇</a>
-        <a class="nav-mobile-next" href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian">下一篇</a>
+        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">MySQL恶心的周跨年问题</a>
+        <a class="nav-mobile-next" href="https://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

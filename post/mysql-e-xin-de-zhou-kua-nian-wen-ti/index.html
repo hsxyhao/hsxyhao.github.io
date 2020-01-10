@@ -1,8 +1,8 @@
 <html>
   <head>
-      <meta charset="UTF-8"/>
+    <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Madara</title>
+<title>MySQL恶心的周跨年问题 | Madara</title>
 <link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1578635721048">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 
@@ -17,7 +17,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
-      <meta name="description" content="这个人很懒，什么都不想写...">
+    <meta name="description" content="MySQL恶心的周跨年问题" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -60,7 +61,7 @@
               
             </li>
           
-            <li class="nav-item nav-item-active">
+            <li class="nav-item ">
               
                 <a href="/archives">
                   <i class="fa fa-archive"></i> 归档
@@ -121,8 +122,14 @@
       
       <div class="section-layout mist">
         <div class="section-layout-wrapper">
-          <div class="sidebar">
-    <div class="sidebar-wrapper">
+          
+<div class="sidebar">
+    <div class="sidebar-box right-motion" id="sidebar">
+      
+      
+      <div class="sidebar-body mist" id="sidebar_body">
+        
+          <div class="sidebar-wrapper">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://hsxyhao.github.io/images/avatar.png"/>
     <p class="site-author-name">Madara</p>
@@ -153,255 +160,180 @@
   
   
 </div>
+        
+      </div>
+    </div>
 </div>
-          <div class="section-box">
-            <section class="section posts-expand">
-              
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
 
-<div class="archive-timeline-box">
-  <div class="archive-timeline-title">
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+  let hasFix = false;
+
+  if (!sidebarBody.classList.contains('muse')) {
+    window.addEventListener('scroll', function(e) {
+    if (document.body.scrollTop >= limitTop) {
+      if (!hasFix) {
+        sidebar.classList.add('sidebar-fixed');
+        hasFix = true;
+      }
+    } else {
+      if (hasFix) {
+        sidebar.classList.remove('sidebar-fixed');
+        hasFix = false;
+      }
+    }
+  });
+  }
+  
+</script>
+          <div class="section-box">
+            <div class="section post">
+              <div class="article-box">
+    <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">
+      MySQL恶心的周跨年问题
+    </a>
+  </h1>
+  <div class="post-meta">
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2020-01-06</span>
+    </span>
     
-      <h2>非常好！目前共计16篇日志，继续努力！</h2>
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>2分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>376<span class="pc-show">字数</span></span>
+    </span>
+  </div>
+</header>
+</div>
+              <div class="post-body next-md-body" id="post_body">
+                <p>刚过完元旦就遇到了让人恶心的bug，都还没有从朋友圈狗粮阴影里出来，😒。先记录一下吧，防止以后会遇到相似的bug。之前负责公司的一个运营平台，里面有一个周统计任务，每周统计一下服务的使用量。我采用的思路就是将使用记录的创建时间用weekofyear以及year分别获取记录的周以及年，然后用group by分组统计。</p>
+<blockquote>
+<p>weekofyear获取的是一年中的第几周，year获取的是时间的年分</p>
+</blockquote>
+<p>这样处理的问题大多数情况下都是没有问题的，但是在特殊情况下就会出现问题，比如说周跨年，就是说一年中的最后一个周的七天可能包含两年，类似19年最后一周就是，19年12月30日~20年的1月5日。那么在遇到这种情况怎么样才能在尽量不改动业务的情况下修复这个问题呢，其实也很简单，使用YEARWEEK函数，这个函数有两个参数，具体的解释可以看这篇<a href="https://blog.csdn.net/dmw412724/article/details/95318091">博客</a>，这个函数的效果就是不管是20191230还是20200105这中间哪个时间段都可以达到输出一样的结果，拿到这个结果之后对其进行切割，用left以及right函数就可以分别获取周和年，在最小改动业务的情况下完美的解决了这个bug，😌</p>
+<!-- more -->
+
+              </div>
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      Madara
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti" title="MySQL恶心的周跨年问题">MySQL恶心的周跨年问题</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
     
   </div>
-  
-    
-    
-      <div class="node-title">
-        <h2 class="tag-year">2020</h2>
-      </div>    
+  <div class="nav">
+    <div class="nav-prev">
       
-    
-    <a href="https://hsxyhao.github.io/post/guan-yu-gridea-de-yuan-cheng-lian-jie-tong-bu-shi-bai-wen-ti">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            01-10
-            <small>关于Gridea的远程连接、同步失败问题</small>
-          </h1>
-        </div>  
-    </div>
-    </a>
-  
-    
-    
-    <a href="https://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            01-06
-            <small>MySQL恶心的周跨年问题</small>
-          </h1>
-        </div>  
-    </div>
-    </a>
-  
-    
-    
-    <a href="https://hsxyhao.github.io/post/zhu-ti-she-qu-de-bug">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            01-03
-            <small>主题社区的bug</small>
-          </h1>
-        </div>  
-    </div>
-    </a>
-  
-    
-    
-      <div class="node-title">
-        <h2 class="tag-year">2019</h2>
-      </div>    
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/guan-yu-gridea-de-yuan-cheng-lian-jie-tong-bu-shi-bai-wen-ti">关于Gridea的远程连接、同步失败问题</a class="nav-pc-next">
+        <a class="nav-mobile-prev" href="https://hsxyhao.github.io/post/guan-yu-gridea-de-yuan-cheng-lian-jie-tong-bu-shi-bai-wen-ti">上一篇</a>
       
-    
-    <a href="https://hsxyhao.github.io/post/shuo-yi-xia-next-zhu-ti">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            12-31
-            <small>说一下NexT主题</small>
-          </h1>
-        </div>  
     </div>
-    </a>
-  
-    
-    
-    <a href="https://hsxyhao.github.io/post/ce-shi-md-shu-xue-gong-shi">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            12-31
-            <small>KaTeX数学公式支持测试</small>
-          </h1>
-        </div>  
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/zhu-ti-she-qu-de-bug">主题社区的bug</a>
+        <a class="nav-mobile-next" href="https://hsxyhao.github.io/post/zhu-ti-she-qu-de-bug">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
     </div>
-    </a>
-  
-    
-    
-    <a href="https://hsxyhao.github.io/post/redis-chang-kao-mian-shi-ti">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            12-30
-            <small>Redis常考面试题</small>
-          </h1>
-        </div>  
-    </div>
-    </a>
-  
-    
-    
-    <a href="https://hsxyhao.github.io/post/kafka-chu-shi">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            12-13
-            <small>Kafka初识</small>
-          </h1>
-        </div>  
-    </div>
-    </a>
-  
-    
-    
-    <a href="https://hsxyhao.github.io/post/kafka-xue-qian-zhun-bei">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            12-13
-            <small>Kafka学前准备</small>
-          </h1>
-        </div>  
-    </div>
-    </a>
-  
-    
-    
-    <a href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            12-10
-            <small>消息队列学习开篇</small>
-          </h1>
-        </div>  
-    </div>
-    </a>
-  
-    
-    
-    <a href="https://hsxyhao.github.io/post/redis-tao-tai-ji-zhi">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            12-05
-            <small>Redis淘汰机制</small>
-          </h1>
-        </div>  
-    </div>
-    </a>
-  
-    
-    
-    <a href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            12-05
-            <small>Vim命令</small>
-          </h1>
-        </div>  
-    </div>
-    </a>
-  
-    
-    
-    <a href="https://hsxyhao.github.io/post/redis-gao-ke-yong">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            11-23
-            <small>Redis高可用</small>
-          </h1>
-        </div>  
-    </div>
-    </a>
-  
-    
-    
-    <a href="https://hsxyhao.github.io/post/redis-copy">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            11-19
-            <small>Redis复制</small>
-          </h1>
-        </div>  
-    </div>
-    </a>
-  
-    
-    
-    <a href="https://hsxyhao.github.io/post/redis-chi-jiu-hua">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            11-16
-            <small>Redis 持久化</small>
-          </h1>
-        </div>  
-    </div>
-    </a>
-  
-    
-    
-    <a href="https://hsxyhao.github.io/post/rui-shi-jun-dao-redis">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            11-14
-            <small>Redis入门知识点</small>
-          </h1>
-        </div>  
-    </div>
-    </a>
-  
-    
-    
-    <a href="https://hsxyhao.github.io/post/gridea-setup">
-      <div class="motion-warpper tag-archive-node">
-        <div class="tag-node">
-          <h1>
-            11-13
-            <small>Gridea搭建个人博客</small>
-          </h1>
-        </div>  
-    </div>
-    </a>
-  
+  </div>
 </div>
+              
+                
+                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
-<div class="page">
-  <ul class="pagination-ul">
-    
-    
-      
-        <li class="pagination-li pagination-active">
-            <a href="/archives/page/../">
-              1
-            </a>
-        </li>
-      
-    
-    
-  </ul>
-</div>
+<div id="gitalk-container"></div>
 
-            </section>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '7daf0c9da2ee9a72ecba',
+    clientSecret: '39e3424bd496a5d8dcdbb618c370897256810975',
+    repo: 'hsxyhao.github.io',
+    owner: 'hsxyhao',
+    admin: ['hsxyhao'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+  gitalk.render('gitalk-container')
+</script>
+                
+                
+              
+            </div>
           </div>
         </div>
       </div>
