@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>说一下NexT主题 | Madara</title>
+<title>测试UI页面 | Madara</title>
 <link rel="shortcut icon" href="http://hsxyhao.coding.me/favicon.ico?v=1578640988285">
 <link rel="stylesheet" href="http://hsxyhao.coding.me/styles/main.css">
 
@@ -17,7 +17,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
-    <meta name="description" content="说一下NexT主题" />
+    <meta name="description" content="测试UI页面" />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -122,18 +122,10 @@
 <div class="sidebar">
     <div class="sidebar-box right-motion" id="sidebar">
       
-        <div class="post-list-sidebar">
-          <div class="sidebar-title">
-            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
-            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
-          </div>
-        </div>
-      
       
       <div class="sidebar-body pisces" id="sidebar_body">
         
-          <div class="post-side-meta" id="post_side_meta">
-            <div class="sidebar-wrapper">
+          <div class="sidebar-wrapper">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="http://hsxyhao.coding.me/images/avatar.png"/>
     <p class="site-author-name">Madara</p>
@@ -210,192 +202,6 @@
     </div>
   
 </div>
-          </div>
-          <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-            <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number no_compress" id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li><a href="#%E7%9B%AE%E5%89%8D%E7%9A%84">目前的🐞</a>
-<ul>
-<li><a href="#%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD">站内搜索功能</a></li>
-<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95icon">自定义菜单icon</a></li>
-<li><a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%8F%9C%E5%8D%95%E7%9A%84%E5%AF%BC%E8%88%AA%E6%A0%8F%E8%B7%9F%E8%B8%AA">自定义菜单的导航栏跟踪</a></li>
-<li><a href="#%E7%AB%99%E7%82%B9%E9%A2%84%E8%A7%88%E7%9A%84%E5%88%86%E7%B1%BB">站点预览的分类</a></li>
-<li><a href="#next%E4%B8%BB%E9%A2%98%E7%9A%84%E5%85%B6%E4%BB%96%E9%A3%8E%E6%A0%BC">NexT主题的其他风格</a></li>
-<li><a href="#%E6%A0%87%E7%AD%BE%E9%A1%B5%E6%A0%87%E7%AD%BE%E4%BA%91%E9%A1%BA%E5%BA%8F%E6%80%BB%E6%98%AF%E5%8F%98%E5%8A%A8">标签页标签云顺序总是变动</a></li>
-<li><a href="#%E5%85%BC%E5%AE%B9%E6%80%A7">兼容性</a></li>
-<li><a href="#%E6%96%87%E7%AB%A0%E5%B0%81%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98">文章封面的问题</a></li>
-<li><a href="#%E4%B8%BB%E9%A2%98%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE">主题自定义配置</a></li>
-</ul>
-</li>
-<li><a href="#%E6%9C%AA%E6%9D%A5%E7%9A%84next">未来的NexT</a></li>
-<li><a href="#%E8%81%94%E7%B3%BB">联系</a></li>
-<li><a href="#%E6%84%9F%E8%B0%A2">感谢</a></li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
-let active = 'active-show', activeClass = 'active-current';
-let tocWrapper = document.querySelector('#toc_wrapper');
-let tocContent = tocWrapper.children[0];
-let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
-
-function addTocNumber(elem, deep) {
-  if (!elem) {
-    return;
-  }
-  let prop = elem.__proto__;
-
-  if (prop === HTMLUListElement.prototype) {
-    for (let i = 0; i < elem.children.length; i++) {
-      addTocNumber(elem.children[i], deep + (i + 1) + '.');
-    }
-  } else if (prop === HTMLLIElement.prototype) {
-    // 保存li元素
-    lList.push(elem);
-    for (let i = 0; i < elem.children.length; i++) {
-      let cur = elem.children[i];
-      if (cur.__proto__ === HTMLAnchorElement.prototype) {
-        if (autoNumber) {
-          cur.text =  deep + ' ' + cur.text;
-        }
-      } else if (cur.__proto__ === HTMLUListElement.prototype) {
-        addTocNumber(cur, deep);
-      }
-    }
-  }
-}
-
-
-document.addEventListener('scroll', function(e) {
-  if (lList.length <= 0) {
-    return;
-  }
-  let scrollTop = document.body.scrollTop;
-  let dir;
-
-  if (lastTop - scrollTop > 0) {
-    dir = 'up';
-  } else {
-    dir = 'down';
-  }
-
-  lastTop = scrollTop;
-  if (scrollTop <= 0) {
-    if (lastIndex >= 0 && lastIndex < hList.length) {
-      lList[lastIndex].classList.remove(activeClass);
-    }
-    return;
-  }
-
-  let current = 0, hasFind = false;
-  for (let i = 0; i < hList.length; i++) {
-    if (hList[i].offsetTop > scrollTop) {
-      current = i;
-      hasFind = true;
-      break;
-    }
-  }
-  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-    current = hList.length - 1;
-  } else {
-    current--;
-  }
-  if (dir === 'down') {
-    if (current > lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex) 
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  } else {
-    if (current < lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex);
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  }
-});
-
-function removeParentActiveClass() {
-  let parents = tocContent.querySelectorAll('.'+active)
-  parents.forEach(function(elem) {
-    elem.classList.remove(active);
-  });
-}
-
-function addActiveClass(index) {
-  if (index >= 0 && index < hList.length) {
-    lList[index].classList.add(activeClass);
-  }
-}
-
-function removeActiveClass(index) {
-  if (index >= 0 && index < hList.length) {
-    lList[index].classList.remove(activeClass);
-  }
-}
-
-function addActiveLiElemment(elem, parent) {
-  if (!elem || elem === parent) {
-    return;
-  } else {
-    if (elem.__proto__ === HTMLLIElement.prototype) {
-      elem.classList.add(active);
-    }
-    addActiveLiElemment(elem.parentElement, parent);
-  }
-}
-
-function showToc() {
-  if (tocWrapper) {
-    postBody = document.querySelector('#post_body');
-    for (let i = 0; i < postBody.children.length; i++) {
-      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-        hList.push(postBody.children[i]);
-      }
-    }
-    if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-    } else if (tocWrapper.classList.contains('no_compress')){
-      tocContent.classList.add('expanded');
-    } else {
-      if (hList.length > 10) {
-        active = 'active-hidden'
-        tocContent.classList.add('closed');
-      } else {
-        tocContent.classList.add('expanded');
-      }
-    }
-  }
-}
-addTocNumber(tocContent, '');
-
-window.addEventListener('load', function() {
-  showToc();
-  document.querySelector('#sidebar').style='display: block;';
-  tocWrapper.classList.add('toc-active');
-  setTimeout(function() {
-    if ("createEvent" in document) {
-      let evt = document.createEvent("HTMLEvents");
-      evt.initEvent("scroll", false, true);
-      document.dispatchEvent(evt);
-    }
-    else {
-      document.fireEvent("scroll");
-    }
-  }, 500)
-})
-
-</script>
-          </div>
         
       </div>
     </div>
@@ -480,67 +286,31 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="http://hsxyhao.coding.me/post/shuo-yi-xia-next-zhu-ti">
-      说一下NexT主题
+    <a class="post-title-link" href="http://hsxyhao.coding.me/post/ce-shi-ui-ye-mian">
+      测试UI页面
     </a>
   </h1>
   <div class="post-meta">
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-12-31</span>
+      <span>2020-01-10</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>7分钟</span>
+      <span>0分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1872<span class="pc-show">字数</span></span>
+      <span>0<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
 </div>
               <div class="post-body next-md-body" id="post_body">
-                <p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，经常是一旦出现了bug就加班加点的修复，虽然累一点，但是反而快乐了许多。最后我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
-<figure data-type="image" tabindex="1"><img src="http://hsxyhao.coding.me/post-images/1577787675038.jpg" alt="" loading="lazy"></figure>
-<!-- more -->
-<h1 id="目前的">目前的🐞</h1>
-<p>NexT主题毕竟是从hexo平台搬过来的，两个不同的平台，所在肯定会存在差异，有些功能在gridea就无法实现，或者实现的不是很好，但是我相信不论是gridea还是next都会变得越来越优秀，也希望大家多点耐心。<br>
-目前主题已经开发出来了，实际上还是存在着很多的问题：</p>
-<h2 id="站内搜索功能">站内搜索功能</h2>
-<p>看了下hexo的站内搜索功能是基于hexo插件，目前gridea暂时还不支持插件，这个功能暂时无法开发，不过作者已经表示后期会支持，相信不久就可以实现站内搜索了。</p>
-<h2 id="自定义菜单icon">自定义菜单icon</h2>
-<p>next主题的菜单项都带有icon，目前gridea平台虽然支持自定义菜单项，但是gridea不支持图标的选项，在这里目前只能按照约定展示一些常见的图标</p>
-<blockquote>
-<p>约定：首页、归档、标签三个菜单项的链接地址必须设置为/、/archives、/tags</p>
-</blockquote>
-<h2 id="自定义菜单的导航栏跟踪">自定义菜单的导航栏跟踪</h2>
-<p>就是“首页”菜单右边的那个小点点，目前会对首页、归档、标签三个菜单有跟踪效果，其他自定义的菜单还不支持，后期再解决。</p>
-<h2 id="站点预览的分类">站点预览的分类</h2>
-<p>hexo-next上主要分为文章、分类、标签，但是gridea不支持分类，不过在issue中好像看到有人反馈过这个问题，后期支持的话，也会立马更新。</p>
-<h2 id="next主题的其他风格">NexT主题的其他风格</h2>
-<p>NexT主题支持很多种布局风格，目前只开发出了默认的风格，还有其他风格还有待支持，毕竟当前的版本还有很多bug解决。</p>
-<h2 id="标签页标签云顺序总是变动">标签页标签云顺序总是变动</h2>
-<p>标签云的顺序总是变动主要的原因是由于平台会对编辑过的标签按照时间排序，所以目前还控制不了标签的展示顺序。</p>
-<h2 id="兼容性">兼容性</h2>
-<p>主题对于浏览器的兼容做的还不是很好，目前IE10以下不支持，其他浏览器也尽量保持较新的版本才可以，移动端也是如此。除了浏览器的兼容性以外还有电脑系统的兼容，目前mac的兼容效果最佳，windows后期会慢慢跟进。</p>
-<h2 id="文章封面的问题">文章封面的问题</h2>
-<p>gridea支持为每篇文章设置封面图片，在next主题中是不会展示这个封面的，也就是说即使你配置了封面也不会有效果，但是在我的博客上每篇文章都会带有“封面”，其实这里的图片不是封面，只是我将本来要用作封面的图片插入到博客的摘要里面了，所以在展示每篇文章摘要的时候都会显示带有一个封面。这样做的主要原因就是原版的hexo-next主题也是这样设置的，但是这样做会带来一个问题，就是和其他主题不兼容，其他的主题默认的都会展示封面，目前这个问题还无法做到兼容其他主题，或许后期会采取另一种解决方案，如果你有这方面的需求，可以联系，大家一起探讨一下。</p>
-<h2 id="主题自定义配置">主题自定义配置</h2>
-<p>由于自己没有详细阅读官方文档，导致刚开始开发的时候觉得gridea的主题自定义功能还不是很完善，一直没有做主题的自定义配置。后期发现gridea的主题自定义功能已经很不错了，准备对next做自定义的配置，不过在开发之前还是要考虑需要做哪些自定义支持，该功能可能需要晚点才会同步。</p>
-<p>上面所列出的问题，基本上是由于平台的限制不好实现，后期会尽力和作者沟通看看有没有什么解决方案，争取都解决掉。<br>
-在这里首先感谢提过问题的网友，你们提的每一个问题，我都去尽快修复，希望在大家的帮助下NexT可以变得更加完善。</p>
-<h1 id="未来的next">未来的NexT</h1>
-<p>虽然next是copy的，但是未来还是会有根据社区的反馈做其他的改动。至于我对未来的next规划，大概主要集中于交互以及评论系统上。之前提到过next主题最主要的特点就是简单，但是我觉得在交互上还是要有所改进，让用户体验的更爽一点，其次就是评论功能，现在的评论功能感觉不是很适合技术交流，而且加载时间太长，用户体验极差。我觉得微信阅读的评论就做的很好，不知道大家有没有用过，与其说他是评论，还不如说是做笔记，微信阅读里面，可以对文章的内容进行划线、评论等操作，总觉的这样更适合技术交流，后期会考虑如何去实现这样一个评论系统，敬请期待！<br>
-至于其他方面的改进暂时还没有想到，后面有什么新的想法再来补充吧。</p>
-<h1 id="联系">联系</h1>
-<p>如果在使用主题的时候遇到任何问题可以通过微信联系我(wh806649821)，不过在添加好友的时候添加一下备注NexT。目前用户量还不是很大，所以有什么更新的话会直接发朋友圈，等用户多了在考虑建群，相信大家不论是工作还是家庭都已经有很多群里，这里就先不添堵了，免得大家反感。除了微信反馈，还可以直接通过issue提bug，这样会更好点，防止出现重复的问题，节约大家的时间。</p>
-<h1 id="感谢">感谢</h1>
-<p>先声明一下，后期如果有使用上问题欢迎大家反馈“骚扰”。<br>
-在这里首先要感谢一位网友，之前开发完next之后自己简单的测试了下，发现没有太大问题，就直接发布了，导致有的人在使用的时候遇见各种各样的问题，在这里先说声抱歉，后期会保证尽量少犯这种错误，再次感谢@Tec***one，@T*m网友的反馈。当然还要感谢@EryouHao，给大家提供了一个优秀的平台。</p>
+                <figure data-type="image" tabindex="1"><img src="http://hsxyhao.coding.me/post-images/1578640739452.jpg" alt="" loading="lazy"></figure>
 
               </div>
               <div class="post-footer">
@@ -551,7 +321,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://hsxyhao.coding.me/post/shuo-yi-xia-next-zhu-ti" title="说一下NexT主题">说一下NexT主题</a>
+      <a href="http://hsxyhao.coding.me/post/ce-shi-ui-ye-mian" title="测试UI页面">测试UI页面</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -564,15 +334,11 @@ window.addEventListener('load', function() {
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" href="http://hsxyhao.coding.me/post/zhu-ti-she-qu-de-bug">主题社区的bug</a class="nav-pc-next">
-        <a class="nav-mobile-prev" href="http://hsxyhao.coding.me/post/zhu-ti-she-qu-de-bug">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" href="http://hsxyhao.coding.me/post/ce-shi-md-shu-xue-gong-shi">KaTeX数学公式支持测试</a>
-        <a class="nav-mobile-next" href="http://hsxyhao.coding.me/post/ce-shi-md-shu-xue-gong-shi">下一篇</a>
+        <a class="nav-pc-next" href="http://hsxyhao.coding.me/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">MySQL恶心的周跨年问题</a>
+        <a class="nav-mobile-next" href="http://hsxyhao.coding.me/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

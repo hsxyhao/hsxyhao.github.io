@@ -3,8 +3,8 @@
     <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Redis淘汰机制 | Madara</title>
-<link rel="shortcut icon" href="http://hsxyhao.github.io/favicon.ico?v=1578638153963">
-<link rel="stylesheet" href="http://hsxyhao.github.io/styles/main.css">
+<link rel="shortcut icon" href="http://hsxyhao.coding.me/favicon.ico?v=1578640988285">
+<link rel="stylesheet" href="http://hsxyhao.coding.me/styles/main.css">
 
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -135,7 +135,7 @@
           <div class="post-side-meta" id="post_side_meta">
             <div class="sidebar-wrapper">
   <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="http://hsxyhao.github.io/images/avatar.png"/>
+    <img class="site-author-image right-motion" src="http://hsxyhao.coding.me/images/avatar.png"/>
     <p class="site-author-name">Madara</p>
     <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
   </div>
@@ -143,7 +143,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">15</span>
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -166,7 +166,7 @@
       <div class="sidebar-item">
         <span class="site-item-rss">
             <i class="fa fa-rss"></i>
-            <a href="http://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
+            <a href="http://hsxyhao.coding.me/atom.xml" target="_blank">RSS</a>
         </span>
       </div>
     
@@ -485,7 +485,7 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="http://hsxyhao.github.io/post/redis-tao-tai-ji-zhi">
+    <a class="post-title-link" href="http://hsxyhao.coding.me/post/redis-tao-tai-ji-zhi">
       Redis淘汰机制
     </a>
   </h1>
@@ -502,7 +502,7 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="http://hsxyhao.github.io/tag/redis">
+            <a href="http://hsxyhao.coding.me/tag/redis">
               <span>Redis</span>
             </a>
           
@@ -563,7 +563,7 @@ window.addEventListener('load', function() {
 <h2 id="为什么采用近似的lru算法">为什么采用近似的LRU算法</h2>
 <p>redis中使用的LRU算法并不是真正的LRU算法，采用的是一种近似的LRU算法，如果每次添加key的时候查找所有key的最大空闲时间，显然在性能上会有所降低，本来这种剔除的策略就是一种概率的猜测，所以在选择最大的空闲时间key的时候，只要在概率上逼近真正lru算法就行了。过期算法是在redis2.8版本中加入的，并且在3.0中对其进行了优化。</p>
 <p>下图对lru算法进行了一些比较，左上角是理想的lru算法效果。上层是改进版即3.0后的版本与理想的lru算法的一个比较，下面两张图是2.8版本与3.0版本进行的一个比较。那么需要怎么理解这个图呢？<br>
-<img src="http://hsxyhao.github.io/post-images/1575603094713.png" alt="" loading="lazy"><br>
+<img src="http://hsxyhao.coding.me/post-images/1575603094713.png" alt="" loading="lazy"><br>
 在这个图里面分为三个区域</p>
 <ul>
 <li>最上层的浅灰色区域代表需要淘汰的key</li>
@@ -662,7 +662,7 @@ unsigned long LFUGetTimeInMinutes(void) {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://hsxyhao.github.io/post/redis-tao-tai-ji-zhi" title="Redis淘汰机制">Redis淘汰机制</a>
+      <a href="http://hsxyhao.coding.me/post/redis-tao-tai-ji-zhi" title="Redis淘汰机制">Redis淘汰机制</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -671,21 +671,21 @@ unsigned long LFUGetTimeInMinutes(void) {
   </ul>
   <div class="tags">
     
-      <a href="http://hsxyhao.github.io/tag/redis"># Redis</a>
+      <a href="http://hsxyhao.coding.me/tag/redis"># Redis</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" href="http://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian">消息队列学习开篇</a class="nav-pc-next">
-        <a class="nav-mobile-prev" href="http://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian">上一篇</a>
+        <a class="nav-pc-next" href="http://hsxyhao.coding.me/post/xiao-xi-dui-lie-xue-xi-kai-pian">消息队列学习开篇</a class="nav-pc-next">
+        <a class="nav-mobile-prev" href="http://hsxyhao.coding.me/post/xiao-xi-dui-lie-xue-xi-kai-pian">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" href="http://hsxyhao.github.io/post/vim-ming-ling-ji-lu">Vim命令</a>
-        <a class="nav-mobile-next" href="http://hsxyhao.github.io/post/vim-ming-ling-ji-lu">下一篇</a>
+        <a class="nav-pc-next" href="http://hsxyhao.coding.me/post/vim-ming-ling-ji-lu">Vim命令</a>
+        <a class="nav-mobile-next" href="http://hsxyhao.coding.me/post/vim-ming-ling-ji-lu">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
