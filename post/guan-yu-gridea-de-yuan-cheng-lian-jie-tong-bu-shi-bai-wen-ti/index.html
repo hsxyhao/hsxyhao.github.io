@@ -3,8 +3,8 @@
     <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>关于Gridea的远程连接、同步失败问题 | Madara</title>
-<link rel="shortcut icon" href="http://hsxyhao.coding.me/favicon.ico?v=1578640988285">
-<link rel="stylesheet" href="http://hsxyhao.coding.me/styles/main.css">
+<link rel="shortcut icon" href="http://hsxyhao.github.io/favicon.ico?v=1578641549617">
+<link rel="stylesheet" href="http://hsxyhao.github.io/styles/main.css">
 
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -135,7 +135,7 @@
           <div class="post-side-meta" id="post_side_meta">
             <div class="sidebar-wrapper">
   <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="http://hsxyhao.coding.me/images/avatar.png"/>
+    <img class="site-author-image right-motion" src="http://hsxyhao.github.io/images/avatar.png"/>
     <p class="site-author-name">Madara</p>
     <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
   </div>
@@ -143,7 +143,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-count">15</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -166,7 +166,7 @@
       <div class="sidebar-item">
         <span class="site-item-rss">
             <i class="fa fa-rss"></i>
-            <a href="http://hsxyhao.coding.me/atom.xml" target="_blank">RSS</a>
+            <a href="http://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
         </span>
       </div>
     
@@ -471,7 +471,7 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="http://hsxyhao.coding.me/post/guan-yu-gridea-de-yuan-cheng-lian-jie-tong-bu-shi-bai-wen-ti">
+    <a class="post-title-link" href="http://hsxyhao.github.io/post/guan-yu-gridea-de-yuan-cheng-lian-jie-tong-bu-shi-bai-wen-ti">
       关于Gridea的远程连接、同步失败问题
     </a>
   </h1>
@@ -488,7 +488,7 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="http://hsxyhao.coding.me/tag/uCHcXlB40">
+            <a href="http://hsxyhao.github.io/tag/uCHcXlB40">
               <span>Gridea</span>
             </a>
           
@@ -498,12 +498,12 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
+      <span>3分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>556<span class="pc-show">字数</span></span>
+      <span>613<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
@@ -514,7 +514,7 @@ window.addEventListener('load', function() {
 <p>这个问题其实在Gridea的issue已经有解决方案了，<a href="https://github.com/getgridea/gridea/issues/403">点击查看详情</a>（windows系统类似）。issue有两个方法，一个是我经常使用的（新手不友好），一个是另一个网友提出的方法，直接删除.git隐藏文件，这个方法比较简单高效推荐使用。不过在这之前要先找到.git仓库的文件地址，可以在0.9.1版本中的左下角的版本中找到，老版本的在设置也可以找到。</p>
 <h2 id="原因">原因</h2>
 <p>一般远程连接出错，都是git的远程地址配置没有配置，出错的提示如下图所示。<br>
-<img src="http://hsxyhao.coding.me/post-images/1578635170895.png" alt="" loading="lazy"><br>
+<img src="http://hsxyhao.github.io/post-images/1578635170895.png" alt="" loading="lazy"><br>
 可以在Gridea的ouput文件中打开终端输入git remote命令校验</p>
 <h2 id="解决方案">解决方案</h2>
 <p>第一种方案<br>
@@ -535,7 +535,7 @@ window.addEventListener('load', function() {
 <pre><code>git remote add origin xxx.git 命令
 </code></pre>
 <h1 id="同步失败">同步失败</h1>
-<p>除了连接失败外，还有一个经常出现的问题，同步失败。</p>
+<p>除了连接失败外，还有一个经常出现的问题，同步失败，其实这个错误也是git导致的问题，一般都是.git文件中一个config文件导致，我遇见的情况多数都是token没有添加上，修复这个问题可以打开config页面</p>
 
               </div>
               <div class="post-footer">
@@ -546,7 +546,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://hsxyhao.coding.me/post/guan-yu-gridea-de-yuan-cheng-lian-jie-tong-bu-shi-bai-wen-ti" title="关于Gridea的远程连接、同步失败问题">关于Gridea的远程连接、同步失败问题</a>
+      <a href="http://hsxyhao.github.io/post/guan-yu-gridea-de-yuan-cheng-lian-jie-tong-bu-shi-bai-wen-ti" title="关于Gridea的远程连接、同步失败问题">关于Gridea的远程连接、同步失败问题</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -555,7 +555,7 @@ window.addEventListener('load', function() {
   </ul>
   <div class="tags">
     
-      <a href="http://hsxyhao.coding.me/tag/uCHcXlB40"># Gridea</a>
+      <a href="http://hsxyhao.github.io/tag/uCHcXlB40"># Gridea</a>
     
   </div>
   <div class="nav">
