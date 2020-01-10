@@ -3,8 +3,8 @@
     <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Redis复制 | Madara</title>
-<link rel="shortcut icon" href="http://hsxyhao.github.io/favicon.ico?v=1578642811736">
-<link rel="stylesheet" href="http://hsxyhao.github.io/styles/main.css">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1578642866826">
+<link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -135,7 +135,7 @@
           <div class="post-side-meta" id="post_side_meta">
             <div class="sidebar-wrapper">
   <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="http://hsxyhao.github.io/images/avatar.png"/>
+    <img class="site-author-image right-motion" src="https://hsxyhao.github.io/images/avatar.png"/>
     <p class="site-author-name">Madara</p>
     <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
   </div>
@@ -166,7 +166,7 @@
       <div class="sidebar-item">
         <span class="site-item-rss">
             <i class="fa fa-rss"></i>
-            <a href="http://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
+            <a href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
         </span>
       </div>
     
@@ -494,7 +494,7 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="http://hsxyhao.github.io/post/redis-copy">
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/redis-copy">
       Redis复制
     </a>
   </h1>
@@ -511,7 +511,7 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="http://hsxyhao.github.io/tag/redis">
+            <a href="https://hsxyhao.github.io/tag/redis">
               <span>Redis</span>
             </a>
           
@@ -609,7 +609,7 @@ window.addEventListener('load', function() {
 </blockquote>
 <h1 id="psync流程">psync流程</h1>
 <h2 id="前期">前期</h2>
-<figure data-type="image" tabindex="1"><img src="http://hsxyhao.github.io/post-images/1574410766776.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1574410766776.png" alt="" loading="lazy"></figure>
 <ol>
 <li>从节点发送psync命令到主节点，runid是主节点的，在建立复制关系时保存下来的。offset是偏移量，如果是第一次复制，则为-1，否则是从节点保存的复制偏移量。</li>
 <li>主节点根据psync的两个参数作出相应，如果runid不一致，则直接进行全量复制，否则会进行部分复制。</li>
@@ -621,7 +621,7 @@ window.addEventListener('load', function() {
 </ul>
 <h2 id="全量复制">全量复制</h2>
 <p>当从节点收到来自主节点的全量复制的响应时，会进行全量复制。<br>
-<img src="http://hsxyhao.github.io/post-images/1574413814260.png" alt="" loading="lazy"></p>
+<img src="https://hsxyhao.github.io/post-images/1574413814260.png" alt="" loading="lazy"></p>
 <ol>
 <li>1)、2)步骤是psync数据同步前期，这个阶段是来判断进行全量复制还是部分复制</li>
 <li>3)从节点接受到来自主节点的全量复制响应，会保存主节点的runId以及offset</li>
@@ -654,7 +654,7 @@ window.addEventListener('load', function() {
 </ol>
 <h2 id="部分复制">部分复制</h2>
 <p>从上面可以得知一个全量复制的成本是相当的高的，所以redis在2.8版本之后对齐做了优化，出现了部分辅助功能，就是百度、迅雷等常用软件的一种断点续传的功能。在进行全量复制的过程中如果出现了网络闪断或者命令丢失等情况时，从节点会要求主节点补发丢失的命令数据，如果主节点的复制积压缓冲区存在这部分数据则直接发送给从节点。<br>
-<img src="http://hsxyhao.github.io/post-images/1574418539238.png" alt="" loading="lazy"></p>
+<img src="https://hsxyhao.github.io/post-images/1574418539238.png" alt="" loading="lazy"></p>
 <ol>
 <li>1)主从之间网络出现中断</li>
 <li>2)主节点依旧响应请求，这时的写命令会写入到复制积压缓冲区中</li>
@@ -668,7 +668,7 @@ window.addEventListener('load', function() {
 </blockquote>
 <h1 id="心跳">心跳</h1>
 <p>redis通过心跳维护主从节点之间的长连接，主节点默认每10秒(repl-ping-slave-period控制频率)发送ping命令，判断从节点的存活性和连接状态。从节点在主线程中每隔1秒发送replconf ack offset命令，给主节点上报当前的偏移量。<br>
-<img src="http://hsxyhao.github.io/post-images/1574489105257.png" alt="" loading="lazy"></p>
+<img src="https://hsxyhao.github.io/post-images/1574489105257.png" alt="" loading="lazy"></p>
 <h2 id="考点">考点</h2>
 <ol>
 <li>心跳机制中从节点每次上报自身的偏移量有什么作用?</li>
@@ -707,7 +707,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://hsxyhao.github.io/post/redis-copy" title="Redis复制">Redis复制</a>
+      <a href="https://hsxyhao.github.io/post/redis-copy" title="Redis复制">Redis复制</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -716,21 +716,21 @@ window.addEventListener('load', function() {
   </ul>
   <div class="tags">
     
-      <a href="http://hsxyhao.github.io/tag/redis"># Redis</a>
+      <a href="https://hsxyhao.github.io/tag/redis"># Redis</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" href="http://hsxyhao.github.io/post/redis-gao-ke-yong">Redis高可用</a class="nav-pc-next">
-        <a class="nav-mobile-prev" href="http://hsxyhao.github.io/post/redis-gao-ke-yong">上一篇</a>
+        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/redis-gao-ke-yong">Redis高可用</a class="nav-pc-next">
+        <a class="nav-mobile-prev" href="https://hsxyhao.github.io/post/redis-gao-ke-yong">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" href="http://hsxyhao.github.io/post/redis-chi-jiu-hua">Redis 持久化</a>
-        <a class="nav-mobile-next" href="http://hsxyhao.github.io/post/redis-chi-jiu-hua">下一篇</a>
+        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/redis-chi-jiu-hua">Redis 持久化</a>
+        <a class="nav-mobile-next" href="https://hsxyhao.github.io/post/redis-chi-jiu-hua">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

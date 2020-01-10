@@ -3,8 +3,8 @@
     <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>关于Gridea的远程连接、同步失败问题 | Madara</title>
-<link rel="shortcut icon" href="http://hsxyhao.github.io/favicon.ico?v=1578642811736">
-<link rel="stylesheet" href="http://hsxyhao.github.io/styles/main.css">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1578642866826">
+<link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -135,7 +135,7 @@
           <div class="post-side-meta" id="post_side_meta">
             <div class="sidebar-wrapper">
   <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="http://hsxyhao.github.io/images/avatar.png"/>
+    <img class="site-author-image right-motion" src="https://hsxyhao.github.io/images/avatar.png"/>
     <p class="site-author-name">Madara</p>
     <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
   </div>
@@ -166,7 +166,7 @@
       <div class="sidebar-item">
         <span class="site-item-rss">
             <i class="fa fa-rss"></i>
-            <a href="http://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
+            <a href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
         </span>
       </div>
     
@@ -473,7 +473,7 @@ window.addEventListener('load', function() {
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="http://hsxyhao.github.io/post/gridea_help">
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/gridea_help">
       关于Gridea的远程连接、同步失败问题
     </a>
   </h1>
@@ -490,7 +490,7 @@ window.addEventListener('load', function() {
         <span class="pc-show">分类于</span>
         
           
-            <a href="http://hsxyhao.github.io/tag/uCHcXlB40">
+            <a href="https://hsxyhao.github.io/tag/uCHcXlB40">
               <span>Gridea</span>
             </a>
           
@@ -512,12 +512,12 @@ window.addEventListener('load', function() {
 </div>
               <div class="post-body next-md-body" id="post_body">
                 <p>最近在gridea的群聊发现很多新人在安装好gridea点击远程连接的时候都会出现问题，大部分都是类似no  such remote这样的提示信息，之前我第一次安装的时候也出现过这样的问题，本来以为就我一个人会有，后面发现有这个问题的人也不少，经常群里有人问题这样的问题。自己也在群里解决了一些，但是这样总不是办法，还是需要写一个文档出来，节约大家的时间，这也是写这篇文章的原因，希望这篇文章可以帮助大家解决问题，如果不能解决，可以在下面评论，我会尽力解决，后期也方便其他新手再次遇到类似的问题。<br>
-<img src="http://hsxyhao.github.io/post-images/1578642807761.jpg" alt="" loading="lazy"></p>
+<img src="https://hsxyhao.github.io/post-images/1578642807761.jpg" alt="" loading="lazy"></p>
 <h1 id="远程连接出错">远程连接出错</h1>
 <p>这个问题其实在Gridea的issue已经有解决方案了，<a href="https://github.com/getgridea/gridea/issues/403">点击查看详情</a>（windows系统类似）。issue有两个方法，一个是我经常使用的（新手不友好），一个是另一个网友提出的方法，直接删除.git隐藏文件，这个方法比较简单高效推荐使用。不过在这之前要先找到.git仓库的文件地址，可以在0.9.1版本中的左下角的版本中找到，老版本的在设置也可以找到。</p>
 <h2 id="原因">原因</h2>
 <p>一般远程连接出错，都是git的远程地址配置没有配置，出错的提示如下图所示。<br>
-<img src="http://hsxyhao.github.io/post-images/1578635170895.png" alt="" loading="lazy"><br>
+<img src="https://hsxyhao.github.io/post-images/1578635170895.png" alt="" loading="lazy"><br>
 可以在Gridea的ouput文件中打开终端输入git remote命令校验</p>
 <h2 id="解决方案">解决方案</h2>
 <p>第一种方案<br>
@@ -539,7 +539,7 @@ window.addEventListener('load', function() {
 </code></pre>
 <h1 id="同步失败">同步失败</h1>
 <p>除了连接失败外，还有一个经常出现的问题，同步失败，其实这个错误也是git导致的问题，一般都是.git文件中一个config文件导致，我遇见的情况多数都是token没有添加上，修复这个问题可以打开config页面，从把token写上去，就是图片中划横线的部分（没有划全，替换的时候注意下）。<br>
-<img src="http://hsxyhao.github.io/post-images/1578642131057.png" alt="" loading="lazy"><br>
+<img src="https://hsxyhao.github.io/post-images/1578642131057.png" alt="" loading="lazy"><br>
 也可以试试直接删除.git文件夹，这个我没试过，不知道有没有用。</p>
 <h1 id="coding无法同步">coding无法同步</h1>
 <p>coding无法同步的主要原因就是token的问题，coding中每个token都会有一个用户名，在访问的时候可能需要把这个token用户名加上，但是Gridea没有支持token用户名，只有平台用户名，目前这个问题可以将coding的token换成coding的密码，这样就可以同步成功了。</p>
@@ -555,7 +555,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://hsxyhao.github.io/post/gridea_help" title="关于Gridea的远程连接、同步失败问题">关于Gridea的远程连接、同步失败问题</a>
+      <a href="https://hsxyhao.github.io/post/gridea_help" title="关于Gridea的远程连接、同步失败问题">关于Gridea的远程连接、同步失败问题</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -564,7 +564,7 @@ window.addEventListener('load', function() {
   </ul>
   <div class="tags">
     
-      <a href="http://hsxyhao.github.io/tag/uCHcXlB40"># Gridea</a>
+      <a href="https://hsxyhao.github.io/tag/uCHcXlB40"># Gridea</a>
     
   </div>
   <div class="nav">
@@ -573,8 +573,8 @@ window.addEventListener('load', function() {
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" href="http://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">MySQL恶心的周跨年问题</a>
-        <a class="nav-mobile-next" href="http://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">下一篇</a>
+        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">MySQL恶心的周跨年问题</a>
+        <a class="nav-mobile-next" href="https://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
