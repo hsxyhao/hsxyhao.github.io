@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>http://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2020-01-10T07:32:35.200Z</updated>
+    <updated>2020-01-10T07:53:43.064Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="http://hsxyhao.github.io"/>
     <link rel="self" href="http://hsxyhao.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>http://hsxyhao.github.io/images/avatar.png</logo>
     <icon>http://hsxyhao.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Madara</rights>
+    <entry>
+        <title type="html"><![CDATA[关于Gridea的远程连接、同步失败问题]]></title>
+        <id>http://hsxyhao.github.io/post/gridea_help</id>
+        <link href="http://hsxyhao.github.io/post/gridea_help">
+        </link>
+        <updated>2020-01-10T05:29:55.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[MySQL恶心的周跨年问题]]></title>
         <id>http://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti</id>
@@ -181,19 +188,6 @@
 </ul>
 <p><strong>备注</strong><br>
 这里删除的key其实只删除一个，这是因为Redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vim命令]]></title>
-        <id>http://hsxyhao.github.io/post/vim-ming-ling-ji-lu</id>
-        <link href="http://hsxyhao.github.io/post/vim-ming-ling-ji-lu">
-        </link>
-        <updated>2019-12-05T01:00:51.000Z</updated>
-        <summary type="html"><![CDATA[<p>今天在公司领导问了个vim的命令，当时脑子一片空白，一时间语无伦次，场面甚是尴尬，真是书到用时方恨少啊！😰<br>
-作为一名后端开发，在日常开发的过程中肯定会接触到使用vim快捷命令，基本上都是用到的时候直接度娘，虽然会接触到一些常用的vim命令，毕竟不是运维，过段时间基本上会再次忘掉，下次在遇见的时候再度娘。期间难免会耽搁不少时间，但是我觉得特地学一下vim，又感觉有点力不从心，上班不比上学，不是每天都可以划水。最后想了下觉得应该把用到的vim命令记录下来，方便下次查阅，后面有时间的时候也翻一下，就当做记单词了吧。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>今天在公司领导问了个vim的命令，当时脑子一片空白，一时间语无伦次，场面甚是尴尬，真是书到用时方恨少啊！😰<br>
-作为一名后端开发，在日常开发的过程中肯定会接触到使用vim快捷命令，基本上都是用到的时候直接度娘，虽然会接触到一些常用的vim命令，毕竟不是运维，过段时间基本上会再次忘掉，下次在遇见的时候再度娘。期间难免会耽搁不少时间，但是我觉得特地学一下vim，又感觉有点力不从心，上班不比上学，不是每天都可以划水。最后想了下觉得应该把用到的vim命令记录下来，方便下次查阅，后面有时间的时候也翻一下，就当做记单词了吧。</p>
 ]]></content>
     </entry>
 </feed>
