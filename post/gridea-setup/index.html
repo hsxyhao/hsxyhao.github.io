@@ -3,9 +3,8 @@
     <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Gridea搭建个人博客 | Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1578643255237">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1578821280277">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
-
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
@@ -206,9 +205,22 @@
               <i class="fa fa-qq"></i> QQ
             </a>
           
+          
       </div>
     </div>
   
+
+  <div class="sidebar-item right-motion sidebar-item-friends">
+    <p class="friends-title"><i class="fa fa-globe"></i> 友情链接</p>
+    <div class="friends-box">
+      
+        <p>
+          <a href="https://hsxyhao.github.io/">【hsxyhao】</a>
+        </p>
+      
+    </div>
+  </div>
+
 </div>
           </div>
           <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
@@ -454,10 +466,10 @@ window.addEventListener('load', function() {
     this.classList.remove(SLIDE_UP_IN);
   });
 
-  let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
-  let hasFix = false;
 
-  if (!sidebarBody.classList.contains('muse')) {
+  if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('mist')) {
+    let hasFix = false;
+    let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
     window.addEventListener('scroll', function(e) {
     if (document.body.scrollTop >= limitTop) {
       if (!hasFix) {

@@ -111,14 +111,13 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1.5;
-  font-family: 'Roboto Slab', 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 body {
+  height: 100%;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   position: relative;
-  font-family: 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 14px;
   line-height: 2;
   color: #555;
@@ -256,6 +255,42 @@ blockquote:before {
   border-radius: 4px;
   background: #eee;
 }
+.icon-douban {
+  font-style: normal;
+  padding: 0px 6px;
+  background: #555555;
+  font-weight: bold;
+  color: #FFF;
+  border-radius: 2px;
+  transform: scale(0.5);
+  transform-origin: left;
+  display: inline-block;
+}
+.douban-span {
+  margin-left: -12px;
+}
+.friends-title {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-top: 1px dotted #ccc;
+}
+.friends-box a {
+  max-width: 280px;
+  display: block;
+  box-sizing: border-box;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #555;
+  border-bottom: 1px solid #555;
+}
+.friends-box a:hover {
+  color: #222;
+  border-bottom: 1px solid #222;
+}
 .footer-box {
   position: relative;
   margin-top: 80px;
@@ -316,21 +351,6 @@ blockquote:before {
   .back-top-active {
     bottom: 10px;
   }
-}
-.section-box {
-  width: auto;
-  background: #fff;
-}
-.section {
-  width: 700px;
-  min-height: 700px;
-  box-shadow: initial;
-  border-radius: initial;
-  padding: 40px;
-  box-sizing: border-box;
-}
-.posts-expand {
-  padding-top: 40px;
 }
 .page {
   border-top: 1px solid #eee;
@@ -1743,6 +1763,20 @@ blockquote:before {
     margin-bottom: 10px;
   }
 }
+.section-box {
+  background: #fff;
+}
+.section {
+  width: auto;
+  min-height: 700px;
+  box-shadow: initial;
+  border-radius: initial;
+  padding: 40px;
+  box-sizing: border-box;
+}
+.posts-expand {
+  padding-top: 40px;
+}
 .site-title a:hover {
   color: #fff;
 }
@@ -1861,12 +1895,10 @@ blockquote:before {
   min-height: 700px;
 }
 .gemini .header {
-  width: 75%;
   position: relative;
   margin: 0 auto;
 }
 .gemini .section-layout-wrapper {
-  width: 75%;
   margin: 0 auto;
   display: flex;
   flex-direction: row-reverse;
@@ -1883,6 +1915,9 @@ blockquote:before {
 .pisces .blog-header {
   box-shadow: initial;
 }
+.pisces .section-box {
+  width: calc(100% - 260px);
+}
 .pisces .nav-item a,
 .gemini .nav-item a {
   display: block;
@@ -1897,7 +1932,6 @@ blockquote:before {
 .pisces .header {
   position: relative;
   margin: 0 auto;
-  width: 960px;
 }
 .pisces .header li,
 .gemini .header li {
@@ -1956,7 +1990,6 @@ blockquote:before {
   color: rgba(0, 0, 0, 0.98);
 }
 .pisces .section-layout-wrapper {
-  width: 960px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -1979,7 +2012,6 @@ blockquote:before {
 }
 .muse header {
   margin: 0 auto;
-  width: 100%;
 }
 .muse .header {
   position: relative;
@@ -2035,7 +2067,6 @@ blockquote:before {
 .muse .section-layout-wrapper {
   margin: 0 auto;
   position: relative;
-  width: 700px;
 }
 .muse .sidebar,
 .mist .sidebar {
@@ -2221,7 +2252,6 @@ blockquote:before {
   background-color: #eaeaea;
 }
 .mist .blog-header {
-  width: 960px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -2235,7 +2265,6 @@ blockquote:before {
 .mist .section-layout-wrapper {
   margin: 0 auto;
   position: relative;
-  width: 960px;
 }
 .mist .section {
   width: 100%;
@@ -2610,3 +2639,13 @@ blockquote:before {
 .hljs-strong {
   font-weight: bold;
 }
+.header {
+        width: 960px;
+        margin: 0 auto;
+      }
+
+      .main-continer {
+        width: 960px;
+        margin: 0 auto;
+      }
+    

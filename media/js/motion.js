@@ -58,7 +58,6 @@ let logoLineMotion = function(MotionExector) {
       o: {
         duration: 200,
         complete: function() {
-          console.log(1)
           MotionExector.next();
         }
       }
@@ -146,6 +145,7 @@ let postListMotion = function(MotionExector) {
     stagger: 100, 
     drag: true,
     complete: function() {
+      geminiSiteMeta.style.transform = '';
       MotionExector.next();
     }
   });
