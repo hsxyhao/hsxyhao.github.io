@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>关于Gridea的远程连接、同步失败问题 | Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1578821280277">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1578886654708">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -23,7 +24,7 @@
     <div class="head-top-line"></div>
     <div class="header-box">
       
-<div class=" pisces">
+<div class=" gemini">
   <header class="header">
     <div class="blog-header" id="header">
       <div class="nav-toggle" id="nav_toggle">
@@ -115,7 +116,7 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout pisces">
+      <div class="section-layout gemini">
         <div class="section-layout-wrapper">
           
 <div class="sidebar">
@@ -129,7 +130,7 @@
         </div>
       
       
-      <div class="sidebar-body pisces" id="sidebar_body">
+      <div class="sidebar-body gemini" id="sidebar_body">
         
           <div class="post-side-meta" id="post_side_meta">
             <div class="sidebar-wrapper">
@@ -142,7 +143,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-count">17</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -229,6 +230,7 @@
     <ul class="markdownIt-TOC">
 <li><a href="#%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%87%BA%E9%94%99">远程连接出错</a>
 <ul>
+<li><a href="#output%E6%96%87%E4%BB%B6%E5%A4%B9">output文件夹</a></li>
 <li><a href="#%E5%8E%9F%E5%9B%A0">原因</a></li>
 <li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">解决方案</a></li>
 </ul>
@@ -512,12 +514,12 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3分钟</span>
+      <span>4分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>828<span class="pc-show">字数</span></span>
+      <span>949<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
@@ -528,12 +530,11 @@ window.addEventListener('load', function() {
 <!-- more -->
 <h1 id="远程连接出错">远程连接出错</h1>
 <p>这个问题其实在Gridea的issue已经有解决方案了，<a href="https://github.com/getgridea/gridea/issues/403">点击查看详情</a>（windows系统类似）。issue有两个方法，一个是我经常使用的（新手不友好），一个是另一个网友提出的方法，直接删除output文件夹中的.git隐藏文件，这个方法比较简单高效推荐使用。</p>
-<blockquote>
-<p>新版本(0.9.1)的.git隐藏文件可以左下角的版本中心找到，老版本不在这里，在设置里面，仔细找一下吧。<br>
+<h2 id="output文件夹">output文件夹</h2>
+<p>output文件夹不在程序的安装路径，不在程序的安装路径，不在程序的安装路径，在Gridea的站点源文件路径下，怎么找到程序的<strong>站点源文件路径</strong>，可以在版本中心里找到，就是Gridea左下角最左边的按钮，如下图所示。找到之后进入ouput目录，删除啊.git隐藏文件。隐藏文件怎么显示？mac下command+shift+.，windows下找度娘吧😅<br>
 <img src="https://hsxyhao.github.io/post-images/1578643087146.png" alt="" loading="lazy"></p>
-</blockquote>
 <h2 id="原因">原因</h2>
-<p>一般远程连接出错，都是git的远程地址配置没有配置，出错的提示如下图所示。<br>
+<p>一般远程连接出错，都是git的远程地址配置没有配置，出错的提示如下图所示。打开Gridea的开发者选项，可以看到控制台的有包含no such remote类似的提示信息，根据以下方案可以进行修复。<br>
 <img src="https://hsxyhao.github.io/post-images/1578635170895.png" alt="" loading="lazy"><br>
 可以在Gridea的ouput文件中打开终端输入git remote命令校验</p>
 <h2 id="解决方案">解决方案</h2>
@@ -559,7 +560,7 @@ window.addEventListener('load', function() {
 <img src="https://hsxyhao.github.io/post-images/1578642131057.png" alt="" loading="lazy"><br>
 也可以试试直接删除.git文件夹，这个我没试过，不知道有没有用。</p>
 <h1 id="coding无法同步">coding无法同步</h1>
-<p>coding无法同步的主要原因就是token的问题，coding中每个token都会有一个用户名，在访问的时候可能需要把这个token用户名加上，但是Gridea没有支持token用户名，只有平台用户名，目前这个问题可以将coding的token换成coding的密码，这样就可以同步成功了。</p>
+<p>coding无法同步的主要原因就是token的问题，coding中每个token都会有一个用户名，在访问的时候可能需要把这个token用户名加上，但是Gridea没有支持token用户名，只有平台用户名，目前这个问题可以将coding的token换成coding的<strong>密码</strong>，这样就可以同步成功了。</p>
 <h1 id="补充">补充</h1>
 <p>这里只是我在群里遇到并解决的问题，如果上述没有你遇到的问题，可以评论留下问题，尽量帮忙解决。我会定期维护使用Gridea遇到的问题，并更新在这篇博客上。</p>
 
@@ -586,6 +587,10 @@ window.addEventListener('load', function() {
   </div>
   <div class="nav">
     <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/ce-shi">测试</a class="nav-pc-next">
+        <a class="nav-mobile-prev" href="https://hsxyhao.github.io/post/ce-shi">上一篇</a>
       
     </div>
     <div class="nav-next">
@@ -635,7 +640,7 @@ window.addEventListener('load', function() {
   </footer>
   
   
-  <div class="pisces back-to-top" id="back_to_top">
+  <div class="gemini back-to-top" id="back_to_top">
     <i class="fa fa-arrow-up"></i>
     
     <span class="scrollpercent">
@@ -643,6 +648,11 @@ window.addEventListener('load', function() {
     </span>
     
   </div>
+  
+    <div class="bg-img">
+      <img src="/media/images/custom-bgImg.jpg" />
+    </div>
+  
 </div>
 
 <script>

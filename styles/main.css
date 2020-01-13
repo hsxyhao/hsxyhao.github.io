@@ -86,6 +86,7 @@ video {
   vertical-align: baseline;
 }
 html {
+  height: 100%;
   font-size: 58%;
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -290,6 +291,21 @@ blockquote:before {
 .friends-box a:hover {
   color: #222;
   border-bottom: 1px solid #222;
+}
+.bg-img {
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  z-index: -999999;
+  position: fixed;
+  opacity: 0.85;
+  width: 100%;
+  height: 100%;
+}
+.bg-img img {
+  width: 100%;
 }
 .footer-box {
   position: relative;
@@ -2377,6 +2393,9 @@ blockquote:before {
   }
 }
 @media (max-width: 767px) {
+  .main-continer {
+    width: auto !important;
+  }
   .muse .site-nav {
     display: none;
   }
@@ -2414,6 +2433,9 @@ blockquote:before {
   }
 }
 @media (max-width: 991px) and (min-width: 768px) {
+  .main-continer {
+    width: auto !important;
+  }
   .header {
     width: auto !important;
   }
@@ -2448,6 +2470,9 @@ blockquote:before {
   }
 }
 @media (max-width: 767px) {
+  .main-continer {
+    width: auto;
+  }
   .gemini .section-layout-wrapper {
     width: auto;
     margin: 10px;
@@ -2484,7 +2509,8 @@ blockquote:before {
   .article-box {
     width: auto;
   }
-  .section {
+  .muse .section,
+  .mist .section {
     margin: 0px 20px !important;
     width: auto !important;
   }
