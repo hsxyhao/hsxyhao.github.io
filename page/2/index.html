@@ -4,7 +4,7 @@
       <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1578886654708">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1578972508470">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
     <div class="head-top-line"></div>
     <div class="header-box">
       
-<div class=" gemini">
+<div class=" pisces">
   <header class="header">
     <div class="blog-header" id="header">
       <div class="nav-toggle" id="nav_toggle">
@@ -115,7 +115,7 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout gemini">
+      <div class="section-layout pisces">
         <div class="section-layout-wrapper">
           <div class="sidebar">
     <div class="sidebar-wrapper">
@@ -128,7 +128,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">17</span>
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -215,45 +215,6 @@
   <article class="post-list-box post">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">
-      MySQL恶心的周跨年问题
-    </a>
-  </h1>
-  <div class="post-meta">
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-01-06</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>376<span class="pc-show">字数</span></span>
-    </span>
-  </div>
-</header>
-    <div class="post-body">
-      
-        <p>刚过完元旦就遇到了让人恶心的bug，都还没有从朋友圈狗粮阴影里出来，😒。先记录一下吧，防止以后会遇到相似的bug。之前负责公司的一个运营平台，里面有一个周统计任务，每周统计一下服务的使用量。我采用的思路就是将使用记录的创建时间用weekofyear以及year分别获取记录的周以及年，然后用group by分组统计。</p>
-<blockquote>
-<p>weekofyear获取的是一年中的第几周，year获取的是时间的年分</p>
-</blockquote>
-<p>这样处理的问题大多数情况下都是没有问题的，但是在特殊情况下就会出现问题，比如说周跨年，就是说一年中的最后一个周的七天可能包含两年，类似19年最后一周就是，19年12月30日~20年的1月5日。那么在遇到这种情况怎么样才能在尽量不改动业务的情况下修复这个问题呢，其实也很简单，使用YEARWEEK函数，这个函数有两个参数，具体的解释可以看这篇<a href="https://blog.csdn.net/dmw412724/article/details/95318091">博客</a>，这个函数的效果就是不管是20191230还是20200105这中间哪个时间段都可以达到输出一样的结果，拿到这个结果之后对其进行切割，用left以及right函数就可以分别获取周和年，在最小改动业务的情况下完美的解决了这个bug，😌</p>
-
-      
-      
-    </div>
-    
-  </article>
-
-  <article class="post-list-box post">
-    <header class="post-header">
-  <h1 class="post-title">
     <a class="post-title-link" href="https://hsxyhao.github.io/post/zhu-ti-she-qu-de-bug">
       主题社区的bug
     </a>
@@ -288,6 +249,10 @@
       </div>
       
     </div>
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
     
   </article>
 
@@ -343,6 +308,70 @@
       </div>
       
     </div>
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+    
+  </article>
+
+  <article class="post-list-box post">
+    <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/redis-chang-kao-mian-shi-ti">
+      Redis常考面试题
+    </a>
+  </h1>
+  <div class="post-meta">
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2019-12-30</span>
+    </span>
+    
+      <span class="meta-item">
+        <span class="post-meta-divider pc-show">|</span>
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://hsxyhao.github.io/tag/redis">
+              <span>Redis</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>18分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>5020<span class="pc-show">字数</span></span>
+    </span>
+  </div>
+</header>
+    <div class="post-body">
+      
+        <p>前段时间学习了一下redis，并且也做了些学习笔记，刚过一周的时候，就已经忘得一干二净，实在是惭愧啊。不过唯一的安慰就是当时的笔记灵感都记录下来了，尤其是难点都做了详细的笔记。本来准备过段时间再回顾一下，今天同事丢了本redis面试题给我，大概看了下，基本上前段时间看的内容都有提到，所以就准备将这些面试题和我之前做的笔记结合起来做一个回忆索引。<br>
+<img src="https://hsxyhao.github.io/post-images/1577675564766.jpg" alt="" loading="lazy"></p>
+
+      
+      
+      <div class="post-button text-center">
+        <a class="btn" href="https://hsxyhao.github.io/post/redis-chang-kao-mian-shi-ti" rel="contents">
+          阅读全文 »
+        </a>
+      </div>
+      
+    </div>
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
     
   </article>
   
@@ -426,7 +455,7 @@
   </footer>
   
   
-  <div class="gemini back-to-top" id="back_to_top">
+  <div class="pisces back-to-top" id="back_to_top">
     <i class="fa fa-arrow-up"></i>
     
     <span class="scrollpercent">
@@ -434,10 +463,6 @@
     </span>
     
   </div>
-  
-    <div class="bg-img">
-      <img src="/media/images/custom-bgImg.jpg" />
-    </div>
   
 </div>
 
