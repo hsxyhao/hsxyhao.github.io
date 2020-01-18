@@ -4,8 +4,13 @@
     <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Redis淘汰机制 | Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1578972508470">
+<meta name="keywords" content="Java | 个人博客 | Gridea | NexT | next">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1579331182532">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
+
+
+<link rel="stylesheet" href="/media/css/mist.css">
+
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
@@ -24,7 +29,7 @@
     <div class="head-top-line"></div>
     <div class="header-box">
       
-<div class=" pisces">
+<div class=" mist">
   <header class="header">
     <div class="blog-header" id="header">
       <div class="nav-toggle" id="nav_toggle">
@@ -37,13 +42,17 @@
       <div class="site-meta">       
         <div class="site-title">
           
-            <a href="/" class="brand">
-              <span>Madara</span>
+            <a href="/" class="">
+              <span class="logo-line-before">
+                <i class=""></i>
+              </span>
+              <span class="main-title">Madara</span>
+              <span class="logo-line-after">
+                <i class=""></i>
+              </span>
             </a>  
           
         </div>
-        
-          <p class="subtitle">精于心，简于形</p>
         
       </div>
       <nav class="site-nav" id="site_nav">
@@ -116,7 +125,7 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout pisces">
+      <div class="section-layout mist">
         <div class="section-layout-wrapper">
           
 <div class="sidebar">
@@ -130,7 +139,7 @@
         </div>
       
       
-      <div class="sidebar-body pisces" id="sidebar_body">
+      <div class="sidebar-body mist" id="sidebar_body">
         
           <div class="post-side-meta" id="post_side_meta">
             <div class="sidebar-wrapper">
@@ -162,53 +171,6 @@
   </div>
   
   
-    
-      <div class="sidebar-item">
-        <span class="site-item-rss">
-            <i class="fa fa-rss"></i>
-            <a href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
-        </span>
-      </div>
-    
-  
-  
-    <div class="sidebar-item sidebar-item-social">
-      <div class="social-item">
-          
-            <a href="https://github.com/hsxyhao">
-              <i class="fa fa-github-alt"></i> Github
-            </a>
-          
-          
-            <a href="https://juejin.im/user/5a3e49edf265da433562f777">
-              <i class="fa fa-graduation-cap"></i> 掘金
-            </a>
-          
-          
-            <a href="https://www.jianshu.com/u/70f6fd5b5c33">
-              <i class="fa fa-book"></i> 简书
-            </a>
-          
-          
-            <a href="" title="/media/images/custom-qq.jpeg">
-              <i class="fa fa-twitter"></i> Twitter
-            </a>
-          
-          
-            <a class="social-img" href="">
-              <img src="/media/images/custom-wechat.jpeg" />
-              <i class="fa fa-wechat "></i> 微信
-            </a>
-          
-          
-            <a class="social-img" href="">
-              <img src="/media/images/custom-qq.jpeg" />
-              <i class="fa fa-qq"></i> QQ
-            </a>
-          
-          
-      </div>
-    </div>
   
 
   <div class="sidebar-item right-motion sidebar-item-friends">
@@ -293,7 +255,7 @@ document.addEventListener('scroll', function(e) {
   if (lList.length <= 0) {
     return;
   }
-  let scrollTop = document.body.scrollTop;
+  let scrollTop = document.scrollingElement.scrollTop;
   let dir;
 
   if (lastTop - scrollTop > 0) {
@@ -474,11 +436,12 @@ window.addEventListener('load', function() {
   });
 
 
-  if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('mist')) {
+  if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
     let hasFix = false;
+    let scrollEl = document.querySelector('.main-continer');
     let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
     window.addEventListener('scroll', function(e) {
-    if (document.body.scrollTop >= limitTop) {
+    if (document.scrollingElement.scrollTop >= limitTop) {
       if (!hasFix) {
         sidebar.classList.add('sidebar-fixed');
         hasFix = true;
@@ -691,14 +654,14 @@ unsigned long LFUGetTimeInMinutes(void) {
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian">消息队列学习开篇</a class="nav-pc-next">
-        <a class="nav-mobile-prev" href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian">上一篇</a>
+        <a class="nav-pc-next" title="消息队列学习开篇" href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian">消息队列学习开篇</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="消息队列学习开篇" href="https://hsxyhao.github.io/post/xiao-xi-dui-lie-xue-xi-kai-pian">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu">Vim命令</a>
-        <a class="nav-mobile-next" href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu">下一篇</a>
+        <a class="nav-pc-next" title="Vim命令" href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu">Vim命令</a>
+        <a class="nav-mobile-next" title="Vim命令" href="https://hsxyhao.github.io/post/vim-ming-ling-ji-lu">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
@@ -736,18 +699,19 @@ unsigned long LFUGetTimeInMinutes(void) {
       © 2019-2020 <i class="fa fa-heart"></i> HsxyHao
     </div>
     <div class="poweredby">
-      <div class="power-left">Power By<a href="https://github.com/hsxyhao"> HsxyHao</a></div>
-      <div>Copy From<a href="https://github.com/iissnan/hexo-theme-next"> Hexo Next Theme</a></div>
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
     </div>
   </footer>
   
   
-  <div class="pisces back-to-top" id="back_to_top">
+    <div class="drawer-box" id="drawer_box">
+      <span class="muse-line muse-line-first"></span>
+      <span class="muse-line muse-line-middle"></span>
+      <span class="muse-line muse-line-last"></span>
+    </div>
+  
+  <div class="mist back-to-top" id="back_to_top">
     <i class="fa fa-arrow-up"></i>
-    
-    <span class="scrollpercent">
-      <span id="back_to_top_text">0</span>%
-    </span>
     
   </div>
   
@@ -780,13 +744,13 @@ unsigned long LFUGetTimeInMinutes(void) {
   }
 
   back2Top.addEventListener("click", function(e) {
-    scrollAnimation(body.scrollTop, 0);
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
     e.stopPropagation();
     return false;
   });
   
   window.addEventListener('scroll', function(e) {
-    let percent = body.scrollTop / (body.scrollHeight - body.clientHeight) * 100;
+    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
     if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
       back2Top.classList.add('back-top-active');
     }
