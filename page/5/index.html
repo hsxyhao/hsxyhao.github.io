@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Madara</title>
 <meta name="keywords" content="Java | 个人博客 | Gridea | NexT | next">
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1579427477228">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1579429718949">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 
 
-<link rel="stylesheet" href="/media/css/muse.css">
+<link rel="stylesheet" href="/media/css/gemini.css">
 
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -27,7 +27,7 @@
     <div class="head-top-line"></div>
     <div class="header-box">
       
-<div class=" muse">
+<div class=" gemini">
   <header class="header">
     <div class="blog-header" id="header">
       <div class="nav-toggle" id="nav_toggle">
@@ -45,6 +45,8 @@
             </a>  
           
         </div>
+        
+          <p class="subtitle">精于心，简于形</p>
         
       </div>
       <nav class="site-nav" id="site_nav">
@@ -117,7 +119,7 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout muse">
+      <div class="section-layout gemini">
         <div class="section-layout-wrapper">
           <div class="sidebar">
     <div class="sidebar-wrapper">
@@ -149,6 +151,43 @@
   </div>
   
   
+    
+      <div class="sidebar-item">
+        <span class="site-item-rss">
+            <i class="fa fa-rss"></i>
+            <a href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
+        </span>
+      </div>
+    
+  
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
+          
+            <a href="https://github.com/hsxyhao">
+              <i class="fa fa-github-alt"></i> Github
+            </a>
+          
+          
+            <a href="https://juejin.im/user/5a3e49edf265da433562f777">
+              <i class="fa fa-graduation-cap"></i> 掘金
+            </a>
+          
+          
+            <a href="https://www.jianshu.com/u/70f6fd5b5c33">
+              <i class="fa fa-book"></i> 简书
+            </a>
+          
+          
+            <a href="" title="">
+              <i class="fa fa-twitter"></i> Twitter
+            </a>
+          
+          
+          
+          
+      </div>
+    </div>
   
 
   <div class="sidebar-item right-motion sidebar-item-friends">
@@ -164,11 +203,12 @@
 
 </div>
 </div>
-          <div class="section-box muse">
+          <div class="section-box gemini">
             <section class="section posts-expand slide-down-in">
               
   <article class="post-list-box post">
-    <header class="post-header">
+    <div class="article-wrapper">
+      <header class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://hsxyhao.github.io/post/redis-copy">
       Redis复制
@@ -206,9 +246,9 @@
     </span>
   </div>
 </header>
-    <div class="post-body">
-      
-        <p>什么是redis的复制，为什么要有复制功能，全量复制有什么问题，部分复制又解决了哪些问题。</p>
+      <div class="post-body">
+        
+          <p>什么是redis的复制，为什么要有复制功能，全量复制有什么问题，部分复制又解决了哪些问题。</p>
 <p>复制就是将redis节点中的数据复制完同步到其他节点中，在redis中参与复制一般有主节点(master)以及从节点(slave)，将数据从主节点复制到从节点，并且复制的方式是单向的，不能逆向复制，在建立复制关系之后主节点的数据会同步到从节点直到解除主从关系。不论是哨兵模式还是redis集群都是在复制的基础上完成的。</p>
 <p><strong>记忆点</strong></p>
 <ol>
@@ -218,24 +258,22 @@
 <li>常见问题：读写分离、数据不一致、避免全量复制</li>
 </ol>
 
-      
-      
-      <div class="post-button text-center">
-        <a class="btn" href="https://hsxyhao.github.io/post/redis-copy" rel="contents">
-          阅读全文 »
-        </a>
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://hsxyhao.github.io/post/redis-copy" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
       </div>
       
     </div>
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-    
   </article>
 
   <article class="post-list-box post">
-    <header class="post-header">
+    <div class="article-wrapper">
+      <header class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://hsxyhao.github.io/post/redis-chi-jiu-hua">
       Redis 持久化
@@ -273,9 +311,9 @@
     </span>
   </div>
 </header>
-    <div class="post-body">
-      
-        <p>持久化有哪几种方式，各有什么问题。每种持久化的流程是什么样的，AOF重写是什么机制，解决了什么问题，fork底层函数，COW机制。</p>
+      <div class="post-body">
+        
+          <p>持久化有哪几种方式，各有什么问题。每种持久化的流程是什么样的，AOF重写是什么机制，解决了什么问题，fork底层函数，COW机制。</p>
 <h1 id="面试">面试</h1>
 <p>在面试的时候如果被问到Redis持久化的时候，怎么回答比较好？我想从以下几个角度展开，一定会让面试官眼前一亮。</p>
 <ul>
@@ -285,24 +323,22 @@
 <li>AOF命令重写</li>
 </ul>
 
-      
-      
-      <div class="post-button text-center">
-        <a class="btn" href="https://hsxyhao.github.io/post/redis-chi-jiu-hua" rel="contents">
-          阅读全文 »
-        </a>
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://hsxyhao.github.io/post/redis-chi-jiu-hua" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
       </div>
       
     </div>
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-    
   </article>
 
   <article class="post-list-box post">
-    <header class="post-header">
+    <div class="article-wrapper">
+      <header class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://hsxyhao.github.io/post/rui-shi-jun-dao-redis">
       Redis入门知识点
@@ -340,29 +376,26 @@
     </span>
   </div>
 </header>
-    <div class="post-body">
-      
-        <p>redis有哪些基础数据结构，什么是快速链表，什么是跳跃链表，使用redis特有的数据类型可以实现哪些有趣的功能。</p>
+      <div class="post-body">
+        
+          <p>redis有哪些基础数据结构，什么是快速链表，什么是跳跃链表，使用redis特有的数据类型可以实现哪些有趣的功能。</p>
 <blockquote>
 <p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.<br>
 <img src="https://hsxyhao.github.io/post-images/1577761648931.png" alt="" loading="lazy"></p>
 </blockquote>
 <p>上面一段话取自Redis官方的介绍，为什么要把它放在这里，我觉得这是介绍Redis最为标准的一段话，从用途、数据结构已经功能等多方面介绍，如果以后面试官叫你介绍下redis的话，我觉得可以直接把这段话背下来😌。至于为什么把Redis称为瑞士军刀，相信用过redis的人都会这么认为。</p>
 
-      
-      
-      <div class="post-button text-center">
-        <a class="btn" href="https://hsxyhao.github.io/post/rui-shi-jun-dao-redis" rel="contents">
-          阅读全文 »
-        </a>
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://hsxyhao.github.io/post/rui-shi-jun-dao-redis" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
       </div>
       
     </div>
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-    
   </article>
   
               
@@ -431,16 +464,18 @@
   </footer>
   
   
-    <div class="drawer-box left" id="drawer_box">
-      <span class="muse-line muse-line-first"></span>
-      <span class="muse-line muse-line-middle"></span>
-      <span class="muse-line muse-line-last"></span>
-    </div>
-  
-  <div class="muse back-to-top" id="back_to_top">
+  <div class="gemini back-to-top" id="back_to_top">
     <i class="fa fa-arrow-up"></i>
     
+    <span class="scrollpercent">
+      <span id="back_to_top_text">0</span>%
+    </span>
+    
   </div>
+  
+    <div class="bg-img">
+      <img src="/media/images/custom-bgImg.png" />
+    </div>
   
 </div>
 
