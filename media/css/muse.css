@@ -23,6 +23,7 @@
 .site-nav {
   margin: 20px 0;
   transition: all .3s linear;
+  text-align: center;
 }
 
 .nav-item {
@@ -35,12 +36,7 @@
 }
 
 
-.nav-item-active {
-  background: #f9f9f9;
-}
-
 .nav-item:hover {
-  background: #f9f9f9;
   color: rgba(0, 0, 0, 0.98);
 }
 
@@ -101,7 +97,7 @@
 }
 
 .header ul {
-  display: block;
+  display: inline-block;
   padding: 0px;
   list-style-type: none;
 }
@@ -134,8 +130,14 @@
   border: 1px solid #eee;
 }
 
-.muse {
-  
+.muse .post {
+  margin: 70px 0;
+}
+
+.muse.section-layout {
+  padding: 20px 40px;
+  background-color: #FFF;
+  box-sizing: border-box;
 }
 
 .muse header{
@@ -156,10 +158,14 @@
   display: inline-block;
 }
 
-.muse .nav-item a{
+.muse .nav-item a {
   text-align: center;
   border-bottom: 1px solid transparent;
   display: block;
+}
+
+.muse .nav-item-active a{
+  border-bottom: 1px solid #222;
 }
 
 .muse .nav-item a:hover {
@@ -178,7 +184,8 @@
   border-radius: initial;
   z-index: 9999;
   margin: 0 auto;
-  padding: 100px 0 70px;
+  padding: 100px 0 0;
+  background-color: #FFF;
 }
 
 .muse .site-title {
@@ -212,7 +219,7 @@
 .muse .sidebar {
   position: fixed;
   top: 0px;
-  right: 0px;
+  left: 0px;
   bottom: 0;
   z-index: 1040;
   box-shadow: inset 0 2px 6px #000;
@@ -294,7 +301,7 @@
 
 .muse .sidebar-item-box:hover a{
   transition: color .2s linear;
-  color: #eee !important;
+  color: #fff !important;
 }
 
 .muse .right-motion {
@@ -322,14 +329,13 @@
 
 .muse.back-to-top {
   opacity: 1;
-  padding: 6px 0;
   width: 24px;
   background: #222;
 }
 
 .drawer-box {
   position: fixed;
-  right: 30px;
+  left: 30px;
   bottom: 56px;
   width: 14px;
   height: 14px;
@@ -352,7 +358,7 @@
   transition: all .3s linear;
 }
 
-.drawer-box:hover .muse-line:first-child {
+.drawer-box.right:hover .muse-line:first-child {
   top: 2px;
   transform: rotateZ(-45deg);
   width: 50%;
@@ -360,18 +366,37 @@
   left: 0px;
 }
 
-.drawer-box:hover middle {
+.drawer-box.right:hover middle {
   width: 90%;
   opacity: 1;
   left: 0px;
 }
 
-.drawer-box:hover .muse-line:last-child {
+.drawer-box.right:hover .muse-line:last-child {
   top: -2px;
   transform: rotateZ(45deg);
   width: 50%;
   opacity: 1;
   left: 0px;
+}
+
+.drawer-box.left:hover .muse-line:first-child {
+  top: 2px;
+  transform: translateX(100%) rotateZ(45deg);
+  width: 50%;
+  opacity: 1;
+}
+
+.drawer-box.left:hover middle {
+  width: 90%;
+  opacity: 1;
+}
+
+.drawer-box.left:hover .muse-line:last-child {
+  top: -2px;
+  transform: translateX(100%) rotateZ(-45deg);
+  width: 50%;
+  opacity: 1;
 }
 
 .sidebar-open .muse-line-first {
@@ -393,12 +418,6 @@
   width: 100%;
   opacity: 1;
   left: 0px;
-}
-
-.main-continer {
-  background: #FFF;
-  padding: 20px;
-  box-sizing: border-box;
 }
 
 .muse.body {

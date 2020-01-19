@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>MySQL恶心的周跨年问题 | Madara</title>
 <meta name="keywords" content="Java | 个人博客 | Gridea | NexT | next">
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1579335799301">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1579424006021">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 
 
-<link rel="stylesheet" href="/media/css/mist.css">
+<link rel="stylesheet" href="/media/css/muse.css">
 
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -29,7 +29,7 @@
     <div class="head-top-line"></div>
     <div class="header-box">
       
-<div class=" mist">
+<div class=" muse">
   <header class="header">
     <div class="blog-header" id="header">
       <div class="nav-toggle" id="nav_toggle">
@@ -42,17 +42,13 @@
       <div class="site-meta">       
         <div class="site-title">
           
-            <a href="/" class="">
-              <span class="logo-line-before">
-                <i class=""></i>
-              </span>
-              <span class="main-title">Madara</span>
-              <span class="logo-line-after">
-                <i class=""></i>
-              </span>
+            <a href="/" class="brand">
+              <span>Madara</span>
             </a>  
           
         </div>
+        
+          <p class="subtitle">精于心，简于形</p>
         
       </div>
       <nav class="site-nav" id="site_nav">
@@ -125,14 +121,14 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout mist">
+      <div class="section-layout muse">
         <div class="section-layout-wrapper">
           
 <div class="sidebar">
     <div class="sidebar-box right-motion" id="sidebar">
       
       
-      <div class="sidebar-body mist" id="sidebar_body">
+      <div class="sidebar-body muse" id="sidebar_body">
         
           <div class="sidebar-wrapper">
   <div class="sidebar-item">
@@ -339,7 +335,7 @@
 <script>
   var gitalk = new Gitalk({
     clientID: '7daf0c9da2ee9a72ecba',
-    clientSecret: '39e3424bd496a5d8dcdbb618c370897256810975',
+    clientSecret: '',
     repo: 'hsxyhao.github.io',
     owner: 'hsxyhao',
     admin: ['hsxyhao'],
@@ -366,13 +362,13 @@
   </footer>
   
   
-    <div class="drawer-box" id="drawer_box">
+    <div class="drawer-box left" id="drawer_box">
       <span class="muse-line muse-line-first"></span>
       <span class="muse-line muse-line-middle"></span>
       <span class="muse-line muse-line-last"></span>
     </div>
   
-  <div class="mist back-to-top" id="back_to_top">
+  <div class="muse back-to-top" id="back_to_top">
     <i class="fa fa-arrow-up"></i>
     
   </div>
@@ -427,32 +423,51 @@
   // 动态调整站点概览高度
   if (back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
     let sideBar = document.querySelector('.sidebar');
-    let navUl = document.querySelector('#nav_ul');
-    sideBar.style = 'margin-top:' + (navUl.children.length * 42 + 162) + 'px;';
+    let navUl = document.querySelector('#site_nav');
+    console.log(navUl);
+    sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
   }
   
   let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
 
   if (drawerBox) {
     let rightMotions = document.querySelectorAll('.right-motion');
+    let right = drawerBox.classList.contains('right');
+
+    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingRight: '0px'
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS 
+      };
+      closeProp = {
+        paddingLeft: '0px'
+      };
+    }
+
     drawerBox.onclick = function() {
       open = !open;
       window.Velocity(rightSideBar, 'stop');
       window.Velocity(viewport, 'stop');
+      window.Velocity(rightMotions, 'stop');
       if (open) {
         window.Velocity(rightSideBar, {
           width: RIGHT_MOVE_DIS
         }, {
           duration: MOTION_TIME,
           begin: function() {
-            console.log(rightMotions)
-            window.Velocity(rightMotions, 'transition.slideRightIn',{
-            });
+            window.Velocity(rightMotions, transitionDir,{ });
           }
         })
-        window.Velocity(viewport, {
-          paddingRight: RIGHT_MOVE_DIS
-        } ,{
+        window.Velocity(viewport, openProp,{
           duration: MOTION_TIME
         });
       } else {
@@ -466,9 +481,7 @@
             });
           }
         })
-        window.Velocity(viewport, {
-          paddingRight: '0px'
-        } ,{
+        window.Velocity(viewport, closeProp ,{
           duration: MOTION_TIME
         });
       }
