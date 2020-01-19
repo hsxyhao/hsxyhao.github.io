@@ -1928,3 +1928,8 @@ body {
       background: transparent !important;
     }
     
+    .brand {
+      font-weight: bold;
+      transform: scale(2.5);
+    }
+    
