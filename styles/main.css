@@ -1863,12 +1863,12 @@ blockquote:before {
 body {
       background-color: #fff;
     }.header {
-        width: 70%;
+        width: 960px;
         margin: 0 auto;
       }
 
       .main-continer {
-        width: 70%;
+        width: 960px;
         margin: 0 auto;
       }
     .markdownIt-TOC a:hover {
@@ -1876,9 +1876,6 @@ body {
       border-bottom-color: #000;
     }.site-nav, .sidebar-wrapper, .section-box, .sidebar-box, .site-nav {
         opacity: 0.85;
-      }
-      .site-meta {
-        background: #ff8c00 !important;
       }
     .brand {
       background: transparent !important;
