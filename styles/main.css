@@ -146,6 +146,28 @@ blockquote:before {
   font: 700 40px/1 serif;
   color: rgba(0, 0, 0, 0.1);
 }
+#canvas {
+  left: 0px;
+  top: 0px;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  z-index: -99999;
+  position: fixed;
+  opacity: 0.85;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .bg-img {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .bg-img {
+    display: none;
+  }
+}
 .head-top-line {
   height: 3px;
   background: #222;
@@ -309,6 +331,7 @@ blockquote:before {
 }
 .bg-img img {
   width: 100%;
+  height: 100%;
 }
 .archives-section,
 .tags-section {
@@ -1863,12 +1886,12 @@ blockquote:before {
 body {
       background-color: #fff;
     }.header {
-        width: 960px;
+        width: 1080px;
         margin: 0 auto;
       }
 
       .main-continer {
-        width: 960px;
+        width: 1080px;
         margin: 0 auto;
       }
     .markdownIt-TOC a:hover {
@@ -1877,7 +1900,10 @@ body {
     }.site-nav, .sidebar-wrapper, .section-box, .sidebar-box, .site-nav {
         opacity: 0.85;
       }
+      .site-meta {
+        background: #000 !important;
+      }
     .brand {
-      background: transparent !important;
+      background: #000 !important;
     }
     
