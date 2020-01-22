@@ -285,15 +285,8 @@ if(!norunFlag){
 				}
 				showMessage('思考中~', 0);
 				$.ajax({
-					dataType: 'jsonp',
-					url: `http://www.tuling123.com/openapi/api?key=${apiKey}&info=${info_}`,
-					success: function(res){
-						
-					}
-				});
-				$.ajax({
 					type: "get",
-					url: `http://www.tuling123.com/openapi/api?key=${apiKey}&info=${info_}`,
+					url: `https://www.tuling123.com/openapi/api?key=${apiKey}&info=${info_}`,
 					dataType: "json",
 					success: function(res){
 						if (res && res.code === 100000) {
