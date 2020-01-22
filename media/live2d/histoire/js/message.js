@@ -285,10 +285,17 @@ if(!norunFlag){
 				}
 				showMessage('思考中~', 0);
 				$.ajax({
-					type: 'GET',
+					dataType: 'jsonp',
 					url: `http://www.tuling123.com/openapi/api?key=${apiKey}&info=${info_}`,
-					dataType : "json",//数据类型为jsonp  
-					success: function(res) {
+					success: function(res){
+						
+					}
+				});
+				$.ajax({
+					type: "get",
+					url: `http://www.tuling123.com/openapi/api?key=${apiKey}&info=${info_}`,
+					dataType: "json",
+					success: function(res){
 						if (res && res.code === 100000) {
 							talkValTimer();
 							showMessage(res.text, 0);
@@ -298,13 +305,16 @@ if(!norunFlag){
 						}
 						$('#AIuserText').val("");
 						sessionStorage.setItem("live2duser", userid_);
+					},
+					error: function(){
+						talkValTimer();
+						showMessage('似乎有什么错误，请和站长联系！', 0);
 					}
 				});
 			});
 		}else{
 			$('#showInfoBtn').hide();
 			$('#showTalkBtn').hide();
-			
 		}
 		//获取音乐信息初始化
 		var bgmListInfo = $('input[name=live2dBGM]');
@@ -474,4 +484,8 @@ if(!norunFlag){
 			}
 		}
 	});
+}
+
+function handResponse(res) {
+	console.log(res);
 }
