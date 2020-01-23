@@ -286,21 +286,16 @@ if(!norunFlag){
 				showMessage('思考中~', 0);
 				let protocol = window.location.protocol.indexOf("s") > 0 ? "https" : "http";
 				$.ajax({
-					type: "get",
-					url: `${protocol}://www.tuling123.com/openapi/api?key=${apiKey}&info=${info_}`,
+					type: "get", 
+					url: `${protocol}://www.tuling123.com/openapi/api?key=${apiKey}&info=${info_}`, 
 					dataType: "json",
-					success: function(res){
-						if (res && res.code === 100000) {
-							talkValTimer();
-							showMessage(res.text, 0);
-						} else {
-							talkValTimer();
-							showMessage('似乎有什么错误，请和站长联系！', 0);
-						}
+					success: function(res) {
+						talkValTimer();
+						showMessage(res.text, 0);
 						$('#AIuserText').val("");
 						sessionStorage.setItem("live2duser", userid_);
 					},
-					error: function(){
+					error: function(e) {
 						talkValTimer();
 						showMessage('似乎有什么错误，请和站长联系！', 0);
 					}
@@ -478,8 +473,4 @@ if(!norunFlag){
 			}
 		}
 	});
-}
-
-function handResponse(res) {
-	console.log(res);
 }
