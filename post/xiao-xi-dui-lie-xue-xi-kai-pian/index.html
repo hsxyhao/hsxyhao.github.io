@@ -6,7 +6,7 @@
 <title>消息队列学习开篇 | Madara</title>
 <meta name="keywords" content="Java | 个人博客 | Gridea | NexT | next">
 <meta name="description" content="Gridea Next | 懂点前端的后端 | 中间件 | Java">
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1579623759053">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1579956849075">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -30,8 +30,8 @@
     <div class="header-box">
       
 <div class=" gemini">
-  <header class="header">
-    <div class="blog-header" id="header">
+  <header class="header bg-color ">
+    <div class="blog-header box-shadow-wrapper bg-color " id="header">
       <div class="nav-toggle" id="nav_toggle">
         <div class="toggle-box">
           <div class="line line-top"></div>
@@ -121,11 +121,12 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout gemini">
+      <div class="section-layout gemini ">
         <div class="section-layout-wrapper">
           
+
 <div class="sidebar">
-    <div class="sidebar-box right-motion" id="sidebar">
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
       
         <div class="post-list-sidebar">
           <div class="sidebar-title">
@@ -134,11 +135,11 @@
           </div>
         </div>
       
-      
       <div class="sidebar-body gemini" id="sidebar_body">
         
           <div class="post-side-meta" id="post_side_meta">
-            <div class="sidebar-wrapper">
+            
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://hsxyhao.github.io/images/avatar.png"/>
     <p class="site-author-name">Madara</p>
@@ -166,13 +167,8 @@
     </div>
   </div>
   
-  
     
-      <div class="sidebar-item">
-        <span class="site-item-rss">
-            <i class="fa fa-rss"></i>
-            <a href="https://hsxyhao.github.io/atom.xml" target="_blank">RSS</a>
-        </span>
+      <div class="sidebar-item" style="border-top: 1px dotted #ccc;">
       </div>
     
   
@@ -490,8 +486,8 @@ window.addEventListener('load', function() {
   }
   
 </script>
-          <div class="section-box">
-            <div class="section post post-page">
+          <div class="section-box box-shadow-wrapper">
+            <div class="section bg-color post post-page">
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
@@ -818,36 +814,34 @@ window.addEventListener('load', function() {
     
   </div>
   
-    <div class="bg-img">
-      <img src="/media/images/custom-bgImg.png" />
-    </div>
-  
   
     <link rel="stylesheet" href="/media/live2d/histoire/css/live2d.css" />
-<div id="landlord" style="left:5px;bottom:0px;" data-key="8ebc03532fec488891b029035402984b">
-  <div class="message" style="opacity:0"></div>
-  <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
-  <div class="live_talk_input_body">
-    <div class="live_talk_input_name_body">
-      <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字" />
+<div class="box-scale">
+  <div id="landlord" style="left:5px;bottom:0px;" data-key="8ebc03532fec488891b029035402984b">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+    <div class="live_talk_input_body">
+      <div class="live_talk_input_name_body">
+        <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字" />
+      </div>
+      <div class="live_talk_input_text_body">
+        <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"/>
+        <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+      </div>
     </div>
-    <div class="live_talk_input_text_body">
-      <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"/>
-      <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+    <input name="live_talk" id="live_talk" value="1" type="hidden" />
+    <div class="live_ico_box">
+      <div class="live_ico_item type_info" id="showInfoBtn"></div>
+      <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+      <div class="live_ico_item type_music" id="musicButton"></div>
+      <div class="live_ico_item type_youdu" id="youduButton"></div>
+      <div class="live_ico_item type_quit" id="hideButton"></div>
+      <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+      <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+      <input id="duType" value="douqilai" type="hidden">
+      <input name="live2dBGM" value="http://jaymusic.gitee.io/jaymusic31/003OUlho2HcRHC.mp3" type="hidden">
+      <input name="live2dBGM" value="http://jaymusic.gitee.io/jaymusic23/002qU5aY3Qu24y.mp3" type="hidden">
     </div>
-  </div>
-  <input name="live_talk" id="live_talk" value="1" type="hidden" />
-  <div class="live_ico_box">
-    <div class="live_ico_item type_info" id="showInfoBtn"></div>
-    <div class="live_ico_item type_talk" id="showTalkBtn"></div>
-    <div class="live_ico_item type_music" id="musicButton"></div>
-    <div class="live_ico_item type_youdu" id="youduButton"></div>
-    <div class="live_ico_item type_quit" id="hideButton"></div>
-    <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
-    <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
-    <input id="duType" value="douqilai" type="hidden">
-    <input name="live2dBGM" value="http://jaymusic.gitee.io/jaymusic31/003OUlho2HcRHC.mp3" type="hidden">
-    <input name="live2dBGM" value="http://jaymusic.gitee.io/jaymusic23/002qU5aY3Qu24y.mp3" type="hidden">
   </div>
 </div>
 <div id="open_live2d">召唤伊斯特瓦尔</div>

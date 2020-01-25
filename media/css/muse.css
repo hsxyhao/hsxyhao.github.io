@@ -2,6 +2,16 @@
   background-color: #fff;
 }
 
+.box-shadow-wrapper {
+  box-shadow: 0 0 50px rgba(202,203,203,0.5);
+  -webkit-box-shadow: 0 0 50px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+
+.sidebar .box-shadow-wrapper {
+  box-shadow: none;
+}
+
 .section {
   box-sizing: border-box;
   width: auto;
@@ -29,12 +39,6 @@
 .nav-item {
   opacity: 0;
 }
-
-
-.nav-item a:hover {
-  color: #222;
-}
-
 
 .nav-item:hover {
   color: rgba(0, 0, 0, 0.98);
@@ -132,11 +136,11 @@
 
 .muse .post {
   margin: 70px 0;
+  padding: 10px;
 }
 
 .muse.section-layout {
   padding: 20px 40px;
-  background-color: #FFF;
   box-sizing: border-box;
 }
 
@@ -164,14 +168,6 @@
   display: block;
 }
 
-.muse .nav-item-active a{
-  border-bottom: 1px solid #222;
-}
-
-.muse .nav-item a:hover {
-  border-bottom: 1px solid #222;
-}
-
 .muse .nav-item i {
   display: block;
 }
@@ -185,7 +181,6 @@
   z-index: 9999;
   margin: 0 auto;
   padding: 100px 0 0;
-  background-color: #FFF;
 }
 
 .muse .site-title {
@@ -212,8 +207,21 @@
 }
 
 .muse .section-layout-wrapper {
-  margin: 0 auto;
+  margin: 0px auto;
   position: relative;
+  padding: 0 20px;
+}
+
+.muse .archives-section, .muse .tags-section, .muse .tag-timeline-box {
+  margin: 70px 0 0!important;
+}
+
+.muse .padding-wrapper {
+  padding: 0 20px;
+}
+
+.muse .archives-section {
+  padding: 20px !important;
 }
 
 .muse .sidebar {
@@ -262,27 +270,12 @@
   background-color: transparent;
 }
 
-.muse .section, .muse .posts-expand, .muse .post-header {
+.muse .posts-expand, .muse .post-header {
   padding: 0px;
 }
 
 .muse .fa-arrow-up {
   color: #fff;
-}
-
-.muse .sidebar-title-active {
-  color: #87daff;
-  border-bottom-color: #87daff;
-}
-
-.muse .active-current > a {
-  color: #87daff;
-  border-bottom-color: #87daff;
-}
-
-.muse .active-show > a {
-  color: #87daff;
-  border-bottom-color: #87daff;
 }
 
 .muse .sidebar-box {
@@ -549,6 +542,7 @@
   }
 
   .muse #nav_ul {
+    width: 100%;
     background-color: #FFF;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
@@ -567,7 +561,6 @@
   }
 
   .muse .section {
-    margin: 0px 20px !important;
     width: auto !important;
   }
   .muse .nav-toggle {
@@ -598,6 +591,18 @@
   .muse .nav-item a {
     text-align: left;
     padding-left: 10px;
+  }
+
+  .muse.section-layout {
+    padding: 0px;
+  }
+
+  .muse .section-layout-wrapper {
+    padding: 0px;
+  }
+
+  .muse .blog-header {
+    padding: 0px;
   }
 
   .header li {

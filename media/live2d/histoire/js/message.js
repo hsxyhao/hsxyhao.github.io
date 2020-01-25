@@ -1,7 +1,5 @@
 var home_Path = document.location.protocol +'//' + window.document.location.hostname +":"+ window.document.location.port +'/';
-
 var userAgent = window.navigator.userAgent.toLowerCase();
-console.log(userAgent);
 var norunAI = [ "android", "iphone", "ipod", "ipad", "windows phone", "mqqbrowser" ,"msie","trident/7.0"];
 var norunFlag = false;
 
@@ -185,7 +183,6 @@ if(!norunFlag){
 	
 	function showMessage(text, timeout){
 		if(Array.isArray(text)) text = text[Math.floor(Math.random() * text.length + 1)-1];
-		//console.log('showMessage', text);
 		$('.message').stop();
 		$('.message').html(text);
 		$('.message').fadeTo(200, 1);
