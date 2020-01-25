@@ -974,7 +974,6 @@ blockquote:before {
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
   transition-property: all;
-  color: #666;
   border-bottom: 1px solid #ccc;
 }
 .toc-active {
@@ -1052,7 +1051,6 @@ blockquote:before {
 .next-md-body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  color: #555;
   font-family: 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 15px;
   word-wrap: break-word;
@@ -1769,14 +1767,8 @@ blockquote:before {
   padding-left: 128px!important;
 }
 .next-md-body a {
-  color: #555;
   text-decoration: none;
-  border-bottom: 1px solid #999;
   word-wrap: break-word;
-}
-.next-md-body a:hover {
-  color: #222;
-  border-bottom-color: #222;
 }
 @media (max-width: 767px) {
   .next-md-body h1 {
@@ -1889,7 +1881,7 @@ blockquote:before {
   font-weight: bold;
 }
 body {
-      background-color: #eee;
+      background-color: #151618;
     }.header {
         width: 1080px;
         margin: 0 auto;
@@ -1900,73 +1892,87 @@ body {
         margin: 0 auto;
       }
     body {
-      color: #555;
+      color: #495057;
+    }
+    .next-md-body {
+      color: #495057;
     }h1, h2, h3, h4, h5, h6 {
-      color: #555;
+      color: #adb5bd;
     }
     
     .archive-timeline-title::before {
-      background-color: #555;
+      background-color: #adb5bd;
     }
     
     .post-title-link::before {
-      background-color: #555;
+      background-color: #adb5bd;
     }
     
     .node-title::before {
-      background-color: #555;
+      background-color: #adb5bd;
     }.bg-color {
-      background-color: #fff;
+      background-color: #1d1e21;
     }a {
-      color: #555;
+      color: #eee;
+    }
+    
+    .next-md-body a {
+      color: #eee;
+      border-bottom: 1px solid #eee;
     }a:hover {
-      color: #222;
+      color: #fff;
     }
     
     .archive-timeline-box .tag-node:hover::before {
-      background-color: #222;
+      background-color: #fff;
     }
     
     .markdownIt-TOC a:hover {
-      color: #222;
-      border-bottom-color: #222;
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+    .next-md-body a:hover {
+      color: #fff;
+      border-bottom-color: #fff;
     }
       .nav-item a {
-        color:  #343a40;
+        color:  #868e96;
       }.nav-item a:hover {
-        color: #000;
+        color: #e9ecef;
       }.nav-item-active {
-      background: #f9f9f9;
+      background: #232323;
     }
 
     .nav-item:hover {
-      background: #f9f9f9;
+      background: #232323;
       color: rgba(0, 0, 0, 0.98);
-    }.markdownIt-TOC a:hover {
-      color: #eee;
-      border-bottom-color: #eee;
+    }.markdownIt-TOC a {
+      color: #adb5bd;
+      border-bottom-color: #adb5bd;
     }.markdownIt-TOC a:hover {
       color: #fff;
       border-bottom-color: #fff;
     }.active-current > a {
-      color: #74c0fc !important;
-      border-bottom-color: #74c0fc !important;
+      color: #495057 !important;
+      border-bottom-color: #495057 !important;
     }
     .sidebar-title-active {
-      color: #74c0fc;
-      border-bottom-color: #74c0fc;
+      color: #495057;
+      border-bottom-color: #495057;
     }
     .sidebar-title-item:hover {
-      color: #74c0fc !important;
+      color: #495057 !important;
     }
     .active-show > a {
-      color: #74c0fc;
-      border-bottom-color: #74c0fc;
+      color: #495057;
+      border-bottom-color: #495057;
     }
     .active-hidden > a {
-      color: #74c0fc;
-      border-bottom-color: #74c0fc;
-    }
+      color: #495057;
+      border-bottom-color: #495057;
+    }.site-nav, .sidebar-wrapper, .section-box, .sidebar-box, .site-nav {
+        opacity: 0.85;
+      }
       .site-meta {
         background: #000 !important;
       }
@@ -1980,4 +1986,6 @@ body {
       background: #fff;
     }.box-scale > #landlord {
       transform: scale(0.8);
+    }.box-shadow-wrapper {
+      padding: 10px;
     }

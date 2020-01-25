@@ -6,7 +6,7 @@
 <title>Madara</title>
 <meta name="keywords" content="Java | 个人博客 | Gridea | NexT | next">
 <meta name="description" content="Gridea Next | 懂点前端的后端 | 中间件 | Java">
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1579956849075">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1579964567962">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -133,7 +133,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-count">17</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -257,6 +257,54 @@
     <div class="article-wrapper bg-color">
       <header class="post-header">
   <h1 class="post-title">
+    <a class="post-title-link" href="https://hsxyhao.github.io/post/Och5LtMIu">
+      最新版NexT主题使用教程
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2020-01-25</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>3分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>650<span class="pc-show">字数</span></span>
+    </span>
+  </div>
+</header>
+      <div class="post-body">
+        
+          <p>各位小伙伴看这里👉，最新版NexT主题已经悄悄上线，暗中观察的你赶快使用起来喔！！！从最新的用户反馈中得知，目前的最新的版本在自定义配置方面过于复杂，有些属性配置大家也不知道怎么调整，只能修修改改的调试。为了帮助大家快速熟悉最新的版本，在这里准备给大家输出一个详细的配置教程。</p>
+<blockquote>
+<p>这几天一直笼罩在新型冠状病毒的恐惧中个，弄得大家心神不灵的。建议大家多关注官方统计数据，做好防范措施，平平安安的过个年。<br>
+<img src="https://hsxyhao.github.io/post-images/1579959959591.png" alt="" loading="lazy"></p>
+</blockquote>
+
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://hsxyhao.github.io/post/Och5LtMIu" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <header class="post-header">
+  <h1 class="post-title">
     <a class="post-title-link" href="https://hsxyhao.github.io/post/gridea_help">
       关于Gridea的远程连接、同步失败问题
     </a>
@@ -306,48 +354,6 @@
             阅读全文 »
           </a>
         </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">
-      MySQL恶心的周跨年问题
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-01-06</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>376<span class="pc-show">字数</span></span>
-    </span>
-  </div>
-</header>
-      <div class="post-body">
-        
-          <p>刚过完元旦就遇到了让人恶心的bug，都还没有从朋友圈狗粮阴影里出来，😒。先记录一下吧，防止以后会遇到相似的bug。之前负责公司的一个运营平台，里面有一个周统计任务，每周统计一下服务的使用量。我采用的思路就是将使用记录的创建时间用weekofyear以及year分别获取记录的周以及年，然后用group by分组统计。</p>
-<blockquote>
-<p>weekofyear获取的是一年中的第几周，year获取的是时间的年分</p>
-</blockquote>
-<p>这样处理的问题大多数情况下都是没有问题的，但是在特殊情况下就会出现问题，比如说周跨年，就是说一年中的最后一个周的七天可能包含两年，类似19年最后一周就是，19年12月30日~20年的1月5日。那么在遇到这种情况怎么样才能在尽量不改动业务的情况下修复这个问题呢，其实也很简单，使用YEARWEEK函数，这个函数有两个参数，具体的解释可以看这篇<a href="https://blog.csdn.net/dmw412724/article/details/95318091">博客</a>，这个函数的效果就是不管是20191230还是20200105这中间哪个时间段都可以达到输出一样的结果，拿到这个结果之后对其进行切割，用left以及right函数就可以分别获取周和年，在最小改动业务的情况下完美的解决了这个bug，😌</p>
-
-        
         
       </div>
       
@@ -436,6 +442,10 @@
     
   </div>
   
+    <div class="bg-img">
+      <img src="/media/images/custom-bgImg.png" />
+    </div>
+  
   
     <link rel="stylesheet" href="/media/live2d/histoire/css/live2d.css" />
 <div class="box-scale">
@@ -455,14 +465,17 @@
     <div class="live_ico_box">
       <div class="live_ico_item type_info" id="showInfoBtn"></div>
       <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+      
       <div class="live_ico_item type_music" id="musicButton"></div>
+      
       <div class="live_ico_item type_youdu" id="youduButton"></div>
       <div class="live_ico_item type_quit" id="hideButton"></div>
       <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
       <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
       <input id="duType" value="douqilai" type="hidden">
-      <input name="live2dBGM" value="http://jaymusic.gitee.io/jaymusic31/003OUlho2HcRHC.mp3" type="hidden">
-      <input name="live2dBGM" value="http://jaymusic.gitee.io/jaymusic23/002qU5aY3Qu24y.mp3" type="hidden">
+      
+        <input name="live2dBGM" value="http://jaymusic.gitee.io/jaymusic33/003xv4w313tZHV.mp3" type="hidden">
+      
     </div>
   </div>
 </div>
