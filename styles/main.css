@@ -1884,6 +1884,9 @@ body {
     }
     .next-md-body {
       color: #495057;
+    }
+    .next-md-body h1, .next-md-body h2 {
+      border-bottom-color: #495057;
     }h1, h2, h3, h4, h5, h6 {
       color: #adb5bd;
     }
@@ -1959,7 +1962,7 @@ body {
     .active-hidden > a {
       color: #495057;
       border-bottom-color: #495057;
-    }.site-nav, .sidebar-wrapper, .section-box, .sidebar-box, .site-nav {
+    }.site-nav, .sidebar-wrapper, .section-box, .sidebar-box, .site-nav, .blog-header {
         opacity: 0.85;
       }
       .site-meta {
