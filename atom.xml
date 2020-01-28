@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2020-01-27T04:48:32.736Z</updated>
+    <updated>2020-01-28T07:20:08.876Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://hsxyhao.github.io"/>
     <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
@@ -67,6 +67,18 @@
         <link href="https://hsxyhao.github.io/post/zhu-ti-she-qu-de-bug">
         </link>
         <updated>2020-01-03T12:06:56.000Z</updated>
+        <summary type="html"><![CDATA[<p>主题风格之间的兼容<br>
+自定义布局颜色，内容宽度支持<br>
+夜间模式<br>
+打赏功能<br>
+<img src="https://hsxyhao.github.io/post-images/1580100833596.png" alt="" loading="lazy"></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>主题风格之间的兼容<br>
+自定义布局颜色，内容宽度支持<br>
+夜间模式<br>
+打赏功能<br>
+<img src="https://hsxyhao.github.io/post-images/1580100833596.png" alt="" loading="lazy"></p>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[说一下NexT主题]]></title>

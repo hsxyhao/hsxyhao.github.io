@@ -743,7 +743,7 @@ blockquote:before {
 }
 .tag-timeline-title {
   position: relative;
-  padding: 60px 0;
+  padding: 30px 0;
 }
 .tag-timeline-box .tag-post-node {
   position: relative;
@@ -1887,6 +1887,9 @@ body {
     }
     .next-md-body h1, .next-md-body h2 {
       border-bottom-color: #495057;
+    }
+    .archive-timeline-box::after, .tag-timeline-wrapper::after {
+      background: #495057;
     }h1, h2, h3, h4, h5, h6 {
       color: #adb5bd;
     }
