@@ -6,7 +6,7 @@
 <title>Madara</title>
 <meta name="keywords" content="Java | 个人博客 | Gridea | NexT | next">
 <meta name="description" content="Gridea Next | 懂点前端的后端 | 中间件 | Java">
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1580193055162">
+<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1580463579517">
 <link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -14,7 +14,9 @@
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link href="/media/hljs/styles/default.css" rel="stylesheet">  
+<script src="/media/hljs/highlight.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
 
@@ -80,6 +82,14 @@
               
                 <a href="/post/about">
                   <i class="fa fa-user"></i> 关于
+                </a>
+              
+            </li>
+          
+            <li class="nav-item ">
+              
+                <a href="/test">
+                  <i class="fa fa-globe"></i> 测试
                 </a>
               
             </li>
@@ -165,12 +175,13 @@
       
       
         <a class="social-img" href="#">
-          <img src="/media/images/custom-array-imgSocials-1580193054783-socialImg.jpeg" />
+          <img src="/media/images/custom-array-imgSocials-1580202228542-socialImg.jpeg" />
           <i class="fa fa-wechat"></i> 微信
         </a>
       
     </div>
   </div>
+
 
   <div class="sidebar-item right-motion sidebar-item-friends">
     <p class="friends-title"><i class="fa fa-globe"></i> 友情链接</p>
@@ -502,6 +513,52 @@ var apiKey = landlord.dataset.key;
 </script>
 <script type="text/javascript" src="/media/live2d/histoire/js/live2d.js"></script>
 <script type="text/javascript" src="/media/live2d/histoire/js/message.js"></script>
+  
+  
+    
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div class="aplayer" id="aplayer"></div>
+  <input hidden id="player_cover" value="/media/images/custom-cover.jpg" />
+  <div class="music-list">
+  
+    
+    <input hidden value="红尘客栈,周杰伦,http://jaymusic.gitee.io/jaymusic33/003xv4w313tZHV.mp3,https://cn-south-17-aplayer-46154810.oss.dogecdn.com/hikarunara.lrc" />
+  
+    
+    <input hidden value="青花瓷,周杰伦,http://jaymusic.gitee.io/jaymusic31/003OUlho2HcRHC.mp3,https://cn-south-17-aplayer-46154810.oss.dogecdn.com/hikarunara.lrc" />
+  
+    
+    <input hidden value="光るなら,Goose house,https://cn-south-17-aplayer-46154810.oss.dogecdn.com/hikarunara.mp3,https://cn-south-17-aplayer-46154810.oss.dogecdn.com/hikarunara.lrc" />
+  
+  </div>
+  <script>
+  let musics = document.querySelector('.music-list').children;
+  let mediaMusic = [];
+  let cover = document.querySelector('#player_cover').value;
+  for (let i = 0; i < musics.length; i++) {
+    let item = musics[i];
+    let splits = item.value.split(',');
+    mediaMusic.push({
+      name: splits[0],
+      artist: splits[1],
+      url: splits[2],
+      lrc: splits[3],
+      cover: cover
+    });
+  }
+  console.log(mediaMusic);
+  const ap = new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      lrcType: 3,
+      listFolded: false,
+      listMaxHeight: 90,
+      audio: mediaMusic
+  });
+  </script>
+
+
   
 </div>
 <script>

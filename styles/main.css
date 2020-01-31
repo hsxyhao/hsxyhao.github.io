@@ -161,6 +161,10 @@ blockquote:before {
     display: none;
   }
 }
+.aplayer-title,
+.aplayer-list-title {
+  color: #000;
+}
 .head-top-line {
   height: 3px;
   background: #222;
@@ -418,7 +422,11 @@ blockquote:before {
   border-top: 1px solid transparent;
 }
 .post-body img {
+  display: block;
   width: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
 }
 .post-body {
   font-family: 'Monda', "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -582,6 +590,13 @@ blockquote:before {
   border-left: 3px solid #ff1700;
   background-color: #f9f9f9;
   list-style: none;
+}
+.post-copyright li,
+.post-copyright a {
+  color: #222;
+}
+.post-copyright a:hover {
+  color: #000;
 }
 .post-footer .tags a {
   display: inline-block;
@@ -1880,16 +1895,16 @@ body {
         margin: 0 auto;
       }
     body {
-      color: #495057;
+      color: #fff;
     }
     .next-md-body {
-      color: #495057;
+      color: #fff;
     }
     .next-md-body h1, .next-md-body h2 {
-      border-bottom-color: #495057;
+      border-bottom-color: #fff;
     }
     .archive-timeline-box::after, .tag-timeline-wrapper::after {
-      background: #495057;
+      background: #fff;
     }h1, h2, h3, h4, h5, h6 {
       color: #adb5bd;
     }
