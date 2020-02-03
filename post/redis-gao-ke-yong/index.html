@@ -6,8 +6,8 @@
 <title>Redis高可用 | Madara</title>
 <meta name="keywords" content="Java | 个人博客 | Gridea | NexT | next">
 <meta name="description" content="Gridea Next | 懂点前端的后端 | 中间件 | Java">
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1580463607387">
-<link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
+<link rel="shortcut icon" href="https://hsxyhao.github.io//favicon.ico?v=1580742980129">
+<link rel="stylesheet" href="https://hsxyhao.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
 
@@ -88,14 +88,6 @@
               
             </li>
           
-            <li class="nav-item ">
-              
-                <a href="/test">
-                  <i class="fa fa-globe"></i> 测试
-                </a>
-              
-            </li>
-          
           <li class="nav-item">
             <a>
               <i class="fa fa-search"></i> 搜索
@@ -151,7 +143,7 @@
             
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="https://hsxyhao.github.io/images/avatar.png"/>
+    <img class="site-author-image right-motion" src="https://hsxyhao.github.io//images/avatar.png"/>
     <p class="site-author-name">Madara</p>
     <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
   </div>
@@ -159,7 +151,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">17</span>
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -178,25 +170,31 @@
   </div>
   
     
-      <div class="sidebar-item" style="border-top: 1px dotted #ccc;">
+      <div class="sidebar-item" style="border-top: 1px dotted #ccc; margin-top: 10px;">
       </div>
     
   
-  <div class="sidebar-item sidebar-item-social">
-    <div class="social-item">
-      
-        <a href="https://github.com/hsxyhao">
-          <i class="fa fa-github-alt"></i> Github
-        </a>
-      
-      
-        <a class="social-img" href="#">
-          <img src="/media/images/custom-array-imgSocials-1580202228542-socialImg.jpeg" />
-          <i class="fa fa-wechat"></i> 微信
-        </a>
-      
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
+        
+          
+            <a href="https://github.com/hsxyhao">
+              <i class="fa fa-github-alt"></i> Github
+            </a>
+          
+        
+        
+          
+            <a class="social-img" href="#">
+              <img src="/media/images/custom-array-imgSocials-1580730968548-socialImg.jpeg" />
+              <i class="fa fa-wechat"></i> 微信
+            </a>
+          
+        
+      </div>
     </div>
-  </div>
+  
 
 
   <div class="sidebar-item right-motion sidebar-item-friends">
@@ -570,14 +568,14 @@ window.addEventListener('load', function() {
 </ul>
 <h2 id="哨兵模式拓扑图">哨兵模式拓扑图</h2>
 <p>哨兵模式是为了解决主从复制一系列问题产生的，本质上是不会修改主从复制的结构，只是在其基础上进行扩展，也就是多了一些sentinel节点，其实这里的sentinel节点也是一种特殊的redis服务几点。</p>
-<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1574667620983.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io//post-images/1574667620983.png" alt="" loading="lazy"></figure>
 <p><strong>故障转移步骤</strong></p>
 <ol>
 <li>主节点出现故障，从节点与主节点的连接断开，主从复制失败。</li>
 <li>每个sentinel节点通过定期监控查看主节点是否出现故障。</li>
 <li>如果有多个sentinel节点都检测出主节点出现故障，则会选举出一个leader sentinel来负责故障转移的主要任务。</li>
 <li>开始进行故障转移<br>
-<img src="https://hsxyhao.github.io/post-images/1574668587748.png" alt="" loading="lazy"></li>
+<img src="https://hsxyhao.github.io//post-images/1574668587748.png" alt="" loading="lazy"></li>
 </ol>
 <blockquote>
 <p>第四步将之前的主节点变为从节点，是在该节点可以重启之后进行的操作。</p>
@@ -692,7 +690,7 @@ exit 0
 1秒的定时监控主要是用来做心跳检测的，sentinel节点每隔一秒钟会向所有节点（主从节点，其他sentinel节点）发送一次心跳。</li>
 </ol>
 <p><strong>redis sentinel监控图</strong><br>
-<img src="https://hsxyhao.github.io/post-images/1574844918230.png" alt="" loading="lazy"></p>
+<img src="https://hsxyhao.github.io//post-images/1574844918230.png" alt="" loading="lazy"></p>
 <blockquote>
 <p>本来准备摘自《Redis开发与运维》上的图，但是发现三张图有些占地方，所以就自己画了张图，由于画图软件的原因有两个地方画不出来就没有弄了，不过不影响整体。虽然有些复杂但是如果把这个屡清楚了三个定时任务具体的功能也就清楚了。</p>
 </blockquote>
@@ -712,7 +710,7 @@ exit 0
 </ul>
 <h3 id="故障转移">故障转移</h3>
 <p>在选出leader节点之后就会进行故障转移操作，故障转移操作也很简单，在进行转移的时候对从节点的信息做一些简单的判断，过滤出最优从节点晋升。具体过程如下：<br>
-<img src="https://hsxyhao.github.io/post-images/1574845720018.png" alt="" loading="lazy"></p>
+<img src="https://hsxyhao.github.io//post-images/1574845720018.png" alt="" loading="lazy"></p>
 <ol>
 <li>选择出新的主节点<br>
 1). 过滤出所有不健康的节点(主观下线、断线)，5秒内没有回复过sentinel节点，以及与主节点失联超过down-after-milliseconds * 10秒。<br>
@@ -935,10 +933,6 @@ ASK重定向是指发生在槽迁移的过程中，槽中的数据还没有迁�
     </span>
     
   </div>
-  
-    <div class="bg-img">
-      <img src="/media/images/custom-bgImg.png" />
-    </div>
   
   
     <link rel="stylesheet" href="/media/live2d/histoire/css/live2d.css" />

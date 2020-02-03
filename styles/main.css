@@ -236,7 +236,9 @@ blockquote:before {
   margin: 0 0 25px 0;
 }
 .sidebar-item-social {
-  margin-top: 20px;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted #ccc;
 }
 .sidebar-item-social > .social-item {
   position: relative;
@@ -287,10 +289,9 @@ blockquote:before {
 }
 .friends-title {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 14px;
   font-weight: 600;
-  border-top: 1px dotted #ccc;
 }
 .friends-box a {
   max-width: 280px;
@@ -1884,7 +1885,7 @@ blockquote:before {
   font-weight: bold;
 }
 body {
-      background-color: #151618;
+      background-color: #eee;
     }.header {
         width: 1080px;
         margin: 0 auto;
@@ -1895,73 +1896,73 @@ body {
         margin: 0 auto;
       }
     body {
-      color: #fff;
+      color: #222;
     }
     .next-md-body {
-      color: #fff;
+      color: #222;
     }
     .next-md-body h1, .next-md-body h2 {
-      border-bottom-color: #fff;
+      border-bottom-color: #222;
     }
     .archive-timeline-box::after, .tag-timeline-wrapper::after {
-      background: #fff;
+      background: #222;
     }h1, h2, h3, h4, h5, h6 {
-      color: #adb5bd;
+      color: #222;
     }
     
     .archive-timeline-title::before {
-      background-color: #adb5bd;
+      background-color: #222;
     }
     
     .post-title-link::before {
-      background-color: #adb5bd;
+      background-color: #222;
     }
     
     .node-title::before {
-      background-color: #adb5bd;
+      background-color: #222;
     }.bg-color {
-      background-color: #1d1e21;
+      background-color: #fff;
     }a {
-      color: #eee;
+      color: #222;
     }
     
     .next-md-body a, .friends-box a  {
-      color: #eee;
-      border-bottom: 1px solid #eee;
+      color: #222;
+      border-bottom: 1px solid #222;
     }a:hover {
-      color: #fff;
+      color: #000;
     }
     
     .archive-timeline-box .tag-node:hover::before {
-      background-color: #fff;
+      background-color: #000;
     }
     
     .markdownIt-TOC a:hover {
-      color: #fff;
-      border-bottom-color: #fff;
+      color: #000;
+      border-bottom-color: #000;
     }
 
     .next-md-body a:hover, .friends-box a:hover {
-      color: #fff;
-      border-bottom-color: #fff;
+      color: #000;
+      border-bottom-color: #000;
     }
       .nav-item a {
-        color:  #868e96;
+        color:  #222;
       }.nav-item a:hover {
-        color: #e9ecef;
+        color: #000;
       }.nav-item-active {
-      background: #232323;
+      background: #eee;
     }
 
     .nav-item:hover {
-      background: #232323;
+      background: #eee;
       color: rgba(0, 0, 0, 0.98);
     }.markdownIt-TOC a {
-      color: #adb5bd;
-      border-bottom-color: #adb5bd;
+      color: #222;
+      border-bottom-color: #222;
     }.markdownIt-TOC a:hover {
-      color: #fff;
-      border-bottom-color: #fff;
+      color: #000;
+      border-bottom-color: #000;
     }.active-current > a {
       color: #495057 !important;
       border-bottom-color: #495057 !important;
@@ -1980,9 +1981,7 @@ body {
     .active-hidden > a {
       color: #495057;
       border-bottom-color: #495057;
-    }.site-nav, .sidebar-wrapper, .section-box, .sidebar-box, .site-nav, .blog-header {
-        opacity: 0.85;
-      }
+    }
       .site-meta {
         background: #000 !important;
       }
@@ -1990,12 +1989,10 @@ body {
       background: #000 !important;
     }
     .main-title {
-      color: #fff;
+      color: #222;
     }
     .mist .site-title i {
-      background: #fff;
+      background: #222;
     }.box-scale > #landlord {
       transform: scale(0.8);
-    }.box-shadow-wrapper {
-      padding: 10px;
     }

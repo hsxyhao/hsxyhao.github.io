@@ -6,8 +6,8 @@
 <title>Redis入门知识点 | Madara</title>
 <meta name="keywords" content="Java | 个人博客 | Gridea | NexT | next">
 <meta name="description" content="Gridea Next | 懂点前端的后端 | 中间件 | Java">
-<link rel="shortcut icon" href="https://hsxyhao.github.io/favicon.ico?v=1580463607387">
-<link rel="stylesheet" href="https://hsxyhao.github.io/styles/main.css">
+<link rel="shortcut icon" href="https://hsxyhao.github.io//favicon.ico?v=1580742980129">
+<link rel="stylesheet" href="https://hsxyhao.github.io//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
 
@@ -88,14 +88,6 @@
               
             </li>
           
-            <li class="nav-item ">
-              
-                <a href="/test">
-                  <i class="fa fa-globe"></i> 测试
-                </a>
-              
-            </li>
-          
           <li class="nav-item">
             <a>
               <i class="fa fa-search"></i> 搜索
@@ -151,7 +143,7 @@
             
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="https://hsxyhao.github.io/images/avatar.png"/>
+    <img class="site-author-image right-motion" src="https://hsxyhao.github.io//images/avatar.png"/>
     <p class="site-author-name">Madara</p>
     <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
   </div>
@@ -159,7 +151,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">17</span>
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -178,25 +170,31 @@
   </div>
   
     
-      <div class="sidebar-item" style="border-top: 1px dotted #ccc;">
+      <div class="sidebar-item" style="border-top: 1px dotted #ccc; margin-top: 10px;">
       </div>
     
   
-  <div class="sidebar-item sidebar-item-social">
-    <div class="social-item">
-      
-        <a href="https://github.com/hsxyhao">
-          <i class="fa fa-github-alt"></i> Github
-        </a>
-      
-      
-        <a class="social-img" href="#">
-          <img src="/media/images/custom-array-imgSocials-1580202228542-socialImg.jpeg" />
-          <i class="fa fa-wechat"></i> 微信
-        </a>
-      
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
+        
+          
+            <a href="https://github.com/hsxyhao">
+              <i class="fa fa-github-alt"></i> Github
+            </a>
+          
+        
+        
+          
+            <a class="social-img" href="#">
+              <img src="/media/images/custom-array-imgSocials-1580730968548-socialImg.jpeg" />
+              <i class="fa fa-wechat"></i> 微信
+            </a>
+          
+        
+      </div>
     </div>
-  </div>
+  
 
 
   <div class="sidebar-item right-motion sidebar-item-friends">
@@ -530,7 +528,7 @@ window.addEventListener('load', function() {
                 <p>redis有哪些基础数据结构，什么是快速链表，什么是跳跃链表，使用redis特有的数据类型可以实现哪些有趣的功能。</p>
 <blockquote>
 <p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.<br>
-<img src="https://hsxyhao.github.io/post-images/1577761648931.png" alt="" loading="lazy"></p>
+<img src="https://hsxyhao.github.io//post-images/1577761648931.png" alt="" loading="lazy"></p>
 </blockquote>
 <p>上面一段话取自Redis官方的介绍，为什么要把它放在这里，我觉得这是介绍Redis最为标准的一段话，从用途、数据结构已经功能等多方面介绍，如果以后面试官叫你介绍下redis的话，我觉得可以直接把这段话背下来😌。至于为什么把Redis称为瑞士军刀，相信用过redis的人都会这么认为。</p>
 <!-- more -->
@@ -540,7 +538,7 @@ window.addEventListener('load', function() {
 <p>从redis的官方介绍中就可以得出，redis的基础数据类型有五种，分别为：string，hash，list，set，以及zset。至于后面提到的hyperloglogs、geospatial、bitmaps的类型，有的是后面的版本增加的，有的是基础数据类型扩展来的。相对于其他的nosql数据库来说，redis的数据类型已经很充分了。redis内置的这些类型，对于学过java的同学可以使用java中的HashMap来辅助记忆，比如说string类型就是Map&lt;String,String&gt;,list类型就类比为Map&lt;String,List<String>&gt;，hash则为Map&lt;String,Map&lt;String,String&gt;&gt;。通过这样的辅助记忆，就可以很快的记住redis的数据类型，对于后期各种类型的命令使用也起到一定的帮助。从上面的类比中我们可以看到redis是一个key，value的数据存储系统，key都是字符串类型，value则对应redis着以上几种数据类型。</p>
 <h2 id="string类型">string类型</h2>
 <p>string类型，可以说是redis中使用到最多的一种类型了，开发中有很多开发人员把一些热点数据的序列化成json，存储到redis中，最后访问的时候后再取出来反序列化返回到客户端。<br>
-<img src="https://hsxyhao.github.io/post-images/1573721308127.png" alt="" loading="lazy"><br>
+<img src="https://hsxyhao.github.io//post-images/1573721308127.png" alt="" loading="lazy"><br>
 重点记忆：</p>
 <ul>
 <li>最大能存储512M的内容</li>
@@ -565,9 +563,9 @@ OK
 </code></pre>
 <h2 id="list类型">list类型</h2>
 <p>Redis中的list相当于java中的LinkedList，不是ArrayList，也就是说他是一个链表。结合*pop和*push命令可以实现队列或者栈这种数据结构。<br>
-<img src="https://hsxyhao.github.io/post-images/1573722527155.gif" alt="" loading="lazy"></p>
+<img src="https://hsxyhao.github.io//post-images/1573722527155.gif" alt="" loading="lazy"></p>
 <h3 id="快速链表">快速链表</h3>
-<p><img src="https://hsxyhao.github.io/post-images/1573801624670.png" alt="" loading="lazy"><br>
+<p><img src="https://hsxyhao.github.io//post-images/1573801624670.png" alt="" loading="lazy"><br>
 准确的说list类型的底层实现是快速链表，普通链表在数据量量大的情况下性能是非常低的，所以需要对list进行优化。在列表开始数据量少的情况下，会直接申请一块<strong>连续</strong>的内存存储，这块内存的结构就是ziplist(压缩列表)，当数据量比较多的时候会切换成quicklist，就是多个ziplist结合成的链表。</p>
 <h3 id="list扩展应用">list扩展应用</h3>
 <ol>
@@ -633,7 +631,7 @@ OK
 </code></pre>
 <h2 id="set类型">set类型</h2>
 <p>同样的set类型可以类比为java中的HashSet，是一种键值对唯一的数据结构，大家都知道java中的HashSet是由HashMap“变异”的，相对于HashMap，HashSet的所有value都是Null。set具有自动去重的功能，可以保证set中的可以是唯一的。<br>
-<img src="https://hsxyhao.github.io/post-images/1573804430835.gif" alt="" loading="lazy"><br>
+<img src="https://hsxyhao.github.io//post-images/1573804430835.gif" alt="" loading="lazy"><br>
 命令：</p>
 <pre><code class="language-java">&gt; sadd books python
 (integer) 1
@@ -656,7 +654,7 @@ OK
 </code></pre>
 <h2 id="zset有序集合">zset(有序集合)</h2>
 <p>set是一个无序不重复集合，zset是一个有序的不重复集合，redis内部是通过跳跃链表来实现的。要想对一个链表排序，普通的链表肯定是不行的。需要对普通链表进行改进，改造后就是跳跃链表了。<br>
-<img src="https://hsxyhao.github.io/post-images/1573807555093.png" alt="" loading="lazy"><br>
+<img src="https://hsxyhao.github.io//post-images/1573807555093.png" alt="" loading="lazy"><br>
 上图就是跳跃链表的一个简化示意图，相信不熟悉的人看到这里肯定会懵，这个“跳跃”二字如何解释，在这里跳跃是指层与层之间的一个切换，不是元素和元素之间。层是代表高度词，所以用跳跃来形容也比较合适。</p>
 <h1 id="最后">最后</h1>
 <p>这里只是对Redis的基本数据类型进行一个简单记录，将所有重要的地方都记录下来，但是没有详细记录，在面试的时候如果聊到Redis，可以简单的做个大概介绍，后面再慢慢深入，后续的文章中会对文中的一些点进行详细的学习记录。本篇文章主要根据网上的资料进行总结，说不上复制，如果单纯的把别人的东西复制过来放在自己的博客上，行为上本身就是可耻的（未标明原著），其次在效果上也是微乎其微 。建议大家平时看过一些东西之后转换成自己的理解后记录下来，这样的话效果也会好很多🤓。</p>
@@ -747,10 +745,6 @@ OK
     </span>
     
   </div>
-  
-    <div class="bg-img">
-      <img src="/media/images/custom-bgImg.png" />
-    </div>
   
   
     <link rel="stylesheet" href="/media/live2d/histoire/css/live2d.css" />
