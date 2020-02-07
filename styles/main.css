@@ -1980,13 +1980,13 @@ body {
       border-bottom-color: #495057;
     }
       .site-meta {
-        background: #ff6b6b !important;
+        background: #222 !important;
       }
       .head-top-line {
-        background: #ff6b6b !important;
+        background: #222 !important;
       }
     .brand {
-      background: #000 !important;
+      background: #222 !important;
     }
     .main-title {
       color: #222;
