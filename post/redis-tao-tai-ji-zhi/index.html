@@ -7,8 +7,8 @@
 <meta name="description" content="Gridea Next | 懂点前端的后端 | 中间件 | Java">
 <meta name="theme-color" content="#222">
 <title>Redis淘汰机制 | Madara</title>
-<link rel="shortcut icon" href="https://yeming.site//favicon.ico?v=1581077774472">
-<link rel="stylesheet" href="https://yeming.site//styles/main.css">
+<link rel="shortcut icon" href="https://yeming.site/favicon.ico?v=1581077853226">
+<link rel="stylesheet" href="https://yeming.site/styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
 
@@ -144,7 +144,7 @@
             
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="https://yeming.site//images/avatar.png"/>
+    <img class="site-author-image right-motion" src="https://yeming.site/images/avatar.png"/>
     <p class="site-author-name">Madara</p>
     <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
   </div>
@@ -565,7 +565,7 @@ window.addEventListener('load', function() {
 <h2 id="为什么采用近似的lru算法">为什么采用近似的LRU算法</h2>
 <p>redis中使用的LRU算法并不是真正的LRU算法，采用的是一种近似的LRU算法，如果每次添加key的时候查找所有key的最大空闲时间，显然在性能上会有所降低，本来这种剔除的策略就是一种概率的猜测，所以在选择最大的空闲时间key的时候，只要在概率上逼近真正lru算法就行了。过期算法是在redis2.8版本中加入的，并且在3.0中对其进行了优化。</p>
 <p>下图对lru算法进行了一些比较，左上角是理想的lru算法效果。上层是改进版即3.0后的版本与理想的lru算法的一个比较，下面两张图是2.8版本与3.0版本进行的一个比较。那么需要怎么理解这个图呢？<br>
-<img src="https://yeming.site//post-images/1575603094713.png" alt="" loading="lazy"><br>
+<img src="https://yeming.site/post-images/1575603094713.png" alt="" loading="lazy"><br>
 在这个图里面分为三个区域</p>
 <ul>
 <li>最上层的浅灰色区域代表需要淘汰的key</li>
