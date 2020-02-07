@@ -1886,6 +1886,9 @@ blockquote:before {
 }
 body {
       background-color: #eee;
+    }
+    .nav-toggle .line {
+      background-color: #eee !important;
     }.header {
         width: 1080px;
         margin: 0 auto;
@@ -1903,6 +1906,9 @@ body {
     }
     .next-md-body h1, .next-md-body h2 {
       border-bottom-color: #222;
+    }
+    .archive-timeline-box::after, .tag-timeline-wrapper::after {
+      background: #222;
     }h1, h2, h3, h4, h5, h6 {
       color: #565656;
     }
@@ -1986,7 +1992,7 @@ body {
         background: #222 !important;
       }
     .brand {
-      background: #222 !important;
+      background: #222;
     }
     .main-title {
       color: #222;

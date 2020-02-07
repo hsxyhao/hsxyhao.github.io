@@ -7,8 +7,8 @@
 <meta name="description" content="Gridea Next | 懂点前端的后端 | 中间件 | Java">
 <meta name="theme-color" content="#222">
 <title>MySQL恶心的周跨年问题 | Madara</title>
-<link rel="shortcut icon" href="https://hsxyhao.github.io//favicon.ico?v=1581047371064">
-<link rel="stylesheet" href="https://hsxyhao.github.io//styles/main.css">
+<link rel="shortcut icon" href="https://yeming.site//favicon.ico?v=1581077774472">
+<link rel="stylesheet" href="https://yeming.site//styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
 
@@ -136,7 +136,7 @@
           
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="https://hsxyhao.github.io//images/avatar.png"/>
+    <img class="site-author-image right-motion" src="https://yeming.site//images/avatar.png"/>
     <p class="site-author-name">Madara</p>
     <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
   </div>
@@ -144,7 +144,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-count">17</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -287,7 +287,7 @@
               <div class="article-box">
     <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">
+    <a class="post-title-link" href="https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">
       MySQL恶心的周跨年问题
     </a>
   </h1>
@@ -306,7 +306,7 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>376<span class="pc-show">字数</span></span>
+      <span>378<span class="pc-show">字数</span></span>
     </span>
   </div>
 </header>
@@ -318,6 +318,7 @@
 </blockquote>
 <p>这样处理的问题大多数情况下都是没有问题的，但是在特殊情况下就会出现问题，比如说周跨年，就是说一年中的最后一个周的七天可能包含两年，类似19年最后一周就是，19年12月30日~20年的1月5日。那么在遇到这种情况怎么样才能在尽量不改动业务的情况下修复这个问题呢，其实也很简单，使用YEARWEEK函数，这个函数有两个参数，具体的解释可以看这篇<a href="https://blog.csdn.net/dmw412724/article/details/95318091">博客</a>，这个函数的效果就是不管是20191230还是20200105这中间哪个时间段都可以达到输出一样的结果，拿到这个结果之后对其进行切割，用left以及right函数就可以分别获取周和年，在最小改动业务的情况下完美的解决了这个bug，😌</p>
 <!-- more -->
+<p><code>测试</code></p>
 
               </div>
               <div class="post-footer">
@@ -328,7 +329,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti" title="MySQL恶心的周跨年问题">MySQL恶心的周跨年问题</a>
+      <a href="https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti" title="MySQL恶心的周跨年问题">MySQL恶心的周跨年问题</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -342,14 +343,14 @@
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="关于Gridea的远程连接、同步失败问题" href="https://hsxyhao.github.io/post/gridea_help">关于Gridea的远程连接、同步失败问题</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="关于Gridea的远程连接、同步失败问题" href="https://hsxyhao.github.io/post/gridea_help">上一篇</a>
+        <a class="nav-pc-next" title="关于Gridea的远程连接、同步失败问题" href="https://yeming.site/post/gridea_help">关于Gridea的远程连接、同步失败问题</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="关于Gridea的远程连接、同步失败问题" href="https://yeming.site/post/gridea_help">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="说一下NexT主题" href="https://hsxyhao.github.io/post/shuo-yi-xia-next-zhu-ti">说一下NexT主题</a>
-        <a class="nav-mobile-next" title="说一下NexT主题" href="https://hsxyhao.github.io/post/shuo-yi-xia-next-zhu-ti">下一篇</a>
+        <a class="nav-pc-next" title="说一下NexT主题" href="https://yeming.site/post/shuo-yi-xia-next-zhu-ti">说一下NexT主题</a>
+        <a class="nav-mobile-next" title="说一下NexT主题" href="https://yeming.site/post/shuo-yi-xia-next-zhu-ti">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
@@ -401,6 +402,48 @@
     
   </div>
   
+  
+    <link rel="stylesheet" href="/media/live2d/histoire/css/live2d.css" />
+<div class="box-scale">
+  <div id="landlord" style="left:5px;bottom:0px;" data-key="8ebc03532fec488891b029035402984b">
+    <div class="message" style="opacity:0"></div>
+    <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+    <div class="live_talk_input_body">
+      <div class="live_talk_input_name_body">
+        <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off" placeholder="你的名字" />
+      </div>
+      <div class="live_talk_input_text_body">
+        <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off" placeholder="要和我聊什么呀？"/>
+        <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+      </div>
+    </div>
+    <input name="live_talk" id="live_talk" value="1" type="hidden" />
+    <div class="live_ico_box">
+      <div class="live_ico_item type_info" id="showInfoBtn"></div>
+      <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+      
+      <div class="live_ico_item type_music" id="musicButton"></div>
+      
+      <div class="live_ico_item type_youdu" id="youduButton"></div>
+      <div class="live_ico_item type_quit" id="hideButton"></div>
+      <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+      <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+      <input id="duType" value="douqilai" type="hidden">
+      
+        <input name="live2dBGM" value="http://jaymusic.gitee.io/jaymusic33/003xv4w313tZHV.mp3" type="hidden">
+      
+    </div>
+  </div>
+</div>
+<div id="open_live2d">召唤伊斯特瓦尔</div>
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+var message_Path = '/media/live2d/histoire/';
+let landlord = document.querySelector('#landlord');
+var apiKey = landlord.dataset.key;
+</script>
+<script type="text/javascript" src="/media/live2d/histoire/js/live2d.js"></script>
+<script type="text/javascript" src="/media/live2d/histoire/js/message.js"></script>
   
   
 </div>
