@@ -1903,23 +1903,20 @@ body {
     }
     .next-md-body h1, .next-md-body h2 {
       border-bottom-color: #222;
-    }
-    .archive-timeline-box::after, .tag-timeline-wrapper::after {
-      background: #222;
     }h1, h2, h3, h4, h5, h6 {
-      color: #222;
+      color: #565656;
     }
     
     .archive-timeline-title::before {
-      background-color: #222;
+      background-color: #565656;
     }
     
     .post-title-link::before {
-      background-color: #222;
+      background-color: #565656;
     }
     
     .node-title::before {
-      background-color: #222;
+      background-color: #565656;
     }.bg-color {
       background-color: #fff;
     }a {
