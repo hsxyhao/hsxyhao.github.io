@@ -7,7 +7,7 @@
 <meta name="description" content="Gridea Next | 懂点前端的后端 | 中间件 | Java">
 <meta name="theme-color" content="#222">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://yeming.site/favicon.ico?v=1581597290808">
+<link rel="shortcut icon" href="https://yeming.site/favicon.ico?v=1583308929898">
 <link rel="stylesheet" href="https://yeming.site/styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -136,7 +136,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-count">17</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -235,7 +235,7 @@
       
         
           
-            <a href="https://yeming.site/post/redis-chang-kao-mian-shi-ti">
+            <a href="https://yeming.site/post/redis-chang-kao-mian-shi-ti/">
               <div class="motion-warpper">
                 <div class="tag-post-node">
                   <h1>
@@ -268,7 +268,7 @@
       
         
           
-            <a href="https://yeming.site/post/redis-tao-tai-ji-zhi">
+            <a href="https://yeming.site/post/redis-tao-tai-ji-zhi/">
               <div class="motion-warpper">
                 <div class="tag-post-node">
                   <h1>
@@ -289,7 +289,7 @@
       
         
           
-            <a href="https://yeming.site/post/redis-gao-ke-yong">
+            <a href="https://yeming.site/post/redis-gao-ke-yong/">
               <div class="motion-warpper">
                 <div class="tag-post-node">
                   <h1>
@@ -306,7 +306,7 @@
       
         
           
-            <a href="https://yeming.site/post/redis-copy">
+            <a href="https://yeming.site/post/redis-copy/">
               <div class="motion-warpper">
                 <div class="tag-post-node">
                   <h1>
@@ -321,7 +321,7 @@
       
         
           
-            <a href="https://yeming.site/post/redis-chi-jiu-hua">
+            <a href="https://yeming.site/post/redis-chi-jiu-hua/">
               <div class="motion-warpper">
                 <div class="tag-post-node">
                   <h1>
@@ -336,7 +336,7 @@
       
         
           
-            <a href="https://yeming.site/post/rui-shi-jun-dao-redis">
+            <a href="https://yeming.site/post/rui-shi-jun-dao-redis/">
               <div class="motion-warpper">
                 <div class="tag-post-node">
                   <h1>
@@ -367,10 +367,10 @@
       <div class="footer-box">
   <footer class="footer">
     <div class="copyright">
-      © 2019-2020 <i class="fa fa-heart"></i> HsxyHao
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By HsxyHao
     </div>
     <div class="poweredby">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+      
     </div>
   </footer>
   
@@ -384,7 +384,50 @@
     
   </div>
   
+    <div class="bg-img">
+      <img src="/media/images/custom-bgImg.jpg" />
+    </div>
   
+  
+  
+    
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div class="aplayer" id="aplayer"></div>
+  <input hidden id="player_cover" value="/media/images/custom-cover.jpg" />
+  <div class="music-list">
+  
+    
+    <input hidden value="光るなら ,Goose house,https://cn-south-17-aplayer-46154810.oss.dogecdn.com/hikarunara.mp3," />
+  
+  </div>
+  <script>
+  let musics = document.querySelector('.music-list').children;
+  let mediaMusic = [];
+  let cover = document.querySelector('#player_cover').value;
+  for (let i = 0; i < musics.length; i++) {
+    let item = musics[i];
+    let splits = item.value.split(',');
+    mediaMusic.push({
+      name: splits[0],
+      artist: splits[1],
+      url: splits[2],
+      lrc: splits[3],
+      cover: cover
+    });
+  }
+  console.log(mediaMusic);
+  const ap = new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      lrcType: 3,
+      listFolded: false,
+      listMaxHeight: 90,
+      audio: mediaMusic
+  });
+  </script>
+
+
   
 </div>
 <script>

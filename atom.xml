@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yeming.site</id>
     <title>Madara</title>
-    <updated>2020-02-13T12:34:53.465Z</updated>
+    <updated>2020-03-04T08:05:37.552Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yeming.site"/>
     <link rel="self" href="https://yeming.site/atom.xml"/>
@@ -11,9 +11,16 @@
     <icon>https://yeming.site/favicon.ico</icon>
     <rights>All rights reserved 2020, Madara</rights>
     <entry>
+        <title type="html"><![CDATA[NexT-TechZone]]></title>
+        <id>https://yeming.site/post/zVcsib6Ce/</id>
+        <link href="https://yeming.site/post/zVcsib6Ce/">
+        </link>
+        <updated>2020-02-07T05:36:09.000Z</updated>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[最新版NexT主题使用教程]]></title>
-        <id>https://yeming.site/post/Och5LtMIu</id>
-        <link href="https://yeming.site/post/Och5LtMIu">
+        <id>https://yeming.site/post/Och5LtMIu/</id>
+        <link href="https://yeming.site/post/Och5LtMIu/">
         </link>
         <updated>2020-01-25T13:12:43.000Z</updated>
         <summary type="html"><![CDATA[<p>各位小伙伴看这里👉，最新版NexT主题已经悄悄上线，暗中观察的你赶快使用起来喔！！！不过从最新的用户反馈中得知，目前的最新的版本在自定义配置方面过于复杂，有些属性配置大家也不知道怎么调整，只能靠一步步调试，效率很低。为了帮助大家快速熟悉最新的版本，在这里准备给大家输出一个详细的配置教程。</p>
@@ -31,8 +38,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[关于Gridea的远程连接、同步失败问题]]></title>
-        <id>https://yeming.site/post/gridea_help</id>
-        <link href="https://yeming.site/post/gridea_help">
+        <id>https://yeming.site/post/gridea_help/</id>
+        <link href="https://yeming.site/post/gridea_help/">
         </link>
         <updated>2020-01-10T05:29:55.000Z</updated>
         <summary type="html"><![CDATA[<p>最近在gridea的群聊发现很多新人在安装好gridea点击远程连接的时候都会出现问题，大部分都是类似no  such remote这样的提示信息，之前我第一次安装的时候也出现过这样的问题，本来以为就我一个人会有，后面发现有这个问题的人也不少，经常群里有人问题这样的问题。自己也在群里解决了一些，但是这样总不是办法，还是需要写一个文档出来，节约大家的时间，这也是写这篇文章的原因，希望这篇文章可以帮助大家解决问题，如果不能解决，可以在下面评论，我会尽力解决，后期也方便其他新手再次遇到类似的问题。<br>
@@ -44,8 +51,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[MySQL恶心的周跨年问题]]></title>
-        <id>https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti</id>
-        <link href="https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti">
+        <id>https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/</id>
+        <link href="https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/">
         </link>
         <updated>2020-01-06T04:17:49.000Z</updated>
         <summary type="html"><![CDATA[<p>刚过完元旦就遇到了让人恶心的bug，都还没有从朋友圈狗粮阴影里出来，😒。先记录一下吧，防止以后会遇到相似的bug。之前负责公司的一个运营平台，里面有一个周统计任务，每周统计一下服务的使用量。我采用的思路就是将使用记录的创建时间用weekofyear以及year分别获取记录的周以及年，然后用group by分组统计。</p>
@@ -63,8 +70,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[说一下NexT主题]]></title>
-        <id>https://yeming.site/post/shuo-yi-xia-next-zhu-ti</id>
-        <link href="https://yeming.site/post/shuo-yi-xia-next-zhu-ti">
+        <id>https://yeming.site/post/shuo-yi-xia-next-zhu-ti/</id>
+        <link href="https://yeming.site/post/shuo-yi-xia-next-zhu-ti/">
         </link>
         <updated>2019-12-31T06:31:36.000Z</updated>
         <summary type="html"><![CDATA[<p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，经常是一旦出现了bug就加班加点的修复，虽然累一点，但是反而快乐了许多。最后我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
@@ -76,8 +83,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[KaTeX数学公式支持测试]]></title>
-        <id>https://yeming.site/post/ce-shi-md-shu-xue-gong-shi</id>
-        <link href="https://yeming.site/post/ce-shi-md-shu-xue-gong-shi">
+        <id>https://yeming.site/post/ce-shi-md-shu-xue-gong-shi/</id>
+        <link href="https://yeming.site/post/ce-shi-md-shu-xue-gong-shi/">
         </link>
         <updated>2019-12-31T03:11:30.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1577763703490.png" alt="" loading="lazy"></figure>
@@ -87,8 +94,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Redis常考面试题]]></title>
-        <id>https://yeming.site/post/redis-chang-kao-mian-shi-ti</id>
-        <link href="https://yeming.site/post/redis-chang-kao-mian-shi-ti">
+        <id>https://yeming.site/post/redis-chang-kao-mian-shi-ti/</id>
+        <link href="https://yeming.site/post/redis-chang-kao-mian-shi-ti/">
         </link>
         <updated>2019-12-30T03:07:24.000Z</updated>
         <summary type="html"><![CDATA[<p>前段时间学习了一下redis，并且也做了些学习笔记，刚过一周的时候，就已经忘得一干二净，实在是惭愧啊。不过唯一的安慰就是当时的笔记灵感都记录下来了，尤其是难点都做了详细的笔记。本来准备过段时间再回顾一下，今天同事丢了本redis面试题给我，大概看了下，基本上前段时间看的内容都有提到，所以就准备将这些面试题和我之前做的笔记结合起来做一个回忆索引。<br>
@@ -100,8 +107,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Kafka初识]]></title>
-        <id>https://yeming.site/post/kafka-chu-shi</id>
-        <link href="https://yeming.site/post/kafka-chu-shi">
+        <id>https://yeming.site/post/kafka-chu-shi/</id>
+        <link href="https://yeming.site/post/kafka-chu-shi/">
         </link>
         <updated>2019-12-13T07:09:50.000Z</updated>
         <summary type="html"><![CDATA[<p>第一次听到kafka还是在17年实习的时候，当时在一家外包公司，没错就是外包，不过后来呆了半个月就离职了。当时接触的是一个电信外包项目，主要是基于大数据做一个端到端的监控平台，还是实习的我第一次听到了kafka这个名字，不过由于那时还只是一个打酱油的实习生再加上并没有待多长时间，就没有深入了解它，来到第二家公司后再一次听见kafka，当时是一家做数字货币交易所的，就是类似比特币的虚拟货币，当时有一个OCR的实名认证接口需要用到kafka做异步，不过很可惜的是18年暴雷，公司资金链断裂开始裁员，转正还没一个月的我就又失业了。之后第三次入职，是一家做风控的创业公司，当时让我负责计费系统的设计，后来经过一系列插曲，又再次接触到了kafka，至此开始真正接触它了解它。现在准备把kafka系统性的学习一遍。<br>
@@ -119,8 +126,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Kafka学前准备]]></title>
-        <id>https://yeming.site/post/kafka-xue-qian-zhun-bei</id>
-        <link href="https://yeming.site/post/kafka-xue-qian-zhun-bei">
+        <id>https://yeming.site/post/kafka-xue-qian-zhun-bei/</id>
+        <link href="https://yeming.site/post/kafka-xue-qian-zhun-bei/">
         </link>
         <updated>2019-12-13T07:09:40.000Z</updated>
         <summary type="html"><![CDATA[<p>不知道大家在学习一门新的技术之前是怎么做准备的，不过我想每个人都会遇到过学习完一门知识长时间不接触会立马忘记的情况。就像我之前学的JVM和Redis一样，学习的时候对每个细节都非常了解，可是时间一长之后又会立马忘得一干二净，我觉得大多数人都无法避免这种现象，毕竟你没有过目不忘的本领。既然无法避免那就只能想办法可以快速的再次拾起，就像物理实验中的误差一样，不可避免只能降低。所以在此推荐大家每当学习一个新的知识点的时候，一定要做好学习前的规划以及笔记，不然到头来又是一场空。等到面试的时候再把它拿出来看看，其中重要的点着重回顾，我想一定会有所帮助。还有一点就是记笔记最好整理成博客放在自己的博客或者三方博客平台上，强迫自己把笔记写的自己能看懂外还要别人也能看懂，而且还能和别人一起交流经验，一起学习。<br>
@@ -132,8 +139,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[消息队列学习开篇]]></title>
-        <id>https://yeming.site/post/xiao-xi-dui-lie-xue-xi-kai-pian</id>
-        <link href="https://yeming.site/post/xiao-xi-dui-lie-xue-xi-kai-pian">
+        <id>https://yeming.site/post/xiao-xi-dui-lie-xue-xi-kai-pian/</id>
+        <link href="https://yeming.site/post/xiao-xi-dui-lie-xue-xi-kai-pian/">
         </link>
         <updated>2019-12-10T01:20:16.000Z</updated>
         <summary type="html"><![CDATA[<p>什么是消息队列？消息队列有哪些？又解决了哪些问题？该怎么选择消息队列？使用消息队列的时候会遇到哪些问题？带着这些疑问先对消息队列进行初步了解。<br>
@@ -155,57 +162,6 @@
 <p>维基百科中的解释，但是总感觉一大串术语，又是进程又是通信的，还有各种设备什么的。对于小白来说就用最简单的一句话就行了，消息队列就是用来发送和接收消息的<strong>队列</strong>，发送消息方叫作<strong>生产者</strong>，接收消息方叫作<strong>消费者</strong>。<br>
 不要纠结这些专业术语了，我们了解消息队列主要用来业务上的问题的，老是按照专业的角度去理解多费事，入门简单的了解它是干什么的解决了什么问题就行了😜</p>
 </blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Redis淘汰机制]]></title>
-        <id>https://yeming.site/post/redis-tao-tai-ji-zhi</id>
-        <link href="https://yeming.site/post/redis-tao-tai-ji-zhi">
-        </link>
-        <updated>2019-12-05T06:01:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>说到Redis的内存淘汰机制，突然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似Redis的内存淘汰机制了。</p>
-<h1 id="删除策略">删除策略</h1>
-<ul>
-<li>定时删除:在设置键的过期时间的同时，创建一个定时器 timer). 让定时器在键的过期 时间来临时，立即执行对键的删除操作。</li>
-<li>惰性删除:放任键过期不管，但是每次从键空间中获取键时，都检查取得的键是否过 期，如果过期的话，就删除该键;如果没有过期，就返回该键。</li>
-<li>定期删除:每隔一段时间程序就对数据库进行一次检查，删除里面的过期键。至于要 删除多少过期键，以及要检查多少个数据库，则由算法决定。</li>
-</ul>
-<h1 id="淘汰策略">淘汰策略</h1>
-<p>Redis的内存淘汰机制就是为了淘汰掉一些数据，保证Redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
-<ul>
-<li>noeviction 不进行任何淘汰操作，当内存不够时写命令会报错</li>
-<li>allkeys-lru 在所有的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
-<li>volatile-lru 在设置过期时间的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
-<li>allkeys-random 在所有的key中随机移除某个key</li>
-<li>volatile-random 在设置了过期时间的key中随机移除某个key</li>
-<li>volatile-ttl 在设置了过期时间的key中，删除过期时间最早的key</li>
-<li>allkeys-lfu 在所有的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
-<li>volatile-lfu 在设置过期时间的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
-</ul>
-<p><strong>备注</strong><br>
-这里删除的key其实只删除一个，这是因为Redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>说到Redis的内存淘汰机制，突然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似Redis的内存淘汰机制了。</p>
-<h1 id="删除策略">删除策略</h1>
-<ul>
-<li>定时删除:在设置键的过期时间的同时，创建一个定时器 timer). 让定时器在键的过期 时间来临时，立即执行对键的删除操作。</li>
-<li>惰性删除:放任键过期不管，但是每次从键空间中获取键时，都检查取得的键是否过 期，如果过期的话，就删除该键;如果没有过期，就返回该键。</li>
-<li>定期删除:每隔一段时间程序就对数据库进行一次检查，删除里面的过期键。至于要 删除多少过期键，以及要检查多少个数据库，则由算法决定。</li>
-</ul>
-<h1 id="淘汰策略">淘汰策略</h1>
-<p>Redis的内存淘汰机制就是为了淘汰掉一些数据，保证Redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
-<ul>
-<li>noeviction 不进行任何淘汰操作，当内存不够时写命令会报错</li>
-<li>allkeys-lru 在所有的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
-<li>volatile-lru 在设置过期时间的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
-<li>allkeys-random 在所有的key中随机移除某个key</li>
-<li>volatile-random 在设置了过期时间的key中随机移除某个key</li>
-<li>volatile-ttl 在设置了过期时间的key中，删除过期时间最早的key</li>
-<li>allkeys-lfu 在所有的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
-<li>volatile-lfu 在设置过期时间的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
-</ul>
-<p><strong>备注</strong><br>
-这里删除的key其实只删除一个，这是因为Redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
 ]]></content>
     </entry>
 </feed>

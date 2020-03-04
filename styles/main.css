@@ -2001,4 +2001,6 @@ body {
       background: #222;
     }.box-scale > #landlord {
       transform: scale(0.8);
+    }.box-shadow-wrapper {
+      padding: 10px;
     }

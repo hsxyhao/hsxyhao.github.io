@@ -7,7 +7,7 @@
 <meta name="description" content="Gridea Next | 懂点前端的后端 | 中间件 | Java">
 <meta name="theme-color" content="#222">
 <title>Vim命令 | Madara</title>
-<link rel="shortcut icon" href="https://yeming.site/favicon.ico?v=1581597290808">
+<link rel="shortcut icon" href="https://yeming.site/favicon.ico?v=1583308929898">
 <link rel="stylesheet" href="https://yeming.site/styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -129,82 +129,7 @@
           
 
 <div class="sidebar">
-    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
-      
-      <div class="sidebar-body gemini" id="sidebar_body">
-        
-          
-<div class="sidebar-wrapper box-shadow-wrapper bg-color">
-  <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="https://yeming.site/images/avatar.png"/>
-    <p class="site-author-name">Madara</p>
-    <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
-  </div>
-  <div class="sidebar-item side-item-stat right-motion">
-    <div class="sidebar-item-box">
-      <a href="/archives/">
-        
-        <span class="site-item-stat-count">16</span>
-        <span class="site-item-stat-name">文章</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="">
-        <span class="site-item-stat-count">6</span>
-        <span class="site-item-stat-name">分类</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="/tags/">
-        <span class="site-item-stat-count">6</span>
-        <span class="site-item-stat-name">标签</span>
-      </a>
-    </div>
-  </div>
   
-    
-      <div class="sidebar-item" style="border-top: 1px dotted #ccc; margin-top: 10px;">
-      </div>
-    
-  
-  
-    <div class="sidebar-item sidebar-item-social">
-      <div class="social-item">
-        
-          
-            <a href="https://github.com/hsxyhao">
-              <i class="fa fa-github-alt"></i> Github
-            </a>
-          
-        
-        
-          
-            <a class="social-img" href="#">
-              <img src="/media/images/custom-array-imgSocials-1580730968548-socialImg.jpeg" />
-              <i class="fa fa-wechat"></i> 微信
-            </a>
-          
-        
-      </div>
-    </div>
-  
-
-
-  <div class="sidebar-item right-motion sidebar-item-friends">
-    <p class="friends-title"><i class="fa fa-globe"></i> 友情链接</p>
-    <div class="friends-box">
-      
-        <p>
-          <a href="https://hsxyhao.github.io/">【hsxyhao】</a>
-        </p>
-      
-    </div>
-  </div>
-
-</div>
-        
-      </div>
-    </div>
 </div>
 <script>
   const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
@@ -257,37 +182,37 @@
     showElement.classList.add(SIDEBAR_BODY_ACTIVE);
   }
 
-  postToc.addEventListener('transitionend', function() {
+  postToc && postToc.addEventListener('transitionend', function() {
     this.classList.remove(SLIDE_UP_IN);
   });
 
-
-  if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
-    let hasFix = false;
-    let scrollEl = document.querySelector('.main-continer');
-    let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
-    window.addEventListener('scroll', function(e) {
-    if (document.scrollingElement.scrollTop >= limitTop) {
-      if (!hasFix) {
-        sidebar.classList.add('sidebar-fixed');
-        hasFix = true;
-      }
-    } else {
-      if (hasFix) {
-        sidebar.classList.remove('sidebar-fixed');
-        hasFix = false;
-      }
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
     }
-  });
   }
   
 </script>
           <div class="section-box box-shadow-wrapper">
             <div class="section bg-color post post-page">
-              <div class="article-box">
-    <header class="post-header">
+              <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://yeming.site/post/vim-ming-ling-ji-lu">
+    <a class="post-title-link" href="https://yeming.site/post/vim-ming-ling-ji-lu/">
       Vim命令
     </a>
   </h1>
@@ -297,21 +222,21 @@
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
       <span>2019-12-05</span>
+      <span class="post-meta-divider pc-show">|</span>
     </span>
     
       <span class="meta-item">
-        <span class="post-meta-divider pc-show">|</span>
         <i class="fa fa-folder-o"></i>
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://yeming.site/tag/vim">
+            <a href="https://yeming.site/tag/vim/">
               <span>Vim</span>
             </a>、
           
         
           
-            <a href="https://yeming.site/tag/hot-key">
+            <a href="https://yeming.site/tag/hot-key/">
               <span>快捷键</span>
             </a>
           
@@ -328,9 +253,15 @@
       <i class="fa fa-file-word-o"></i>
       <span>273<span class="pc-show">字数</span></span>
     </span>
+    
+      <span id="/post/vim-ming-ling-ji-lu/" class="meta-item pc-show leancloud_visitors">
+        <span class="post-meta-divider">|</span>
+        <i class="fa fa-eye"></i>
+        <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
+      </span>
+    
   </div>
 </header>
-</div>
               <div class="post-body next-md-body" id="post_body">
                 <p>今天在公司领导问了个vim的命令，当时脑子一片空白，一时间语无伦次，场面甚是尴尬，真是书到用时方恨少啊！😰<br>
 作为一名后端开发，在日常开发的过程中肯定会接触到使用vim快捷命令，基本上都是用到的时候直接度娘，虽然会接触到一些常用的vim命令，毕竟不是运维，过段时间基本上会再次忘掉，下次在遇见的时候再度娘。期间难免会耽搁不少时间，但是我觉得特地学一下vim，又感觉有点力不从心，上班不比上学，不是每天都可以划水。最后想了下觉得应该把用到的vim命令记录下来，方便下次查阅，后面有时间的时候也翻一下，就当做记单词了吧。</p>
@@ -357,7 +288,7 @@ G 页末
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://yeming.site/post/vim-ming-ling-ji-lu" title="Vim命令">Vim命令</a>
+      <a href="https://yeming.site/post/vim-ming-ling-ji-lu/" title="Vim命令">Vim命令</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -366,23 +297,23 @@ G 页末
   </ul>
   <div class="tags">
     
-      <a href="https://yeming.site/tag/vim"># Vim</a>
+      <a href="https://yeming.site/tag/vim/"># Vim</a>
     
-      <a href="https://yeming.site/tag/hot-key"># 快捷键</a>
+      <a href="https://yeming.site/tag/hot-key/"># 快捷键</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Redis淘汰机制" href="https://yeming.site/post/redis-tao-tai-ji-zhi">Redis淘汰机制</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Redis淘汰机制" href="https://yeming.site/post/redis-tao-tai-ji-zhi">上一篇</a>
+        <a class="nav-pc-next" title="Redis淘汰机制" href="https://yeming.site/post/redis-tao-tai-ji-zhi/">Redis淘汰机制</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="Redis淘汰机制" href="https://yeming.site/post/redis-tao-tai-ji-zhi/">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Redis高可用" href="https://yeming.site/post/redis-gao-ke-yong">Redis高可用</a>
-        <a class="nav-mobile-next" title="Redis高可用" href="https://yeming.site/post/redis-gao-ke-yong">下一篇</a>
+        <a class="nav-pc-next" title="Redis高可用" href="https://yeming.site/post/redis-gao-ke-yong/">Redis高可用</a>
+        <a class="nav-mobile-next" title="Redis高可用" href="https://yeming.site/post/redis-gao-ke-yong/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
@@ -390,25 +321,23 @@ G 页末
 </div>
               
                 
-                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
 <script>
-  var gitalk = new Gitalk({
-    clientID: 'a9af4a1e2614527e9783',
-    clientSecret: 'fd14537b8379422f87a8182010e408cf1627d678',
-    repo: 'hsxyhao.github.io',
-    owner: 'hsxyhao',
-    admin: ['hsxyhao'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-  gitalk.render('gitalk-container')
+new Valine({
+    el: '#vcomments' ,
+    appId: 'MudG5LjoytmIhsrwdEXPzp2y-gzGzoHsz',
+    appKey: 'TLzYWUI2DEK7cnCkkmjbn1Ih',
+    notify: 'true' === '', 
+    avatar:'monsterid', 
+    placeholder: 'Just Go',
+    pageSize: '',
+    lang: 'zh-cn',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'normal',
+    avatarForce: 'true' === 'true',
+});
 </script>
-                
-                
               
             </div>
           </div>
@@ -417,10 +346,10 @@ G 页末
       <div class="footer-box">
   <footer class="footer">
     <div class="copyright">
-      © 2019-2020 <i class="fa fa-heart"></i> HsxyHao
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By HsxyHao
     </div>
     <div class="poweredby">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+      
     </div>
   </footer>
   
@@ -434,7 +363,50 @@ G 页末
     
   </div>
   
+    <div class="bg-img">
+      <img src="/media/images/custom-bgImg.jpg" />
+    </div>
   
+  
+  
+    
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div class="aplayer" id="aplayer"></div>
+  <input hidden id="player_cover" value="/media/images/custom-cover.jpg" />
+  <div class="music-list">
+  
+    
+    <input hidden value="光るなら ,Goose house,https://cn-south-17-aplayer-46154810.oss.dogecdn.com/hikarunara.mp3," />
+  
+  </div>
+  <script>
+  let musics = document.querySelector('.music-list').children;
+  let mediaMusic = [];
+  let cover = document.querySelector('#player_cover').value;
+  for (let i = 0; i < musics.length; i++) {
+    let item = musics[i];
+    let splits = item.value.split(',');
+    mediaMusic.push({
+      name: splits[0],
+      artist: splits[1],
+      url: splits[2],
+      lrc: splits[3],
+      cover: cover
+    });
+  }
+  console.log(mediaMusic);
+  const ap = new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      lrcType: 3,
+      listFolded: false,
+      listMaxHeight: 90,
+      audio: mediaMusic
+  });
+  </script>
+
+
   
 </div>
 <script>

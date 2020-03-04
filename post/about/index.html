@@ -7,7 +7,7 @@
 <meta name="description" content="Gridea Next | 懂点前端的后端 | 中间件 | Java">
 <meta name="theme-color" content="#222">
 <title>关于 | Madara</title>
-<link rel="shortcut icon" href="https://yeming.site/favicon.ico?v=1581597290808">
+<link rel="shortcut icon" href="https://yeming.site/favicon.ico?v=1583308929898">
 <link rel="stylesheet" href="https://yeming.site/styles/main.css">
 
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -129,91 +129,15 @@
           
 
 <div class="sidebar">
+  
     <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
-      
-        <div class="post-list-sidebar">
-          <div class="sidebar-title">
-            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
-            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
-          </div>
-        </div>
       
       <div class="sidebar-body gemini" id="sidebar_body">
         
-          <div class="post-side-meta" id="post_side_meta">
-            
-<div class="sidebar-wrapper box-shadow-wrapper bg-color">
-  <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="https://yeming.site/images/avatar.png"/>
-    <p class="site-author-name">Madara</p>
-    <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
-  </div>
-  <div class="sidebar-item side-item-stat right-motion">
-    <div class="sidebar-item-box">
-      <a href="/archives/">
-        
-        <span class="site-item-stat-count">16</span>
-        <span class="site-item-stat-name">文章</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="">
-        <span class="site-item-stat-count">6</span>
-        <span class="site-item-stat-name">分类</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="/tags/">
-        <span class="site-item-stat-count">6</span>
-        <span class="site-item-stat-name">标签</span>
-      </a>
-    </div>
-  </div>
-  
-    
-      <div class="sidebar-item" style="border-top: 1px dotted #ccc; margin-top: 10px;">
-      </div>
-    
-  
-  
-    <div class="sidebar-item sidebar-item-social">
-      <div class="social-item">
-        
           
-            <a href="https://github.com/hsxyhao">
-              <i class="fa fa-github-alt"></i> Github
-            </a>
-          
-        
-        
-          
-            <a class="social-img" href="#">
-              <img src="/media/images/custom-array-imgSocials-1580730968548-socialImg.jpeg" />
-              <i class="fa fa-wechat"></i> 微信
-            </a>
-          
-        
-      </div>
-    </div>
-  
-
-
-  <div class="sidebar-item right-motion sidebar-item-friends">
-    <p class="friends-title"><i class="fa fa-globe"></i> 友情链接</p>
-    <div class="friends-box">
-      
-        <p>
-          <a href="https://hsxyhao.github.io/">【hsxyhao】</a>
-        </p>
-      
-    </div>
-  </div>
-
-</div>
-          </div>
-          <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-            <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number auto" id="toc_wrapper">
+            <div style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number no_compress" id="toc_wrapper">
     <ul class="markdownIt-TOC">
 <li>
 <ul>
@@ -387,10 +311,12 @@ window.addEventListener('load', function() {
 })
 
 </script>
-          </div>
+            </div>
+          
         
       </div>
     </div>
+  
 </div>
 <script>
   const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
@@ -443,37 +369,37 @@ window.addEventListener('load', function() {
     showElement.classList.add(SIDEBAR_BODY_ACTIVE);
   }
 
-  postToc.addEventListener('transitionend', function() {
+  postToc && postToc.addEventListener('transitionend', function() {
     this.classList.remove(SLIDE_UP_IN);
   });
 
-
-  if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
-    let hasFix = false;
-    let scrollEl = document.querySelector('.main-continer');
-    let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
-    window.addEventListener('scroll', function(e) {
-    if (document.scrollingElement.scrollTop >= limitTop) {
-      if (!hasFix) {
-        sidebar.classList.add('sidebar-fixed');
-        hasFix = true;
-      }
-    } else {
-      if (hasFix) {
-        sidebar.classList.remove('sidebar-fixed');
-        hasFix = false;
-      }
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
     }
-  });
   }
   
 </script>
           <div class="section-box box-shadow-wrapper">
             <div class="section bg-color post post-page">
-              <div class="article-box">
-    <header class="post-header">
+              <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://yeming.site/post/about">
+    <a class="post-title-link" href="https://yeming.site/post/about/">
       关于
     </a>
   </h1>
@@ -483,6 +409,7 @@ window.addEventListener('load', function() {
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
       <span>2019-01-25</span>
+      <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
@@ -494,9 +421,15 @@ window.addEventListener('load', function() {
       <i class="fa fa-file-word-o"></i>
       <span>54<span class="pc-show">字数</span></span>
     </span>
+    
+      <span id="/post/about/" class="meta-item pc-show leancloud_visitors">
+        <span class="post-meta-divider">|</span>
+        <i class="fa fa-eye"></i>
+        <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
+      </span>
+    
   </div>
 </header>
-</div>
               <div class="post-body next-md-body" id="post_body">
                 <blockquote>
 <p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
@@ -518,7 +451,7 @@ window.addEventListener('load', function() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://yeming.site/post/about" title="关于">关于</a>
+      <a href="https://yeming.site/post/about/" title="关于">关于</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -539,25 +472,23 @@ window.addEventListener('load', function() {
 </div>
               
                 
-                  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
 <script>
-  var gitalk = new Gitalk({
-    clientID: 'a9af4a1e2614527e9783',
-    clientSecret: 'fd14537b8379422f87a8182010e408cf1627d678',
-    repo: 'hsxyhao.github.io',
-    owner: 'hsxyhao',
-    admin: ['hsxyhao'],
-    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-  gitalk.render('gitalk-container')
+new Valine({
+    el: '#vcomments' ,
+    appId: 'MudG5LjoytmIhsrwdEXPzp2y-gzGzoHsz',
+    appKey: 'TLzYWUI2DEK7cnCkkmjbn1Ih',
+    notify: 'true' === '', 
+    avatar:'monsterid', 
+    placeholder: 'Just Go',
+    pageSize: '',
+    lang: 'zh-cn',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'normal',
+    avatarForce: 'true' === 'true',
+});
 </script>
-                
-                
               
             </div>
           </div>
@@ -566,10 +497,10 @@ window.addEventListener('load', function() {
       <div class="footer-box">
   <footer class="footer">
     <div class="copyright">
-      © 2019-2020 <i class="fa fa-heart"></i> HsxyHao
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By HsxyHao
     </div>
     <div class="poweredby">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+      
     </div>
   </footer>
   
@@ -583,7 +514,50 @@ window.addEventListener('load', function() {
     
   </div>
   
+    <div class="bg-img">
+      <img src="/media/images/custom-bgImg.jpg" />
+    </div>
   
+  
+  
+    
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div class="aplayer" id="aplayer"></div>
+  <input hidden id="player_cover" value="/media/images/custom-cover.jpg" />
+  <div class="music-list">
+  
+    
+    <input hidden value="光るなら ,Goose house,https://cn-south-17-aplayer-46154810.oss.dogecdn.com/hikarunara.mp3," />
+  
+  </div>
+  <script>
+  let musics = document.querySelector('.music-list').children;
+  let mediaMusic = [];
+  let cover = document.querySelector('#player_cover').value;
+  for (let i = 0; i < musics.length; i++) {
+    let item = musics[i];
+    let splits = item.value.split(',');
+    mediaMusic.push({
+      name: splits[0],
+      artist: splits[1],
+      url: splits[2],
+      lrc: splits[3],
+      cover: cover
+    });
+  }
+  console.log(mediaMusic);
+  const ap = new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      lrcType: 3,
+      listFolded: false,
+      listMaxHeight: 90,
+      audio: mediaMusic
+  });
+  </script>
+
+
   
 </div>
 <script>
