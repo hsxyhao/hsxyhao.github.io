@@ -7,10 +7,10 @@
 <meta name="description" content="Gridea Next | 懂点前端的后端 | 中间件 | Java">
 <meta name="theme-color" content="#222">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://yeming.site/favicon.ico?v=1583309244855">
+<link rel="shortcut icon" href="https://yeming.site/favicon.ico?v=1583348510043">
 <link rel="stylesheet" href="https://yeming.site/styles/main.css">
 
-<link rel="stylesheet" href="/media/css/gemini.css">
+<link rel="stylesheet" href="/media/css/pisces.css">
 
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
@@ -30,7 +30,7 @@
     <div class="head-top-line"></div>
     <div class="header-box">
       
-<div class=" gemini">
+<div class=" pisces">
   <header class="header bg-color ">
     <div class="blog-header box-shadow-wrapper bg-color " id="header">
       <div class="nav-toggle" id="nav_toggle">
@@ -122,7 +122,7 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout  gemini">
+      <div class="section-layout  pisces">
         <div class="section-layout-wrapper">
           <div class="sidebar">
     
@@ -155,7 +155,11 @@
   </div>
   
     
-      <div class="sidebar-item" style="border-top: 1px dotted #ccc; margin-top: 10px;">
+      <div class="sidebar-item">
+        <span class="site-item-rss">
+            <i class="fa fa-rss"></i>
+            <a href="https://yeming.site/atom.xml" target="_blank">RSS</a>
+        </span>
       </div>
     
   
@@ -285,7 +289,7 @@
       
         
       
-      <a class="cloud-tag" href="https://yeming.site/tag/uCHcXlB40/" rel="3">Gridea</a>
+      <a class="cloud-tag" href="https://yeming.site/tag/uCHcXlB40" rel="3">Gridea</a>
     
       
       
@@ -369,7 +373,7 @@
       
         
       
-      <a class="cloud-tag" href="https://yeming.site/tag/redis/" rel="6">Redis</a>
+      <a class="cloud-tag" href="https://yeming.site/tag/redis" rel="6">Redis</a>
     
       
       
@@ -453,7 +457,7 @@
       
         
       
-      <a class="cloud-tag" href="https://yeming.site/tag/Kafka/" rel="3">Kafka</a>
+      <a class="cloud-tag" href="https://yeming.site/tag/Kafka" rel="3">Kafka</a>
     
       
       
@@ -535,7 +539,7 @@
       
         
       
-      <a class="cloud-tag" href="https://yeming.site/tag/mq/" rel="1">MQ</a>
+      <a class="cloud-tag" href="https://yeming.site/tag/mq" rel="1">MQ</a>
     
       
       
@@ -617,7 +621,7 @@
       
         
       
-      <a class="cloud-tag" href="https://yeming.site/tag/vim/" rel="1">Vim</a>
+      <a class="cloud-tag" href="https://yeming.site/tag/vim" rel="1">Vim</a>
     
       
       
@@ -701,7 +705,7 @@
       
         
       
-      <a class="cloud-tag" href="https://yeming.site/tag/hot-key/" rel="1">快捷键</a>
+      <a class="cloud-tag" href="https://yeming.site/tag/hot-key" rel="1">快捷键</a>
     
   </div>
 </div>
@@ -772,7 +776,7 @@
   </footer>
   
   
-  <div class="gemini back-to-top" id="back_to_top">
+  <div class="pisces back-to-top" id="back_to_top">
     <i class="fa fa-arrow-up"></i>
     
     <span class="scrollpercent">
@@ -786,45 +790,6 @@
     </div>
   
   
-  
-    
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-  <div class="aplayer" id="aplayer"></div>
-  <input hidden id="player_cover" value="/media/images/custom-cover.jpg" />
-  <div class="music-list">
-  
-    
-    <input hidden value="光るなら ,Goose house,https://cn-south-17-aplayer-46154810.oss.dogecdn.com/hikarunara.mp3," />
-  
-  </div>
-  <script>
-  let musics = document.querySelector('.music-list').children;
-  let mediaMusic = [];
-  let cover = document.querySelector('#player_cover').value;
-  for (let i = 0; i < musics.length; i++) {
-    let item = musics[i];
-    let splits = item.value.split(',');
-    mediaMusic.push({
-      name: splits[0],
-      artist: splits[1],
-      url: splits[2],
-      lrc: splits[3],
-      cover: cover
-    });
-  }
-  console.log(mediaMusic);
-  const ap = new APlayer({
-      container: document.getElementById('aplayer'),
-      fixed: true,
-      lrcType: 3,
-      listFolded: false,
-      listMaxHeight: 90,
-      audio: mediaMusic
-  });
-  </script>
-
-
   
 </div>
 <script>
