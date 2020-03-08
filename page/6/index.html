@@ -2,22 +2,22 @@
 <html>
   <head>
       <meta charset="UTF-8"/>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="Java | 个人博客 | Gridea | NexT | next">
 <meta name="description" content="Gridea Next | 懂点前端的后端 | 中间件 | Java">
 <meta name="theme-color" content="#222">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://yeming.site/favicon.ico?v=1583348510043">
-<link rel="stylesheet" href="https://yeming.site/styles/main.css">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/favicon.ico?v=1583649887505">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/media/css/gemini.css">
 
-<link rel="stylesheet" href="/media/css/pisces.css">
-
-<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
-<link href="/media/hljs/styles/default.css" rel="stylesheet">  
+<link href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/media/hljs/styles/default.css" rel="stylesheet">  
 
-<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/media/hljs/highlight.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
@@ -30,7 +30,7 @@
     <div class="head-top-line"></div>
     <div class="header-box">
       
-<div class=" pisces">
+<div class=" gemini">
   <header class="header bg-color ">
     <div class="blog-header box-shadow-wrapper bg-color " id="header">
       <div class="nav-toggle" id="nav_toggle">
@@ -57,33 +57,45 @@
           
             <li class="nav-item nav-item-active">
               
-                <a href="/">
-                  <i class="fa fa-home"></i> 首页
-                </a>
+              
+                
+                  <a href="/" target="_self">
+                    <i class="fa fa-home"></i> 首页
+                  </a>
+                
               
             </li>
           
             <li class="nav-item ">
               
-                <a href="/archives">
-                  <i class="fa fa-archive"></i> 归档
-                </a>
+              
+                
+                  <a href="/archives" target="_self">
+                    <i class="fa fa-archive"></i> 归档
+                  </a>
+                
               
             </li>
           
             <li class="nav-item ">
               
-                <a href="/tags">
-                  <i class="fa fa-tags"></i> 标签
-                </a>
+              
+                
+                  <a href="/tags" target="_self">
+                    <i class="fa fa-tags"></i> 标签
+                  </a>
+                
               
             </li>
           
             <li class="nav-item ">
               
-                <a href="/post/about">
-                  <i class="fa fa-user"></i> 关于
-                </a>
+              
+                
+                  <a href="/post/about" target="_self">
+                    <i class="fa fa-user"></i> 关于
+                  </a>
+                
               
             </li>
           
@@ -122,9 +134,9 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout pisces ">
+      <div class="section-layout gemini ">
         <div class="section-layout-wrapper">
-          <div class="sidebar">
+          <div id="sidebarMeta" class="sidebar">
     
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
@@ -136,7 +148,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">17</span>
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -199,77 +211,23 @@
 
 </div>
 </div>
-          <div class="section-box pisces">
-            <section class="section bg-color posts-expand slide-down-in">
+<script>
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'gemini';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
+      }
+    });
+  }
+  </script>
+          <div class="section-box gemini">
+            <section class="section  posts-expand slide-down-in">
               
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://yeming.site/post/rui-shi-jun-dao-redis">
-      Redis入门知识点
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2019-11-14</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://yeming.site/tag/redis">
-              <span>Redis</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>10分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>2278<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-          <p>redis有哪些基础数据结构，什么是快速链表，什么是跳跃链表，使用redis特有的数据类型可以实现哪些有趣的功能。</p>
-<blockquote>
-<p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.<br>
-<img src="https://hsxyhao.github.io/post-images/1577761648931.png" alt="" loading="lazy"></p>
-</blockquote>
-<p>上面一段话取自Redis官方的介绍，为什么要把它放在这里，我觉得这是介绍Redis最为标准的一段话，从用途、数据结构已经功能等多方面介绍，如果以后面试官叫你介绍下redis的话，我觉得可以直接把这段话背下来😌。至于为什么把Redis称为瑞士军刀，相信用过redis的人都会这么认为。</p>
-
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://yeming.site/post/rui-shi-jun-dao-redis" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
-      
-    </div>
-  </article>
-
   <article class="post-list-box  post box-shadow-wrapper">
     <div class="article-wrapper bg-color">
       <header class="post-header">
@@ -327,10 +285,6 @@
         </div>
         
       </div>
-      
-        <footer class="post-footer">
-          <div class="post-eof"></div>
-        </footer>
       
     </div>
   </article>
@@ -395,7 +349,7 @@
   </footer>
   
   
-  <div class="pisces back-to-top" id="back_to_top">
+  <div class="gemini back-to-top" id="back_to_top">
     <i class="fa fa-arrow-up"></i>
     
     <span class="scrollpercent">
@@ -405,7 +359,7 @@
   </div>
   
     <div class="bg-img">
-      <img src="/media/images/custom-bgImg.jpg" />
+      <img src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/media/images/custom-bgImg.jpg" />
     </div>
   
   
@@ -547,5 +501,5 @@
 </script>
     </div>
   </body>
-  <script src="/media/js/motion.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/media/js/motion.js"></script>
 </html>

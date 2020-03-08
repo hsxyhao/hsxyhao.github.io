@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yeming.site</id>
     <title>Madara</title>
-    <updated>2020-03-04T19:01:52.395Z</updated>
+    <updated>2020-03-08T06:52:05.871Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yeming.site"/>
     <link rel="self" href="https://yeming.site/atom.xml"/>
@@ -10,13 +10,6 @@
     <logo>https://yeming.site/images/avatar.png</logo>
     <icon>https://yeming.site/favicon.ico</icon>
     <rights>All rights reserved 2020, Madara</rights>
-    <entry>
-        <title type="html"><![CDATA[NexT-TechZone]]></title>
-        <id>https://yeming.site/post/zVcsib6Ce</id>
-        <link href="https://yeming.site/post/zVcsib6Ce">
-        </link>
-        <updated>2020-02-07T05:36:09.000Z</updated>
-    </entry>
     <entry>
         <title type="html"><![CDATA[最新版NexT主题使用教程]]></title>
         <id>https://yeming.site/post/Och5LtMIu</id>
@@ -162,6 +155,57 @@
 <p>维基百科中的解释，但是总感觉一大串术语，又是进程又是通信的，还有各种设备什么的。对于小白来说就用最简单的一句话就行了，消息队列就是用来发送和接收消息的<strong>队列</strong>，发送消息方叫作<strong>生产者</strong>，接收消息方叫作<strong>消费者</strong>。<br>
 不要纠结这些专业术语了，我们了解消息队列主要用来业务上的问题的，老是按照专业的角度去理解多费事，入门简单的了解它是干什么的解决了什么问题就行了😜</p>
 </blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Redis淘汰机制]]></title>
+        <id>https://yeming.site/post/redis-tao-tai-ji-zhi</id>
+        <link href="https://yeming.site/post/redis-tao-tai-ji-zhi">
+        </link>
+        <updated>2019-12-05T06:01:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>说到Redis的内存淘汰机制，突然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似Redis的内存淘汰机制了。</p>
+<h1 id="删除策略">删除策略</h1>
+<ul>
+<li>定时删除:在设置键的过期时间的同时，创建一个定时器 timer). 让定时器在键的过期 时间来临时，立即执行对键的删除操作。</li>
+<li>惰性删除:放任键过期不管，但是每次从键空间中获取键时，都检查取得的键是否过 期，如果过期的话，就删除该键;如果没有过期，就返回该键。</li>
+<li>定期删除:每隔一段时间程序就对数据库进行一次检查，删除里面的过期键。至于要 删除多少过期键，以及要检查多少个数据库，则由算法决定。</li>
+</ul>
+<h1 id="淘汰策略">淘汰策略</h1>
+<p>Redis的内存淘汰机制就是为了淘汰掉一些数据，保证Redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
+<ul>
+<li>noeviction 不进行任何淘汰操作，当内存不够时写命令会报错</li>
+<li>allkeys-lru 在所有的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>volatile-lru 在设置过期时间的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>allkeys-random 在所有的key中随机移除某个key</li>
+<li>volatile-random 在设置了过期时间的key中随机移除某个key</li>
+<li>volatile-ttl 在设置了过期时间的key中，删除过期时间最早的key</li>
+<li>allkeys-lfu 在所有的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+<li>volatile-lfu 在设置过期时间的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+</ul>
+<p><strong>备注</strong><br>
+这里删除的key其实只删除一个，这是因为Redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>说到Redis的内存淘汰机制，突然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似Redis的内存淘汰机制了。</p>
+<h1 id="删除策略">删除策略</h1>
+<ul>
+<li>定时删除:在设置键的过期时间的同时，创建一个定时器 timer). 让定时器在键的过期 时间来临时，立即执行对键的删除操作。</li>
+<li>惰性删除:放任键过期不管，但是每次从键空间中获取键时，都检查取得的键是否过 期，如果过期的话，就删除该键;如果没有过期，就返回该键。</li>
+<li>定期删除:每隔一段时间程序就对数据库进行一次检查，删除里面的过期键。至于要 删除多少过期键，以及要检查多少个数据库，则由算法决定。</li>
+</ul>
+<h1 id="淘汰策略">淘汰策略</h1>
+<p>Redis的内存淘汰机制就是为了淘汰掉一些数据，保证Redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
+<ul>
+<li>noeviction 不进行任何淘汰操作，当内存不够时写命令会报错</li>
+<li>allkeys-lru 在所有的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>volatile-lru 在设置过期时间的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>allkeys-random 在所有的key中随机移除某个key</li>
+<li>volatile-random 在设置了过期时间的key中随机移除某个key</li>
+<li>volatile-ttl 在设置了过期时间的key中，删除过期时间最早的key</li>
+<li>allkeys-lfu 在所有的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+<li>volatile-lfu 在设置过期时间的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+</ul>
+<p><strong>备注</strong><br>
+这里删除的key其实只删除一个，这是因为Redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
 ]]></content>
     </entry>
 </feed>

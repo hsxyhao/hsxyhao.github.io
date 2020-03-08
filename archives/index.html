@@ -2,22 +2,22 @@
 <html>
   <head>
       <meta charset="UTF-8"/>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="Java | 个人博客 | Gridea | NexT | next">
 <meta name="description" content="Gridea Next | 懂点前端的后端 | 中间件 | Java">
 <meta name="theme-color" content="#222">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://yeming.site/favicon.ico?v=1583348510043">
-<link rel="stylesheet" href="https://yeming.site/styles/main.css">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/favicon.ico?v=1583649887505">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/media/css/gemini.css">
 
-<link rel="stylesheet" href="/media/css/pisces.css">
-
-<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
-<link href="/media/hljs/styles/default.css" rel="stylesheet">  
+<link href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/media/hljs/styles/default.css" rel="stylesheet">  
 
-<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/media/hljs/highlight.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
@@ -31,7 +31,7 @@
     <div class="head-top-line"></div>
     <div class="header-box">
       
-<div class=" pisces">
+<div class=" gemini">
   <header class="header bg-color ">
     <div class="blog-header box-shadow-wrapper bg-color " id="header">
       <div class="nav-toggle" id="nav_toggle">
@@ -58,33 +58,45 @@
           
             <li class="nav-item ">
               
-                <a href="/">
-                  <i class="fa fa-home"></i> 首页
-                </a>
+              
+                
+                  <a href="/" target="_self">
+                    <i class="fa fa-home"></i> 首页
+                  </a>
+                
               
             </li>
           
             <li class="nav-item nav-item-active">
               
-                <a href="/archives">
-                  <i class="fa fa-archive"></i> 归档
-                </a>
+              
+                
+                  <a href="/archives" target="_self">
+                    <i class="fa fa-archive"></i> 归档
+                  </a>
+                
               
             </li>
           
             <li class="nav-item ">
               
-                <a href="/tags">
-                  <i class="fa fa-tags"></i> 标签
-                </a>
+              
+                
+                  <a href="/tags" target="_self">
+                    <i class="fa fa-tags"></i> 标签
+                  </a>
+                
               
             </li>
           
             <li class="nav-item ">
               
-                <a href="/post/about">
-                  <i class="fa fa-user"></i> 关于
-                </a>
+              
+                
+                  <a href="/post/about" target="_self">
+                    <i class="fa fa-user"></i> 关于
+                  </a>
+                
               
             </li>
           
@@ -123,9 +135,9 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout  pisces">
+      <div class="section-layout  gemini">
         <div class="section-layout-wrapper">
-          <div class="sidebar">
+          <div id="sidebarMeta" class="sidebar">
     
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
@@ -137,7 +149,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">17</span>
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -200,6 +212,20 @@
 
 </div>
 </div>
+<script>
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'gemini';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
+      }
+    });
+  }
+  </script>
           <div class="section-box box-shadow-wrapper">
             <section class="section archives-section bg-color posts-expand">
               
@@ -208,7 +234,7 @@
   <div class="archive-timeline-box">
     <div class="archive-timeline-title">
       
-        <h2>非常好！目前共计17篇日志，继续努力！</h2>
+        <h2>非常好！目前共计16篇日志，继续努力！</h2>
       
     </div>
     
@@ -218,19 +244,6 @@
           <h2 class="tag-year">2020</h2>
         </div>    
         
-      
-      <a href="https://yeming.site/post/zVcsib6Ce">
-        <div class="motion-warpper tag-archive-node">
-          <div class="tag-node">
-            <h1>
-              02-07
-              <small>NexT-TechZone</small>
-            </h1>
-          </div>  
-      </div>
-      </a>
-    
-      
       
       <a href="https://yeming.site/post/Och5LtMIu">
         <div class="motion-warpper tag-archive-node">
@@ -477,7 +490,7 @@
   </footer>
   
   
-  <div class="pisces back-to-top" id="back_to_top">
+  <div class="gemini back-to-top" id="back_to_top">
     <i class="fa fa-arrow-up"></i>
     
     <span class="scrollpercent">
@@ -487,7 +500,7 @@
   </div>
   
     <div class="bg-img">
-      <img src="/media/images/custom-bgImg.jpg" />
+      <img src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io/media/images/custom-bgImg.jpg" />
     </div>
   
   
