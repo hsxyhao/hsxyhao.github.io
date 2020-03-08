@@ -57,7 +57,7 @@ if(!norunFlag){
 		function initTips(){
 			$.ajax({
 				cache: true,
-				url: '<%= site.customConfig.cdn %>'+message_Path+'message.json',
+				url: message_Path+'message.json',
 				dataType: "json",
 				success: function (result){
 					$.each(result.mouseover, function (index, tips){
