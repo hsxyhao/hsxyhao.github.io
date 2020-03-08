@@ -437,10 +437,10 @@ if(!norunFlag){
 	}
 	$(document).ready(function() {
 		var AIimgSrc = [
-			message_Path + "/media/live2d/histoire/model/histoire/histoire.1024/texture_00.png",
-			message_Path + "/media/live2d/histoire/model/histoire/histoire.1024/texture_01.png",
-			message_Path + "/media/live2d/histoire/model/histoire/histoire.1024/texture_02.png",
-			message_Path + "/media/live2d/histoire/model/histoire/histoire.1024/texture_03.png"
+			"/media/live2d/histoire/model/histoire/histoire.1024/texture_00.png",
+			"/media/live2d/histoire/model/histoire/histoire.1024/texture_01.png",
+			"/media/live2d/histoire/model/histoire/histoire.1024/texture_02.png",
+			"/media/live2d/histoire/model/histoire/histoire.1024/texture_03.png"
 		]
 		var images = [];
 		var imgLength = AIimgSrc.length;
