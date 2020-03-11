@@ -8,16 +8,16 @@
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
 <title>消息队列学习开篇 | Madara</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.7/favicon.ico?v=1583920948546">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.7/styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.7/media/css/gemini.css">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.8/favicon.ico?v=1583923660943">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.8/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.8/media/css/gemini.css">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.7/media/fonts/font-awesome.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.8/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
-<link href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.7/media/hljs/styles/default.css" rel="stylesheet">  
+<link href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.8/media/hljs/styles/default.css" rel="stylesheet">  
 
-<script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.7/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.8/media/hljs/highlight.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
@@ -231,9 +231,6 @@ function addTocNumber(elem, deep) {
     }
   } else if (prop === HTMLLIElement.prototype) {
     // 保存li元素
-    if (elem.children.length <= 0) {
-      continue;
-    }
     if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
       lList.push(elem);
     }
@@ -249,60 +246,6 @@ function addTocNumber(elem, deep) {
     }
   }
 }
-
-
-document.addEventListener('scroll', function(e) {
-  if (lList.length <= 0) {
-    return;
-  }
-  let scrollTop = document.scrollingElement.scrollTop + 10;
-  let dir;
-
-  if (lastTop - scrollTop > 0) {
-    dir = 'up';
-  } else {
-    dir = 'down';
-  }
-
-  lastTop = scrollTop;
-  if (scrollTop <= 0) {
-    if (lastIndex >= 0 && lastIndex < hList.length) {
-      lList[lastIndex].classList.remove(activeClass);
-    }
-    return;
-  }
-
-  let current = 0, hasFind = false;
-  for (let i = 0; i < hList.length; i++) {
-    if (hList[i].offsetTop > scrollTop) {
-      current = i;
-      hasFind = true;
-      break;
-    }
-  }
-  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-    current = hList.length - 1;
-  } else {
-    current--;
-  }
-  if (dir === 'down') {
-    if (current > lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex) 
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  } else {
-    if (current < lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex);
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  }
-});
 
 function removeParentActiveClass() {
   let parents = tocContent.querySelectorAll('.'+active)
@@ -356,7 +299,68 @@ function showToc() {
     }
   }
 }
-addTocNumber(tocContent, '');
+
+(function() {
+  // 处理不是从#一级标题开始目录
+  if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+    let con = tocContent.children[0].children[0];
+    tocContent.innerHTML = con.innerHTML;
+  }
+  addTocNumber(tocContent, '');
+})();
+
+document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
+  let scrollTop = document.scrollingElement.scrollTop + 10;
+  let dir;
+
+  if (lastTop - scrollTop > 0) {
+    dir = 'up';
+  } else {
+    dir = 'down';
+  }
+
+  lastTop = scrollTop;
+  if (scrollTop <= 0) {
+    if (lastIndex >= 0 && lastIndex < hList.length) {
+      lList[lastIndex].classList.remove(activeClass);
+    }
+    return;
+  }
+
+  let current = 0, hasFind = false;
+  for (let i = 0; i < hList.length; i++) {
+    if (hList[i].offsetTop > scrollTop) {
+      current = i;
+      hasFind = true;
+      break;
+    }
+  }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  } else {
+    current--;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  } else {
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
+});
 
 window.addEventListener('load', function() {
   showToc();
@@ -795,7 +799,7 @@ new Valine({
   </div>
   
     <div class="bg-img">
-      <img src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.7/media/images/custom-bgImg.jpg" />
+      <img src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.8/media/images/custom-bgImg.jpg" />
     </div>
   
   
@@ -804,7 +808,7 @@ new Valine({
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
   <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
   <div class="aplayer" id="aplayer"></div>
-  <input hidden id="player_cover" value="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.7/media/images/custom-cover.jpg" />
+  <input hidden id="player_cover" value="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.8/media/images/custom-cover.jpg" />
   <div class="music-list">
   
     
@@ -975,5 +979,5 @@ new Valine({
 </script>
     </div>
   </body>
-  <script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.7/media/js/motion.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.8/media/js/motion.js"></script>
 </html>
