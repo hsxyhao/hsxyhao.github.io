@@ -7,7 +7,7 @@
 <meta name="keywords" content="Java | 个人博客 | Gridea | NexT | next">
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
-<title>打水网站破解记录 | Madara</title>
+<title>Next使用文档（长期维护） | Madara</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.7/favicon.ico?v=1583920948546">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.7/styles/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.7/media/css/gemini.css">
@@ -47,7 +47,7 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-    <meta name="description" content="打水网站破解记录" />
+    <meta name="description" content="Next使用文档（长期维护）" />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -175,6 +175,198 @@ var _hmt = _hmt || [];
 
 <div class="sidebar">
   
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            <div style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number no_compress" id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a>
+<ul>
+<li><a href="#%E9%AD%94%E6%94%B9">魔改</a></li>
+<li><a href="#valine%E8%AF%84%E8%AE%BA">Valine评论</a></li>
+<li><a href="#%E7%9C%8B%E6%9D%BF%E5%A8%98">看板娘</a></li>
+<li><a href="#cdn">CDN</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
+let active = 'active-show', activeClass = 'active-current';
+let tocWrapper = document.querySelector('#toc_wrapper');
+let tocContent = tocWrapper.children[0];
+let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
+
+function addTocNumber(elem, deep) {
+  if (!elem) {
+    return;
+  }
+  let prop = elem.__proto__;
+
+  if (prop === HTMLUListElement.prototype) {
+    for (let i = 0; i < elem.children.length; i++) {
+      addTocNumber(elem.children[i], deep + (i + 1) + '.');
+    }
+  } else if (prop === HTMLLIElement.prototype) {
+    // 保存li元素
+    if (elem.children.length <= 0) {
+      continue;
+    }
+    if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+      lList.push(elem);
+    }
+    for (let i = 0; i < elem.children.length; i++) {
+      let cur = elem.children[i];
+      if (cur.__proto__ === HTMLAnchorElement.prototype) {
+        if (autoNumber) {
+          cur.text =  deep + ' ' + cur.text;
+        }
+      } else if (cur.__proto__ === HTMLUListElement.prototype) {
+        addTocNumber(cur, deep);
+      }
+    }
+  }
+}
+
+
+document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
+  let scrollTop = document.scrollingElement.scrollTop + 10;
+  let dir;
+
+  if (lastTop - scrollTop > 0) {
+    dir = 'up';
+  } else {
+    dir = 'down';
+  }
+
+  lastTop = scrollTop;
+  if (scrollTop <= 0) {
+    if (lastIndex >= 0 && lastIndex < hList.length) {
+      lList[lastIndex].classList.remove(activeClass);
+    }
+    return;
+  }
+
+  let current = 0, hasFind = false;
+  for (let i = 0; i < hList.length; i++) {
+    if (hList[i].offsetTop > scrollTop) {
+      current = i;
+      hasFind = true;
+      break;
+    }
+  }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  } else {
+    current--;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  } else {
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
+});
+
+function removeParentActiveClass() {
+  let parents = tocContent.querySelectorAll('.'+active)
+  parents.forEach(function(elem) {
+    elem.classList.remove(active);
+  });
+}
+
+function addActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.add(activeClass);
+  }
+}
+
+function removeActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.remove(activeClass);
+  }
+}
+
+function addActiveLiElemment(elem, parent) {
+  if (!elem || elem === parent) {
+    return;
+  } else {
+    if (elem.__proto__ === HTMLLIElement.prototype) {
+      elem.classList.add(active);
+    }
+    addActiveLiElemment(elem.parentElement, parent);
+  }
+}
+
+function showToc() {
+  if (tocWrapper) {
+    postBody = document.querySelector('#post_body');
+    for (let i = 0; i < postBody.children.length; i++) {
+      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+        hList.push(postBody.children[i]);
+      }
+    }
+    if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+    } else if (tocWrapper.classList.contains('no_compress')){
+      tocContent.classList.add('expanded');
+    } else {
+      if (hList.length > 10) {
+        active = 'active-hidden'
+        tocContent.classList.add('closed');
+      } else {
+        tocContent.classList.add('expanded');
+      }
+    }
+  }
+}
+addTocNumber(tocContent, '');
+
+window.addEventListener('load', function() {
+  showToc();
+  document.querySelector('#sidebar').style='display: block;';
+  tocWrapper.classList.add('toc-active');
+  setTimeout(function() {
+    if ("createEvent" in document) {
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("scroll", false, true);
+      document.dispatchEvent(evt);
+    }
+    else {
+      document.fireEvent("scroll");
+    }
+  }, 500)
+})
+
+</script>
+            </div>
+          
+        
+      </div>
+    </div>
+  
 </div>
 <script>
   const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
@@ -257,34 +449,40 @@ var _hmt = _hmt || [];
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://yeming.site/post/da-shui-wang-zhan-po-jie-ji-lu">
-      打水网站破解记录
+    <a class="post-title-link" href="https://yeming.site/post/1JA_OJlig">
+      Next使用文档（长期维护）
     </a>
   </h1>
   <div class="post-meta">
     
+      <span class="meta-item">
+        <i class="fa fa-thumb-tack"></i>
+        <span>置顶</span>
+        <span class="post-meta-divider">|</span>
+      </span>
+    
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-01-01</span>
+      <span>2020-03-10</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>5分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>161<span class="pc-show">字数</span></span>
+      <span>1172<span class="pc-show">字数</span></span>
     </span>
     
       
       
         
       
-      <span id="/post/da-shui-wang-zhan-po-jie-ji-lu/" data-flag-title="打水网站破解记录" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/1JA_OJlig/" data-flag-title="Next使用文档（长期维护）" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -293,27 +491,31 @@ var _hmt = _hmt || [];
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <p>https://1005022.com:7730/<br>
-随机数: Math.random() + (new Date).getTime()<br>
-/infe/verify/mkcode?_= Math.random() + (new Date).getTime()<br>
-SR，SS，TS都在这个结果集里面，以；分隔开</p>
-<p>获取验证码url<br>
-https://1005022.com:7730/infe/verify/macpic?SR=e2ffb43003014a0e7af4</p>
-<p>登录url<br>
-https://1005022.com:7730/entrance/login.json?k=YWVmNmI5NmY1NzJmYWEzYTYwYzA0Yzc5Mzc0MDljYjczOWY1YjZlOWZkMTMwZjI3OQ==</p>
-<p>bobIM体育，https://www.bobvip22.com/</p>
-<p>登录不需要验证码，直接登录</p>
-<p>账号管理系统</p>
-<p>账号客户端登录冻结方式<br>
-付费方式<br>
-冻结方式<br>
-转账方式<br>
-使用人员<br>
-破解的网站</p>
-<p>基础倍数：投注金额 = 单笔投注 * 基础倍数<br>
-投注优先：<br>
-赛事绑定：每个网站翻译<br>
-滚球：比赛正在提的时间</p>
+                <p>Next主题是翻版hexo平台上的主题，由于其简约的风格深受用户的喜爱，不过很可惜的是hexo在使用上有很多不足之处。而gridea则弥补了其很多的缺点，但是目前gridea仍处于成长阶段，bug也有不少，至于Next主题情况也是类似，从开发至今大概以及过去了3个月的时间，还处于一个很不稳定的阶段，这个阶段在功能上会有很大的调整，很多用户还不是很会使用这个主题。所以准备维护一个使用文档，帮助大家解决问题。</p>
+<!-- more -->
+<h1 id="介绍">介绍</h1>
+<p>原版的Next主题有很多个性化的设计，在这里尽量按照原版的来开发，其一是尊重原著，第二也是对用户友好。Next目前除了每个博客主题基础的功能外，还是实现了其他一些常用的功能，主要有以下几个功能:<br>
+<code>魔改</code>、<code>Valine评论</code>、<code>看板娘</code>、<code>CDN</code>、<code>跟踪</code>、<code>Aplayer</code>，其他的自定义配置基本上都是兼容或者一些细节的更改，在使用上基本上没有难度。</p>
+<h2 id="魔改">魔改</h2>
+<p>魔改功能主要是为了整合网上那些基于Next主题，进行改动的主题，<a href="/post/Och5LtMIu">这篇博客</a>有介绍魔改的具体使用，感兴趣的可以前往阅读。目前的魔改功能不是很完善，还有很多缺点。主要包含以下几点：</p>
+<ol>
+<li>魔改后的主题款式不是很多，基本上也就三种（<a href="https://hunter1023.github.io">特殊服务</a>、<a href="http://lyxf.live">乐屿心扉</a>、<a href="https://hasaik.com/links/">Xu's Blog</a>），而且最后一个有些地方并没有做到完全一致，主要是感觉过于炫，有点脱离Next主题的宗旨。</li>
+<li>在使用魔改功能的时候有的地方会改动很大。</li>
+<li>还有一点就是，由于目前的next主题除了兼容自身的四种风格外，还要加上魔改功能，所以有些地方的初始化配置会变得特别难看不着调，造成用户在切换主题时需要大量修改配置，这也是比较恶心的地方。</li>
+</ol>
+<blockquote>
+<p>目前的精力无法完全放在这个功能点上，所以魔改的地方以后还要再进行优化，如果大家有发现比较好看的魔改主题的话，可以在评论区下方留言。</p>
+</blockquote>
+<h2 id="valine评论">Valine评论</h2>
+<p>目前gridea只有两种评论，但是社区中大家对于Valine的呼声也是很高，所以主题开发作者自己来实现。Valine其实总体上感觉还不错，除了常规的评论意外，还能记录文章浏览量，而且加载速度比gittalk要快上不少，推荐大家使用valine，如果后期gridea将支持valine，我会将valine从主题中移除，这点需要注意。<br>
+Valine评论的使用简单，基本上只要注册个账号就能使用了，没有账户的可以去<a href="https://leancloud.cn/">LeanCloud官网注册</a>，注册好之后把appid和appkey填上就行了，然后在安全中心把自己的web域名填上就行了。至于 valine的其他功能大家可以去网上搜索下，或者评论留言，就不在博客中写了。<br>
+<img src="https://yeming.site/post-images/1583866827630.png" alt="" loading="lazy"></p>
+<h2 id="看板娘">看板娘</h2>
+<p>看板娘就是博客上的动画萌宠，用来增加博客的萌值。next主题的看板娘有以下几个功能，AI聊天，病毒特效，背景音乐。其中AI聊天需要注册图灵机器人账号，免费的一天也就几次调用量。背景音乐是网络资源，不是本地上传的（网络资源是指那种类似网页链接但是以.mp3结尾的url）。还有就是看板娘的大小是可以调整的，在缩放里设置一个0~1的值就行了。</p>
+<h2 id="cdn">CDN</h2>
+<p>CDN全名叫做内容分发网络，简单的理解就是让你的博客加载速度更快一点，目前我使用的是jsDeliver免费CDN，当然大家也可以使用其他CDN产品，除了jsDeliver其他的都需要自行上传博客的静态文件。如果你使用的是jsDeliver，需要按照这种模式来生成网页的前缀url：<br>
+https://cdn.jsdelivr.net/gh/{github账户}/{博客仓库}@{仓库的release版本}<br>
+这里的仓库版本是可选的，网上说如果不填每次都会获取最新的内容，但是我在测试的时候发现好像并不是，所以在这里建议大家如果有除博客文章外的静态资源更改了还是填写一下版本号比较好。</p>
 
               </div>
               <div class="post-footer">
@@ -324,7 +526,7 @@ https://1005022.com:7730/entrance/login.json?k=YWVmNmI5NmY1NzJmYWEzYTYwYzA0Yzc5M
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://yeming.site/post/da-shui-wang-zhan-po-jie-ji-lu" title="打水网站破解记录">打水网站破解记录</a>
+      <a href="https://yeming.site/post/1JA_OJlig" title="Next使用文档（长期维护）">Next使用文档（长期维护）</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
