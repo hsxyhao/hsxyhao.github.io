@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8"/>
+      <meta charset="UTF-8"/>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="Coder | 个人博客 | Gridea | NexT ">
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
-<title>NexT主题更新日志 | Madara</title>
+<title>Madara</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.10/favicon.ico?v=1584697106525">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.10/styles/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.10/media/css/gemini.css">
@@ -47,8 +47,6 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-    <meta name="description" content="NexT主题更新日志" />
-    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -156,7 +154,7 @@ var _hmt = _hmt || [];
           
           
             
-              <li class="nav-item ">
+              <li class="nav-item nav-item-active">
                 <a href="/friends" target="_self">
                   
                     ️️️️️⛵友链
@@ -197,185 +195,96 @@ var _hmt = _hmt || [];
       
       <div class="section-layout gemini ">
         <div class="section-layout-wrapper">
-          
-
-<div class="sidebar">
-  
-</div>
-<script>
-  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
-  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
-  const SLIDE_UP_IN = 'slide-up-in';
-
-  let sidebar = document.querySelector('#sidebar'),
-  tocSideBar = document.querySelector('#tocSideBar'),
-  metaSideBar = document.querySelector('#metaSideBar'),
-  postToc = document.querySelector('#post_toc'),
-  postSiteMeta = document.querySelector('#post_side_meta'),
-  sidebarTitle = document.querySelector('.sidebar-title'),
-  sidebarBody = document.querySelector('#sidebar_body');
-
-  tocSideBar && tocSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  metaSideBar && metaSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  function toggleSidebar(e) {
-    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
-    if (currentTitle == e.srcElement) {
-      return ;
-    }
-    let current, showElement, hideElement;
-    if (e.srcElement == metaSideBar) {
-      showElement = postSiteMeta;
-      hideElement = postToc;
-    } else if (e.srcElement == tocSideBar){
-      showElement = postToc;
-      hideElement = postSiteMeta;
-    }
-    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
-    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
-
-    window.Velocity(hideElement, 'stop');
-    window.Velocity(hideElement, 'transition.slideUpOut', {
-      display: 'none',
-      duration: 200,
-      complete: function () {
-        window.Velocity(showElement, 'transition.slideDownIn', {
-          duration: 200
-        });
-      }
-    })
-    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
-    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
-  }
-
-  postToc && postToc.addEventListener('transitionend', function() {
-    this.classList.remove(SLIDE_UP_IN);
-  });
-
-  if (sidebarBody) {
-    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
-      let hasFix = false;
-      let scrollEl = document.querySelector('.main-continer');
-      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
-      window.addEventListener('scroll', function(e) {
-        if (document.scrollingElement.scrollTop >= limitTop) {
-          if (!hasFix) {
-            sidebar.classList.add('sidebar-fixed');
-            hasFix = true;
-          }
-        } else {
-          if (hasFix) {
-            sidebar.classList.remove('sidebar-fixed');
-            hasFix = false;
-          }
-        }
-      });
-    }
-  }
-  
-</script>
-          <div class="section-box box-shadow-wrapper">
-            <div class="section bg-color post post-page">
-              <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://yeming.site/post/skin-update">
-      NexT主题更新日志
-    </a>
-  </h1>
-  <div class="post-meta">
+          <div id="sidebarMeta" class="sidebar">
     
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2020-01-02</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>49<span class="pc-show">字数</span></span>
-    </span>
-    
-      
-      
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.10/images/avatar.png"/>
+    <p class="site-author-name">Madara</p>
+    <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
         
-      
-      <span id="/post/skin-update/" data-flag-title="NexT主题更新日志" class="meta-item pc-show leancloud_visitors">
-        <span class="post-meta-divider">|</span>
-        <i class="fa fa-eye"></i>
-        <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
-      </span>
-    
+        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-name">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">6</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">6</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
   </div>
-</header>
-              <div class="post-body next-md-body" id="post_body">
-                <p>更新提示</p>
-<p>后期主题自定义配置支持<br>
-黑夜模式，<br>
-文章宽度自定义<br>
-社交方式自定义<br>
-文章目录是否自动添加序号<br>
-主题风格</p>
+  
+    
+      <div class="sidebar-item">
+        <span class="site-item-rss">
+            <i class="fa fa-rss"></i>
+            <a href="https://yeming.site/atom.xml" target="_blank">RSS</a>
+        </span>
+      </div>
+    
+  
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
+        
+          
+            <a href="https://github.com/hsxyhao">
+              <i class="fa fa-github-alt"></i> Github
+            </a>
+          
+        
+        
+      </div>
+    </div>
+  
 
-              </div>
-              <div class="post-footer">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong>本文作者：</strong>
-      Madara
-    </li>
-    <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://yeming.site/post/skin-update" title="NexT主题更新日志">NexT主题更新日志</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong>
-      本博客所有文章除特别声明外，转载请注明出处！
-    </li>
-  </ul>
-  <div class="tags">
-    
-  </div>
-  <div class="nav">
-    <div class="nav-prev">
-      
-    </div>
-    <div class="nav-next">
-      
-    </div>
-  </div>
+
 </div>
-              
-                
-<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
-<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+</div>
 <script>
-new Valine({
-    el: '#vcomments' ,
-    appId: 'MudG5LjoytmIhsrwdEXPzp2y-gzGzoHsz',
-    appKey: 'TLzYWUI2DEK7cnCkkmjbn1Ih',
-    notify: 'true' === 'false', 
-    avatar:'monsterid', 
-    placeholder: 'Just Go',
-    pageSize: '',
-    lang: 'zh-cn',
-    visitor: 'true' === 'true',
-    highlight: 'true' === 'normal',
-    avatarForce: 'true' === 'false',
-});
-</script>
-              
-            </div>
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'gemini';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
+      }
+    });
+  }
+  </script>
+          <div class="section-box gemini">
+            <section class="section tags-section bg-color posts-expand slide-down-in">
+              <div class="firends-box">
+                
+                  
+                  <a href="https://hsxyhao.github.io/"></a>
+                    <p>
+                      
+                        <img src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.10/favicon.ico"/>
+                      
+                      <div class="right">
+                        hsxyhao
+                        Coder | 个人博客 | Gridea | NexT 
+                      </div>
+                    </p>
+                  </a>
+                
+              </div>
+            </section>
           </div>
         </div>
       </div>
