@@ -8,7 +8,7 @@
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.11/favicon.ico?v=1584697337959">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.11/favicon.ico?v=1584697497152">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.11/styles/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.11/media/css/gemini.css">
 
@@ -312,44 +312,6 @@ var _hmt = _hmt || [];
     </div>
   
   
-  
-    
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-  <div class="aplayer" id="aplayer"></div>
-  <input hidden id="player_cover" value="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.11/media/images/custom-cover.jpg" />
-  <div class="music-list">
-  
-    
-    <input hidden value="光るなら ,Goose house,https://cn-south-17-aplayer-46154810.oss.dogecdn.com/hikarunara.mp3," />
-  
-  </div>
-  <script>
-  let musics = document.querySelector('.music-list').children;
-  let mediaMusic = [];
-  let cover = document.querySelector('#player_cover').value;
-  for (let i = 0; i < musics.length; i++) {
-    let item = musics[i];
-    let splits = item.value.split(',');
-    mediaMusic.push({
-      name: splits[0],
-      artist: splits[1],
-      url: splits[2],
-      lrc: splits[3],
-      cover: cover
-    });
-  }
-  const ap = new APlayer({
-      container: document.getElementById('aplayer'),
-      fixed: true,
-      lrcType: 3,
-      listFolded: false,
-      listMaxHeight: 90,
-      audio: mediaMusic
-  });
-  </script>
-
-
   
 </div>
 <script>
