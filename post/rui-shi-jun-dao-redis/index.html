@@ -8,16 +8,16 @@
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
 <title>Redis入门知识点 | Madara</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/favicon.ico?v=1584821538498">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/media/css/gemini.css">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/favicon.ico?v=1585347890795">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/css/gemini.css">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/media/fonts/font-awesome.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
-<link href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/media/hljs/styles/default.css" rel="stylesheet">  
+<link href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/hljs/styles/default.css" rel="stylesheet">  
 
-<script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/hljs/highlight.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
@@ -113,7 +113,7 @@ var _hmt = _hmt || [];
               
               
                 <a href="/tags" target="_self">
-                  🏷标签
+                  📎标签
                 </a>
               
             </li>
@@ -126,7 +126,7 @@ var _hmt = _hmt || [];
               
               
                 <a href="/post/about" target="_self">
-                  👨‍💻关于
+                  🦄关于
                 </a>
               
             </li>
@@ -193,10 +193,74 @@ var _hmt = _hmt || [];
   
     <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
       
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            <div style="opacity: 1;">
+            <div class="post-side-meta" id="post_side_meta">
+              
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/images/avatar.png"/>
+    <p class="site-author-name">Madara</p>
+    <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-name">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">6</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">6</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+      <div class="sidebar-item">
+        <span class="site-item-rss">
+            <i class="fa fa-rss"></i>
+            <a href="https://yeming.site/atom.xml" target="_blank">RSS</a>
+        </span>
+      </div>
+    
+  
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
+        
+          
+            <a href="https://github.com/hsxyhao">
+              <i class="fa fa-github-alt" title="Github"></i>
+            </a>
+          
+        
+        
+      </div>
+    </div>
+  
+
+
+</div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
               <div class="toc-box right-motion">
   <div class="toc-wrapper auto-number no_compress" id="toc_wrapper">
     <ul class="markdownIt-TOC">
@@ -751,7 +815,8 @@ new Valine({
     
   </div>
   
-    <div class="bg-img" style="background-image: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/media/images/custom-bgImg.png');background-position: center; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+    <div class="bg-img">
+      <img src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/images/custom-bgImg.png" />
     </div>
   
   
@@ -893,5 +958,5 @@ new Valine({
 </script>
     </div>
   </body>
-  <script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/media/js/motion.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/js/motion.js"></script>
 </html>

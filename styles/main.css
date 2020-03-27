@@ -2054,23 +2054,23 @@ blockquote:before {
       color: #000;
       border-bottom-color: #000;
     }.active-current > a {
-      color: #f03e3e !important;
-      border-bottom-color: #f03e3e !important;
+      color: #ff6b6b !important;
+      border-bottom-color: #ff6b6b !important;
     }
     .sidebar-title-active {
-      color: #f03e3e;
-      border-bottom-color: #f03e3e;
+      color: #ff6b6b;
+      border-bottom-color: #ff6b6b;
     }
     .sidebar-title-item:hover {
-      color: #f03e3e !important;
+      color: #ff6b6b !important;
     }
     .active-show > a {
-      color: #f03e3e;
-      border-bottom-color: #f03e3e;
+      color: #ff6b6b;
+      border-bottom-color: #ff6b6b;
     }
     .active-hidden > a {
-      color: #f03e3e;
-      border-bottom-color: #f03e3e;
+      color: #ff6b6b;
+      border-bottom-color: #ff6b6b;
     }.bg-color {
       background-color: #ffffffcc;
     }

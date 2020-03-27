@@ -7,17 +7,17 @@
 <meta name="keywords" content="Coder | 个人博客 | Gridea | NexT ">
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
-<title>Electron踩坑系列一 | Madara</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/favicon.ico?v=1584821538498">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/media/css/gemini.css">
+<title>结合vue搭建electron桌面应用 | Madara</title>
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/favicon.ico?v=1585347890795">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/css/gemini.css">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/media/fonts/font-awesome.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
-<link href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/media/hljs/styles/default.css" rel="stylesheet">  
+<link href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/hljs/styles/default.css" rel="stylesheet">  
 
-<script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/hljs/highlight.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
@@ -47,7 +47,7 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-    <meta name="description" content="Electron踩坑系列一" />
+    <meta name="description" content="结合vue搭建electron桌面应用" />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -113,7 +113,7 @@ var _hmt = _hmt || [];
               
               
                 <a href="/tags" target="_self">
-                  🏷标签
+                  📎标签
                 </a>
               
             </li>
@@ -126,7 +126,7 @@ var _hmt = _hmt || [];
               
               
                 <a href="/post/about" target="_self">
-                  👨‍💻关于
+                  🦄关于
                 </a>
               
             </li>
@@ -190,6 +190,265 @@ var _hmt = _hmt || [];
           
 
 <div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            <div class="post-side-meta" id="post_side_meta">
+              
+<div class="sidebar-wrapper box-shadow-wrapper bg-color">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/images/avatar.png"/>
+    <p class="site-author-name">Madara</p>
+    <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-name">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="">
+        <span class="site-item-stat-count">6</span>
+        <span class="site-item-stat-name">分类</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">6</span>
+        <span class="site-item-stat-name">标签</span>
+      </a>
+    </div>
+  </div>
+  
+    
+      <div class="sidebar-item">
+        <span class="site-item-rss">
+            <i class="fa fa-rss"></i>
+            <a href="https://yeming.site/atom.xml" target="_blank">RSS</a>
+        </span>
+      </div>
+    
+  
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
+        
+          
+            <a href="https://github.com/hsxyhao">
+              <i class="fa fa-github-alt" title="Github"></i>
+            </a>
+          
+        
+        
+      </div>
+    </div>
+  
+
+
+</div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number no_compress" id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E4%BD%BF%E7%94%A8electron-vue%E6%90%AD%E5%BB%BA%E9%A1%B9%E7%9B%AE">为什么不使用electron-vue搭建项目</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
+<li><a href="#%E5%9D%91">坑</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
+let active = 'active-show', activeClass = 'active-current';
+let tocWrapper = document.querySelector('#toc_wrapper');
+let tocContent = tocWrapper.children[0];
+let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
+
+function addTocNumber(elem, deep) {
+  if (!elem) {
+    return;
+  }
+  let prop = elem.__proto__;
+
+  if (prop === HTMLUListElement.prototype) {
+    for (let i = 0; i < elem.children.length; i++) {
+      addTocNumber(elem.children[i], deep + (i + 1) + '.');
+    }
+  } else if (prop === HTMLLIElement.prototype) {
+    // 保存li元素
+    if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+      lList.push(elem);
+    }
+    for (let i = 0; i < elem.children.length; i++) {
+      let cur = elem.children[i];
+      if (cur.__proto__ === HTMLAnchorElement.prototype) {
+        if (autoNumber) {
+          cur.text =  deep + ' ' + cur.text;
+        }
+      } else if (cur.__proto__ === HTMLUListElement.prototype) {
+        addTocNumber(cur, deep);
+      }
+    }
+  }
+}
+
+function removeParentActiveClass() {
+  let parents = tocContent.querySelectorAll('.'+active)
+  parents.forEach(function(elem) {
+    elem.classList.remove(active);
+  });
+}
+
+function addActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.add(activeClass);
+  }
+}
+
+function removeActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.remove(activeClass);
+  }
+}
+
+function addActiveLiElemment(elem, parent) {
+  if (!elem || elem === parent) {
+    return;
+  } else {
+    if (elem.__proto__ === HTMLLIElement.prototype) {
+      elem.classList.add(active);
+    }
+    addActiveLiElemment(elem.parentElement, parent);
+  }
+}
+
+function showToc() {
+  if (tocWrapper) {
+    postBody = document.querySelector('#post_body');
+    for (let i = 0; i < postBody.children.length; i++) {
+      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+        hList.push(postBody.children[i]);
+      }
+    }
+    if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+    } else if (tocWrapper.classList.contains('no_compress')){
+      tocContent.classList.add('expanded');
+    } else {
+      if (hList.length > 10) {
+        active = 'active-hidden'
+        tocContent.classList.add('closed');
+      } else {
+        tocContent.classList.add('expanded');
+      }
+    }
+  }
+}
+
+(function() {
+  // 处理不是从#一级标题开始目录
+  if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+    let con = tocContent.children[0].children[0];
+    tocContent.innerHTML = con.innerHTML;
+  }
+  addTocNumber(tocContent, '');
+})();
+
+document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
+  let scrollTop = document.scrollingElement.scrollTop + 10;
+  let dir;
+
+  if (lastTop - scrollTop > 0) {
+    dir = 'up';
+  } else {
+    dir = 'down';
+  }
+
+  lastTop = scrollTop;
+  if (scrollTop <= 0) {
+    if (lastIndex >= 0 && lastIndex < hList.length) {
+      lList[lastIndex].classList.remove(activeClass);
+    }
+    return;
+  }
+
+  let current = 0, hasFind = false;
+  for (let i = 0; i < hList.length; i++) {
+    if (hList[i].offsetTop > scrollTop) {
+      current = i;
+      hasFind = true;
+      break;
+    }
+  }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  } else {
+    current--;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  } else {
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
+});
+
+window.addEventListener('load', function() {
+  showToc();
+  document.querySelector('#sidebar').style='display: block;';
+  tocWrapper.classList.add('toc-active');
+  setTimeout(function() {
+    if ("createEvent" in document) {
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("scroll", false, true);
+      document.dispatchEvent(evt);
+    }
+    else {
+      document.fireEvent("scroll");
+    }
+  }, 500)
+})
+
+</script>
+            </div>
+          
+        
+      </div>
+    </div>
   
 </div>
 <script>
@@ -274,7 +533,7 @@ var _hmt = _hmt || [];
               <header class="post-header">
   <h1 class="post-title">
     <a class="post-title-link" href="https://yeming.site/post/OHqC_LpWd/">
-      Electron踩坑系列一
+      结合vue搭建electron桌面应用
     </a>
   </h1>
   <div class="post-meta">
@@ -288,19 +547,19 @@ var _hmt = _hmt || [];
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>3分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>60<span class="pc-show">字数</span></span>
+      <span>708<span class="pc-show">字数</span></span>
     </span>
     
       
       
         
       
-      <span id="/post/OHqC_LpWd/" data-flag-title="Electron踩坑系列一" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/OHqC_LpWd/" data-flag-title="结合vue搭建electron桌面应用" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -309,9 +568,31 @@ var _hmt = _hmt || [];
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <p>最近几天一直在用electron开发款桌面应用，虽然是个小软件，但是几乎踩的坑却不少。想着还是做个简单的输出，整理一下资料，把自己的心得记录一下。<br>
-<img src="https://yeming.site/post-images/1584471866895.jpeg" alt="" loading="lazy"></p>
+                <p>electron是什么？简单点来说就是让你使用前端技术（css、js、html）就可以开发桌面应用（mac，windows，linux），但是使用纯html来写桌面应用，简单的毫无问题，但是复杂的项目那简直为让人生不如死。所以肯定要选择前端框架来提高开发效率。但是对于一个小白来说一下子跨越着实有点大，所以就准备写个文章，记录一下纯小白在使用electron的过程中遇到的坑。当然这里会结合ts来开发应用，毕竟js在开发后期确实有些不方便，谁用谁知道。</p>
+<blockquote>
+<p>大名鼎鼎的vs code也是用electron开发的，这点确实让我很惊讶。electron技术起源于atom，一款由github开源的编辑器，当时第一次接触atom时，IDE实在是卡到爆，也不知道是不是我当时电脑该换了，反正给我的映像就是非常吃内存。而vscode则带给我另一种体验，让我完全无法想象使用electron开发的。</p>
+</blockquote>
 <!-- more -->
+<h2 id="为什么不使用electron-vue搭建项目">为什么不使用electron-vue搭建项目</h2>
+<p>在开发第一个electron项目我使用的是electron-vue插件创建项目的，虽然很好用，但是github上的活跃度给我的感觉却不是很好，已经很久没有更新了，所以在后期时候能更上vue的版本，是一个很麻烦的问题。还有一个就是electron-vue会把原来比较熟悉的vue项目结构打乱，弄得本来就是小白的我搞得非常不习惯，最后想了想还是自己改造一个吧！<br>
+参考教程：<a href="https://zhuanlan.zhihu.com/p/75764907">手把手教你使用Electron5+vue-cli3开发跨平台桌面应用</a></p>
+<h2 id="安装">安装</h2>
+<p>vue项目要想使用electron，不要直接使用npm、yarn等安装命令，建议使用官方的命令，如下：</p>
+<pre><code class="language-shell">vue add electron-builder
+</code></pre>
+<h2 id="坑">坑</h2>
+<p>第一个坑，切换electron版本后，运行项目会出现大量以下错误信息，虽然不影响运行，但是编译的时候会报错，出现这个的原因主要是node的版本有问题，这个时候需要切换项目中的node版本，使用npm或者yarn命令添加@types/node依赖，并且将版本修改13以下，原版解决方案<a href="https://github.com/electron/electron/issues/21612#issuecomment-570892464">移步这里</a>，为了防止issue被删除，这里备份以下。<br>
+<code>Cannot extend an interface 'NodeJS.EventEmitter'. Did you mean 'implements'?</code></p>
+<pre><code class="language-java">Same issue for me when using instructions from : https://www.electronforge.io/templates/typescript-template
+I was able to work around this for now by doing the follow in the initialized directory:
+npm install @types/node --save
+then editing package.json changing
+&quot;dependencies&quot;: { &quot;@types/node&quot;: &quot;^13.1.4&quot;, &quot;electron-squirrel-startup&quot;: &quot;^1.0.0&quot; }
+to
+&quot;dependencies&quot;: { &quot;@types/node&quot;: &quot;12.12.6&quot;, &quot;electron-squirrel-startup&quot;: &quot;^1.0.0&quot; }
+and finally running
+npm install &amp;&amp; npm start
+</code></pre>
 
               </div>
               <div class="post-footer">
@@ -322,7 +603,7 @@ var _hmt = _hmt || [];
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://yeming.site/post/OHqC_LpWd/" title="Electron踩坑系列一">Electron踩坑系列一</a>
+      <a href="https://yeming.site/post/OHqC_LpWd/" title="结合vue搭建electron桌面应用">结合vue搭建electron桌面应用</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -385,7 +666,8 @@ new Valine({
     
   </div>
   
-    <div class="bg-img" style="background-image: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/media/images/custom-bgImg.png');background-position: center; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+    <div class="bg-img">
+      <img src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/images/custom-bgImg.png" />
     </div>
   
   
@@ -527,5 +809,5 @@ new Valine({
 </script>
     </div>
   </body>
-  <script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.14/media/js/motion.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/js/motion.js"></script>
 </html>
