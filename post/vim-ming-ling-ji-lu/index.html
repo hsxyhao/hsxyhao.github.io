@@ -8,16 +8,16 @@
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
 <title>Vim命令 | Madara</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/favicon.ico?v=1585347890795">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/css/gemini.css">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.16/favicon.ico?v=1585505085336">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.16/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.16/media/css/gemini.css">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/fonts/font-awesome.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.16/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
-<link href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/hljs/styles/default.css" rel="stylesheet">  
+<link href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.16/media/hljs/styles/default.css" rel="stylesheet">  
 
-<script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.16/media/hljs/highlight.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
@@ -206,7 +206,7 @@ var _hmt = _hmt || [];
             
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/images/avatar.png"/>
+    <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.16/images/avatar.png"/>
     <p class="site-author-name">Madara</p>
     <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
   </div>
@@ -501,7 +501,7 @@ new Valine({
   </div>
   
     <div class="bg-img">
-      <img src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/images/custom-bgImg.png" />
+      <img src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.16/media/images/custom-bgImg.png" />
     </div>
   
   
@@ -641,7 +641,37 @@ new Valine({
   hljs.initHighlightingOnLoad();
 
 </script>
+      <div class="light-box" id="light_box"></div>
+<script>
+  let imgs = document.querySelectorAll('.post-body img');
+  let lightBox = document.querySelector('#light_box');
+  lightBox.addEventListener('mousedown', (e) => {
+    e.preventDefault()
+  })
+  lightBox.addEventListener('mousewheel', (e) => {
+    e.preventDefault()
+  })
+  let width = window.innerWidth * 0.8;
+  lightBox.onclick= () => {
+    let img = lightBox.querySelector('img');
+    lightBox.style = '';
+    img && img.remove();
+  }
+  imgs.forEach(item => {
+    item.onclick = function(e) {
+      let lightImg = document.createElement('img');
+      lightImg.src = this.src;
+      lightBox.style = `height: 100%; opacity: 1; background-color: rgba(0, 0, 0, 0.5);cursor: zoom-out;`;
+      lightImg.style = `width: ${width}px; border: 1px solid #fff; border-radius: 2px;`;
+      lightImg.onclick = function() {
+        lightBox.style = '';
+        this.remove();
+      }
+      lightBox.append(lightImg);
+    }
+  })
+</script>
     </div>
   </body>
-  <script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.15/media/js/motion.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.16/media/js/motion.js"></script>
 </html>
