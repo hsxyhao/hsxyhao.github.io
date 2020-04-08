@@ -128,16 +128,9 @@ sup {
 }
 blockquote {
   color: #9a9a9a;
-  position: relative;
-  padding: 0.4em 0 0 2.2em;
-  font-size: 0.96em;
-}
-blockquote:before {
-  position: absolute;
-  left: 4px;
-  content: "\201c";
-  font: 700 40px/1 serif;
-  color: rgba(0, 0, 0, 0.1);
+  margin: 0;
+  padding: 0 15px;
+  border-left: 4px solid #c5c5c5;
 }
 #canvas {
   left: 0px;
@@ -1998,7 +1991,13 @@ blockquote:before {
         width: 1080px;
         margin: 0 auto;
       }
-    body {
+    @font-face {
+      font-family: '字酷堂清楷体';
+      src: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.18/media/fonts/字酷堂清楷体.ttf');
+    }
+    * {
+        font-family: '字酷堂清楷体';
+    }body {
       color: #222;
     }
     .next-md-body {

@@ -8,16 +8,16 @@
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.17/favicon.ico?v=1585505293300">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.17/styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.17/media/css/gemini.css">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.18/favicon.ico?v=1586347414602">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.18/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.18/media/css/gemini.css">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.17/media/fonts/font-awesome.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.18/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
-<link href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.17/media/hljs/styles/default.css" rel="stylesheet">  
+<link href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.18/media/hljs/styles/default.css" rel="stylesheet">  
 
-<script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.17/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.18/media/hljs/highlight.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
@@ -189,7 +189,7 @@ var _hmt = _hmt || [];
     
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.17/images/avatar.png"/>
+    <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.18/images/avatar.png"/>
     <p class="site-author-name">Madara</p>
     <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
   </div>
@@ -197,7 +197,7 @@ var _hmt = _hmt || [];
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">16</span>
+        <span class="site-item-stat-count">18</span>
         <span class="site-item-stat-name">文章</span>
       </a>
     </div>
@@ -263,6 +263,139 @@ var _hmt = _hmt || [];
     <div class="article-wrapper bg-color">
       <header class="post-header">
   <h1 class="post-title">
+    <a class="post-title-link" href="https://yeming.site/post/kafka-xue-qian-zhun-bei/">
+      Kafka学前准备
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2019-12-13</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://yeming.site/Kafka/">
+              <span>Kafka</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>5分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>1390<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+      <div class="post-body">
+        
+          <p>不知道大家在学习一门新的技术之前是怎么做准备的，不过我想每个人都会遇到过学习完一门知识长时间不接触会立马忘记的情况。就像我之前学的JVM和Redis一样，学习的时候对每个细节都非常了解，可是时间一长之后又会立马忘得一干二净，我觉得大多数人都无法避免这种现象，毕竟你没有过目不忘的本领。既然无法避免那就只能想办法可以快速的再次拾起，就像物理实验中的误差一样，不可避免只能降低。所以在此推荐大家每当学习一个新的知识点的时候，一定要做好学习前的规划以及笔记，不然到头来又是一场空。等到面试的时候再把它拿出来看看，其中重要的点着重回顾，我想一定会有所帮助。还有一点就是记笔记最好整理成博客放在自己的博客或者三方博客平台上，强迫自己把笔记写的自己能看懂外还要别人也能看懂，而且还能和别人一起交流经验，一起学习。<br>
+<img src="https://hsxyhao.github.io/post-images/1577156196399.jpeg" alt="" loading="lazy"></p>
+
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://yeming.site/post/kafka-xue-qian-zhun-bei/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://yeming.site/post/xiao-xi-dui-lie-xue-xi-kai-pian/">
+      消息队列学习开篇
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2019-12-10</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://yeming.site/mq/">
+              <span>MQ</span>
+            </a>、
+          
+        
+          
+            <a href="https://yeming.site/Kafka/">
+              <span>Kafka</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>12分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>3249<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+      <div class="post-body">
+        
+          <p>什么是消息队列？消息队列有哪些？又解决了哪些问题？该怎么选择消息队列？使用消息队列的时候会遇到哪些问题？带着这些疑问先对消息队列进行初步了解。<br>
+<img src="https://hsxyhao.github.io/post-images/1576199469901.png" alt="" loading="lazy"></p>
+<h1 id="介绍">介绍</h1>
+<p>在计算机科学中，消息队列（英语：Message queue）是一种进程间通信或同一进程的不同线程间的通信方式，软件的贮列用来处理一系列的输入，通常是来自用户。消息队列提供了异步的通信协议，每一个贮列中的纪录包含详细说明的数据，包含发生的时间，输入设备的种类，以及特定的输入参数，也就是说：消息的发送者和接收者不需要同时与消息队列交互。消息会保存在队列中，直到接收者取回它。<br>
+一个 WIMP 环境像是 Microsoft Windows，借由优先的某些形式（通常是事件的时间或是重要性的顺序）来存储用户产生的事件到一个 事件贮列 中。系统把每个事件从事件贮列中传递给目标的应用程序。          <a href="https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">——摘自维基百科</a></p>
+<blockquote>
+<p>维基百科中的解释，但是总感觉一大串术语，又是进程又是通信的，还有各种设备什么的。对于小白来说就用最简单的一句话就行了，消息队列就是用来发送和接收消息的<strong>队列</strong>，发送消息方叫作<strong>生产者</strong>，接收消息方叫作<strong>消费者</strong>。<br>
+不要纠结这些专业术语了，我们了解消息队列主要用来业务上的问题的，老是按照专业的角度去理解多费事，入门简单的了解它是干什么的解决了什么问题就行了😜</p>
+</blockquote>
+
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://yeming.site/post/xiao-xi-dui-lie-xue-xi-kai-pian/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <header class="post-header">
+  <h1 class="post-title">
     <a class="post-title-link" href="https://yeming.site/post/redis-tao-tai-ji-zhi/">
       Redis淘汰机制
     </a>
@@ -281,7 +414,7 @@ var _hmt = _hmt || [];
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://yeming.site/tag/redis/">
+            <a href="https://yeming.site/redis/">
               <span>Redis</span>
             </a>
           
@@ -337,132 +470,7 @@ var _hmt = _hmt || [];
       
     </div>
   </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://yeming.site/post/vim-ming-ling-ji-lu/">
-      Vim命令
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2019-12-05</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://yeming.site/tag/vim/">
-              <span>Vim</span>
-            </a>、
-          
-        
-          
-            <a href="https://yeming.site/tag/hot-key/">
-              <span>快捷键</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>273<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-          <p>今天在公司领导问了个vim的命令，当时脑子一片空白，一时间语无伦次，场面甚是尴尬，真是书到用时方恨少啊！😰<br>
-作为一名后端开发，在日常开发的过程中肯定会接触到使用vim快捷命令，基本上都是用到的时候直接度娘，虽然会接触到一些常用的vim命令，毕竟不是运维，过段时间基本上会再次忘掉，下次在遇见的时候再度娘。期间难免会耽搁不少时间，但是我觉得特地学一下vim，又感觉有点力不从心，上班不比上学，不是每天都可以划水。最后想了下觉得应该把用到的vim命令记录下来，方便下次查阅，后面有时间的时候也翻一下，就当做记单词了吧。</p>
-
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://yeming.site/post/vim-ming-ling-ji-lu/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-
-  <article class="post-list-box  post box-shadow-wrapper">
-    <div class="article-wrapper bg-color">
-      <header class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://yeming.site/post/redis-gao-ke-yong/">
-      Redis高可用
-    </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span>发布于</span>
-      <span>2019-11-23</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://yeming.site/tag/redis/">
-              <span>Redis</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span>18分钟</span>
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span>4857<span class="pc-show">字数</span></span>
-    </span>
-    
-  </div>
-</header>
-      <div class="post-body">
-        
-          <p>Redis的高可用实现方案有哪些，为什么要选择官方的哨兵模式，自己开发自动化故障转移脚本有什么问题。redis cluster重定向有几种？redis数据分区...</p>
-
-        
-        
-        <div class="post-button text-center">
-          <a class="btn" href="https://yeming.site/post/redis-gao-ke-yong/" rel="contents">
-            阅读全文 »
-          </a>
-        </div>
-        
-      </div>
-      
-    </div>
-  </article>
-  
+ 
               
               
 <div class="page bg-color">
@@ -539,7 +547,7 @@ var _hmt = _hmt || [];
   </div>
   
     <div class="bg-img">
-      <img src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.17/media/images/custom-bgImg.png" />
+      <img src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.18/media/images/custom-bgImg.png" />
     </div>
   
   
@@ -711,5 +719,5 @@ var _hmt = _hmt || [];
 </script>
     </div>
   </body>
-  <script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.17/media/js/motion.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.18/media/js/motion.js"></script>
 </html>
