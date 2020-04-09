@@ -1080,6 +1080,8 @@ blockquote {
   text-align: left;
   list-style: none;
   font-size: 14px;
+  overflow: scroll;
+  max-height: 500px;
 }
 .markdownIt-TOC .active-show > ul {
   display: block;
@@ -1638,7 +1640,6 @@ blockquote {
   padding-right: 20px;
 }
 .next-md-body code {
-  background-color: rgba(27, 31, 35, 0.05);
   border-radius: 3px;
   font-size: 85%;
   margin: 0;
@@ -1648,7 +1649,6 @@ blockquote {
   word-wrap: normal;
 }
 .next-md-body pre > code {
-  background: transparent;
   border: 0;
   font-size: 100%;
   margin: 0;
@@ -1665,23 +1665,20 @@ blockquote {
 }
 .next-md-body .highlight pre,
 .next-md-body pre {
-  background-color: #f6f8fa;
   border-radius: 3px;
   font-size: 85%;
   line-height: 1.45;
   overflow: auto;
-  padding: 16px;
 }
 .next-md-body pre code {
-  background-color: transparent;
   border: 0;
-  display: inline;
   line-height: inherit;
   margin: 0;
   max-width: auto;
   overflow: visible;
   padding: 0;
   word-wrap: normal;
+  padding: 16px;
 }
 .next-md-body .commit-tease-sha {
   color: #444d56;
@@ -1992,11 +1989,11 @@ blockquote {
         margin: 0 auto;
       }
     @font-face {
-      font-family: '字酷堂清楷体';
-      src: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.18/media/fonts/字酷堂清楷体.ttf');
+      font-family: '思源宋体M';
+      src: url('/media/fonts/思源宋体M.ttf');
     }
     * {
-        font-family: '字酷堂清楷体';
+        font-family: '思源宋体M';
     }body {
       color: #222;
     }
@@ -2067,8 +2064,8 @@ blockquote {
       transition-duration: 59s;
       transition-timing-function: cubic-bezier(.34,0,.84,1);
     }.markdownIt-TOC a {
-      color: #222;
-      border-bottom-color: #222;
+      color: #e9ecef;
+      border-bottom-color: #e9ecef;
     }.markdownIt-TOC a:hover {
       color: #000;
       border-bottom-color: #000;
@@ -2091,7 +2088,7 @@ blockquote {
       color: #ff6b6b;
       border-bottom-color: #ff6b6b;
     }.bg-color {
-      background-color: #ffffffcc;
+      background-color: #adb5bdcc;
     }
       .site-meta {
         background: #222 !important;
