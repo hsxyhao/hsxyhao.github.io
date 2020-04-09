@@ -1991,7 +1991,13 @@ blockquote {
         width: 1080px;
         margin: 0 auto;
       }
-    body {
+    @font-face {
+      font-family: 'a';
+      src: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.0.19/media/fonts/a.ttf');
+    }
+    * {
+        font-family: 'a';
+    }body {
       color: #222;
     }
     .next-md-body {
