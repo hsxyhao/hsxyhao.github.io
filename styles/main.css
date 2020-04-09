@@ -1080,8 +1080,11 @@ blockquote {
   text-align: left;
   list-style: none;
   font-size: 14px;
-  overflow: scroll;
-  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.markdownIt-TOC::-webkit-scrollbar {
+  display: none;
 }
 .markdownIt-TOC .active-show > ul {
   display: block;
@@ -1975,10 +1978,10 @@ blockquote {
 .bg-color .bg-color {
       background: transparent !important;
     }body {
-      background-color: #eee;
+      background-color: #fff;
     }
     .nav-toggle .line {
-      background-color: #eee !important;
+      background-color: #fff !important;
     }.header {
         width: 1080px;
         margin: 0 auto;
@@ -1988,13 +1991,7 @@ blockquote {
         width: 1080px;
         margin: 0 auto;
       }
-    @font-face {
-      font-family: '思源宋体M';
-      src: url('/media/fonts/思源宋体M.ttf');
-    }
-    * {
-        font-family: '思源宋体M';
-    }body {
+    body {
       color: #222;
     }
     .next-md-body {
@@ -2088,7 +2085,7 @@ blockquote {
       color: #ff6b6b;
       border-bottom-color: #ff6b6b;
     }.bg-color {
-      background-color: #adb5bdcc;
+      background-color: #ffffffcc;
     }
       .site-meta {
         background: #222 !important;
