@@ -8,16 +8,16 @@
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
 <title>Madara</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.0/favicon.ico?v=1586442180839">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.0/styles/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.0/media/css/gemini.css">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.1/favicon.ico?v=1586615239559">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.1/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.1/media/css/gemini.css">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.0/media/fonts/font-awesome.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.1/media/fonts/font-awesome.css">
 <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
-<link href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.0/media/hljs/styles/a11y-light.css" rel="stylesheet">  
+<link href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.1/media/hljs/styles/an-old-hope.css" rel="stylesheet">  
 
-<script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.0/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.1/media/hljs/highlight.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
@@ -145,7 +145,7 @@ var _hmt = _hmt || [];
           
             
               <li class="nav-item ">
-                <a href="/friends" target="_self">
+                <a href="/friends" target="_blank">
                   
                     ⛵友链
                   
@@ -189,7 +189,7 @@ var _hmt = _hmt || [];
     
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.0/images/avatar.png"/>
+    <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.1/images/avatar.png"/>
     <p class="site-author-name">Madara</p>
     <p class="site-description right-motion">这个人很懒，什么都不想写...</p>
   </div>
@@ -263,8 +263,8 @@ var _hmt = _hmt || [];
     <div class="article-wrapper bg-color">
       <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://yeming.site/post/redis-chang-kao-mian-shi-ti/">
-      Redis常考面试题
+    <a class="post-title-link" href="https://yeming.site/post/redis-tao-tai-ji-zhi/">
+      Redis淘汰机制
     </a>
   </h1>
   <div class="post-meta">
@@ -272,7 +272,152 @@ var _hmt = _hmt || [];
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-12-30</span>
+      <span>2019-12-05</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://yeming.site/redis/">
+              <span>Redis</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>11分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>2751<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+      <div class="post-body">
+        
+          <p>说到Redis的内存淘汰机制，突然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似Redis的内存淘汰机制了。</p>
+<h1 id="删除策略">删除策略</h1>
+<ul>
+<li>定时删除:在设置键的过期时间的同时，创建一个定时器 timer). 让定时器在键的过期 时间来临时，立即执行对键的删除操作。</li>
+<li>惰性删除:放任键过期不管，但是每次从键空间中获取键时，都检查取得的键是否过 期，如果过期的话，就删除该键;如果没有过期，就返回该键。</li>
+<li>定期删除:每隔一段时间程序就对数据库进行一次检查，删除里面的过期键。至于要 删除多少过期键，以及要检查多少个数据库，则由算法决定。</li>
+</ul>
+<h1 id="淘汰策略">淘汰策略</h1>
+<p>Redis的内存淘汰机制就是为了淘汰掉一些数据，保证Redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
+<ul>
+<li>noeviction 不进行任何淘汰操作，当内存不够时写命令会报错</li>
+<li>allkeys-lru 在所有的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>volatile-lru 在设置过期时间的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
+<li>allkeys-random 在所有的key中随机移除某个key</li>
+<li>volatile-random 在设置了过期时间的key中随机移除某个key</li>
+<li>volatile-ttl 在设置了过期时间的key中，删除过期时间最早的key</li>
+<li>allkeys-lfu 在所有的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+<li>volatile-lfu 在设置过期时间的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
+</ul>
+<p><strong>备注</strong><br>
+这里删除的key其实只删除一个，这是因为Redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
+
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://yeming.site/post/redis-tao-tai-ji-zhi/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://yeming.site/post/vim-ming-ling-ji-lu/">
+      Vim命令
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2019-12-05</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
+        
+          
+            <a href="https://yeming.site/vim/">
+              <span>Vim</span>
+            </a>、
+          
+        
+          
+            <a href="https://yeming.site/hot-key/">
+              <span>快捷键</span>
+            </a>
+          
+        
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>1分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>273<span class="pc-show">字数</span></span>
+    </span>
+    
+  </div>
+</header>
+      <div class="post-body">
+        
+          <p>今天在公司领导问了个vim的命令，当时脑子一片空白，一时间语无伦次，场面甚是尴尬，真是书到用时方恨少啊！😰<br>
+作为一名后端开发，在日常开发的过程中肯定会接触到使用vim快捷命令，基本上都是用到的时候直接度娘，虽然会接触到一些常用的vim命令，毕竟不是运维，过段时间基本上会再次忘掉，下次在遇见的时候再度娘。期间难免会耽搁不少时间，但是我觉得特地学一下vim，又感觉有点力不从心，上班不比上学，不是每天都可以划水。最后想了下觉得应该把用到的vim命令记录下来，方便下次查阅，后面有时间的时候也翻一下，就当做记单词了吧。</p>
+
+        
+        
+        <div class="post-button text-center">
+          <a class="btn" href="https://yeming.site/post/vim-ming-ling-ji-lu/" rel="contents">
+            阅读全文 »
+          </a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </article>
+
+  <article class="post-list-box  post box-shadow-wrapper">
+    <div class="article-wrapper bg-color">
+      <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://yeming.site/post/redis-gao-ke-yong/">
+      Redis高可用
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2019-11-23</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -296,20 +441,19 @@ var _hmt = _hmt || [];
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>5020<span class="pc-show">字数</span></span>
+      <span>4857<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
       <div class="post-body">
         
-          <p>前段时间学习了一下redis，并且也做了些学习笔记，刚过一周的时候，就已经忘得一干二净，实在是惭愧啊。不过唯一的安慰就是当时的笔记灵感都记录下来了，尤其是难点都做了详细的笔记。本来准备过段时间再回顾一下，今天同事丢了本redis面试题给我，大概看了下，基本上前段时间看的内容都有提到，所以就准备将这些面试题和我之前做的笔记结合起来做一个回忆索引。<br>
-<img src="https://hsxyhao.github.io/post-images/1577675564766.jpg" alt="" loading="lazy"></p>
+          <p>Redis的高可用实现方案有哪些，为什么要选择官方的哨兵模式，自己开发自动化故障转移脚本有什么问题。redis cluster重定向有几种？redis数据分区...</p>
 
         
         
         <div class="post-button text-center">
-          <a class="btn" href="https://yeming.site/post/redis-chang-kao-mian-shi-ti/" rel="contents">
+          <a class="btn" href="https://yeming.site/post/redis-gao-ke-yong/" rel="contents">
             阅读全文 »
           </a>
         </div>
@@ -323,8 +467,8 @@ var _hmt = _hmt || [];
     <div class="article-wrapper bg-color">
       <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://yeming.site/post/kafka-chu-shi/">
-      Kafka初识
+    <a class="post-title-link" href="https://yeming.site/post/redis-copy/">
+      Redis复制
     </a>
   </h1>
   <div class="post-meta">
@@ -332,7 +476,7 @@ var _hmt = _hmt || [];
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-12-13</span>
+      <span>2019-11-19</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -341,8 +485,8 @@ var _hmt = _hmt || [];
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://yeming.site/Kafka/">
-              <span>Kafka</span>
+            <a href="https://yeming.site/redis/">
+              <span>Redis</span>
             </a>
           
         
@@ -351,28 +495,32 @@ var _hmt = _hmt || [];
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
+      <span>15分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1328<span class="pc-show">字数</span></span>
+      <span>4316<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
       <div class="post-body">
         
-          <p>第一次听到kafka还是在17年实习的时候，当时在一家外包公司，没错就是外包，不过后来呆了半个月就离职了。当时接触的是一个电信外包项目，主要是基于大数据做一个端到端的监控平台，还是实习的我第一次听到了kafka这个名字，不过由于那时还只是一个打酱油的实习生再加上并没有待多长时间，就没有深入了解它，来到第二家公司后再一次听见kafka，当时是一家做数字货币交易所的，就是类似比特币的虚拟货币，当时有一个OCR的实名认证接口需要用到kafka做异步，不过很可惜的是18年暴雷，公司资金链断裂开始裁员，转正还没一个月的我就又失业了。之后第三次入职，是一家做风控的创业公司，当时让我负责计费系统的设计，后来经过一系列插曲，又再次接触到了kafka，至此开始真正接触它了解它。现在准备把kafka系统性的学习一遍。<br>
-<img src="https://hsxyhao.github.io/post-images/1577177788093.jpg" alt="" loading="lazy"></p>
-<blockquote>
-<p>记得在第二家公司还发生过一个小插曲，当时一个开发人员在往kafka发送完消息之后，消费者无法消费到消息，最后找到CTO来解决，还被训了一顿，问题是因为当时那个开发人员在本地开了一个消费端，当消息发送到kafka后，被本地的消费了，开发环境没有消费到。这是个很常见的小问题，相信很多开发者都遇见过，不过不知道你们有没有被CTO给训一顿😂</p>
-</blockquote>
+          <p>什么是redis的复制，为什么要有复制功能，全量复制有什么问题，部分复制又解决了哪些问题。</p>
+<p>复制就是将redis节点中的数据复制完同步到其他节点中，在redis中参与复制一般有主节点(master)以及从节点(slave)，将数据从主节点复制到从节点，并且复制的方式是单向的，不能逆向复制，在建立复制关系之后主节点的数据会同步到从节点直到解除主从关系。不论是哨兵模式还是redis集群都是在复制的基础上完成的。</p>
+<p><strong>记忆点</strong></p>
+<ol>
+<li>使用方式：建立、断开复制、安全性、只读性</li>
+<li>适用场景：哨兵、集群</li>
+<li>复制原理：建立复制、全量复制、部分复制、心跳</li>
+<li>常见问题：读写分离、数据不一致、避免全量复制</li>
+</ol>
 
         
         
         <div class="post-button text-center">
-          <a class="btn" href="https://yeming.site/post/kafka-chu-shi/" rel="contents">
+          <a class="btn" href="https://yeming.site/post/redis-copy/" rel="contents">
             阅读全文 »
           </a>
         </div>
@@ -386,8 +534,8 @@ var _hmt = _hmt || [];
     <div class="article-wrapper bg-color">
       <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://yeming.site/post/kafka-xue-qian-zhun-bei/">
-      Kafka学前准备
+    <a class="post-title-link" href="https://yeming.site/post/redis-chi-jiu-hua/">
+      Redis 持久化
     </a>
   </h1>
   <div class="post-meta">
@@ -395,7 +543,7 @@ var _hmt = _hmt || [];
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-12-13</span>
+      <span>2019-11-16</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -404,8 +552,8 @@ var _hmt = _hmt || [];
         <span class="pc-show">分类于</span>
         
           
-            <a href="https://yeming.site/Kafka/">
-              <span>Kafka</span>
+            <a href="https://yeming.site/redis/">
+              <span>Redis</span>
             </a>
           
         
@@ -414,25 +562,32 @@ var _hmt = _hmt || [];
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
+      <span>9分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1390<span class="pc-show">字数</span></span>
+      <span>2304<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
       <div class="post-body">
         
-          <p>不知道大家在学习一门新的技术之前是怎么做准备的，不过我想每个人都会遇到过学习完一门知识长时间不接触会立马忘记的情况。就像我之前学的JVM和Redis一样，学习的时候对每个细节都非常了解，可是时间一长之后又会立马忘得一干二净，我觉得大多数人都无法避免这种现象，毕竟你没有过目不忘的本领。既然无法避免那就只能想办法可以快速的再次拾起，就像物理实验中的误差一样，不可避免只能降低。所以在此推荐大家每当学习一个新的知识点的时候，一定要做好学习前的规划以及笔记，不然到头来又是一场空。等到面试的时候再把它拿出来看看，其中重要的点着重回顾，我想一定会有所帮助。还有一点就是记笔记最好整理成博客放在自己的博客或者三方博客平台上，强迫自己把笔记写的自己能看懂外还要别人也能看懂，而且还能和别人一起交流经验，一起学习。<br>
-<img src="https://hsxyhao.github.io/post-images/1577156196399.jpeg" alt="" loading="lazy"></p>
+          <p>持久化有哪几种方式，各有什么问题。每种持久化的流程是什么样的，AOF重写是什么机制，解决了什么问题，fork底层函数，COW机制。</p>
+<h1 id="面试">面试</h1>
+<p>在面试的时候如果被问到Redis持久化的时候，怎么回答比较好？我想从以下几个角度展开，一定会让面试官眼前一亮。</p>
+<ul>
+<li>RDB冷备份以及AOF热备份</li>
+<li>fork函数</li>
+<li>COW（Copy on write）写时复制机制</li>
+<li>AOF命令重写</li>
+</ul>
 
         
         
         <div class="post-button text-center">
-          <a class="btn" href="https://yeming.site/post/kafka-xue-qian-zhun-bei/" rel="contents">
+          <a class="btn" href="https://yeming.site/post/redis-chi-jiu-hua/" rel="contents">
             阅读全文 »
           </a>
         </div>
@@ -454,46 +609,29 @@ var _hmt = _hmt || [];
       </li>
     
     
-      <!-- 1 2 3 4 ... N -->
       
-        
-          
-            <li class="pagination-li ">
-              <a href="/">1</a>
-            </li>
-          
-        
-          
-            <li class="pagination-li ">
-              <a href="/page/2">
-                2
-              </a>
-            </li>
-          
-        
-          
-            <li class="pagination-li pagination-active">
-              <a href="/page/3">
-                3
-              </a>
-            </li>
-          
-        
-          
-            <li class="pagination-li ">
-              <a href="/page/4">
-                4
-              </a>
-            </li>
-          
-        
-        <li class="pagination-li">
-          …
+        <li class="pagination-li ">
+            <a href="/page/../">
+              1
+            </a>
         </li>
-        <li class="pagination-li">
-          <a href="/page/6">
-            6
-          </a>
+      
+        <li class="pagination-li ">
+            <a href="/page/2">
+              2
+            </a>
+        </li>
+      
+        <li class="pagination-li pagination-active">
+            <a href="/page/3">
+              3
+            </a>
+        </li>
+      
+        <li class="pagination-li ">
+            <a href="/page/4">
+              4
+            </a>
         </li>
       
     
@@ -531,7 +669,7 @@ var _hmt = _hmt || [];
   </div>
   
     <div class="bg-img">
-      <img src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.0/media/images/custom-bgImg.png" />
+      <img src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.1/media/images/custom-bgImg.png" />
     </div>
   
   
@@ -667,6 +805,16 @@ var _hmt = _hmt || [];
     }
   }
 
+  // 链接跳转
+  let newWindow = 'false'
+  if (newWindow === 'true') {
+    let links = document.querySelectorAll('.post-body a')
+    links.forEach(item => {
+      if (!item.classList.contains('btn')) {
+        item.setAttribute("target","_blank");
+      }
+    })
+  }
   // 代码高亮
   hljs.initHighlightingOnLoad();
 
@@ -703,5 +851,5 @@ var _hmt = _hmt || [];
 </script>
     </div>
   </body>
-  <script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.0/media/js/motion.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.1/media/js/motion.js"></script>
 </html>
