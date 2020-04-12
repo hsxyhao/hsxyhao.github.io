@@ -8,7 +8,7 @@
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
 <title>Next使用文档（长期维护） | Madara</title>
-<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.1/favicon.ico?v=1586615566823">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.1/favicon.ico?v=1586707702954">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.1/styles/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.1/media/css/gemini.css">
 
@@ -568,12 +568,12 @@ window.addEventListener('load', function() {
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
+      <span>7分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1399<span class="pc-show">字数</span></span>
+      <span>1751<span class="pc-show">字数</span></span>
     </span>
     
       
@@ -613,7 +613,12 @@ Valine评论的使用简单，基本上只要注册个账号就能使用了，�
 <h2 id="cdn">CDN</h2>
 <p>CDN全名叫做内容分发网络，简单的理解就是让你的博客加载速度更快一点，目前我使用的是jsDeliver免费CDN，当然大家也可以使用其他CDN产品，除了jsDeliver其他的都需要自行上传博客的静态文件。如果你使用的是jsDeliver，需要按照这种模式来生成网页的前缀url：<br>
 https://cdn.jsdelivr.net/gh/{github账户}/{博客仓库}@{仓库的release版本}<br>
+仓库版本号：建议x.x.x三位表示<br>
+CDN操作规范：这里建议大家在使用的CDN的时候先在本地填写即将发布的CDN版本（可以理解为未来版本），然后同步到github上之后再发布刚刚填写的那个未来版本；如果不是使用的jsDeliver需要自己上传和维护静态资源文件，较为繁琐，这里不做说明，ps：我想既然使用其他的产品，应该会基本操作。<br>
 这里的仓库版本是可选的，网上说如果不填每次都会获取最新的内容，但是我在测试的时候发现好像并不是，所以在这里建议大家如果有除博客文章外的静态资源更改了还是填写一下版本号比较好。</p>
+<blockquote>
+<p>关于CDN在这里我想说一下，有很多新手用户不太清楚这个东西，只知道是用来提高网页加载速度的，所以有的时候按照教程的配置会出现配置之后无法生效的问题，一般出现这种问题就是没有按照我说的建议来操作，这里为什么要先修改本地的cdn版本，同步后在发布一下刚刚填写的版本呢？如果先发布版本，在修改版本，那你修改的版本是本地的文件，需要同步到github上才能生效，但是github上由于又同步了一次，相当于jsDeliver最新的版本不是对应着github上最新的内容，所以就会导致cdn无效。（不知道能不能明白，描述的有点简单，不行的话微信联系吧）</p>
+</blockquote>
 <h2 id="目前的">目前的🐞</h2>
 <h3 id="自定义配置无法保存的问题">自定义配置无法保存的问题</h3>
 <p>目前很多用户出现自定义无法保存的情况，根据网友的反馈如果你是windows用户且在自定义配置中保存了图片社交配置，那么就会导致其他的配置无法保存，并且重启后还会无法加载，这个时候可以尝试将自定义社交图片去除，其它的配置就可以正常保存。这只是发现的一种情况，不知道是不是所有无法保存的用户都存在这种问题，如果还有其它情况，可以在评论去留言，我会及时排查。</p>
