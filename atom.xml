@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yeming.site</id>
     <title>Madara</title>
-    <updated>2020-04-18T17:02:56.523Z</updated>
+    <updated>2020-04-18T17:18:03.365Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yeming.site"/>
     <link rel="self" href="https://yeming.site/atom.xml"/>
@@ -85,10 +85,10 @@
         </link>
         <updated>2019-12-31T06:31:36.000Z</updated>
         <summary type="html"><![CDATA[<p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，经常是一旦出现了bug就加班加点的修复，虽然累一点，但是反而快乐了许多。最后我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
-<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1577787675038.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://yeming.site/post-images/1577787675038.jpg" alt="" loading="lazy"></figure>
 ]]></summary>
         <content type="html"><![CDATA[<p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，经常是一旦出现了bug就加班加点的修复，虽然累一点，但是反而快乐了许多。最后我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
-<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1577787675038.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://yeming.site/post-images/1577787675038.jpg" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
