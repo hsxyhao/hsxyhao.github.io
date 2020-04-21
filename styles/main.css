@@ -2199,15 +2199,15 @@ pre > span.copy-code:hover {
     }.box-shadow-wrapper {
       padding: 10px;
     }body {
-      cursor: url('/media/curs/normal.cur'), default;
+      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.5/media/curs/normal.cur'), default;
     }a {
-      cursor: url('/media/curs/link.cur'), pointer !important;
+      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.5/media/curs/link.cur'), pointer !important;
     }input, textarea, code {
-      cursor: url('/media/curs/texto.cur'), text !important;
+      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.5/media/curs/texto.cur'), text !important;
     }code > span.copy-code {
-      cursor: url('/media/curs/normal.cur'), text !important;
+      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.5/media/curs/normal.cur'), text !important;
     }.post img {
-      cursor: url('/media/curs/zoomout.cur'), zoom-in !important;
+      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.5/media/curs/zoomout.cur'), zoom-in !important;
     }.post img {
       cursor: zoom-out;
     }
