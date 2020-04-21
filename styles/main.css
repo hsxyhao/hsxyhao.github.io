@@ -118,6 +118,7 @@ body {
   line-height: 2;
   width: 100%;
   overflow-x: hidden;
+  user-select: none;
 }
 sub,
 sup {
@@ -177,6 +178,22 @@ blockquote {
 }
 .post-body img {
   cursor: zoom-in;
+}
+.post-body pre {
+  position: relative;
+}
+pre > span.copy-code {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+  line-height: 1;
+  color: hsla(0, 0%, 54.9%, 0.8);
+  transition: color 0.1s;
+  user-select: none;
+}
+pre > span.copy-code:hover {
+  color: #FFF;
 }
 .head-top-line {
   height: 3px;
@@ -425,7 +442,6 @@ blockquote {
 .firends-item img {
   width: 125px;
   height: 125px;
-  cursor: pointer;
 }
 .firends-item:hover {
   transform: scale(1.05);
@@ -993,7 +1009,6 @@ blockquote {
   transition-delay: 0s;
   transition-property: border;
   border-bottom: 1px dashed #ccc;
-  cursor: pointer;
 }
 .motion-warpper {
   position: relative;
@@ -1125,6 +1140,7 @@ blockquote {
   justify-content: center;
   z-index: 99999;
   visibility: hidden;
+  display: none;
 }
 .search-box {
   width: 700px;
@@ -2182,4 +2198,16 @@ blockquote {
       transform: scale(0.8);
     }.box-shadow-wrapper {
       padding: 10px;
+    }body {
+      cursor: url('/media/curs/normal.cur'), default;
+    }a {
+      cursor: url('/media/curs/link.cur'), pointer !important;
+    }input, textarea, code {
+      cursor: url('/media/curs/texto.cur'), text !important;
+    }code > span.copy-code {
+      cursor: url('/media/curs/normal.cur'), text !important;
+    }.post img {
+      cursor: url('/media/curs/zoomout.cur'), zoom-in !important;
+    }.post img {
+      cursor: zoom-out;
     }

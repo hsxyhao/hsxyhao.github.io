@@ -7,7 +7,7 @@
 <meta name="keywords" content="Coder | 个人博客 | Gridea | NexT ">
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
-<title>Redis淘汰机制 | Madara</title>
+<title>Latex | Madara</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.4/favicon.ico?v=1587430374502">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.4/styles/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.4/media/css/gemini.css">
@@ -45,8 +45,8 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-    <meta name="description" content="Redis淘汰机制" />
-    <meta name="keywords" content="Redis" />
+    <meta name="description" content="Latex" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -201,8 +201,7 @@ var _hmt = _hmt || [];
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            <div class="post-side-meta" id="post_side_meta">
-              
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.4/images/avatar.png"/>
@@ -257,209 +256,6 @@ var _hmt = _hmt || [];
 
 
 </div>
-            </div>
-            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
-              <div class="toc-box right-motion">
-  <div class="toc-wrapper auto-number no_compress" id="toc_wrapper">
-    <ul class="markdownIt-TOC">
-<li><a href="#%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5">删除策略</a></li>
-<li><a href="#%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5">淘汰策略</a></li>
-<li><a href="#lru%E7%AE%97%E6%B3%95">LRU算法</a>
-<ul>
-<li><a href="#lru%E7%AE%97%E6%B3%95%E7%94%B1%E6%9D%A5">lru算法由来</a></li>
-<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%87%E7%94%A8%E8%BF%91%E4%BC%BC%E7%9A%84lru%E7%AE%97%E6%B3%95">为什么采用近似的LRU算法</a></li>
-<li><a href="#redis30%E4%B8%AD%E5%AF%B9lru%E7%AE%97%E6%B3%95%E7%9A%84%E6%94%B9%E8%BF%9B">redis3.0中对lru算法的改进</a></li>
-</ul>
-</li>
-<li><a href="#lfu%E7%AE%97%E6%B3%95">LFU算法</a>
-<ul>
-<li><a href="#%E7%94%B1%E6%9D%A5">由来</a></li>
-<li><a href="#%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88">设计方案</a>
-<ul>
-<li><a href="#lfu%E8%AE%BE%E8%AE%A1%E6%BA%90%E7%A0%81">LFU设计源码</a></li>
-</ul>
-</li>
-<li><a href="#lru-lfu%E7%AE%97%E6%B3%95%E6%B5%8B%E8%AF%95">lru、lfu算法测试</a></li>
-</ul>
-</li>
-<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
-</ul>
-
-  </div>
-</div>
-
-<script>
-
-let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
-let active = 'active-show', activeClass = 'active-current';
-let tocWrapper = document.querySelector('#toc_wrapper');
-let tocContent = tocWrapper.children[0];
-let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
-
-function addTocNumber(elem, deep) {
-  if (!elem) {
-    return;
-  }
-  let prop = elem.__proto__;
-
-  if (prop === HTMLUListElement.prototype) {
-    for (let i = 0; i < elem.children.length; i++) {
-      addTocNumber(elem.children[i], deep + (i + 1) + '.');
-    }
-  } else if (prop === HTMLLIElement.prototype) {
-    // 保存li元素
-    if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
-      lList.push(elem);
-    }
-    for (let i = 0; i < elem.children.length; i++) {
-      let cur = elem.children[i];
-      if (cur.__proto__ === HTMLAnchorElement.prototype) {
-        if (autoNumber) {
-          cur.text =  deep + ' ' + cur.text;
-        }
-      } else if (cur.__proto__ === HTMLUListElement.prototype) {
-        addTocNumber(cur, deep);
-      }
-    }
-  }
-}
-
-function removeParentActiveClass() {
-  let parents = tocContent.querySelectorAll('.'+active)
-  parents.forEach(function(elem) {
-    elem.classList.remove(active);
-  });
-}
-
-function addActiveClass(index) {
-  if (index >= 0 && index < hList.length) {
-    lList[index].classList.add(activeClass);
-  }
-}
-
-function removeActiveClass(index) {
-  if (index >= 0 && index < hList.length) {
-    lList[index].classList.remove(activeClass);
-  }
-}
-
-function addActiveLiElemment(elem, parent) {
-  if (!elem || elem === parent) {
-    return;
-  } else {
-    if (elem.__proto__ === HTMLLIElement.prototype) {
-      elem.classList.add(active);
-    }
-    addActiveLiElemment(elem.parentElement, parent);
-  }
-}
-
-function showToc() {
-  if (tocWrapper) {
-    postBody = document.querySelector('#post_body');
-    for (let i = 0; i < postBody.children.length; i++) {
-      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
-        hList.push(postBody.children[i]);
-      }
-    }
-    if (tocWrapper.classList.contains('compress')) {
-        tocContent.classList.add('closed');
-    } else if (tocWrapper.classList.contains('no_compress')){
-      tocContent.classList.add('expanded');
-    } else {
-      if (hList.length > 10) {
-        active = 'active-hidden'
-        tocContent.classList.add('closed');
-      } else {
-        tocContent.classList.add('expanded');
-      }
-    }
-  }
-}
-
-(function() {
-  // 处理不是从#一级标题开始目录
-  if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
-    let con = tocContent.children[0].children[0];
-    tocContent.innerHTML = con.innerHTML;
-  }
-  let markdownItTOC = document.querySelector('.markdownIt-TOC');
-  let innerHeight = window.innerHeight;
-  markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
-  addTocNumber(tocContent, '');
-})();
-
-document.addEventListener('scroll', function(e) {
-  if (lList.length <= 0) {
-    return;
-  }
-  let scrollTop = document.scrollingElement.scrollTop + 10;
-  let dir;
-
-  if (lastTop - scrollTop > 0) {
-    dir = 'up';
-  } else {
-    dir = 'down';
-  }
-
-  lastTop = scrollTop;
-  if (scrollTop <= 0) {
-    if (lastIndex >= 0 && lastIndex < hList.length) {
-      lList[lastIndex].classList.remove(activeClass);
-    }
-    return;
-  }
-
-  let current = 0, hasFind = false;
-  for (let i = 0; i < hList.length; i++) {
-    if (hList[i].offsetTop > scrollTop) {
-      current = i;
-      hasFind = true;
-      break;
-    }
-  }
-  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
-    current = hList.length - 1;
-  } else {
-    current--;
-  }
-  if (dir === 'down') {
-    if (current > lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex) 
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  } else {
-    if (current < lastIndex) {
-      addActiveClass(current);
-      removeActiveClass(lastIndex);
-      lastIndex = current;
-      removeParentActiveClass();
-      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
-    }
-  }
-});
-
-window.addEventListener('load', function() {
-  showToc();
-  document.querySelector('#sidebar').style='display: block;';
-  tocWrapper.classList.add('toc-active');
-  setTimeout(function() {
-    if ("createEvent" in document) {
-      let evt = document.createEvent("HTMLEvents");
-      evt.initEvent("scroll", false, true);
-      document.dispatchEvent(evt);
-    }
-    else {
-      document.fireEvent("scroll");
-    }
-  }, 500)
-})
-
-</script>
-            </div>
           
         
       </div>
@@ -547,8 +343,8 @@ window.addEventListener('load', function() {
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://yeming.site/post/redis-tao-tai-ji-zhi/">
-      Redis淘汰机制
+    <a class="post-title-link" href="https://yeming.site/post/01D9_Lkhg/">
+      Latex
     </a>
   </h1>
   <div class="post-meta">
@@ -556,38 +352,25 @@ window.addEventListener('load', function() {
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-12-05</span>
+      <span>2020-04-20</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
-      <span class="meta-item">
-        <i class="fa fa-folder-o"></i>
-        <span class="pc-show">分类于</span>
-        
-          
-            <a href="https://yeming.site/redis/">
-              <span>Redis</span>
-            </a>
-          
-        
-      </span>
-      <span class="post-meta-divider">|</span>
-    
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>11分钟</span>
+      <span>1分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>2751<span class="pc-show">字数</span></span>
+      <span>64<span class="pc-show">字数</span></span>
     </span>
     
       
       
         
       
-      <span id="/post/redis-tao-tai-ji-zhi/" data-flag-title="Redis淘汰机制" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/01D9_Lkhg/" data-flag-title="Latex" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -596,135 +379,20 @@ window.addEventListener('load', function() {
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <p>说到Redis的内存淘汰机制，突然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似Redis的内存淘汰机制了。</p>
-<h1 id="删除策略">删除策略</h1>
-<ul>
-<li>定时删除:在设置键的过期时间的同时，创建一个定时器 timer). 让定时器在键的过期 时间来临时，立即执行对键的删除操作。</li>
-<li>惰性删除:放任键过期不管，但是每次从键空间中获取键时，都检查取得的键是否过 期，如果过期的话，就删除该键;如果没有过期，就返回该键。</li>
-<li>定期删除:每隔一段时间程序就对数据库进行一次检查，删除里面的过期键。至于要 删除多少过期键，以及要检查多少个数据库，则由算法决定。</li>
-</ul>
-<h1 id="淘汰策略">淘汰策略</h1>
-<p>Redis的内存淘汰机制就是为了淘汰掉一些数据，保证Redis的正常服务。可以通过在配置文件中添加maxmemery-policy选择不同的淘汰策略，具体的策略有以下几种：</p>
-<ul>
-<li>noeviction 不进行任何淘汰操作，当内存不够时写命令会报错</li>
-<li>allkeys-lru 在所有的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
-<li>volatile-lru 在设置过期时间的key中查找最近<strong>最少使用</strong>的key进行淘汰</li>
-<li>allkeys-random 在所有的key中随机移除某个key</li>
-<li>volatile-random 在设置了过期时间的key中随机移除某个key</li>
-<li>volatile-ttl 在设置了过期时间的key中，删除过期时间最早的key</li>
-<li>allkeys-lfu 在所有的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
-<li>volatile-lfu 在设置过期时间的key中查找最近<strong>访问频率最低</strong>的key进行淘汰（4.0版本）</li>
-</ul>
-<p><strong>备注</strong><br>
-这里删除的key其实只删除一个，这是因为Redis在执行具有申请内存的命令时，会先判断内存是否超过maxmemery，如果超过了就会基于设置的maxmemery-policy策略删除key。</p>
-<!-- more -->
-<h1 id="lru算法">LRU算法</h1>
-<p>LRU（Least Recently Used）算法，即最近最少使用使用策略，淘汰掉最近最少使用的key。想要实现LRU算法很简单，只需要为每个key添加一个最近使用时间，在内存达到上限后，添加新的key时遍历所有key剔除空闲时间(idle time)最大的，访问频率最低的可以。或者可以使用另外一种方式，将所有的key放进一个队列中，如果达到内存上线，只需要将队尾的key剔除就行了。</p>
-<blockquote>
-<p>不论是上述的哪种实现方式，如果直接运用在Redis中，都会影响性能，这显然与Redis的高性能相悖。所以Redis中采用是一种近似LRU算法。</p>
-</blockquote>
-<h2 id="lru算法由来">lru算法由来</h2>
-<p>如下图所示，分别有四个key，~代表1秒的时间间隔，第一条线A为五秒钟访问一次，第二条线B为2秒钟访问一次，第三条线C为10秒钟访问一次，第四条线D同样为10秒钟访问一次，只不过和C起始时间点不一样。|表示同一时间点，lru算法在置换key的时候会剔除空闲时间最大的key。根据lru算法的原理得知，在|时刻，D的空闲时间(idle time)是最小的，代表下一次最有可能访问的key是D，但是从整体上来看B是即将访问的key，虽然这种情况下lru算法会出现miss情况，但是在绝大多数的情况下还是可以按照期望运行的。</p>
-<blockquote>
-<p>这里为什么会用到置换一次呢，主要就是只有在新的key写入并且内存达到上线的时候才会出现剔除旧的key，所以置换一次就是用新的key替换旧的key。</p>
-</blockquote>
-<pre><code class="language-java">~~~~~A~~~~~A~~~~~A~~~~A~~~~~A~~~~~A~~|
-~~B~~B~~B~~B~~B~~B~~B~~B~~B~~B~~B~~B~|
-~~~~~~~~~~C~~~~~~~~~C~~~~~~~~~C~~~~~~|
-~~~~~D~~~~~~~~~~D~~~~~~~~~D~~~~~~~~~D|
-</code></pre>
-<h2 id="为什么采用近似的lru算法">为什么采用近似的LRU算法</h2>
-<p>redis中使用的LRU算法并不是真正的LRU算法，采用的是一种近似的LRU算法，如果每次添加key的时候查找所有key的最大空闲时间，显然在性能上会有所降低，本来这种剔除的策略就是一种概率的猜测，所以在选择最大的空闲时间key的时候，只要在概率上逼近真正lru算法就行了。过期算法是在redis2.8版本中加入的，并且在3.0中对其进行了优化。</p>
-<p>下图对lru算法进行了一些比较，左上角是理想的lru算法效果。上层是改进版即3.0后的版本与理想的lru算法的一个比较，下面两张图是2.8版本与3.0版本进行的一个比较。那么需要怎么理解这个图呢？<br>
-<img src="https://yeming.site/post-images/1575603094713.png" alt="" loading="lazy"><br>
-在这个图里面分为三个区域</p>
-<ul>
-<li>最上层的浅灰色区域代表需要淘汰的key</li>
-<li>中间层深灰色区域代表是旧的key</li>
-<li>最下层绿色的区域代表的是新增的key</li>
-</ul>
-<p>在了解这三个区域之后，那么怎样理解这个算法呢，在最上层区域中残留的深灰色点表示的是未被剔除的淘汰key，深灰色区域白色的点是被剔除掉的key，但是本来不应该被剔除掉，同理，浅绿色区域白色的点也是代表被剔除的key。lru算法的好坏程度就是是不是剔除了需要淘汰的key，在上图中可以看存储redis3.0算法是最接近理想的lru算法效果。</p>
-<h2 id="redis30中对lru算法的改进">redis3.0中对lru算法的改进</h2>
-<p>在每次随机选取的key，都会放进一个poll(默认为16)缓存池中，这里面的key是根据每个key的空闲时间大小排序的，每次随机选择的key都需要和poll中最小的key进行比较，只有大于最小的空闲值才会被放入poll中，在每次剔除key的时候都会选择一个最大的空闲值来剔除。</p>
-<p>一个redis实例中会有多个DB，对于每个DB都会创建一个poll淘汰缓存。为什么在这里单独提一下这个问题呢？在后面的LFU算法由来中会说道。</p>
-<h1 id="lfu算法">LFU算法</h1>
-<p>全称Least Frequently Used，与LRU不同的是，LFU是按照每个key访问频率进行淘汰的，随着时间的变化，每个key的访问频率会发生递减。</p>
-<h2 id="由来">由来</h2>
-<blockquote>
-<p>Everything started from an open issue: when you have multiple databases<br>
-with Redis 3.2, the algorithm evicts making local choices. So<br>
-if for example you have all keys with a small idle time in DB number 0,<br>
-and all keys with large idle time in DB number 1, Redis will evict<br>
-one key from each DB. A more rational choice is of course to start<br>
-evicting keys from DB number 1, and only later to evict the other keys.</p>
-</blockquote>
-<p>上面是来自作者antire写<a href="http://antirez.com/news/109">lru算法blog</a>中的一段话，这段话的意思是当有两个DB时，一个DB全是空闲时间小的key，另一个DB全是空闲时间大的key，然而这个时候比较的是各自DB中的key数据，其实应该剔除的是空闲时间大的DB。后面作者提到，不管在lru的基础上怎么优化，在性能上都提高不了，所以作者后面就开始研究新的算法即LFU算法。具体作者怎么说的可以去看原文，<a href="http://antirez.com/news/109">原文链接</a>。</p>
-<h2 id="设计方案">设计方案</h2>
-<p>为了实现LFU方案，将LRU算法中一个24bit字段(用来保存访问时间的)拆分成16bit和8bit，分别用来保存Last decr time(最近递减时间)以及LOC_C(访问次数)。</p>
-<pre><code class="language-java">           16 bits      8 bits
-      +----------------+--------+
-      + Last decr time | LOG_C  |
-      +----------------+--------+
-</code></pre>
-<h3 id="lfu设计源码">LFU设计源码</h3>
-<pre><code class="language-c">// LFU更新
-void updateLFU(robj *val) {
-    unsigned long counter = LFUDecrAndReturn(val);//首先计算是否需要将counter衰减
-    counter = LFULogIncr(counter);//根据上述返回的counter计算新的counter
-    val-&gt;lru = (LFUGetTimeInMinutes()&lt;&lt;8) | counter; //robj中的lru字段只有24bits,lfu复用该字段。高16位存储一个分钟数级别的时间戳，低8位存储访问计数
-}
-// counter增加
-uint8_t LFULogIncr(uint8_t counter) {
-    if (counter == 255) return 255;//counter最大只能存储到255,到达后不再增加
-    double r = (double)rand()/RAND_MAX;//算一个随机的小数值，counter++是个概率事件🤣
-    double baseval = counter - LFU_INIT_VAL;//新加入的key初始counter设置为LFU_INIT_VAL,为5.不设置为0的原因是防止直接被逐出
-    if (baseval &lt; 0) baseval = 0;
-    double p = 1.0/(baseval*server.lfu_log_factor+1);//server.lfu_log_facotr默认为10
-    if (r &lt; p) counter++;//可以看到,counter越大,则p越小，随机值r小于p的概率就越小。换言之,counter增加起来会越来越缓慢
-    return counter;
-}
-// counter衰减
-unsigned long LFUDecrAndReturn(robj *o) {
-    unsigned long ldt = o-&gt;lru &gt;&gt; 8;//原来保存的时间戳
-    unsigned long counter = o-&gt;lru &amp; 255; //原来保存的counter
-    unsigned long num_periods = server.lfu_decay_time ? LFUTimeElapsed(ldt) / server.lfu_decay_time : 0;
-    //server.lfu_decay_time默认为1,每经过一分钟counter衰减1
-    if (num_periods)
-        counter = (num_periods &gt; counter) ? 0 : counter - num_periods;//如果需要衰减,则计算衰减后的值
-    return counter;
-}
-// 获取分级别的时间
-unsigned long LFUGetTimeInMinutes(void) {
-    return (server.unixtime/60) &amp; 65535;//获取分钟级别的时间戳
-}
-</code></pre>
-<p>想要了解LFU算法，一定要先看这段源码，这段摘自<a href="https://segmentfault.com/a/1190000017555834">思否的一篇文章</a>（尊重原创）。</p>
-<blockquote>
-<p>网上很多这段代码的注释，至于谁是原著不太了解，在这里我把学习时看到的原文放上去。</p>
-</blockquote>
-<ol>
-<li>counter更新<br>
-更新的方法中主要有三行代码，第一行代码判断counter是否需要递减，第二行对counter进行增加，第三行，更新counter以及最新的时间。</li>
-<li>counter衰减</li>
-<li>counter增加<br>
-在看源码的时候对于随机值p不是太理解，看到注释的时候才明白，原来counter值的增加也是一个概率事件，当counter越来越大的时候发生++的概率就越小。</li>
-</ol>
-<h2 id="lru-lfu算法测试">lru、lfu算法测试</h2>
-<p>redis官方提供了一个测试工具来测试lru算法以及lfu算法的效果，我们可以根据测试的结果了解lfu算法带来的效果优化。</p>
-<ol>
-<li>config set maxmemory 50m</li>
-<li>config set maxmemory-policy allkeys-lru</li>
-<li>./redis-cli -p 6380 --lru-test 1000000</li>
-<li>info 查看淘汰策略具体过程</li>
-</ol>
-<blockquote>
-<p>建议自己操作下lru算法和lfu算法，比对测试结果。这里的测试命令好像只有lru-test，不存在lfu-test😧。</p>
-</blockquote>
-<h1 id="参考链接">参考链接</h1>
-<ol>
-<li><a href="http://antirez.com/news/109">reids作者关于LRU算法的讲解</a></li>
-<li><a href="https://segmentfault.com/a/1190000017555834">redis源码分析</a></li>
-</ol>
+                <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo fence="true">{</mo><mrow><mo fence="true">{</mo><mo>{</mo><mi mathvariant="normal">∣</mi><mo>}</mo><mo fence="true">}</mo></mrow><mo fence="true">}</mo></mrow><annotation encoding="application/x-tex">\left \{ \left \{ \{ | \} \right \} \right \}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">{</span><span class="minner"><span class="mopen delimcenter" style="top:0em;">{</span><span class="mopen">{</span><span class="mord">∣</span><span class="mclose">}</span><span class="mclose delimcenter" style="top:0em;">}</span></span><span class="mclose delimcenter" style="top:0em;">}</span></span></span></span></span></span></p>
+<p>|x| = \left{<br>
+\begin{array}{rl}<br>
+-x &amp; \text{if } x &lt; 0,\<br>
+0 &amp; \text{if } x = 0,\<br>
+x &amp; \text{if } x &gt; 0.<br>
+\end{array} \right.</p>
+<p class='katex-block katex-error' title='ParseError: KaTeX parse error: Got function &#039;\hskip&#039; with no arguments as argument to &#039;\begin{array}&#039; at position 1: \̲h̲s̲k̲i̲p̲1em\relax'>1.函数 f(x) = \left\{
+\begin{array}
+ \quad arctan\frac{1}{x},x\not=0\\
+ 0,x=0\\
+\end{array} \right.求 f&#039;_+(0) 以及 f&#039;(0^+).
+</p>
 
               </div>
               <div class="post-footer">
@@ -735,7 +403,7 @@ unsigned long LFUGetTimeInMinutes(void) {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://yeming.site/post/redis-tao-tai-ji-zhi/" title="Redis淘汰机制">https://yeming.site/post/redis-tao-tai-ji-zhi/</a>
+      <a href="https://yeming.site/post/01D9_Lkhg/" title="Latex">https://yeming.site/post/01D9_Lkhg/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -744,21 +412,15 @@ unsigned long LFUGetTimeInMinutes(void) {
   </ul>
   <div class="tags">
     
-      <a href="https://yeming.site/redis/"># Redis</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="消息队列学习开篇" href="https://yeming.site/post/xiao-xi-dui-lie-xue-xi-kai-pian/">消息队列学习开篇</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="消息队列学习开篇" href="https://yeming.site/post/xiao-xi-dui-lie-xue-xi-kai-pian/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Vim命令" href="https://yeming.site/post/vim-ming-ling-ji-lu/">Vim命令</a>
-        <a class="nav-mobile-next" title="Vim命令" href="https://yeming.site/post/vim-ming-ling-ji-lu/">下一篇</a>
+        <a class="nav-pc-next" title="结合vue搭建electron桌面应用" href="https://yeming.site/post/OHqC_LpWd/">结合vue搭建electron桌面应用</a>
+        <a class="nav-mobile-next" title="结合vue搭建electron桌面应用" href="https://yeming.site/post/OHqC_LpWd/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

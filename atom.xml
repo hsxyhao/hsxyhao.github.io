@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yeming.site</id>
     <title>Madara</title>
-    <updated>2020-04-18T17:18:03.365Z</updated>
+    <updated>2020-04-21T00:53:15.358Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yeming.site"/>
     <link rel="self" href="https://yeming.site/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://yeming.site/images/avatar.png</logo>
     <icon>https://yeming.site/favicon.ico</icon>
     <rights>All rights reserved 2020, Madara</rights>
+    <entry>
+        <title type="html"><![CDATA[Latex]]></title>
+        <id>https://yeming.site/post/01D9_Lkhg/</id>
+        <link href="https://yeming.site/post/01D9_Lkhg/">
+        </link>
+        <updated>2020-04-20T09:20:34.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[结合vue搭建electron桌面应用]]></title>
         <id>https://yeming.site/post/OHqC_LpWd/</id>
@@ -145,33 +152,6 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>不知道大家在学习一门新的技术之前是怎么做准备的，不过我想每个人都会遇到过学习完一门知识长时间不接触会立马忘记的情况。就像我之前学的JVM和Redis一样，学习的时候对每个细节都非常了解，可是时间一长之后又会立马忘得一干二净，我觉得大多数人都无法避免这种现象，毕竟你没有过目不忘的本领。既然无法避免那就只能想办法可以快速的再次拾起，就像物理实验中的误差一样，不可避免只能降低。所以在此推荐大家每当学习一个新的知识点的时候，一定要做好学习前的规划以及笔记，不然到头来又是一场空。等到面试的时候再把它拿出来看看，其中重要的点着重回顾，我想一定会有所帮助。还有一点就是记笔记最好整理成博客放在自己的博客或者三方博客平台上，强迫自己把笔记写的自己能看懂外还要别人也能看懂，而且还能和别人一起交流经验，一起学习。<br>
 <img src="https://hsxyhao.github.io/post-images/1577156196399.jpeg" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[消息队列学习开篇]]></title>
-        <id>https://yeming.site/post/xiao-xi-dui-lie-xue-xi-kai-pian/</id>
-        <link href="https://yeming.site/post/xiao-xi-dui-lie-xue-xi-kai-pian/">
-        </link>
-        <updated>2019-12-10T01:20:16.000Z</updated>
-        <summary type="html"><![CDATA[<p>什么是消息队列？消息队列有哪些？又解决了哪些问题？该怎么选择消息队列？使用消息队列的时候会遇到哪些问题？带着这些疑问先对消息队列进行初步了解。<br>
-<img src="https://hsxyhao.github.io/post-images/1576199469901.png" alt="" loading="lazy"></p>
-<h1 id="介绍">介绍</h1>
-<p>在计算机科学中，消息队列（英语：Message queue）是一种进程间通信或同一进程的不同线程间的通信方式，软件的贮列用来处理一系列的输入，通常是来自用户。消息队列提供了异步的通信协议，每一个贮列中的纪录包含详细说明的数据，包含发生的时间，输入设备的种类，以及特定的输入参数，也就是说：消息的发送者和接收者不需要同时与消息队列交互。消息会保存在队列中，直到接收者取回它。<br>
-一个 WIMP 环境像是 Microsoft Windows，借由优先的某些形式（通常是事件的时间或是重要性的顺序）来存储用户产生的事件到一个 事件贮列 中。系统把每个事件从事件贮列中传递给目标的应用程序。          <a href="https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">——摘自维基百科</a></p>
-<blockquote>
-<p>维基百科中的解释，但是总感觉一大串术语，又是进程又是通信的，还有各种设备什么的。对于小白来说就用最简单的一句话就行了，消息队列就是用来发送和接收消息的<strong>队列</strong>，发送消息方叫作<strong>生产者</strong>，接收消息方叫作<strong>消费者</strong>。<br>
-不要纠结这些专业术语了，我们了解消息队列主要用来业务上的问题的，老是按照专业的角度去理解多费事，入门简单的了解它是干什么的解决了什么问题就行了😜</p>
-</blockquote>
-]]></summary>
-        <content type="html"><![CDATA[<p>什么是消息队列？消息队列有哪些？又解决了哪些问题？该怎么选择消息队列？使用消息队列的时候会遇到哪些问题？带着这些疑问先对消息队列进行初步了解。<br>
-<img src="https://hsxyhao.github.io/post-images/1576199469901.png" alt="" loading="lazy"></p>
-<h1 id="介绍">介绍</h1>
-<p>在计算机科学中，消息队列（英语：Message queue）是一种进程间通信或同一进程的不同线程间的通信方式，软件的贮列用来处理一系列的输入，通常是来自用户。消息队列提供了异步的通信协议，每一个贮列中的纪录包含详细说明的数据，包含发生的时间，输入设备的种类，以及特定的输入参数，也就是说：消息的发送者和接收者不需要同时与消息队列交互。消息会保存在队列中，直到接收者取回它。<br>
-一个 WIMP 环境像是 Microsoft Windows，借由优先的某些形式（通常是事件的时间或是重要性的顺序）来存储用户产生的事件到一个 事件贮列 中。系统把每个事件从事件贮列中传递给目标的应用程序。          <a href="https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97">——摘自维基百科</a></p>
-<blockquote>
-<p>维基百科中的解释，但是总感觉一大串术语，又是进程又是通信的，还有各种设备什么的。对于小白来说就用最简单的一句话就行了，消息队列就是用来发送和接收消息的<strong>队列</strong>，发送消息方叫作<strong>生产者</strong>，接收消息方叫作<strong>消费者</strong>。<br>
-不要纠结这些专业术语了，我们了解消息队列主要用来业务上的问题的，老是按照专业的角度去理解多费事，入门简单的了解它是干什么的解决了什么问题就行了😜</p>
-</blockquote>
 ]]></content>
     </entry>
 </feed>
