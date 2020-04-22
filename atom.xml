@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yeming.site</id>
     <title>Madara</title>
-    <updated>2020-04-21T00:58:16.423Z</updated>
+    <updated>2020-04-22T09:21:33.666Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yeming.site"/>
     <link rel="self" href="https://yeming.site/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://yeming.site/images/avatar.png</logo>
     <icon>https://yeming.site/favicon.ico</icon>
     <rights>All rights reserved 2020, Madara</rights>
+    <entry>
+        <title type="html"><![CDATA[Test Valine]]></title>
+        <id>https://yeming.site/post/lObWEGbZH/</id>
+        <link href="https://yeming.site/post/lObWEGbZH/">
+        </link>
+        <updated>2020-04-21T15:09:21.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Latex]]></title>
         <id>https://yeming.site/post/01D9_Lkhg/</id>
@@ -139,19 +146,6 @@
 <blockquote>
 <p>记得在第二家公司还发生过一个小插曲，当时一个开发人员在往kafka发送完消息之后，消费者无法消费到消息，最后找到CTO来解决，还被训了一顿，问题是因为当时那个开发人员在本地开了一个消费端，当消息发送到kafka后，被本地的消费了，开发环境没有消费到。这是个很常见的小问题，相信很多开发者都遇见过，不过不知道你们有没有被CTO给训一顿😂</p>
 </blockquote>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Kafka学前准备]]></title>
-        <id>https://yeming.site/post/kafka-xue-qian-zhun-bei/</id>
-        <link href="https://yeming.site/post/kafka-xue-qian-zhun-bei/">
-        </link>
-        <updated>2019-12-13T07:09:40.000Z</updated>
-        <summary type="html"><![CDATA[<p>不知道大家在学习一门新的技术之前是怎么做准备的，不过我想每个人都会遇到过学习完一门知识长时间不接触会立马忘记的情况。就像我之前学的JVM和Redis一样，学习的时候对每个细节都非常了解，可是时间一长之后又会立马忘得一干二净，我觉得大多数人都无法避免这种现象，毕竟你没有过目不忘的本领。既然无法避免那就只能想办法可以快速的再次拾起，就像物理实验中的误差一样，不可避免只能降低。所以在此推荐大家每当学习一个新的知识点的时候，一定要做好学习前的规划以及笔记，不然到头来又是一场空。等到面试的时候再把它拿出来看看，其中重要的点着重回顾，我想一定会有所帮助。还有一点就是记笔记最好整理成博客放在自己的博客或者三方博客平台上，强迫自己把笔记写的自己能看懂外还要别人也能看懂，而且还能和别人一起交流经验，一起学习。<br>
-<img src="https://hsxyhao.github.io/post-images/1577156196399.jpeg" alt="" loading="lazy"></p>
-]]></summary>
-        <content type="html"><![CDATA[<p>不知道大家在学习一门新的技术之前是怎么做准备的，不过我想每个人都会遇到过学习完一门知识长时间不接触会立马忘记的情况。就像我之前学的JVM和Redis一样，学习的时候对每个细节都非常了解，可是时间一长之后又会立马忘得一干二净，我觉得大多数人都无法避免这种现象，毕竟你没有过目不忘的本领。既然无法避免那就只能想办法可以快速的再次拾起，就像物理实验中的误差一样，不可避免只能降低。所以在此推荐大家每当学习一个新的知识点的时候，一定要做好学习前的规划以及笔记，不然到头来又是一场空。等到面试的时候再把它拿出来看看，其中重要的点着重回顾，我想一定会有所帮助。还有一点就是记笔记最好整理成博客放在自己的博客或者三方博客平台上，强迫自己把笔记写的自己能看懂外还要别人也能看懂，而且还能和别人一起交流经验，一起学习。<br>
-<img src="https://hsxyhao.github.io/post-images/1577156196399.jpeg" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
