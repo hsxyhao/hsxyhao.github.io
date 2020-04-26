@@ -2195,15 +2195,15 @@ pre > span.copy-code:hover {
     }.box-shadow-wrapper {
       padding: 10px;
     }body {
-      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.7/media/curs/default_normal.cur'), default;
+      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@master/media/curs/default_normal.cur'), default;
     }a {
-      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.7/media/curs/default_link.cur'), pointer !important;
+      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@master/media/curs/default_link.cur'), pointer !important;
     }input, textarea, code {
-      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.7/media/curs/default_texto.cur'), text !important;
+      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@master/media/curs/default_texto.cur'), text !important;
     }code > span.copy-code {
-      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.7/media/curs/normal.cur'), text !important;
+      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@master/media/curs/normal.cur'), text !important;
     }.post img {
-      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.1.7/media/curs/zoomout.cur'), zoom-in !important;
+      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@master/media/curs/zoomout.cur'), zoom-in !important;
     }.post img {
       cursor: zoom-out;
     }
