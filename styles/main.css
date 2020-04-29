@@ -197,6 +197,10 @@ pre > span.copy-code {
 pre > span.copy-code:hover {
   color: #FFF;
 }
+.nav-item .fa {
+  width: 16px;
+  text-align: center;
+}
 .head-top-line {
   height: 3px;
   background: #222;
@@ -2081,16 +2085,16 @@ pre > span.copy-code:hover {
         margin: 0 auto;
       }
     body {
-      color: #222;
+      color: #c92a2a;
     }
     .next-md-body {
-      color: #222;
+      color: #c92a2a;
     }
     .next-md-body h1, .next-md-body h2 {
-      border-bottom-color: #222;
+      border-bottom-color: #c92a2a;
     }
     .archive-timeline-box::after, .tag-timeline-wrapper::after {
-      background: #eeeeeecc;
+      background: #c92a2acc;
     }h1, h2, h3, h4, h5, h6 {
       color: #222;
     }
