@@ -8,7 +8,7 @@
 <meta name="keywords" content="Coder | 个人博客 | Gridea | NexT ">
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
-<title>MySQL恶心的周跨年问题 | Madara</title>
+<title>给Next提交代码 | Madara</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1588176385528">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -49,7 +49,7 @@
   })();
 </script>
 
-  <meta name="description" content="MySQL恶心的周跨年问题" />
+  <meta name="description" content="给Next提交代码" />
   <meta name="keywords" content="" />
 </head>
 
@@ -202,7 +202,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -266,6 +267,202 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number no_compress"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#pr">PR</a>
+<ul>
+<li><a href="#%E5%91%BD%E5%90%8D">命名</a></li>
+<li><a href="#commit">commit</a></li>
+<li><a href="#%E6%93%8D%E4%BD%9C%E8%A7%84%E8%8C%83">操作规范</a></li>
+<li><a href="#%E8%B4%A1%E7%8C%AE">贡献</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -353,8 +550,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/">
-      MySQL恶心的周跨年问题
+    <a class="post-title-link" href="https://yeming.site/post/qe8eK5IAz/">
+      给Next提交代码
     </a>
   </h1>
   <div class="post-meta">
@@ -362,23 +559,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-01-06</span>
+      <span>2020-04-29</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
+      <span>4分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>378<span class="pc-show">字数</span></span>
+      <span>878<span class="pc-show">字数</span></span>
     </span>
     
     
     
-    <span id="/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/" data-flag-title="MySQL恶心的周跨年问题" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/qe8eK5IAz/" data-flag-title="给Next提交代码" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span>浏览量：<span class="leancloud-visitors-count"></span></span>
@@ -387,13 +584,34 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>刚过完元旦就遇到了让人恶心的bug，都还没有从朋友圈狗粮阴影里出来，😒。先记录一下吧，防止以后会遇到相似的bug。之前负责公司的一个运营平台，里面有一个周统计任务，每周统计一下服务的使用量。我采用的思路就是将使用记录的创建时间用weekofyear以及year分别获取记录的周以及年，然后用group by分组统计。</p>
-<blockquote>
-<p>weekofyear获取的是一年中的第几周，year获取的是时间的年分</p>
-</blockquote>
-<p>这样处理的问题大多数情况下都是没有问题的，但是在特殊情况下就会出现问题，比如说周跨年，就是说一年中的最后一个周的七天可能包含两年，类似19年最后一周就是，19年12月30日~20年的1月5日。那么在遇到这种情况怎么样才能在尽量不改动业务的情况下修复这个问题呢，其实也很简单，使用YEARWEEK函数，这个函数有两个参数，具体的解释可以看这篇<a href="https://blog.csdn.net/dmw412724/article/details/95318091">博客</a>，这个函数的效果就是不管是20191230还是20200105这中间哪个时间段都可以达到输出一样的结果，拿到这个结果之后对其进行切割，用left以及right函数就可以分别获取周和年，在最小改动业务的情况下完美的解决了这个bug，😌</p>
+              <p>写这篇文章的主要目的就是用来给next主题的开源社区用户一个参考的地方，最近发现很多提交pr的用户不太“正确”，这里的正确是指我这边方便操作，并不是说大家提交的pr是错误的，那么为什么要按照我的要求来提交pr呢？既然都是给项目提交代码，合并要弄这么多麻烦的事情呢？其实这个一个是规范，另一个也是想不辜负大家的心意。</p>
 <!-- more -->
-<p><code>测试</code></p>
+<h2 id="pr">PR</h2>
+<p>要想贡献代码，首先就是提交pr，那么第一个开刀的就是规范pr了。下面开始说正题，为什么要按照要求来提交pr？首先就是方便管理，其次就是如果我想尽可能的合并大家的写的代码，如果大家提交的代码有问题的话，我这边是不会合并的，所以也请大家能够理解，本来就是抽时间维护这个项目，我们更应该提交效率。</p>
+<h3 id="命名">命名</h3>
+<p>pr的命名最好按照fix，feat，doc这种固定的前缀要求来，这样的话，我在收到邮件的时候就能第一时间注意到pr可能是涉及到哪些东西，会根据优先级来合并。名称格式：${prefix}/名字 ，对于名字部分可以随意，只要意思明确就行，最好能对应到某个issue。一般命名的前缀有以下几个：</p>
+<ul>
+<li>fix：修复bug</li>
+<li>docs：添加项目文档</li>
+<li>feat：新功能（feature）</li>
+<li>refactor：重构（即不是新增功能，也不是修改bug的代码变动）</li>
+<li>pref：优化（样式、性能、代码等优化）</li>
+</ul>
+<h3 id="commit">commit</h3>
+<p>一般建议一个pr需要有针对性的目的，不要一个pr有多个操作，如：在一个pr里既修复bug，又添加新功能，这样的话不太好。试想，如果你修复的那个bug比较紧急，然后添加的新功能又要经过测试，这个时候是不是就麻烦了，到底是先合并还是先测试呢？所以后期对于这种pr我会直接忽略的，请大家理解。</p>
+<h3 id="操作规范">操作规范</h3>
+<p>操作规范主要是说在提交pr的时候以及fork后进行开发的操作，这里我强烈“要求”大家在fork完项目之后，不要直接在master上修改代码，需要创建一个新的分支，然后在分支上进行开发。这样的主要目的是有些时候大家提交了pr，我需要测试一下，但是我又不能先合并到master，如果先合并就会造成master污染了。所以我就要先clone大家的项目，然后在本地测试，这样一个两个我还能操作过来，但是后期一旦pr过多，那就麻烦了；还有一个问题就是如果我只想合并大家pr中的某个commit，而不是所有，那这个只能使用git cherry-pick命令挑选重要的commit合并，但是如果直接在master修改的话那我是无法做到这点的。<br>
+接下来弄个简单的教程，希望大家能明白具体怎么操作的：</p>
+<ol>
+<li>fork项目：直接点fork，没有什么好解释的</li>
+<li>clone自己fork的项目到本地</li>
+<li>使用git checkout -b newBranch 命令创建新分支</li>
+<li>修改代码，commit</li>
+<li>git push origin newBranch</li>
+</ol>
+<p>最后在提交pr的时候可以这样提交<br>
+<img src="https://cdn.jsdelivr.net/gh/hsxyhao/images.github.io@master/qe8eK5IAz/pr.png" alt="" loading="lazy"></p>
+<h3 id="贡献">贡献</h3>
 
             </div>
             <div class="post-footer">
@@ -404,7 +622,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/" title="MySQL恶心的周跨年问题">https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/</a>
+      <a href="https://yeming.site/post/qe8eK5IAz/" title="给Next提交代码">https://yeming.site/post/qe8eK5IAz/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -417,15 +635,11 @@
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="关于Gridea的远程连接、同步失败问题" href="https://yeming.site/post/gridea_help/">关于Gridea的远程连接、同步失败问题</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="关于Gridea的远程连接、同步失败问题" href="https://yeming.site/post/gridea_help/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="说一下NexT主题" href="https://yeming.site/post/shuo-yi-xia-next-zhu-ti/">说一下NexT主题</a>
-        <a class="nav-mobile-next" title="说一下NexT主题" href="https://yeming.site/post/shuo-yi-xia-next-zhu-ti/">下一篇</a>
+        <a class="nav-pc-next" title="Git仓库减肥指南" href="https://yeming.site/post/lsz6Jikoa/">Git仓库减肥指南</a>
+        <a class="nav-mobile-next" title="Git仓库减肥指南" href="https://yeming.site/post/lsz6Jikoa/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

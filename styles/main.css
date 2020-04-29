@@ -2085,16 +2085,16 @@ pre > span.copy-code:hover {
         margin: 0 auto;
       }
     body {
-      color: #c92a2a;
+      color: #222;
     }
     .next-md-body {
-      color: #c92a2a;
+      color: #222;
     }
     .next-md-body h1, .next-md-body h2 {
-      border-bottom-color: #c92a2a;
+      border-bottom-color: #222;
     }
     .archive-timeline-box::after, .tag-timeline-wrapper::after {
-      background: #c92a2acc;
+      background: #f1f3f5cc;
     }h1, h2, h3, h4, h5, h6 {
       color: #222;
     }
@@ -2199,15 +2199,15 @@ pre > span.copy-code:hover {
     }.box-shadow-wrapper {
       padding: 10px;
     }body {
-      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@master/media/curs/default_normal.cur'), default;
+      cursor: url('/media/curs/default_normal.cur'), default;
     }a {
-      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@master/media/curs/default_link.cur'), pointer !important;
+      cursor: url('/media/curs/default_link.cur'), pointer !important;
     }input, textarea, code {
-      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@master/media/curs/default_texto.cur'), text !important;
+      cursor: url('/media/curs/default_texto.cur'), text !important;
     }code > span.copy-code {
-      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@master/media/curs/normal.cur'), text !important;
+      cursor: url('/media/curs/normal.cur'), text !important;
     }.post img {
-      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@master/media/curs/zoomout.cur'), zoom-in !important;
+      cursor: url('/media/curs/zoomout.cur'), zoom-in !important;
     }.post img {
       cursor: zoom-out;
     }
