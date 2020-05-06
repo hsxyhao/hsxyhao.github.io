@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yeming.site</id>
     <title>Madara</title>
-    <updated>2020-05-06T11:53:07.314Z</updated>
+    <updated>2020-05-06T11:59:07.534Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yeming.site"/>
     <link rel="self" href="https://yeming.site/atom.xml"/>
@@ -10,20 +10,6 @@
     <logo>https://yeming.site/images/avatar.png</logo>
     <icon>https://yeming.site/favicon.ico</icon>
     <rights>All rights reserved 2020, Madara</rights>
-    <entry>
-        <title type="html"><![CDATA[test1]]></title>
-        <id>https://yeming.site/post/fhvmIOxCk/</id>
-        <link href="https://yeming.site/post/fhvmIOxCk/">
-        </link>
-        <updated>2020-05-03T17:14:57.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[tes]]></title>
-        <id>https://yeming.site/post/RdDBNiusV/</id>
-        <link href="https://yeming.site/post/RdDBNiusV/">
-        </link>
-        <updated>2020-05-02T02:21:06.000Z</updated>
-    </entry>
     <entry>
         <title type="html"><![CDATA[给Next提交代码]]></title>
         <id>https://yeming.site/post/qe8eK5IAz/</id>
@@ -136,6 +122,30 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，经常是一旦出现了bug就加班加点的修复，虽然累一点，但是反而快乐了许多。最后我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
 <figure data-type="image" tabindex="1"><img src="https://yeming.site/post-images/1577787675038.jpg" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[KaTeX数学公式支持测试]]></title>
+        <id>https://yeming.site/post/ce-shi-md-shu-xue-gong-shi/</id>
+        <link href="https://yeming.site/post/ce-shi-md-shu-xue-gong-shi/">
+        </link>
+        <updated>2019-12-31T03:11:30.000Z</updated>
+        <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1577763703490.png" alt="" loading="lazy"></figure>
+]]></summary>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1577763703490.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Redis常考面试题]]></title>
+        <id>https://yeming.site/post/redis-chang-kao-mian-shi-ti/</id>
+        <link href="https://yeming.site/post/redis-chang-kao-mian-shi-ti/">
+        </link>
+        <updated>2019-12-30T03:07:24.000Z</updated>
+        <summary type="html"><![CDATA[<p>前段时间学习了一下redis，并且也做了些学习笔记，刚过一周的时候，就已经忘得一干二净，实在是惭愧啊。不过唯一的安慰就是当时的笔记灵感都记录下来了，尤其是难点都做了详细的笔记。本来准备过段时间再回顾一下，今天同事丢了本redis面试题给我，大概看了下，基本上前段时间看的内容都有提到，所以就准备将这些面试题和我之前做的笔记结合起来做一个回忆索引。<br>
+<img src="https://hsxyhao.github.io/post-images/1577675564766.jpg" alt="" loading="lazy"></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>前段时间学习了一下redis，并且也做了些学习笔记，刚过一周的时候，就已经忘得一干二净，实在是惭愧啊。不过唯一的安慰就是当时的笔记灵感都记录下来了，尤其是难点都做了详细的笔记。本来准备过段时间再回顾一下，今天同事丢了本redis面试题给我，大概看了下，基本上前段时间看的内容都有提到，所以就准备将这些面试题和我之前做的笔记结合起来做一个回忆索引。<br>
+<img src="https://hsxyhao.github.io/post-images/1577675564766.jpg" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
