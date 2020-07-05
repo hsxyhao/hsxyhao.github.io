@@ -2182,13 +2182,13 @@ p > code {
     }.box-scale > #landlord {
       transform: scale(0.8);
     }body {
-      cursor: url('/media/curs/default_normal.cur'), default;
+      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.3.1/media/curs/default_normal.cur'), default;
     }a {
-      cursor: url('/media/curs/default_link.cur'), pointer !important;
+      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.3.1/media/curs/default_link.cur'), pointer !important;
     }input, textarea, code {
-      cursor: url('/media/curs/default_texto.cur'), text !important;
+      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.3.1/media/curs/default_texto.cur'), text !important;
     }code > span.copy-code {
-      cursor: url('/media/curs/normal.cur'), text !important;
+      cursor: url('https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.3.1/media/curs/normal.cur'), text !important;
     }.post img {
       cursor: zoom-in;
     }.post img {
