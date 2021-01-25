@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://hsxyhao.github.io</id>
+    <title>Madara</title>
+    <updated>2021-01-25T14:05:01.407Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://hsxyhao.github.io"/>
+    <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
+    <subtitle>这个人很懒，什么都不想写...</subtitle>
+    <logo>https://hsxyhao.github.io/images/avatar.png</logo>
+    <icon>https://hsxyhao.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2021, Madara</rights>
+    <entry>
+        <title type="html"><![CDATA[给Next提交代码]]></title>
+        <id>https://hsxyhao.github.io/post/qe8eK5IAz/</id>
+        <link href="https://hsxyhao.github.io/post/qe8eK5IAz/">
+        </link>
+        <updated>2020-04-29T11:23:57.000Z</updated>
+        <summary type="html"><![CDATA[<p>写这篇文章的主要目的就是用来给next主题的开源社区用户一个参考的地方，最近发现很多提交pr的用户不太“正确”，这里的正确是指我这边方便操作，并不是说大家提交的pr是错误的，那么为什么要按照我的要求来提交pr呢？既然都是给项目提交代码，何必要弄这么多麻烦的事情呢？其实这个一个是规范，另一个也是想不辜负大家的心意。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>写这篇文章的主要目的就是用来给next主题的开源社区用户一个参考的地方，最近发现很多提交pr的用户不太“正确”，这里的正确是指我这边方便操作，并不是说大家提交的pr是错误的，那么为什么要按照我的要求来提交pr呢？既然都是给项目提交代码，何必要弄这么多麻烦的事情呢？其实这个一个是规范，另一个也是想不辜负大家的心意。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Git仓库减肥指南]]></title>
+        <id>https://hsxyhao.github.io/post/lsz6Jikoa/</id>
+        <link href="https://hsxyhao.github.io/post/lsz6Jikoa/">
+        </link>
+        <updated>2020-04-28T23:06:33.000Z</updated>
+        <summary type="html"><![CDATA[<p>情景描述：之前在网上开源的一款主题项目，短短半年时间受到很多网友的喜爱，也收获了一批忠实粉丝，社区也比较活跃，前段时间就有个用户提出了一个问题，就是主题的压缩包已经高达30多M，懂技术的人应该都知道这个问题的严重性，一个静态的主题高达30M那真的是一个灾难性问题。后来花了些时间将主题包的大小从30M压缩到6M，再经过github官方压缩，成功降到1M，也算是一个比较不错的优化案例了吧。在这里将我优化中遇到的问题和经验总结下。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>情景描述：之前在网上开源的一款主题项目，短短半年时间受到很多网友的喜爱，也收获了一批忠实粉丝，社区也比较活跃，前段时间就有个用户提出了一个问题，就是主题的压缩包已经高达30多M，懂技术的人应该都知道这个问题的严重性，一个静态的主题高达30M那真的是一个灾难性问题。后来花了些时间将主题包的大小从30M压缩到6M，再经过github官方压缩，成功降到1M，也算是一个比较不错的优化案例了吧。在这里将我优化中遇到的问题和经验总结下。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Next使用文档（持续更新）]]></title>
+        <id>https://hsxyhao.github.io/post/1JA_OJlig/</id>
+        <link href="https://hsxyhao.github.io/post/1JA_OJlig/">
+        </link>
+        <updated>2020-03-10T14:50:28.000Z</updated>
+        <summary type="html"><![CDATA[<p>Next主题是翻版hexo平台上的主题，由于其简约的风格深受用户的喜爱，不过很可惜的是hexo在使用上有很多不足之处。而gridea则弥补了其很多的缺点，但是目前gridea仍处于成长阶段，bug也有不少，至于Next主题情况也是类似，从开发至今大概以及过去了4个月的时间，还处于一个很不稳定的阶段，这个阶段在功能上会有很大的调整，很多用户还不是很会使用这个主题。所以准备维护一个使用文档，帮助大家解决问题。<br>
+<img src="https://cdn.jsdelivr.net/gh/hsxyhao/images.github.io@master/1JA_OJlig/group_chat.jpeg" alt="Next主题交流群" loading="lazy"><br>
+上图是主题交流群，有什么问题可以在群里交流，有建议也可以在群里提，希望能帮助大家快速构建主题。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Next主题是翻版hexo平台上的主题，由于其简约的风格深受用户的喜爱，不过很可惜的是hexo在使用上有很多不足之处。而gridea则弥补了其很多的缺点，但是目前gridea仍处于成长阶段，bug也有不少，至于Next主题情况也是类似，从开发至今大概以及过去了4个月的时间，还处于一个很不稳定的阶段，这个阶段在功能上会有很大的调整，很多用户还不是很会使用这个主题。所以准备维护一个使用文档，帮助大家解决问题。<br>
+<img src="https://cdn.jsdelivr.net/gh/hsxyhao/images.github.io@master/1JA_OJlig/group_chat.jpeg" alt="Next主题交流群" loading="lazy"><br>
+上图是主题交流群，有什么问题可以在群里交流，有建议也可以在群里提，希望能帮助大家快速构建主题。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[结合vue搭建electron桌面应用]]></title>
+        <id>https://hsxyhao.github.io/post/OHqC_LpWd/</id>
+        <link href="https://hsxyhao.github.io/post/OHqC_LpWd/">
+        </link>
+        <updated>2020-03-05T14:26:41.000Z</updated>
+        <summary type="html"><![CDATA[<p>electron是什么？简单点来说就是让你使用前端技术（css、js、html）就可以开发桌面应用（mac，windows，linux），但是使用纯html来写桌面应用，简单的毫无问题，但是复杂的项目那简直为让人生不如死。所以肯定要选择前端框架来提高开发效率。但是对于一个小白来说一下子跨越着实有点大，所以就准备写个文章，记录一下纯小白在使用electron的过程中遇到的坑。当然这里会结合ts来开发应用，毕竟js在开发后期确实有些不方便，谁用谁知道。</p>
+<blockquote>
+<p>大名鼎鼎的vs code也是用electron开发的，这点确实让我很惊讶。electron技术起源于atom，一款由github开源的编辑器，当时第一次接触atom时，IDE实在是卡到爆，也不知道是不是我当时电脑该换了，反正给我的映像就是非常吃内存。而vscode则带给我另一种体验，让我完全无法想象使用electron开发的。</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<p>electron是什么？简单点来说就是让你使用前端技术（css、js、html）就可以开发桌面应用（mac，windows，linux），但是使用纯html来写桌面应用，简单的毫无问题，但是复杂的项目那简直为让人生不如死。所以肯定要选择前端框架来提高开发效率。但是对于一个小白来说一下子跨越着实有点大，所以就准备写个文章，记录一下纯小白在使用electron的过程中遇到的坑。当然这里会结合ts来开发应用，毕竟js在开发后期确实有些不方便，谁用谁知道。</p>
+<blockquote>
+<p>大名鼎鼎的vs code也是用electron开发的，这点确实让我很惊讶。electron技术起源于atom，一款由github开源的编辑器，当时第一次接触atom时，IDE实在是卡到爆，也不知道是不是我当时电脑该换了，反正给我的映像就是非常吃内存。而vscode则带给我另一种体验，让我完全无法想象使用electron开发的。</p>
+</blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[最新版NexT主题使用教程]]></title>
+        <id>https://hsxyhao.github.io/post/Och5LtMIu/</id>
+        <link href="https://hsxyhao.github.io/post/Och5LtMIu/">
+        </link>
+        <updated>2020-01-25T13:12:43.000Z</updated>
+        <summary type="html"><![CDATA[<p>各位小伙伴看这里👉，最新版NexT主题已经悄悄上线，暗中观察的你赶快使用起来喔！！！不过从最新的用户反馈中得知，目前的最新的版本在自定义配置方面过于复杂，有些属性配置大家也不知道怎么调整，只能靠一步步调试，效率很低。为了帮助大家快速熟悉最新的版本，在这里准备给大家输出一个详细的配置教程。</p>
+<blockquote>
+<p>这几天一直笼罩在新型冠状病毒的恐惧中，弄得我精神恍惚，更新实在更不上啊，多多担待😮。建议大家还是多做好防范措施，尽量少去人多的地方，避免感染，不要过度恐慌，但是还是多给家里人普及一下这方面的信息，尤其是老人，总之大家多注意点，防范点。</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://yeming.site/post-images/1579959959591.png" alt="" loading="lazy"></figure>
+]]></summary>
+        <content type="html"><![CDATA[<p>各位小伙伴看这里👉，最新版NexT主题已经悄悄上线，暗中观察的你赶快使用起来喔！！！不过从最新的用户反馈中得知，目前的最新的版本在自定义配置方面过于复杂，有些属性配置大家也不知道怎么调整，只能靠一步步调试，效率很低。为了帮助大家快速熟悉最新的版本，在这里准备给大家输出一个详细的配置教程。</p>
+<blockquote>
+<p>这几天一直笼罩在新型冠状病毒的恐惧中，弄得我精神恍惚，更新实在更不上啊，多多担待😮。建议大家还是多做好防范措施，尽量少去人多的地方，避免感染，不要过度恐慌，但是还是多给家里人普及一下这方面的信息，尤其是老人，总之大家多注意点，防范点。</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://yeming.site/post-images/1579959959591.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于Gridea的远程连接、同步失败问题]]></title>
+        <id>https://hsxyhao.github.io/post/gridea_help/</id>
+        <link href="https://hsxyhao.github.io/post/gridea_help/">
+        </link>
+        <updated>2020-01-10T05:29:55.000Z</updated>
+        <summary type="html"><![CDATA[<p>最近在gridea的群聊发现很多新人在安装好gridea点击远程连接的时候都会出现问题，大部分都是类似no  such remote这样的提示信息，之前我第一次安装的时候也出现过这样的问题，本来以为就我一个人会有，后面发现有这个问题的人也不少，经常群里有人问题这样的问题。自己也在群里解决了一些，但是这样总不是办法，还是需要写一个文档出来，节约大家的时间，这也是写这篇文章的原因，希望这篇文章可以帮助大家解决问题，如果不能解决，可以在下面评论，我会尽力解决，后期也方便其他新手再次遇到类似的问题。<br>
+<img src="https://hsxyhao.github.io/post-images/1578642807761.jpg" alt="" loading="lazy"></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>最近在gridea的群聊发现很多新人在安装好gridea点击远程连接的时候都会出现问题，大部分都是类似no  such remote这样的提示信息，之前我第一次安装的时候也出现过这样的问题，本来以为就我一个人会有，后面发现有这个问题的人也不少，经常群里有人问题这样的问题。自己也在群里解决了一些，但是这样总不是办法，还是需要写一个文档出来，节约大家的时间，这也是写这篇文章的原因，希望这篇文章可以帮助大家解决问题，如果不能解决，可以在下面评论，我会尽力解决，后期也方便其他新手再次遇到类似的问题。<br>
+<img src="https://hsxyhao.github.io/post-images/1578642807761.jpg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MySQL恶心的周跨年问题]]></title>
+        <id>https://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/</id>
+        <link href="https://hsxyhao.github.io/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/">
+        </link>
+        <updated>2020-01-06T04:17:49.000Z</updated>
+        <summary type="html"><![CDATA[<p>刚过完元旦就遇到了让人恶心的bug，都还没有从朋友圈狗粮阴影里出来，😒。先记录一下吧，防止以后会遇到相似的bug。之前负责公司的一个运营平台，里面有一个周统计任务，每周统计一下服务的使用量。我采用的思路就是将使用记录的创建时间用weekofyear以及year分别获取记录的周以及年，然后用group by分组统计。</p>
+<blockquote>
+<p>weekofyear获取的是一年中的第几周，year获取的是时间的年分</p>
+</blockquote>
+<p>这样处理的问题大多数情况下都是没有问题的，但是在特殊情况下就会出现问题，比如说周跨年，就是说一年中的最后一个周的七天可能包含两年，类似19年最后一周就是，19年12月30日~20年的1月5日。那么在遇到这种情况怎么样才能在尽量不改动业务的情况下修复这个问题呢，其实也很简单，使用YEARWEEK函数，这个函数有两个参数，具体的解释可以看这篇<a href="https://blog.csdn.net/dmw412724/article/details/95318091">博客</a>，这个函数的效果就是不管是20191230还是20200105这中间哪个时间段都可以达到输出一样的结果，拿到这个结果之后对其进行切割，用left以及right函数就可以分别获取周和年，在最小改动业务的情况下完美的解决了这个bug，😌</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>刚过完元旦就遇到了让人恶心的bug，都还没有从朋友圈狗粮阴影里出来，😒。先记录一下吧，防止以后会遇到相似的bug。之前负责公司的一个运营平台，里面有一个周统计任务，每周统计一下服务的使用量。我采用的思路就是将使用记录的创建时间用weekofyear以及year分别获取记录的周以及年，然后用group by分组统计。</p>
+<blockquote>
+<p>weekofyear获取的是一年中的第几周，year获取的是时间的年分</p>
+</blockquote>
+<p>这样处理的问题大多数情况下都是没有问题的，但是在特殊情况下就会出现问题，比如说周跨年，就是说一年中的最后一个周的七天可能包含两年，类似19年最后一周就是，19年12月30日~20年的1月5日。那么在遇到这种情况怎么样才能在尽量不改动业务的情况下修复这个问题呢，其实也很简单，使用YEARWEEK函数，这个函数有两个参数，具体的解释可以看这篇<a href="https://blog.csdn.net/dmw412724/article/details/95318091">博客</a>，这个函数的效果就是不管是20191230还是20200105这中间哪个时间段都可以达到输出一样的结果，拿到这个结果之后对其进行切割，用left以及right函数就可以分别获取周和年，在最小改动业务的情况下完美的解决了这个bug，😌</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[说一下NexT主题]]></title>
+        <id>https://hsxyhao.github.io/post/shuo-yi-xia-next-zhu-ti/</id>
+        <link href="https://hsxyhao.github.io/post/shuo-yi-xia-next-zhu-ti/">
+        </link>
+        <updated>2019-12-31T06:31:36.000Z</updated>
+        <summary type="html"><![CDATA[<p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，经常是一旦出现了bug就加班加点的修复，虽然累一点，但是反而快乐了许多。最后我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
+<figure data-type="image" tabindex="1"><img src="https://yeming.site/post-images/1577787675038.jpg" alt="" loading="lazy"></figure>
+]]></summary>
+        <content type="html"><![CDATA[<p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，经常是一旦出现了bug就加班加点的修复，虽然累一点，但是反而快乐了许多。最后我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
+<figure data-type="image" tabindex="1"><img src="https://yeming.site/post-images/1577787675038.jpg" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[KaTeX数学公式支持测试]]></title>
+        <id>https://hsxyhao.github.io/post/ce-shi-md-shu-xue-gong-shi/</id>
+        <link href="https://hsxyhao.github.io/post/ce-shi-md-shu-xue-gong-shi/">
+        </link>
+        <updated>2019-12-31T03:11:30.000Z</updated>
+        <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1577763703490.png" alt="" loading="lazy"></figure>
+]]></summary>
+        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1577763703490.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Redis常考面试题]]></title>
+        <id>https://hsxyhao.github.io/post/redis-chang-kao-mian-shi-ti/</id>
+        <link href="https://hsxyhao.github.io/post/redis-chang-kao-mian-shi-ti/">
+        </link>
+        <updated>2019-12-30T03:07:24.000Z</updated>
+        <summary type="html"><![CDATA[<p>前段时间学习了一下redis，并且也做了些学习笔记，刚过一周的时候，就已经忘得一干二净，实在是惭愧啊。不过唯一的安慰就是当时的笔记灵感都记录下来了，尤其是难点都做了详细的笔记。本来准备过段时间再回顾一下，今天同事丢了本redis面试题给我，大概看了下，基本上前段时间看的内容都有提到，所以就准备将这些面试题和我之前做的笔记结合起来做一个回忆索引。<br>
+<img src="https://hsxyhao.github.io/post-images/1577675564766.jpg" alt="" loading="lazy"></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>前段时间学习了一下redis，并且也做了些学习笔记，刚过一周的时候，就已经忘得一干二净，实在是惭愧啊。不过唯一的安慰就是当时的笔记灵感都记录下来了，尤其是难点都做了详细的笔记。本来准备过段时间再回顾一下，今天同事丢了本redis面试题给我，大概看了下，基本上前段时间看的内容都有提到，所以就准备将这些面试题和我之前做的笔记结合起来做一个回忆索引。<br>
+<img src="https://hsxyhao.github.io/post-images/1577675564766.jpg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+</feed>
