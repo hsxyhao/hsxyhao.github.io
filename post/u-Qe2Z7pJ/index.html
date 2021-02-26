@@ -8,7 +8,7 @@
 <meta name="keywords" content="Coder | 个人博客 | Gridea | NexT ">
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
-<title>关于 | Madara</title>
+<title>213213 | Madara</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1614355232609">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -61,7 +61,7 @@
 </script>
 
 
-  <meta name="description" content="关于" />
+  <meta name="description" content="213213" />
   <meta name="keywords" content="" />
 </head>
 
@@ -286,12 +286,22 @@
   <div class="toc-wrapper auto-number no_compress"
     id="toc_wrapper">
     <ul class="markdownIt-TOC">
-<li>
+<li><a href="#json-v11-%E7%A4%BE%E5%8C%BA%E7%BB%B4%E6%8A%A4%E7%89%88">JSON v1.1 - 社区维护版</a>
 <ul>
-<li><a href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99">🏠 关于本站</a></li>
-<li><a href="#%E4%B8%BB%E9%A2%98%E6%89%93%E8%B5%8F">主题打赏</a></li>
-<li><a href="#%E8%81%8A%E5%A4%A9">聊天</a></li>
-<li><a href="#%E8%81%94%E7%B3%BB%E6%88%91%E5%91%80">📬 联系我呀</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E">使用说明</a><br>
+*<br>
+*<br>
+*<br>
+* <a href="#%E4%B8%80%E6%AC%BE%E5%9F%BA%E4%BA%8Etypecho%E7%9A%84%E5%BC%80%E6%94%BE%E5%BC%8Fapi%E6%8F%92%E4%BB%B6%E6%94%AF%E6%8C%81%E6%8C%89%E6%8E%A5%E5%8F%A3%E5%8F%82%E6%95%B0%E8%BE%93%E5%87%BA%E6%96%87%E7%AB%A0%E9%A6%96%E9%A1%B5%E8%AF%84%E8%AE%BA%E5%88%86%E7%B1%BB%E7%AD%89%E6%95%B0%E6%8D%AE%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%90%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F">一款基于Typecho的开放式API插件，支持按接口参数输出文章，首页，评论，分类等数据用于生成微信小程序。</a><br>
+* <a href="#1-%E4%B8%8B%E8%BD%BD%E6%9C%AC%E6%8F%92%E4%BB%B6%E6%94%BE%E5%9C%A8-usrplugins-%E7%9B%AE%E5%BD%95%E4%B8%AD%E7%A1%AE%E4%BF%9D%E6%96%87%E4%BB%B6%E5%A4%B9%E5%90%8D%E4%B8%BA-json">1. 下载本插件，放在 <code>usr/plugins/</code> 目录中，确保文件夹名为 JSON；</a><br>
+* <a href="#2-%E6%BF%80%E6%B4%BB%E6%8F%92%E4%BB%B6%E8%AF%95%E8%AF%95%E8%AE%BF%E9%97%AE-httpexamplecomapiaction-%E5%90%A7">2. 激活插件，试试访问 http://[example].com/api/[action] 吧！</a><br>
+* <a href="#%E4%BB%A5%E4%B8%8A%E5%9C%B0%E5%9D%80%E4%B8%AD%E7%9A%84action%E8%AF%B7%E6%9B%BF%E6%8D%A2%E4%B8%8B%E8%A1%A8%E5%88%97%E5%87%BA%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%90%8D%E5%85%B6%E5%90%8E%E5%8F%AF%E5%86%8D%E6%8E%A5%E5%8F%82%E6%95%B0%E5%90%8D%E5%80%BC">以上地址中的[action]请替换下表列出的接口名，其后可再接?[参数名]=[值]。</a><br>
+* <a href="#%E6%9C%AA%E5%BC%80%E5%90%AF%E5%9C%B0%E5%9D%80%E9%87%8D%E5%86%99%E5%8A%9F%E8%83%BD%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%9C%80%E8%A6%81%E5%9C%A8%E5%9F%9F%E5%90%8D%E5%90%8E%E6%8E%A5indexphp%E5%86%8Dapiaction%E5%90%8C%E4%B8%8A">未开启地址重写功能的博客需要在域名后接/index.php再/api/[action]同上。</a><br>
+* <a href="#%E6%BC%94%E7%A4%BA%E5%9C%B0%E5%9D%80httpssangsircomapiposts">演示地址：https://sangsir.com/api/posts</a></li>
+<li><a href="#%E7%89%88%E6%9C%AC%E5%8E%86%E5%8F%B2">版本历史</a></li>
+<li><a href="#%E8%B4%A1%E7%8C%AE%E4%BD%9C%E8%80%85">贡献作者</a></li>
+<li><a href="#%E9%99%84%E6%B3%A8%E9%93%BE%E6%8E%A5">附注/链接</a></li>
+<li><a href="#%E6%8E%88%E6%9D%83%E5%8D%8F%E8%AE%AE">授权协议</a></li>
 </ul>
 </li>
 </ul>
@@ -559,8 +569,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="http://localhost:4000/post/about/">
-      关于
+    <a class="post-title-link" href="http://localhost:4000/post/u-Qe2Z7pJ/">
+      213213
     </a>
   </h1>
   <div class="post-meta">
@@ -568,23 +578,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2019-01-25 19:09:48">2019-01-25</span>
+      <span class="publish-time" data-t="2021-01-26 23:44:55">2021-01-26</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
+      <span>3<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>402<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>738<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/about/" data-flag-title="关于" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/u-Qe2Z7pJ/" data-flag-title="213213" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -593,20 +603,237 @@
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
+              <a href="https://typecho-fans.github.io">
+    <img src="https://typecho-fans.github.io/text-logo.svg" alt="TF Logo" title="Typecho Fans开源作品社区" align="right" height="100" />
+</a>
+<h1 id="json-v11-社区维护版">JSON v1.1 - 社区维护版</h1>
+<h4 align="center">—— 以“api/接口名”路径按参数输出json格式博客数据插件，可用于各类映射扩展。</h4>
+<p align="center">
+  <a href="#使用说明">使用说明</a> •
+  <a href="#版本历史">版本历史</a> •
+  <a href="#贡献作者">贡献作者</a> •
+  <a href="#附注链接">附注/链接</a> •
+  <a href="#授权协议">授权协议</a>
+</p>
+<hr>
+<h2 id="使用说明">使用说明</h2>
+<table>
+<tr>
+<td>
+<h6 id="一款基于typecho的开放式api插件支持按接口参数输出文章首页评论分类等数据用于生成微信小程序">一款基于Typecho的开放式API插件，支持按接口参数输出文章，首页，评论，分类等数据用于生成微信小程序。</h6>
+<p><strong>使用方法</strong>：</p>
+<h5 id="1-下载本插件放在-usrplugins-目录中确保文件夹名为-json">1. 下载本插件，放在 <code>usr/plugins/</code> 目录中，确保文件夹名为 JSON；</h5>
+<h5 id="2-激活插件试试访问-httpexamplecomapiaction-吧">2. 激活插件，试试访问 http://[example].com/api/[action] 吧！</h5>
+<p><strong>注意事项</strong>：</p>
+<ul>
+<li>
+<h5 id="以上地址中的action请替换下表列出的接口名其后可再接参数名值">以上地址中的[action]请替换下表列出的接口名，其后可再接?[参数名]=[值]。</h5>
+</li>
+<li>
+<h5 id="未开启地址重写功能的博客需要在域名后接indexphp再apiaction同上">未开启地址重写功能的博客需要在域名后接/index.php再/api/[action]同上。</h5>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>接口名</th>
+<th style="text-align:center">可用参数</th>
+<th style="text-align:center">默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>posts</td>
+<td style="text-align:center">pageSize<br/>page<br/>authorId<br/>created<br/>cid<br/>category<br/>commentsNumMax<br/>commentsNumMin<br/>allowComment</td>
+<td style="text-align:center">1000<br/>1<br/>0<br/>-<br/>-<br/>-<br/>-<br/>-<br/>-</td>
+<td>文章综合数据</td>
+</tr>
+<tr>
+<td>pageList</td>
+<td style="text-align:center">content</td>
+<td style="text-align:center">false</td>
+<td>页面综合数据</td>
+</tr>
+<tr>
+<td>single</td>
+<td style="text-align:center">cid<br/>slug</td>
+<td style="text-align:center">-<br/>-</td>
+<td>指定单页数据</td>
+</tr>
+<tr>
+<td>post</td>
+<td style="text-align:center">同上</td>
+<td style="text-align:center">同上</td>
+<td>指定文章数据</td>
+</tr>
+<tr>
+<td>page</td>
+<td style="text-align:center">同上</td>
+<td style="text-align:center">同上</td>
+<td>指定页面数据</td>
+</tr>
+<tr>
+<td>relatedPosts</td>
+<td style="text-align:center">authorId<br/>limit<br/>type<br/>cid</td>
+<td style="text-align:center">-<br/>5<br/>-<br/>-</td>
+<td>关联文章数据</td>
+</tr>
+<tr>
+<td>recentPost</td>
+<td style="text-align:center">pageSize</td>
+<td style="text-align:center">10</td>
+<td>最新文章数据</td>
+</tr>
+<tr>
+<td>recentComments</td>
+<td style="text-align:center">pageSize<br/>parentId<br/>ignoreAuthor<br/>showCommentOnly</td>
+<td style="text-align:center">10<br/>0<br/>false<br/>false</td>
+<td>最近评论数据</td>
+</tr>
+<tr>
+<td>categoryList</td>
+<td style="text-align:center">ignore<br/>childMode</td>
+<td style="text-align:center">-<br/>false</td>
+<td>分类列表数据</td>
+</tr>
+<tr>
+<td>tagCloud</td>
+<td style="text-align:center">sort<br/>ignoreZeroCount<br/>desc<br/>limit</td>
+<td style="text-align:center">count<br/>false<br/>true<br/>0</td>
+<td>标签列表数据</td>
+</tr>
+<tr>
+<td>archive</td>
+<td style="text-align:center">format<br/>type<br/>limit</td>
+<td style="text-align:center">Y-m<br/>month<br/>0</td>
+<td>归档列表数据</td>
+</tr>
+<tr>
+<td>info</td>
+<td style="text-align:center">user</td>
+<td style="text-align:center">0</td>
+<td>用户配置数据<br/>(安全考虑已注释)</td>
+</tr>
+<tr>
+<td>count</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td>博客文章总数</td>
+</tr>
+<tr>
+<td>upgrade</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td>系统检测升级<br/>(安全考虑已注释)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="演示地址httpssangsircomapiposts">演示地址：<a href="https://sangsir.com/api/posts">https://sangsir.com/api/posts</a></h5>
+</td>
+</tr>
+</table>
+<h2 id="版本历史">版本历史</h2>
+<ul>
+<li>v1.1 (20-6-27 <a href="https://github.com/jzwalk">@jzwalk</a>)
+<ul>
+<li>合并2个衍生版本改动：
+<ul>
+<li>文章接口增加作者数据输出<a href="https://gitee.com/hkq15">@hkq15</a>；</li>
+<li>文章默认输出页数改为1000<a href="https://github.com/insoxin">@insoxin</a>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>v1.0 (17-11-06 <a href="https://github.com/szj1006">@SangSir</a>)
+<ul>
+<li>简化部分接口，调整代码格式，文章数据增加thumb字段。</li>
+</ul>
+</li>
+<li>v0.1 (17-01-08 <a href="https://github.com/jzwalk">@jzwalk</a>)
+<ul>
+<li>随公子GitHub仓库作品引入Typecho-Fans目录，产生社区维护版；</li>
+<li>upgrade接口改注释提高安全性，未改动版本号。</li>
+</ul>
+</li>
+<li>v0.1 (14-10-12 <a href="https://github.com/lizheming">@lizheming</a>)
+<ul>
+<li>原作在GitHub发布。</li>
+</ul>
+</li>
+</ul>
+<h2 id="贡献作者">贡献作者</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><a href="https://github.com/jzwalk"><img src="https://avatars1.githubusercontent.com/u/252331?v=3&amp;s=100" alt="jzwalk" loading="lazy"></a></th>
+<th style="text-align:center"><a href="https://github.com/hkq15"><img src="https://portrait.gitee.com/uploads/avatars/user/526/1579006_hkq15_1578955047.png!avatar100" alt="hkq15" loading="lazy"></a></th>
+<th style="text-align:center"><a href="https://github.com/insoxin"><img src="https://avatars1.githubusercontent.com/u/19371836?v=3&amp;s=100" alt="insoxin" loading="lazy"></a></th>
+<th style="text-align:center"><a href="https://github.com/szj1006"><img src="https://avatars1.githubusercontent.com/u/9147062?v=3&amp;s=100" alt="szj1006" loading="lazy"></a></th>
+<th style="text-align:center"><a href="https://github.com/lizheming"><img src="https://avatars1.githubusercontent.com/u/424491?v=3&amp;s=100" alt="lizheming" loading="lazy"></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://github.com/jzwalk">jzwalk</a> (2020)</td>
+<td style="text-align:center"><a href="https://gitee.com/hkq15">hkq15</a> (2019)</td>
+<td style="text-align:center"><a href="https://github.com/insoxin">insoxin</a> (2018)</td>
+<td style="text-align:center"><a href="https://github.com/szj1006">szj1006</a> (2017)</td>
+<td style="text-align:center"><a href="https://github.com/lizheming">lizheming</a> (2014)</td>
+</tr>
+</tbody>
+</table>
+<p>*为避免作者栏显示过长，插件信息仅选取登记3个署名，如有异议可协商修改。</p>
+<h2 id="附注链接">附注/链接</h2>
+<p>本社区维护版已包含以下各版本的可用增量功能：</p>
+<ul>
+<li><a href="https://gitee.com/hkq15/Typecho-api/tree/master/JSON">精简版(hkq15)</a> - 文章接口增加作者数据输出。</li>
+<li><a href="https://github.com/insoxin/typecho-json-miniprogram">小程序版(insoxin)</a> - 进一步简化接口字段，增加面板设置(效用不明)。</li>
+<li><a href="https://github.com/szj1006/typecho-api">精简版(szj1006)</a> - 去除部分接口，增加缩略图字段。</li>
+<li><a href="https://github.com/lizheming/JSON">原版</a> - 实现各接口数据输出功能。</li>
+</ul>
+<p>欢迎社区成员继续贡献代码参与更新。</p>
+<p>本插件最初仅为测试用功能实现较简易，安全性等考虑更加周密的同类插件推荐<a href="https://github.com/moefront/typecho-plugin-Restful">Restful</a>(支持写入接口)。</p>
+<h2 id="授权协议">授权协议</h2>
+<p>沿用小程序版声明的<a href="https://github.com/insoxin/typecho-json-miniprogram/blob/master/LICENSE">AGPL</a>开源协议。(要求提及出处，保持开源并注明修改。)</p>
+<blockquote>
+<p>JSON原作未附协议声明，原作者保留所有权利。 © <a href="https://github.com/lizheming">公子</a></p>
 </blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<p>这里主要记录一些博主的技术分析，以及学习过程，当然也会有一些关于next主题的文档。希望可以在这里认识更多的网友，一起努力成长。</p>
-<h2 id="主题打赏">主题打赏</h2>
-<p>next从开发到现在已经有很长的时间了，目前相对来说还是比较稳定，也收获了一批忠实的粉丝，之前有几个用户跟我提过打赏的事情。首先在这里感谢各位的支持，大家的心意我也领了，但是next主题从始至终都是免费，不会收取任何费用，关于打赏，我是这么觉得的，我搬这款主题，主要是用来提升自己写博客的动力，其此用来交朋友的，并不是指望这个养活自己，所以大家如果有需求在isuue里评论就行，只要是能力范围内都会解决，如果大家觉得不错的话，那么给主题star一波，我就很开心了，毕竟这是大家对我认可，感谢支持😂</p>
-<h2 id="聊天">聊天</h2>
-<p>不知道大家平时聊天喜欢用些什么表情，反正我是比较喜欢用这个😂，希望大家不要误解，这不是嘲笑的意思，在我的表达上就是一个比较友好的语气，如果有不舒服这个表情包的朋友，还请多担待。</p>
-<h2 id="联系我呀">📬 联系我呀</h2>
-<p>等待后期创建群，暂时由于个人原因，不添加好友，望理解！！！</p>
 
             </div>
             
+            
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong class="language" data-lan="author">本文作者：</strong>
+      Madara
+    </li>
+    <li class="post-copyright-link">
+      <strong class="language" data-lan="link">本文链接：</strong>
+      <a href="http://localhost:4000/post/u-Qe2Z7pJ/" title="213213">http://localhost:4000/post/u-Qe2Z7pJ/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong class="language" data-lan="copyright">版权声明： </strong>
+      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="给Next提交代码" href="http://localhost:4000/post/qe8eK5IAz/">给Next提交代码</a>
+        <a class="nav-mobile-next" title="给Next提交代码" href="http://localhost:4000/post/qe8eK5IAz/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
+      
+    </div>
+  </div>
+</div>
             
             
   <script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
