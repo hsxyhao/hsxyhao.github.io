@@ -9,7 +9,7 @@
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
 <title>极客时间-Kafka核心技术与实战笔记 | Madara</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1614355232609">
+<link rel="shortcut icon" href="/favicon.ico?v=1614437202295">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -241,7 +241,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">21</span>
+        <span class="site-item-stat-count">20</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -366,7 +366,7 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="http://localhost:4000/post/ce-shi-fen-ye-4/">
+    <a class="post-title-link" href="https://yeming.site/post/ce-shi-fen-ye-4/">
       极客时间-Kafka核心技术与实战笔记
     </a>
   </h1>
@@ -384,7 +384,7 @@
       <span class="pc-show language" data-lan="category-in">分类于</span>
       
       
-      <a href="http://localhost:4000/test/">
+      <a href="https://yeming.site/test/">
         <span>Test</span>
       </a>
       
@@ -464,7 +464,7 @@ IO模型的使用</p>
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="http://localhost:4000/post/ce-shi-fen-ye-4/" title="极客时间-Kafka核心技术与实战笔记">http://localhost:4000/post/ce-shi-fen-ye-4/</a>
+      <a href="https://yeming.site/post/ce-shi-fen-ye-4/" title="极客时间-Kafka核心技术与实战笔记">https://yeming.site/post/ce-shi-fen-ye-4/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -473,7 +473,7 @@ IO模型的使用</p>
   </ul>
   <div class="tags">
     
-      <a href="http://localhost:4000/test/"># Test</a>
+      <a href="https://yeming.site/test/"># Test</a>
     
   </div>
   <div class="nav">
@@ -1004,1780 +1004,7 @@ IO模型的使用</p>
     <div class="result" id="result">
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/u-Qe2Z7pJ/"" data-c="
-          &lt;a href=&#34;https://typecho-fans.github.io&#34;&gt;
-    &lt;img src=&#34;https://typecho-fans.github.io/text-logo.svg&#34; alt=&#34;TF Logo&#34; title=&#34;Typecho Fans开源作品社区&#34; align=&#34;right&#34; height=&#34;100&#34; /&gt;
-&lt;/a&gt;
-&lt;h1 id=&#34;json-v11-社区维护版&#34;&gt;JSON v1.1 - 社区维护版&lt;/h1&gt;
-&lt;h4 align=&#34;center&#34;&gt;—— 以“api/接口名”路径按参数输出json格式博客数据插件，可用于各类映射扩展。&lt;/h4&gt;
-&lt;p align=&#34;center&#34;&gt;
-  &lt;a href=&#34;#使用说明&#34;&gt;使用说明&lt;/a&gt; •
-  &lt;a href=&#34;#版本历史&#34;&gt;版本历史&lt;/a&gt; •
-  &lt;a href=&#34;#贡献作者&#34;&gt;贡献作者&lt;/a&gt; •
-  &lt;a href=&#34;#附注链接&#34;&gt;附注/链接&lt;/a&gt; •
-  &lt;a href=&#34;#授权协议&#34;&gt;授权协议&lt;/a&gt;
-&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;使用说明&#34;&gt;使用说明&lt;/h2&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;h6 id=&#34;一款基于typecho的开放式api插件支持按接口参数输出文章首页评论分类等数据用于生成微信小程序&#34;&gt;一款基于Typecho的开放式API插件，支持按接口参数输出文章，首页，评论，分类等数据用于生成微信小程序。&lt;/h6&gt;
-&lt;p&gt;&lt;strong&gt;使用方法&lt;/strong&gt;：&lt;/p&gt;
-&lt;h5 id=&#34;1-下载本插件放在-usrplugins-目录中确保文件夹名为-json&#34;&gt;1. 下载本插件，放在 &lt;code&gt;usr/plugins/&lt;/code&gt; 目录中，确保文件夹名为 JSON；&lt;/h5&gt;
-&lt;h5 id=&#34;2-激活插件试试访问-httpexamplecomapiaction-吧&#34;&gt;2. 激活插件，试试访问 http://[example].com/api/[action] 吧！&lt;/h5&gt;
-&lt;p&gt;&lt;strong&gt;注意事项&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;h5 id=&#34;以上地址中的action请替换下表列出的接口名其后可再接参数名值&#34;&gt;以上地址中的[action]请替换下表列出的接口名，其后可再接?[参数名]=[值]。&lt;/h5&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;h5 id=&#34;未开启地址重写功能的博客需要在域名后接indexphp再apiaction同上&#34;&gt;未开启地址重写功能的博客需要在域名后接/index.php再/api/[action]同上。&lt;/h5&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;接口名&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;可用参数&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;默认值&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;posts&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;pageSize&lt;br/&gt;page&lt;br/&gt;authorId&lt;br/&gt;created&lt;br/&gt;cid&lt;br/&gt;category&lt;br/&gt;commentsNumMax&lt;br/&gt;commentsNumMin&lt;br/&gt;allowComment&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;1000&lt;br/&gt;1&lt;br/&gt;0&lt;br/&gt;-&lt;br/&gt;-&lt;br/&gt;-&lt;br/&gt;-&lt;br/&gt;-&lt;br/&gt;-&lt;/td&gt;
-&lt;td&gt;文章综合数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;pageList&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;content&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;false&lt;/td&gt;
-&lt;td&gt;页面综合数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;single&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;cid&lt;br/&gt;slug&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;-&lt;br/&gt;-&lt;/td&gt;
-&lt;td&gt;指定单页数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;post&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;同上&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;同上&lt;/td&gt;
-&lt;td&gt;指定文章数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;page&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;同上&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;同上&lt;/td&gt;
-&lt;td&gt;指定页面数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;relatedPosts&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;authorId&lt;br/&gt;limit&lt;br/&gt;type&lt;br/&gt;cid&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;-&lt;br/&gt;5&lt;br/&gt;-&lt;br/&gt;-&lt;/td&gt;
-&lt;td&gt;关联文章数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;recentPost&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;pageSize&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;10&lt;/td&gt;
-&lt;td&gt;最新文章数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;recentComments&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;pageSize&lt;br/&gt;parentId&lt;br/&gt;ignoreAuthor&lt;br/&gt;showCommentOnly&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;10&lt;br/&gt;0&lt;br/&gt;false&lt;br/&gt;false&lt;/td&gt;
-&lt;td&gt;最近评论数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;categoryList&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;ignore&lt;br/&gt;childMode&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;-&lt;br/&gt;false&lt;/td&gt;
-&lt;td&gt;分类列表数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;tagCloud&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;sort&lt;br/&gt;ignoreZeroCount&lt;br/&gt;desc&lt;br/&gt;limit&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;count&lt;br/&gt;false&lt;br/&gt;true&lt;br/&gt;0&lt;/td&gt;
-&lt;td&gt;标签列表数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;archive&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;format&lt;br/&gt;type&lt;br/&gt;limit&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;Y-m&lt;br/&gt;month&lt;br/&gt;0&lt;/td&gt;
-&lt;td&gt;归档列表数据&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;info&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;user&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;0&lt;/td&gt;
-&lt;td&gt;用户配置数据&lt;br/&gt;(安全考虑已注释)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;count&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
-&lt;td&gt;博客文章总数&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;upgrade&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
-&lt;td&gt;系统检测升级&lt;br/&gt;(安全考虑已注释)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h5 id=&#34;演示地址httpssangsircomapiposts&#34;&gt;演示地址：&lt;a href=&#34;https://sangsir.com/api/posts&#34;&gt;https://sangsir.com/api/posts&lt;/a&gt;&lt;/h5&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;版本历史&#34;&gt;版本历史&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;v1.1 (20-6-27 &lt;a href=&#34;https://github.com/jzwalk&#34;&gt;@jzwalk&lt;/a&gt;)
-&lt;ul&gt;
-&lt;li&gt;合并2个衍生版本改动：
-&lt;ul&gt;
-&lt;li&gt;文章接口增加作者数据输出&lt;a href=&#34;https://gitee.com/hkq15&#34;&gt;@hkq15&lt;/a&gt;；&lt;/li&gt;
-&lt;li&gt;文章默认输出页数改为1000&lt;a href=&#34;https://github.com/insoxin&#34;&gt;@insoxin&lt;/a&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;v1.0 (17-11-06 &lt;a href=&#34;https://github.com/szj1006&#34;&gt;@SangSir&lt;/a&gt;)
-&lt;ul&gt;
-&lt;li&gt;简化部分接口，调整代码格式，文章数据增加thumb字段。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;v0.1 (17-01-08 &lt;a href=&#34;https://github.com/jzwalk&#34;&gt;@jzwalk&lt;/a&gt;)
-&lt;ul&gt;
-&lt;li&gt;随公子GitHub仓库作品引入Typecho-Fans目录，产生社区维护版；&lt;/li&gt;
-&lt;li&gt;upgrade接口改注释提高安全性，未改动版本号。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;v0.1 (14-10-12 &lt;a href=&#34;https://github.com/lizheming&#34;&gt;@lizheming&lt;/a&gt;)
-&lt;ul&gt;
-&lt;li&gt;原作在GitHub发布。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;贡献作者&#34;&gt;贡献作者&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;a href=&#34;https://github.com/jzwalk&#34;&gt;&lt;img src=&#34;https://avatars1.githubusercontent.com/u/252331?v=3&amp;amp;s=100&#34; alt=&#34;jzwalk&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;a href=&#34;https://github.com/hkq15&#34;&gt;&lt;img src=&#34;https://portrait.gitee.com/uploads/avatars/user/526/1579006_hkq15_1578955047.png!avatar100&#34; alt=&#34;hkq15&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;a href=&#34;https://github.com/insoxin&#34;&gt;&lt;img src=&#34;https://avatars1.githubusercontent.com/u/19371836?v=3&amp;amp;s=100&#34; alt=&#34;insoxin&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;a href=&#34;https://github.com/szj1006&#34;&gt;&lt;img src=&#34;https://avatars1.githubusercontent.com/u/9147062?v=3&amp;amp;s=100&#34; alt=&#34;szj1006&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;&lt;a href=&#34;https://github.com/lizheming&#34;&gt;&lt;img src=&#34;https://avatars1.githubusercontent.com/u/424491?v=3&amp;amp;s=100&#34; alt=&#34;lizheming&#34; loading=&#34;lazy&#34;&gt;&lt;/a&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;a href=&#34;https://github.com/jzwalk&#34;&gt;jzwalk&lt;/a&gt; (2020)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;a href=&#34;https://gitee.com/hkq15&#34;&gt;hkq15&lt;/a&gt; (2019)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;a href=&#34;https://github.com/insoxin&#34;&gt;insoxin&lt;/a&gt; (2018)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;a href=&#34;https://github.com/szj1006&#34;&gt;szj1006&lt;/a&gt; (2017)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;a href=&#34;https://github.com/lizheming&#34;&gt;lizheming&lt;/a&gt; (2014)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;*为避免作者栏显示过长，插件信息仅选取登记3个署名，如有异议可协商修改。&lt;/p&gt;
-&lt;h2 id=&#34;附注链接&#34;&gt;附注/链接&lt;/h2&gt;
-&lt;p&gt;本社区维护版已包含以下各版本的可用增量功能：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://gitee.com/hkq15/Typecho-api/tree/master/JSON&#34;&gt;精简版(hkq15)&lt;/a&gt; - 文章接口增加作者数据输出。&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/insoxin/typecho-json-miniprogram&#34;&gt;小程序版(insoxin)&lt;/a&gt; - 进一步简化接口字段，增加面板设置(效用不明)。&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/szj1006/typecho-api&#34;&gt;精简版(szj1006)&lt;/a&gt; - 去除部分接口，增加缩略图字段。&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/lizheming/JSON&#34;&gt;原版&lt;/a&gt; - 实现各接口数据输出功能。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;欢迎社区成员继续贡献代码参与更新。&lt;/p&gt;
-&lt;p&gt;本插件最初仅为测试用功能实现较简易，安全性等考虑更加周密的同类插件推荐&lt;a href=&#34;https://github.com/moefront/typecho-plugin-Restful&#34;&gt;Restful&lt;/a&gt;(支持写入接口)。&lt;/p&gt;
-&lt;h2 id=&#34;授权协议&#34;&gt;授权协议&lt;/h2&gt;
-&lt;p&gt;沿用小程序版声明的&lt;a href=&#34;https://github.com/insoxin/typecho-json-miniprogram/blob/master/LICENSE&#34;&gt;AGPL&lt;/a&gt;开源协议。(要求提及出处，保持开源并注明修改。)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;JSON原作未附协议声明，原作者保留所有权利。 © &lt;a href=&#34;https://github.com/lizheming&#34;&gt;公子&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-">213213</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/EmG_V96do/"" data-c="
-          &lt;p&gt;31232132&lt;/p&gt;
-">测试23123</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/iKSulIRdG/"" data-c="
-          &lt;!-- more --&gt;
-&lt;blockquote&gt;
-&lt;p&gt;sjlajkdsajdljaslkdjal &lt;code&gt;代码块&lt;/code&gt;、&lt;code&gt;人&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-">高亮测试</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/VYODL7l4X/"" data-c="
-          &lt;h1 id=&#34;微型计算机和单片机简介&#34;&gt;微型计算机和单片机简介&lt;/h1&gt;
-&lt;h2 id=&#34;微型计算机的组成及其应用形态&#34;&gt;微型计算机的组成及其应用形态&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;微处理器（中央处理单元，简称CPU）&lt;/strong&gt;：将&lt;em&gt;运算器&lt;/em&gt;，&lt;em&gt;控制器&lt;/em&gt;，&lt;em&gt;一些寄存器&lt;/em&gt;，集成在一个芯片上&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;存储器&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;I/O接口&lt;/strong&gt;&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588234851604.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;应用形态&lt;/strong&gt;：多板机，单板机，单片机&lt;/p&gt;
-&lt;h1 id=&#34;单片机的发展过程&#34;&gt;单片机的发展过程&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;单片机的组成&lt;/strong&gt;：将微处理器，一定容量的RAM和ROM以及I/O接口，定时器/计数器、通信接口，中断系统等电路集成在一块芯片上，构成单片微型计算机&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588043619599.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;单片机的外形封装&lt;/strong&gt;：分为双列直插（DIP）和方形封装（PLCC或TQFP封装）&lt;/p&gt;
-&lt;p&gt;双列直插有40个引脚，方形封装有44个引脚。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;系统机和单片机比较&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;系统机（桌面应用）：主要用于数据处理，办公自动化及辅助设计&lt;/li&gt;
-&lt;li&gt;单片机（嵌入式应用）：主要用于智能仪表及传感器，智能家电，智能办公设备，汽车及军事电子设备等系统。通常又把单片机称为&lt;strong&gt;微控制器、嵌入式控制器（EMCU）&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;单片机的发展过程&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Intel推出的MCS-48系列单片机，组成：&lt;strong&gt;8&lt;/strong&gt;位CPU，1K字节ROM、&lt;strong&gt;64&lt;/strong&gt;字节RAM、27根I/O线和&lt;strong&gt;1&lt;/strong&gt;个&lt;strong&gt;8&lt;/strong&gt;位定时/计数器&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;特点&lt;/em&gt;：存储器容量小，寻址范围小，不大于4K，五串行接口，指令系统功能不强。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Intel推出MCS-51系列单片机：&lt;strong&gt;8&lt;/strong&gt;位CPU，&lt;strong&gt;4K&lt;/strong&gt;字节ROM、&lt;strong&gt;128&lt;/strong&gt;字节RAM、&lt;strong&gt;4&lt;/strong&gt;个8位并口、1个全双工串行口、&lt;strong&gt;2&lt;/strong&gt;个16位定时/计数器，寻址范围64K，并有控制功能较强的布尔处理器&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;特点&lt;/em&gt;：结构体系完善，性能已大大提高。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;ATMEL推出的AT89S52：&lt;strong&gt;8&lt;/strong&gt;位CPU，片内有&lt;strong&gt;8KB的Flash程序存储器ROM&lt;/strong&gt;、&lt;strong&gt;256&lt;/strong&gt;字节RAM、&lt;strong&gt;3&lt;/strong&gt;个&lt;strong&gt;16&lt;/strong&gt;位定时/计数器（比8051多出一个定时器，且具有捕捉功能）&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;单片机的特点&#34;&gt;单片机的特点&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;体积小、价格低，可靠性高&lt;/li&gt;
-&lt;li&gt;结构上突出&lt;strong&gt;控制&lt;/strong&gt;功能：可直接操作I/O端口，位操作能力突出，CPU、存储器及I/O接口集成在同一芯片内，数据在传送时受干扰的影响小，且不易受环境条件的影响。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;单片机的发展趋势&#34;&gt;单片机的发展趋势&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;向高性能化，存储大容量，外围电路内装化等方面发展&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;存储器发展：片内存储器普遍采用Flash存储器，容量可达数十KB&lt;/li&gt;
-&lt;li&gt;片内I/O口的改进：增加了并行口驱动能力，设置了特殊的串行I/O功能&lt;/li&gt;
-&lt;li&gt;低功耗：CMOS工艺，功耗小，消耗电流仅在微安或纳安量级，便携&lt;/li&gt;
-&lt;li&gt;外围电路内装化：将外围电路装入片内，一片芯片就是一个测控系统&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;at89s52单片机的片内硬件结构&#34;&gt;AT89S52单片机的片内硬件结构&lt;/h1&gt;
-&lt;h2 id=&#34;熟悉at89s52芯片内部结构&#34;&gt;熟悉AT89S52芯片内部结构&lt;/h2&gt;
-&lt;h2 id=&#34;at89s52单片机的硬件组成&#34;&gt;AT89S52单片机的硬件组成&lt;/h2&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;3&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588239096508.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;单片机由&lt;strong&gt;总线&lt;/strong&gt;连接，总线指的是&lt;strong&gt;能为多个部件服务的信息传送线，由导线组成&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;CPU&lt;/strong&gt;：8位，起到运算和控制（位处理和位控）功能&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;4&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588239508454.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;strong&gt;CPU通过地址、数据和控制总线连接ROM和RAM&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;数据总线：传输发送接收数据&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;地址总线：传递一些地址信息，CPU将数据指令在存储器中的地址放到地址总线。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;控制总线：传送一些控制信号和时序信号，CPU在控制总线上发送一个读或写的信号&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;读操作：从存储器指定位置读出数据并放在数据总线上&lt;/li&gt;
-&lt;li&gt;写操作：CPU将数据输出到数据总线上&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;内部RAM（随机存取存储器）&lt;/strong&gt;：256个RAM单元（每个单元8位）。用户使用前128个单元，用于存放可读写数据，后128个单元被专用寄存器占用。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;用以存放可以读/写的数据，如运算的中间结果，最终结果以及欲显示的数据等&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;片内程序存储器ROM&lt;/strong&gt;：8KB闪存&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;用以存放数据、一些原始数据和表格。但有些单片机内部不带ROM/EPROM,如8031、8032、80C31等&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;定时计数器&lt;/strong&gt;：3个16位的定时计数器，&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;用来计数，也可以设置成定时方式，并可以根据计数或定时的结果实现计算机控制。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;并行I/O口&lt;/strong&gt;：4个8位的I/O口（输入/输出），P0,P1,P2,P3，共有32位接口。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;P0口既可以作为数据的输入输出口，也可以作为1-8位地址的输出口，p0口也叫做&lt;strong&gt;数据和地址的分时复用口&lt;/strong&gt;，在CPU访问片外存储器时，P0口为分时复用的低8位地址总线和8位数据总线。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;P2口：数据I/O口，也是高八位地址的复用口。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;P3口：有&lt;a href=&#34;#%E7%AC%AC%E4%BA%8C%E5%8A%9F%E8%83%BD&#34;&gt;第二功能&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;全双工URAT串行I/O口&lt;/strong&gt;：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;全双工&lt;/strong&gt;：可以同时（瞬时）进行信号的双向传输（A到B且B到A），如手机，电脑&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;半双工&lt;/strong&gt;：也是双向，即（A到B且B到A）但不能够同时传输，如对讲机&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;单工&lt;/strong&gt;：（A到B但B不能到A），如电视&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;中断控制系统：实时控制&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;6个中断源&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;外中断（信号来自单片机芯片的外部）：2个&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;内部中断&lt;/strong&gt;（信号来自单片机CPU的内部）：定时计数中断3个，串行中断1个&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;有2级中断优先权（就是谁的中断优先级高，就先处理谁的中断请求）&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;时钟电路&lt;/strong&gt;：分为时序逻辑电路（特点：工作过程必须要有时钟脉冲）和组合逻辑电路，可产生时钟脉冲序列，允许晶振频率6MHZ和12MHZ.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;片内振荡器&lt;/strong&gt;：需要外接晶振和电容&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;特殊功能寄存器（SFR）&lt;/strong&gt;：有32个特殊功能寄存器&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;用于CPU对片内各外设部件进行管理、控制和监视&lt;/li&gt;
-&lt;li&gt;掌握AT89S52的存储器配置及特点&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;一个看门狗定时器（WDT）&lt;/strong&gt;：当单片机由于干扰而使程序陷入死循环或跑飞状态时，可引起单片机复位，是程序恢复正常运行。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;at89s52与at89c51单片机结构对比&#34;&gt;AT89S52与AT89C51单片机结构对比&lt;/h2&gt;
-&lt;p&gt;- [x] CPU同&lt;/p&gt;
-&lt;ul class=&#34;contains-task-list&#34;&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;
-&lt;p&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-2338996&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-2338996&#34;&gt; 内部RAM同&lt;/label&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;
-&lt;p&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-9841603&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-9841603&#34;&gt; 并行I/O口同&lt;/label&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;
-&lt;p&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-3484341&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-3484341&#34;&gt; 串行口同&lt;/label&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;
-&lt;p&gt;&lt;input class=&#34;task-list-item-checkbox&#34; checked=&#34;&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-470937&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-470937&#34;&gt; 时钟电路同&lt;/label&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;
-&lt;p&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-2131280&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-2131280&#34;&gt; 内部ROM&lt;/label&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;
-&lt;p&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-7664680&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-7664680&#34;&gt; 定时计数器&lt;/label&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class=&#34;task-list-item&#34;&gt;
-&lt;p&gt;&lt;input class=&#34;task-list-item-checkbox&#34; disabled=&#34;&#34; type=&#34;checkbox&#34; id=&#34;task-item-2001562&#34;&gt;&lt;label class=&#34;task-list-item-label&#34; for=&#34;task-item-2001562&#34;&gt; 中断控制系统&lt;/label&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;内部ROM&lt;/strong&gt;：&lt;strong&gt;4kb掩膜ROM&lt;/strong&gt;，存放程序，原始数据和表格。（固定不变的）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;定时计数器&lt;/strong&gt;：&lt;strong&gt;两个&lt;/strong&gt;16位的定时计数器，实现定时或计数功能&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;中断控制系统：实时控制&lt;/strong&gt;，&lt;strong&gt;5&lt;/strong&gt;个中断源（外中断2个，&lt;strong&gt;定时计数中断2个&lt;/strong&gt;，串行终断1）&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;at89s52单片机的引脚功能&#34;&gt;AT89S52单片机的引脚功能&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;双列直插式（DIP）&lt;/strong&gt;&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;5&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588046658923.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;电源线：VCC（+5V)、VSS(接地线)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;按&lt;strong&gt;逆时针&lt;/strong&gt;规律排列，有&lt;strong&gt;40个引脚&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;振荡电路&lt;/strong&gt;：XTAL1（反相放大器输出）、XTAL2（反相放大器输入），通过电容接在18、19引脚&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;通常外接一个晶振和两个电容&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;6&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588242742538.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;复位引脚&lt;/strong&gt;：RST（高电平有效），接在9角，使单片机处于初始的复位状态。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;并行I/O口&lt;/strong&gt;：P0,P1,P2,P3&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;准双向：当I/O口作为输入时，应先向此口锁存器写入全1，此时该口引脚浮空，可作高阻抗输入。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;EA（非）&lt;/strong&gt;:内部ROM选择端，访问&lt;strong&gt;程序存储控制信号&lt;/strong&gt;，因为程序存储器可能在单片机内部，也可能在单片机外部，这时候就由这个管脚的&lt;strong&gt;高低电平&lt;/strong&gt;来选取内部或者外部的指令。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;EA（非）：保持高电平时，先访问内ROM，但当PC（程序计数器）值超过8kb（1FFFH）时，将自动转向执行外ROM中的程序。&lt;/li&gt;
-&lt;li&gt;EA（非）：保持低电平时，则只访问外ROM，不管芯片内是否有内ROM。&lt;/li&gt;
-&lt;li&gt;Vpp功能：片内有EPROM的芯片，在EPROM变成期间，施加编程电源Vpp（12-21V）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;PSEN（非）&lt;/strong&gt;：外部ROM读选通信号，当单片机中的CPU需要从外部程序存储器中选取指令时，可以通过这个管脚做一个&lt;strong&gt;选通&lt;/strong&gt;的控制信号&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;读控制端（OE非）低电平有效&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;ALE（PROG非）&lt;/strong&gt;：地址锁存控制信号和片内EPROM编程脉冲（片内有EPROM的芯片，在EPROM编程期间，在此引脚输入编程脉冲。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;所存P0口送出的低8位地址&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;第二功能&#34;&gt;第二功能&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;P3口具有第二功能&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;P3 0:RXD,P3 1:TXD&lt;/strong&gt;：既可以作为一般的&lt;strong&gt;输入输出的I/O口的控制端子&lt;/strong&gt;，同时可以作为&lt;strong&gt;串行通信的两条线&lt;/strong&gt;，P3 0是串行口输入，P3 1是串行口输出&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;P3 2:INT0非,P3 3:INT1非&lt;/strong&gt;：既可以作为&lt;strong&gt;I/O口的控制端子&lt;/strong&gt;，还可以作为&lt;strong&gt;外部中断的请求输入信号&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;INT0:外部中断0请求输入端&lt;/li&gt;
-&lt;li&gt;INT1:外部中断1请求输入端&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;P3 4:T0,P3 5:T1&lt;/strong&gt;：既可以作为&lt;strong&gt;I/O口的控制端子&lt;/strong&gt;，也可以作为&lt;strong&gt;定时计数器对外部世界进行计数的输入端子&lt;/strong&gt;，P3 4 是定时器0的外部输入，P3 5是定时器1的外部输入&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;P3 6:WR非,P3 7:RD非&lt;/strong&gt;：P3 6,P3 7既可以作为&lt;strong&gt;I/O口的控制端子&lt;/strong&gt;，也可以作*&lt;strong&gt;单片机与外部的数据存储器进行数据传输时的选通控制信号&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;WR非：片外数据存储器写选通，低电平有效（写选通控制输出）&lt;/li&gt;
-&lt;li&gt;RD非：片外数据存储器读选通，低电平有效（读选通控制输出）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;​&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;方形封装式（PLCC）&lt;/strong&gt;&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;7&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588242363858.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;控制线&lt;/strong&gt;：EA,ALE,PSFN,RST&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;at89s52单片机的cpu&#34;&gt;AT89S52单片机的CPU&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;控制器：用于指挥和控制计算机工作的部件&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;分为程序计数器PC，数据指针DPTR&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;单片机有一个与16位地址线对应的16位寄存器，存放&lt;strong&gt;程序存储器的地址&lt;/strong&gt;，成为&lt;strong&gt;程序计数器PC&lt;/strong&gt;，具有&lt;strong&gt;自动加1的功能。&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;PC中存放的是&lt;strong&gt;下一条将要执行的指令的地址&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;AT89S52单片机共有16根地址线，有低八位地址总线（P0）和高八位地址总线（P2）。故最大空间为2^16=64kb&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;数据指针DPTR&lt;/strong&gt;：指针指某存储单元或变量的地址，DPTR主要用于存放&lt;strong&gt;片外数据存储器&lt;/strong&gt;的&lt;strong&gt;地址&lt;/strong&gt;。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;数据指针一边可以访问&lt;strong&gt;外部数据存储器的地址寄存器&lt;/strong&gt;，存放数据地址，也可以访问&lt;strong&gt;外部程序存储器的基址寄存器&lt;/strong&gt;，存放程序基地址。也可以做普通的&lt;strong&gt;16位寄存器&lt;/strong&gt;使用，也可以做&lt;strong&gt;两个8位寄存器使用，高8位为DPH，低八位为DPL&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;PC访问程序存储器，DPTR访问数据存储器。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;PC和DPTR都是16位寄存器，都与地址有关，只是PC只能存放程序存储器地址，而DPTR能存放程序，数据存储器地址。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;DPTR和PC的寻址方式可以是&lt;strong&gt;变址寻址（机制寄存器+变址寄存器间接寻址）&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;变址寻址：以某个寄存器的内容为基地址，在这个基地址的基础上加上地址偏移量形成真正的操作数地址。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;单片机中采用DPTR或PC为变址寄存器，A（累加器）的内容为地址偏移量。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;变址寻址只能访问程序存储器，访问范围是64KB.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;8&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588393091151.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;如题所示，move移动累加器和数据指针到这个累加器，DPTR和A相加就是程序存储器地址。本题0302H，再找到0302H对应的数据就是1EH，再把1EH送到累加器中去，最终的累加器的数据就是1EH，不是0302H，&lt;strong&gt;0302H是一个地址，不是数据&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;指令寄存器IR，指令译码器、控制逻辑&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;一条指令都会有对应的操作码和操作数，而在AT89S52单片机中共有三种指令长度。&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;9&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588393562765.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;指令寄存器IR&lt;/strong&gt;：专门存放指令&lt;strong&gt;操作码&lt;/strong&gt;的寄存器&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;指令译码器&lt;/strong&gt;：&lt;strong&gt;分析&lt;/strong&gt;操作码&lt;strong&gt;功能&lt;/strong&gt;的寄存器&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;控制逻辑&lt;/strong&gt;：根据译码结果&lt;strong&gt;发出一系列控制信号&lt;/strong&gt;，控制单片机各个功能部件执行相应操作。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;运算器&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;用于对数据进行&lt;strong&gt;算数运算和逻辑操作&lt;/strong&gt;的执行部件。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;分为累加器A，寄存器B，程序状态字PEW，算术逻辑运算单元ALU&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;累加器A，是最常用的&lt;strong&gt;8位寄存器&lt;/strong&gt;，用于数据传送、运算、控制转移各类指令中。存放操作数和运算的最终结果。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;寄存器B，可以进行乘法运算，除法运算和暂存器（作为数据的暂存）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;程序状态字PEW，&lt;strong&gt;8位寄存器&lt;/strong&gt;，反映当前CPU&lt;strong&gt;工作状态和运算结果的状态&lt;/strong&gt;。&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;10&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588394147305.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;CY表示进位状态，进位或借位标志位。可进行加减法运算，如FFH+01H=100H,00H-01H=1FFH（注：某些控制转移类指令影响CY，如CJNE指令。）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;AC表示半进位状态，辅助进位或借位标志位加减法运算，如：00001111+00000001=00010000&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;OV表示溢出标志位：加减法运算（用于判断有符号数运算结果是否发生溢出），乘法运算：乘积&amp;gt;255，OV=1，除法运算：除数=0，OV=1&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;P表示奇偶校验位：判断累加器A内容的奇偶性，奇数个1则P=1&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;一些寄存器&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;掌握at89s52的存储器配置及特点&#34;&gt;掌握AT89S52的存储器配置及特点&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;存储器组织：分为两种结构，冯诺依曼结构和哈佛结构&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;冯诺依曼结构：特点：程序、数据、外设寄存器位于统一的存储空间，&lt;strong&gt;地址无重叠，结构简单&lt;/strong&gt;。&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;11&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588405248033.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;哈佛结构：特点：1.程序、数据存储器&lt;strong&gt;独立分开&lt;/strong&gt;编址，&lt;strong&gt;地址可能重叠，结构复杂&lt;/strong&gt;。2.地址，数据总线独立，&lt;strong&gt;速度快&lt;/strong&gt;。&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;12&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588405382320.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;strong&gt;注：AT89S52单片机不用哈佛结构&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;存储器结构，存储器组织有七种类型，分为程序存储器（CODE），外部数据存储器（XDATA/PDATA），内部存储区（DATA/IDATA/SFR/BIT）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;存储器都是由0000到FFFF，最大64K。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;at89s52寄存器&#34;&gt;AT89S52寄存器&lt;/h2&gt;
-&lt;p&gt;分为&lt;strong&gt;工作寄存器&lt;/strong&gt;、&lt;strong&gt;特殊功能寄存器&lt;/strong&gt;、&lt;strong&gt;系统寄存器&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;作用：暂存数据、配合累加器A进行数据运算及存放结果。&lt;/p&gt;
-&lt;p&gt;注：&lt;strong&gt;任意时刻只能使用一组寄存器&lt;/strong&gt;&lt;/p&gt;
-&lt;h1 id=&#34;单片机的并行端口及复位&#34;&gt;单片机的并行端口及复位&lt;/h1&gt;
-&lt;h2 id=&#34;了解并行io口端口内部结构&#34;&gt;了解并行I/O口端口内部结构&lt;/h2&gt;
-&lt;h3 id=&#34;4个io口介绍&#34;&gt;4个I/O口介绍&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;AT89S52有&lt;strong&gt;4组I/O口&lt;/strong&gt;（P0,P1,P2,P3），每组包括8根并行线&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;P0：8位&lt;strong&gt;开漏双向&lt;/strong&gt;I/O口，使用片外部存储器，可作为&lt;strong&gt;低8位地址与数据复用总线&lt;/strong&gt;，能驱动&lt;strong&gt;8&lt;/strong&gt;个TTL(TTL：Time To Live的缩写，生存时间值，该字段指定IP包被路由器丢弃之前允许通过的&lt;strong&gt;最大网段数量&lt;/strong&gt;)&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;P1：8位&lt;strong&gt;准双向&lt;/strong&gt;I/O口，能驱动&lt;strong&gt;4&lt;/strong&gt;个TTL&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;P2：8位&lt;strong&gt;准双向&lt;/strong&gt;I/O，使用片外存储器时，可作为&lt;strong&gt;高8位地址与数据复用总线&lt;/strong&gt;，能驱动&lt;strong&gt;4&lt;/strong&gt;个TTL&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;P3：8位&lt;strong&gt;准双向&lt;/strong&gt;I/O口，能驱动&lt;strong&gt;4&lt;/strong&gt;个TTL&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;并行io口特点&#34;&gt;并行I/O口特点&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;这四个均是&lt;strong&gt;8位并行I/O口&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;每个端口都是&lt;strong&gt;8位准双向口&lt;/strong&gt;，共占32根引脚&lt;/li&gt;
-&lt;li&gt;每条I/O线都能&lt;strong&gt;独立&lt;/strong&gt;地用作输入或输出&lt;/li&gt;
-&lt;li&gt;每个端口都包括一个&lt;strong&gt;锁存器&lt;/strong&gt;（即特殊功能寄存器SFR P0-P3），一个&lt;strong&gt;输出驱动器&lt;/strong&gt;和&lt;strong&gt;输入缓存器&lt;/strong&gt;，&lt;em&gt;作输出时数据可以锁存，作输入时数据可以缓冲&lt;/em&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;13&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588943299959.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;p0口&#34;&gt;P0口&lt;/h3&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;14&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588943484676.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;P0口某位的结构由一个输出锁存器、两个三态输入锁存器和输出驱动电路及控制电路组成。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;当（控制端）C=0（即输入低电平）时，开关MUX（自动转向开关）接&lt;strong&gt;D锁存器&lt;/strong&gt;，P0口为通用I/O口（就是一般的&lt;strong&gt;输入输出口&lt;/strong&gt;）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;当C=1时（即输入高电平），开关拨向&lt;strong&gt;反相器3的输出端&lt;/strong&gt;，P0口分时作为&lt;strong&gt;地址/数据总线&lt;/strong&gt;使用。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;1和2是输入缓冲器，1是读锁存器，2是读引脚，同时还包含了P0口的输出驱动电路和控制电路。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;4是与门&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;p0口作通用io口时&#34;&gt;P0口作通用I/O口时&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;P0口作通用I/O口时，C=0分两种情况，做输入口和输出口&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;做输入口&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;15&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588952181550.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;自动转向开关接D锁存器的Q非端，在此时读引脚时，需要事先将输出锁存器写入1，（场效应管）T1和T2均截止，引脚处于悬浮状态，可作高阻抗输入，否则有可能被拉低，读入错误信息。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;T2为截止原因：MUX接D锁存器，导通，T2端是低电平，从而T2截止。&lt;/li&gt;
-&lt;li&gt;T1为截止原因：P0引脚做通用I/O口，控制信号端和地址数据的复用端口，而此时控制端是0，4是与门，根据与门特性，有一端输入为0则与门输出为0，即T1为0，截止&lt;/li&gt;
-&lt;li&gt;T1、T2均截止时，P0端处于悬浮状态，则外部数据从2读取数据送到内部CPU&lt;/li&gt;
-&lt;li&gt;开始时内部总线写入1原因：若刚开始接入0，即D=0，那么根据D锁存器原理可得到Q非是1，根据先前分析，T2会导通，T2导通那么外部数据从这里进来，输出会全为低电平，因为T2端接地，得到数据会不准确，所以提前将输出锁存器写入1，才能保证T1,T2都是低电平，输出有效数据。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;作输入口提前写入1，两边都截止，读入信息&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;做输出口&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;当P0口做输出口时，因输出级处于开漏状态，必须外接上拉电阻，当“写锁存器”信号加在锁存器的时钟端CLK上，此时D触发器将“内部总线”上的信号反相后输出到Q非端，若D端信号为0，Q非为1，v2导通，P0，x引脚输出“0”；若D端信号为1，Q非为0，v2截止，虽然v1截止，因P0，x引脚已外接上拉电阻，P0，x引脚输出“1”&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;16&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588990022865.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;刚开始写入1，则V1V2均为0，此时又因为接了电源VCC，通过外接上拉电阻，把引脚处拉成了高电平输出，故P0口仍然有高电平输出&lt;/li&gt;
-&lt;li&gt;刚开始写入0，V2导通，数据进入被接地拉为低电平，即有低电平输出。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;做输入口，刚开始写1输出1，写0输出0&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;读引脚和读锁存器的区别&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;17&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588990702914.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;读引脚：即T1T2均截止，输入数据从输入缓冲器2读进内部CPU，读的是引脚带的信息&lt;/li&gt;
-&lt;li&gt;读锁存器：读的是D锁存器输出的状态，读的是Q，如上图，Q非是0那么Q为1，此时输入缓冲器中就会输入进1，即读入。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;p0口作为地址数据复用口&#34;&gt;P0口作为地址/数据复用口&lt;/h4&gt;
-&lt;p&gt;当P0口作为地址/数据复用口时，控制端为1&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;输出地址/数据=0时&lt;/p&gt;
-&lt;p&gt;此时开关MUX接反相器3，因为输出地址数据为0，经过反相器所以下面是1，即V2导通，而4与门的两个端口一个为0一个为1，根据与门性质输出为0即V1截止。&lt;strong&gt;两个场效应管下方导通上方截止，下方导通接地，那么输出为0&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;输出地址/数据=1时&lt;/p&gt;
-&lt;p&gt;同理，此时V2截止，V1导通，&lt;strong&gt;V1导通接高电平VCC，引脚输出被拉为高电平即输出为1&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;输出地址/数据信号与引脚信号一起变，均同&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;作数据输入：与P0用作通用I/O口时输入情况相同，也要先&lt;strong&gt;写入1&lt;/strong&gt;，此时控制端信号C=0，V1V2均截止，从引脚上输入的外部数据经缓冲器U2进入内部数据总线。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;CPU自动将0ffH写入锁存器&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;p1口&#34;&gt;P1口&lt;/h3&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;18&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588992571038.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;P1口仅有一个场效应管&lt;/li&gt;
-&lt;li&gt;P1口一般只作为通用I/O口，不会作为地址/数据分时复用口。作为通用I/O时与P0口C=0作用时完全一样的。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;p2口&#34;&gt;P2口&lt;/h3&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;19&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588992714424.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;P2口同样可作地址数据的复用端口，与P0类似，但不同的是P0输出低8位地址，P2口输出高8位地址&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;p3口&#34;&gt;P3口&lt;/h3&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;20&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588992901256.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;P3口不能作为分时复用口，但是有&lt;a href=&#34;#%E7%AC%AC%E4%BA%8C%E5%8A%9F%E8%83%BD&#34;&gt;第二功能&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;cpu的时序及单片机的工作过程&#34;&gt;CPU的时序及单片机的工作过程&lt;/h2&gt;
-&lt;h3 id=&#34;时钟电路与时序&#34;&gt;时钟电路与时序&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;单片机的时序就是指CPU在执行指令时各个&lt;strong&gt;控制信号&lt;/strong&gt;间的&lt;strong&gt;时间顺序关系&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;21&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588993628962.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ol&gt;
-&lt;li&gt;CPU通过地址总线&lt;strong&gt;发出地址信号&lt;/strong&gt;到程序存储器&lt;/li&gt;
-&lt;li&gt;CPU通过控制总线发出正确的&lt;strong&gt;地址锁存控制信号&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;CPU通过控制总线发出正确的&lt;strong&gt;读控制信号&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;CPU通过数据总线&lt;strong&gt;读取数据&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;在CPU内部控制信号作用下完成程序执行。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;不允许调换上述顺序，任何一个信号的时间顺序出错，都可能导致程序运行出错。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;单片机内部的电路需在唯一的时钟信号控制下严格按照时序工作&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;计算机的工作原理就是在&lt;strong&gt;时钟节拍&lt;/strong&gt;的作用下，将预先编好的程序一步一步的执行下去，其中时钟信号就来源于&lt;strong&gt;晶体振荡器（简称晶振）&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;晶体振荡器&#34;&gt;晶体振荡器&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;材料：石英晶体（理由：石英晶体具有&lt;strong&gt;压电效应&lt;/strong&gt;，石英晶体的&lt;strong&gt;选频特性&lt;/strong&gt;非常好，它有一个&lt;strong&gt;极其稳定的串联谐振频率fs&lt;/strong&gt;，只有频率为fs的信号最容易通过，而其他频率的信号均会被晶体衰减。石英晶体的谐振频率fs与晶片的切割方式，几何形状，尺寸等有关，因此可以制成各种频率的石英晶体谐振器。）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;单片机的引脚晶振端&#34;&gt;单片机的引脚（晶振端）&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;接18（XTAL1）、19脚（XTAL2），分别为晶体振荡电路反向输入端和输出端。接法：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;22&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1588994570600.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;两端跨接石英晶体及两个电容就可以构成稳定的自激振荡器。&lt;/li&gt;
-&lt;li&gt;电容器C1和C2通常取30pF左右，可稳定频率并对振荡频率有微调作用&lt;/li&gt;
-&lt;li&gt;振荡脉冲频率范围为fosc=0~24MHz。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;单片机的时钟周期&#34;&gt;单片机的时钟周期&lt;/h4&gt;
-&lt;p&gt;为便于分析指令的执行，定义了一些能度量各种时序信号出现时的尺度，分别为&lt;strong&gt;时钟周期、机器周期、指令周期&lt;/strong&gt;。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;时钟周期：即振荡周期，大小为1/（11.0592Hz）=90.4ns，一个时钟周期定义为一个节拍，2个节拍定义为1个状态周期。&lt;/li&gt;
-&lt;li&gt;机器周期=12个时钟周期，对于11.0592MHz晶振，机器周期=12×90.4ns=1.085us&lt;/li&gt;
-&lt;li&gt;指令周期：执行一条指令所需的时间，单字节执行指令时间短一些（单周期），双字节执行指令时间长一些（双机器周期），三字节执行指令时间也会长一些（双机器周期），若是乘除、转移之类的指令需要多个机器周期（四机器周期）&lt;/li&gt;
-&lt;li&gt;4个时序单位从小到大依次是节拍，状态周期，机器周期和指令周期&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;23&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1589001833695.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;h3 id=&#34;at89s52的复位电路及复位功能&#34;&gt;AT89S52的复位电路及复位功能&lt;/h3&gt;
-&lt;h4 id=&#34;复位操作的主要功能&#34;&gt;复位操作的主要功能&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;使CPU及系统各部件处于确定的初始状态，并从初始状态开始工作。&lt;/li&gt;
-&lt;li&gt;把PC初始化为000H，使单片机从000H单元开始执行程序。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;下面使各特殊功能寄存器的复位值&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;24&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1589002053489.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;p&gt;PC：程序指针&lt;/p&gt;
-&lt;p&gt;ACC：累加器&lt;/p&gt;
-&lt;p&gt;PCW：程序状态器&lt;/p&gt;
-&lt;p&gt;SP：堆栈指针&lt;/p&gt;
-&lt;p&gt;DPTR：数据指针&lt;/p&gt;
-&lt;p&gt;P0-P3：I/O口，必须是FFH才是复位因为作为通用I/O口，必须提前写入一个1才能保证输入数据准确，而8位1就是11111111转化为16进制就是FFH。&lt;/p&gt;
-&lt;h4 id=&#34;复位信号&#34;&gt;复位信号&lt;/h4&gt;
-&lt;p&gt;RST引脚是复位信号输入端，当RST引脚为高电平，且有效时间持续24个振荡周期（两个机器周期）以上，才能复位。&lt;/p&gt;
-&lt;h4 id=&#34;复位电路&#34;&gt;复位电路&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;上电自动复位：通过外部复位电路的电容充电实现。&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;25&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1589002697595.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;首先VCC给电容充电，电容充电的同时给RST一个高电平信号，这样持续两个机器周期以上就可以复位了。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;按键手动复位&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;26&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1589002860940.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;p&gt;当RESET按键按下，即R1R2路导通，VCC分压，给RST一个高电平信号即可以复位了。&lt;/p&gt;
-&lt;h4 id=&#34;单片机低功耗的工作方式&#34;&gt;单片机低功耗的工作方式&lt;/h4&gt;
-&lt;p&gt;两种&lt;em&gt;节电&lt;/em&gt;工作方式：&lt;strong&gt;空闲（待机）方式&lt;/strong&gt;和&lt;strong&gt;掉电（停机）方式&lt;/strong&gt;，如图为空闲和掉电方式控制电路。&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;27&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1589003077454.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;空闲方式和掉电方式是通过对SFR中的PCON（地址87H）相应位置1而启动的。下图即为电源控制寄存器（PCON）的各位分布情况。HMOS期间的PCON只包括一个SMOD位（最高位），其他四位是CHMOS器件独有的，三个保留位用户不得使用。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;28&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1589003186823.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;PCON内部结构&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;SMOD：波特率倍频位，若此位为1，则串行口方式1，方式2和方式3的波特率加倍。&lt;/li&gt;
-&lt;li&gt;GF1和GF0：通用标志位&lt;/li&gt;
-&lt;li&gt;PD：掉电方式位，此位写1则启用掉电方式&lt;/li&gt;
-&lt;li&gt;IDL：空闲方式位，此位写1则启用空闲方式，这是CPU因无时钟控制而停止运作。&lt;strong&gt;如果同时向PD和IDL两位写1，则PD优先&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;空闲（等待、待机）工作方式&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;CPU执行完置IDL=1（PCON.1）的指令后，系统进入空闲工作方式。&lt;/li&gt;
-&lt;li&gt;有两种退出空闲方式的方法：
-&lt;ul&gt;
-&lt;li&gt;任何的中断请求被响应都可以由硬件将PCON.0（IDL）清0而终止空闲工作方式&lt;/li&gt;
-&lt;li&gt;硬件复位&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;掉电（停机）工作方式&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;当CPU执行一条置PCON.1位（PD）=1的指令后，系统进入掉电工作方式。&lt;/li&gt;
-&lt;li&gt;推出掉电方式的唯一方法就是硬件复位，复位后将所有特殊功能寄存器的内容初始化，&lt;strong&gt;但不改变片内RAM区的数据&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;在掉电工作方式下，VCC可以降到2V，但在进入掉电方式之前，VCC不能降低，而在准备退出掉电方式之前，VCC必须恢复正常的工作电压值，并维持一段时间（约10ms），使振荡器重新启动并稳定后方可退出掉电方式。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;RAM位寻址区位地址表&lt;/strong&gt;&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;29&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1589004434290.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;p&gt;高于7F的就是字节寻址，比如位地址是88H,那么他的字节地址也是88H，位地址是28H，则他的字节地址就是25H。&lt;/p&gt;
-&lt;p&gt;片内字节地址为2AH，那么对应最低位位地址就是50H，而片内字节地址为A8H，那么对应最低位的位地址还是A8H，变为字节寻址。超出7F.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&#34;c51语言编程基础&#34;&gt;C51语言编程基础&lt;/h1&gt;
-&lt;h2 id=&#34;c51语言介绍&#34;&gt;C51语言介绍&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;C51语言能直接对8051单片机硬件进行操作&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Keil C51，在标准C语言的基础上发展的。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;使用c51语言软件开发优点&#34;&gt;使用C51语言软件开发优点&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;可读性好&lt;/li&gt;
-&lt;li&gt;模块化开发与资源共享，可以不需要修改直接拿去别的地方使用，先建立好库函数直接调用即可。&lt;/li&gt;
-&lt;li&gt;可移植性好，比如对51单片机开发的C语言，只需要把51单片机编写的程序改头文件就可以用到其他型号单片机上。&lt;/li&gt;
-&lt;li&gt;生成的代码效率高&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;c51与标准c语言的比较&#34;&gt;C51与标准C语言的比较&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;C51，标准C语言有许多相同的地方，但也有自身特点。对于51单片机，目前广泛使用的是Keil C51语言，简称C51语言。下面是二者的主要区别。&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;库函数的不同&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;例如库函数printf与scanf，在标准C中，这两个函数通常用于&lt;strong&gt;屏幕打印和接受字符&lt;/strong&gt;，而在c51中，主要用于&lt;strong&gt;串行口数据的收发&lt;/strong&gt;。&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;strong&gt;数据类型有一定的区别&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;c51中增加了几种针对51单片机特有的数据类型，在标准c的基础上有扩展了4种&lt;strong&gt;位操作功能&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;c语言中，数据类型有整型，字符型，浮点型等。&lt;/li&gt;
-&lt;li&gt;51单片机包含&lt;strong&gt;位操作空间&lt;/strong&gt;，和丰富的&lt;strong&gt;位操作指令&lt;/strong&gt;，因此，C51语言与标准C相比就要增加&lt;strong&gt;位类型&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;strong&gt;c51的变量存储模式与标准c中的变量存储模式数据不一样&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;对于c语言是针对通用计算机来设计的，计算机中只有一个程序和数据统一寻址的内存空间，只有ROM和RAM内存。&lt;/li&gt;
-&lt;li&gt;c51语言针对单片机系统，单片机系统有很多存储器，根据数据处于不同的区来选择。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;&lt;strong&gt;数据存储类型的不同&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;51单片机存储区可分为内部数据存储区，外部数据存储区，以及程序存储区。
-&lt;ul&gt;
-&lt;li&gt;内部数据存储区：分为3个不同的c51存储类型：data,idata,bdata&lt;/li&gt;
-&lt;li&gt;外部数据存储区：分为2个不同的c51存储类型：xdata,pdata&lt;/li&gt;
-&lt;li&gt;程序存储区：只能读不能写，位于51单片机内部或者外部。c51提供了code存储类型来访问程序存储区。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;&lt;strong&gt;标准c语言中没有处理单片机中断的定义&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;c51中有专门的中断函数。有专门的引脚去接外部中断。&lt;/p&gt;
-&lt;ol start=&#34;6&#34;&gt;
-&lt;li&gt;&lt;strong&gt;c51语言与标准c语言的输入输出处理不一样&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;c51语言中的输入输出是通过51单片机的串行口来完成的，输入输出指令执行前必须对串行口进行初始化。&lt;/p&gt;
-&lt;ol start=&#34;7&#34;&gt;
-&lt;li&gt;&lt;strong&gt;头文件的不同&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;51单片机内部的外设硬件资源如定时器、中断、I/O口等所相应的功能寄存器，需要写入头文件内。指令执行前必须对串行口进行初始化。&lt;/p&gt;
-&lt;ol start=&#34;8&#34;&gt;
-&lt;li&gt;&lt;strong&gt;程序结构的差异&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;51单片机硬件资源有限，它的编译系统不允许太多的程序嵌套。其次，标准c所具备的&lt;strong&gt;递归特性&lt;/strong&gt;不被c51语言支持。&lt;/p&gt;
-&lt;h2 id=&#34;c51语言程序设计基础&#34;&gt;C51语言程序设计基础&lt;/h2&gt;
-&lt;h3 id=&#34;c51的数据类型与存储类型&#34;&gt;C51的数据类型与存储类型&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;数据&lt;/strong&gt;是计算机操作的对象，包含&lt;strong&gt;常量和变量&lt;/strong&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;数据类型&lt;/strong&gt;：就是&lt;strong&gt;数据的格式&lt;/strong&gt;，它决定数据的&lt;strong&gt;值域范围、占用存储单元的个数及能参与哪种运算&lt;/strong&gt;。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;编写C51程序，先要确定数据类型、储存分区&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;应尽可能采用无符号格式（unsigned）&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;C51数据类型表&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;30&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1589260743233.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;红色的是c51增加的4个数据类型。16位的SFR有PC和DPTR&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;c51的扩展数据类型&#34;&gt;C51的扩展数据类型&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;位变量bit&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;bit定义位变量名字，编译器在位寻址区&lt;strong&gt;自动分配&lt;/strong&gt;该位变量，变量名称叫flag1。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;bit flag1 =0;&lt;/code&gt;&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;strong&gt;特殊功能位sbit&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;片内特殊功能寄存器的可寻址位。&lt;/p&gt;
-&lt;p&gt;下面两串代码就是先定义PSW的值，用&lt;code&gt;sfr&lt;/code&gt;,再用&lt;code&gt;sbit&lt;/code&gt;定义程序状态字的第二位。sbit定义寄存器的第几位&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sfr PSW=0×d0;/*定义PSW寄存器地址为0×d0*/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sbit PSW ^2=0×d2;/*定义OV位为PSW.2*/&lt;/code&gt;&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;strong&gt;特殊功能寄存器sfr&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;地址单元80H~FFH之间，“sfr”数据类型占用一个内存单元，利用它可以访问AT89S51单片机内部的所有特殊功能寄存器。sfr定义这个寄存器。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sfr P1 = 0×90；/*定义了P1端口在片内的寄存器*/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;P1=0×ff;/*对P1进行赋值ff（必须ff，使P1处于高电平，正确读入外部信息）*/&lt;/code&gt;&lt;/p&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;&lt;strong&gt;特殊功能寄存器sfr16（PC和DPTR）&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;“sfr16”数据类型占两个内存单元，它用于操作占两个字节的特殊功能寄存器。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;sfr16 DPTR =0×82；/*定义了片内16位数据指针寄存器DPTR，其低八位字节地址为82H，高8位字节地址为83H*/&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;&#34;&gt;&lt;/h3&gt;
-&lt;h3 id=&#34;c51数据的存储类型&#34;&gt;C51数据的存储类型&lt;/h3&gt;
-  &lt;center&gt;C51语言存储类型与8051存储空间的对应关系&lt;/center&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;存储区&lt;/th&gt;
-&lt;th&gt;存储类型&lt;/th&gt;
-&lt;th&gt;与存储空间的对应关系&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;DATA&lt;/td&gt;
-&lt;td&gt;data&lt;/td&gt;
-&lt;td&gt;片内RAM&lt;strong&gt;直接寻址&lt;/strong&gt;区，位于片内RAM的低128位字节&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;BDATA&lt;/td&gt;
-&lt;td&gt;bdata&lt;/td&gt;
-&lt;td&gt;片内RAM&lt;strong&gt;位寻址区&lt;/strong&gt;，位于20H~2FH空间&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;IDATA&lt;/td&gt;
-&lt;td&gt;idata&lt;/td&gt;
-&lt;td&gt;片内RAM的256字节，必须&lt;strong&gt;间接寻址&lt;/strong&gt;的存储区&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;XDATA&lt;/td&gt;
-&lt;td&gt;xdata&lt;/td&gt;
-&lt;td&gt;片外64KB的RAM空间，使用@DPTR间接寻址&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;PDATA&lt;/td&gt;
-&lt;td&gt;pdata&lt;/td&gt;
-&lt;td&gt;片外RAM的256字节，使用@Ri间接寻址&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CODE&lt;/td&gt;
-&lt;td&gt;code&lt;/td&gt;
-&lt;td&gt;程序存储区，使用DPTR寻址&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ul&gt;
-&lt;li&gt;经常使用的变量应该置于片内RAM中，要用bdata、data、idata定义&lt;/li&gt;
-&lt;li&gt;不经常使用的变量或规模较大的变量应该置于片外RAM中，要用pdata、xdata来定义。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;bit bdata flags;/*位变量flags定位在片内位寻址区*/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;char data var;/*字符变量var定位在片内RAM区*/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;floar idata x,y;/*实型变量x,y定位在片内间接寻址RAM区*/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;unsigned char pdata z;/*无符号字符变量z定位在片外分页间址RAM区*/&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;c51的数据存储模式&#34;&gt;C51的数据存储模式&lt;/h3&gt;
-&lt;h4 id=&#34;默认的变量存储分区&#34;&gt;默认的变量存储分区&lt;/h4&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;编译模式&lt;/th&gt;
-&lt;th&gt;默认存储分区&lt;/th&gt;
-&lt;th&gt;特点&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;SMALL&lt;/td&gt;
-&lt;td&gt;data&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;小模式&lt;/strong&gt;，变量默认在片内RAM，空间小，速度快。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;COMPACT&lt;/td&gt;
-&lt;td&gt;pdata&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;紧凑模式&lt;/strong&gt;，变量默认在片外的RAM的页（256字节，页号由P2口决定）&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;LARGE&lt;/td&gt;
-&lt;td&gt;xdata&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;大模式&lt;/strong&gt;，变量默认在片外RAM的64KB范围，空间大，速度慢。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ul&gt;
-&lt;li&gt;如果未对变量存储分区定义时，C51编译器采用&lt;strong&gt;默认&lt;/strong&gt;存储分区。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;例如：char,var；//SMALL模式时，var定位于data存储区。&lt;/p&gt;
-&lt;p&gt;​						   //COMPACT模式时，var定位于pdata存储区。&lt;/p&gt;
-&lt;p&gt;​						  //LARGE模式时，var定位于xdata存储区。&lt;/p&gt;
-&lt;h3 id=&#34;c51语言的sfr及位变量定义&#34;&gt;C51语言的SFR及位变量定义&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;特殊功能寄存器的C51定义&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;使用关键字定义sfr&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;语法如下：&lt;code&gt;sfr 特殊功能寄存器名字=特殊功能寄存器地址；&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;例如：&lt;code&gt;sfr IE=0×48；/*中断允许寄存器地址A8H*/&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;例如：&lt;code&gt;sfr TCON=0×88；/*定时器/技术去控制寄存器地址88H*/&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;例如：&lt;code&gt;sfr SCON=0×98H;/*串行口控制寄存器地址98H*/&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;例如：&lt;code&gt;sfr16 DPTR=0×82；/*数据指针DPTR的低8位地址为82H，高8位地址为83H*/&lt;/code&gt;（注意：&lt;strong&gt;16位SFR的低字节地址必须作为“SFR16”的定义地址&lt;/strong&gt;）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;通过头文件访问SFR&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;C51语言把51单片机（或52单片机）的常用的特殊功能寄存器和其中的可寻址位进行了定义，放在一个reg51.h（或reg52.h）的头文件中。在使用的时候需要调用头文件。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用预处理命令&lt;code&gt;#include&amp;lt;reg51.h&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;头文件引用举例如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;#include&amp;lt;reg51.h&amp;gt; 	/*头文件为51型单片机的头文件*/
-void main(void)
-{
-TLO=0×F0;		/*给定时器T0低字节TL0设置时间常数，已在reg51.h中定义*/
-TH0=0×3F；			/*给T0高字节TH0设时间常数*/
-TR0=1；				/*启动定时器0*/
-……
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;特殊功能寄存器中的位定义&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;sbit 位名=特殊功能寄存器^位置；&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;sfr		PSW=0×D0；
-sbit	CY=PSW^7;
-sbit	OV=PSW^2;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;sbit 位名=字节地址^位置&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;sbit CY=0×D0^7;
-sbit OV=0×D0^2;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;sbit 位名=位地址&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;这种方法将位的绝对地址赋给变量。位地址必须在0×80~0×FF之间。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;sbit CY=0×D7；
-sbit OV=0×D2;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;例：片内P1口&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;sfr		P1=0×90；
-sbit P1_7=P1^7;
-sbit P1_6=P1^6;
-sbit P1_5=P1^5;
-sbit P1_4=P1^4;
-sbit P1_3=P1^3;
-sbit P1_2=P1^2;
-sbit P1_1=P1^1;
-sbit P1_0=P1^0;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;位变量的C51定义&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;位变量的C51定义&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;C51采用关键字“bit”来定义位变量&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;bit bit_name&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;如：&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c#&#34;&gt;bit ov_flag;	/*将ov_flag定义为位变量*/
-bit lock_pointer;	/*将lock_pointer定义为位变量*/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;函数可以包含类型为bit的参数，也可将其作为返回值。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;​     例如：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c#&#34;&gt;bit func(bit b0,bit b1);	/*位变量b0与b1作为函数func的参数*/
-{
-……
-return(b1);		/*位变量b1作为函数的返回值*/
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;位变量定义的限制&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;位变量不能用来定义指针和数组&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;bit *ptr;		/*错误，不能用位变量来定义指针*/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;bit array[]	/*错误，不能用位变量来定义数组array[]*/&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;c51语言的绝对地址访问&#34;&gt;C51语言的绝对地址访问&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;绝对宏&lt;/p&gt;
-&lt;p&gt;C51编译器提供了一组宏定义来对code、data、pdata和xdata空间进行绝对寻址。&lt;/p&gt;
-&lt;p&gt;在程序中，用&lt;code&gt;#include&amp;lt;absacc.h&amp;gt;&lt;/code&gt;来对absacc.h中声明的宏来访问绝对地址，包括“CBYTE,CWORDE,DBYTE,DWORD,XBYTE,XWORD,PBYTE,PWORD”,具体使用方法参考absacc.h头文件。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;CBYTE以字节形式对code区寻址；&lt;/li&gt;
-&lt;li&gt;CWORD以字形式对code区寻址；&lt;/li&gt;
-&lt;li&gt;DBYTE以字节形式对data区寻址；&lt;/li&gt;
-&lt;li&gt;DWORD以字形式对data区寻址；&lt;/li&gt;
-&lt;li&gt;XBYTE以字节形式对xdata区寻址；&lt;/li&gt;
-&lt;li&gt;XWORD以字形式对xdata区寻址；&lt;/li&gt;
-&lt;li&gt;PBYTE以字节形式对pdata区寻址；&lt;/li&gt;
-&lt;li&gt;PWORD以字形式对pdata区寻址；&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c#&#34;&gt;#include&amp;lt;absacc.h&amp;gt;
-#define PORTA XBYTE[0×FFC0]
-/*将PORTA定义为外部I/O口，地址为0×FFC0，长度16位*/
-#define NRAM DBYTE[0×50]
-/*将NRAM定义为片内RAM,地址为0×50，长度8位*/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c#&#34;&gt;#include&amp;lt;absacc.h&amp;gt;
-#define PORTA XBYTE[0×FFC0]
-#define NRAM DBYTE[0×40]
-
-main()
-{
-    PORTA=0×3D;/*将数据3D写入地址FFC0的外部I/O端口*/
-    NRAM=0×01；/*将数据01H写入片内RAM的40H单元*/
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;_at_关键字&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;使用关键字_at_可对指定的存储器空间的绝对地址进行访问，格式如下：&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;[存储器类型] 数据类型说明符 变量名_at_地址常数&lt;/code&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c#&#34;&gt;void main(void)
-{
-    data unsigned char y1_at_0×50;/*在data区定义字节变量y1，它的地址为50H*/
-    xdata unsigned int y1_at_0×4000;/*在xdata区定义字节变量y2，它的地址为4000H*/
-    y1=0×ff;
-    y1=0×1234；
-        ……
-    while(1);
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;例：将片外RAM 2000H开始的连续20个字节单元清0.&lt;/p&gt;
-&lt;p&gt;程序如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;xdata unsigned char
-buffer[20]_at_0×2000;/*buffer表示数组*/
-void main(void)
-{
-    unsigned char i;
-    for(i=0;i&amp;lt;20;i++){
-        buffer[i]=0
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;例：如果把片内RAM 40H单元开始的8个单元内容清0，则程序如下：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;data unsigned char
-buffer[8]_at_0×40；
-void main(void)
-{
-	unsigned char j;
-	for(j=0;j&amp;lt;8;j++){
-	buffer[j]=0
-	}
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;一些问题&#34;&gt;一些问题&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;当A中的内容为63H，那么P标志位的值为多少？&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;答：P=0，P为奇偶校验标志位，由硬件址位或清零，根据累加器A中“1”的个数的奇偶性，即1的个数为偶数时，P=1，当A中的内容为63H时，A中“1”的个数为4，故P=0.&lt;/p&gt;
-&lt;h2 id=&#34;c51的基本运算&#34;&gt;C51的基本运算&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;C51语言的基本运算与标准C类似，主要包括&lt;strong&gt;算术运算、关系运算、逻辑运算、位运算和赋值运算&lt;/strong&gt;及其表达式等。&lt;/p&gt;
-&lt;h3 id=&#34;算术运算符&#34;&gt;算术运算符&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;算术运算的算术运算符及其说明如下&lt;/strong&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;符号&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;th&gt;举例（设x=10,y=3）&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;+&lt;/td&gt;
-&lt;td&gt;加法运算&lt;/td&gt;
-&lt;td&gt;z=x+y;               //z=13&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;-&lt;/td&gt;
-&lt;td&gt;减法运算&lt;/td&gt;
-&lt;td&gt;z=x-y;               //z=7&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;*&lt;/td&gt;
-&lt;td&gt;乘法运算&lt;/td&gt;
-&lt;td&gt;z=x*y;               //z=30&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;/&lt;/td&gt;
-&lt;td&gt;除法运算&lt;/td&gt;
-&lt;td&gt;z=x/y;                //z=3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;%&lt;/td&gt;
-&lt;td&gt;取余数运算&lt;/td&gt;
-&lt;td&gt;z=x%y;               //z=1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;++&lt;/td&gt;
-&lt;td&gt;自增1&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;--&lt;/td&gt;
-&lt;td&gt;自减1&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;自增运算符与自减运算符&lt;/strong&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;运算符&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;th&gt;举例（设x初值为4）&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;x++&lt;/td&gt;
-&lt;td&gt;先用x的值，再让x加1&lt;/td&gt;
-&lt;td&gt;y=x++;          //y为4，x为5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;++x&lt;/td&gt;
-&lt;td&gt;先让x+1，再用x的值&lt;/td&gt;
-&lt;td&gt;y=++x;          //y为5，x为5&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;x--&lt;/td&gt;
-&lt;td&gt;先用x的值，再让x-1&lt;/td&gt;
-&lt;td&gt;y=x--;           //y为4，x为3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;--x&lt;/td&gt;
-&lt;td&gt;先让x-1，再用x的值&lt;/td&gt;
-&lt;td&gt;y=--x;           //y为3，x为3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;逻辑运算符&#34;&gt;逻辑运算符&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;逻辑运算符及其说明&lt;/strong&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;运算符&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;th&gt;举例（设a=2,b=3）&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;amp;&amp;amp;&lt;/td&gt;
-&lt;td&gt;逻辑与&lt;/td&gt;
-&lt;td&gt;a&amp;amp;&amp;amp;b;              //返回值为0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;||&lt;/td&gt;
-&lt;td&gt;逻辑或&lt;/td&gt;
-&lt;td&gt;a||b;               //返回值为1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;！&lt;/td&gt;
-&lt;td&gt;逻辑非&lt;/td&gt;
-&lt;td&gt;!a;                //返回值为0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;em&gt;例如：条件“10&amp;gt;20”为假，“2&amp;lt;6”为真，则逻辑与运算为：&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;（10&amp;gt;20）&amp;amp;&amp;amp;(2&amp;lt;6)=0&amp;amp;&amp;amp;1=0&lt;/code&gt;&lt;/p&gt;
-&lt;h3 id=&#34;关系运算符&#34;&gt;关系运算符&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;关系运算符及其说明&lt;/strong&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;符号&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;th&gt;举例（设a=2,b=3）&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;gt;&lt;/td&gt;
-&lt;td&gt;大于&lt;/td&gt;
-&lt;td&gt;a&amp;gt;b;     //返回值为0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;lt;&lt;/td&gt;
-&lt;td&gt;小于&lt;/td&gt;
-&lt;td&gt;a&amp;lt;b;     //返回值为1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;gt;=&lt;/td&gt;
-&lt;td&gt;大于等于&lt;/td&gt;
-&lt;td&gt;a&amp;gt;=b;    // 返回值为0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;lt;=&lt;/td&gt;
-&lt;td&gt;小于等于&lt;/td&gt;
-&lt;td&gt;a&amp;lt;=b;    //返回值为1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;==&lt;/td&gt;
-&lt;td&gt;等于&lt;/td&gt;
-&lt;td&gt;a==b;    //返回值为0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;!=&lt;/td&gt;
-&lt;td&gt;不等于&lt;/td&gt;
-&lt;td&gt;a!=0;     //返回值为1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id=&#34;位运算&#34;&gt;位运算&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;位运算及其说明&lt;/strong&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;符号&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;th&gt;举例&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;amp;&lt;/td&gt;
-&lt;td&gt;按位逻辑与&lt;/td&gt;
-&lt;td&gt;0x19&amp;amp;0x4d=0x09&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;|&lt;/td&gt;
-&lt;td&gt;按位逻辑或&lt;/td&gt;
-&lt;td&gt;0x19|0x4d=0x5d&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;^&lt;/td&gt;
-&lt;td&gt;按位异或&lt;/td&gt;
-&lt;td&gt;0x19^0x4d=0x54&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;~&lt;/td&gt;
-&lt;td&gt;按位取反&lt;/td&gt;
-&lt;td&gt;x=0x0f,则~x=0xf0&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;lt;&amp;lt;&lt;/td&gt;
-&lt;td&gt;按位左移（高位丢弃，低位补0）&lt;/td&gt;
-&lt;td&gt;y=0x3a,若y&amp;lt;&amp;lt;2,则y=0xe8&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;gt;&amp;gt;&lt;/td&gt;
-&lt;td&gt;按位右移（高位补0，低位丢弃）&lt;/td&gt;
-&lt;td&gt;w=0x0f,若w&amp;gt;&amp;gt;2,则w=0x03&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ul&gt;
-&lt;li&gt;0x19=19H=00011001,0x4d=01001101&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;​                00011001&lt;/p&gt;
-&lt;p&gt;相与        01001101                    （上下相同就是该数，不同都是0）&lt;/p&gt;
-&lt;p&gt;​          =    00001001=09&lt;/p&gt;
-&lt;p&gt;​                00011001&lt;/p&gt;
-&lt;p&gt;相或        01001101                       （上下相同是该数，不同为1）&lt;/p&gt;
-&lt;p&gt;​          =    01011101=5d&lt;/p&gt;
-&lt;p&gt;​               00011001&lt;/p&gt;
-&lt;p&gt;异或        01001101                      （上下相同为0，不同为1）&lt;/p&gt;
-&lt;p&gt;​          =    01010100=54&lt;/p&gt;
-&lt;p&gt;x=0x0f,则~x=0xf0    按位取反&lt;/p&gt;
-&lt;p&gt;按位左移        00111010            （按位左移或右移后，空余的位补0）&lt;/p&gt;
-&lt;p&gt;左移两位        111010&lt;strong&gt;00&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;按位右移        00001111&lt;/p&gt;
-&lt;p&gt;右移两位        &lt;strong&gt;00&lt;/strong&gt;000011&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;在实际应用中，常想改变I/O口某一位的值，而不影响其他位，如果I/O口可位寻址的，这个问题就很简单，但有时外扩的I/O口只能进行字节操作，要想实现单独位控，就要采用位操作&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;例：编写程序将扩展的某I/O口PORTA（只能字节操作）的PORTA.5清0，PORTA.1置为1.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c#&#34;&gt;/*要想使其第五位清0而其他位不动，那么使用与逻辑运算，使其与11011111相与*/
-/*要想使其第一位置1而其他位不变，那么使用或逻辑运算，使其与00000001相或*/
-#define&amp;lt;absacc.h&amp;gt;
-#define PORTA XBYTE[0xffc0]/*以字节形式去访问片外的地址0ffc0*/
-void main(void)
-{
-    ……
-    PORTA=(PORTA&amp;amp;0xdf)|0X02
-    ……
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&#34;指针和取地址运算符&#34;&gt;指针和取地址运算符&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;指针变量用于存储某个变量的地址&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;C51用&#39;&lt;em&gt;&lt;strong&gt;&lt;strong&gt;&#39;和&#39;&lt;/strong&gt;&amp;amp;&lt;/strong&gt;&#39;运算符来提取变量&lt;/em&gt;&lt;em&gt;内容&lt;/em&gt;&lt;em&gt;和变量&lt;/em&gt;&lt;em&gt;地址&lt;/em&gt;*&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;center&gt;赋值、指针和取值运算及其说明&lt;/center&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;符号&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;*&lt;/td&gt;
-&lt;td&gt;提取变量的内容&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;amp;&lt;/td&gt;
-&lt;td&gt;提取变量的地址&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;ul&gt;
-&lt;li&gt;提取变量的内容和变量的地址的一般的形式分别为：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;*&lt;em&gt;目标变量=&lt;em&gt;指针变量&lt;/em&gt;&lt;/em&gt;         //将指针变量所指的存储单元内容赋值给目标变量。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;指针变量=&amp;amp;目标变量&lt;/strong&gt;        //将目标变量的地址赋值给指针变量。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;注意：指针变量中只能存放地址（也就是指针型数据），一般情况下不要将非指针类型的数据赋值给一个指针变量。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;例如：        a=&amp;amp;b;         //定义指向b的地址&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;			   c=*b;             //定义指向b地址的内容
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;int i;         //定义整型变量i
-int*b;         //定义指向整数的指针变量b
-b=&amp;amp;i;          //定义指向i的地址
-错误写法：b=i，整型变量的值不可以等于指针变量
-    
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;c51的分支与循环程序结构&#34;&gt;C51的分支与循环程序结构&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;在C51的程序结构上可以把程序分为三类，即&lt;strong&gt;顺序、分支和循环结构&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;分支控制语句&#34;&gt;分支控制语句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;分为&lt;strong&gt;if语句&lt;/strong&gt;和&lt;strong&gt;switch语句&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;if语句&lt;/strong&gt;：if语句是用来判定所给定的条件是否满足，根据判定结果执行两种操作之一。if语句的基本结构&lt;strong&gt;if(表达式){语句}&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;形式1：&lt;strong&gt;if(表达式){语句}&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;code&gt;if(x&amp;gt;y){max=x;min=y};/*若表达式为真就执行后面的语句*/&lt;/code&gt;&lt;/p&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;形式2：&lt;strong&gt;if(表达式){语句1;} else{语句2;}&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;if(x&amp;gt;y)/*if后表达式为真执行语句1，否则执行语句2*/
-{max=x;}
-else{min=y;}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;if语句的嵌套格式&lt;code&gt;if,else if&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;if(表达式1){语句1;}/*依次向下判定，是否符合表达式1，执行或往下递推，直到是否符合表达式n-1，符合就是语句n-1,不符合就是语句n*/
-else if(表达式2){语句2;}
-else if(表达式3){语句3;}
-......
-    else{语句n;}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;例如：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;if(x&amp;gt;100){y=1;}
-else if{x&amp;gt;50}{y=2;}
-else if(x&amp;gt;30){y=3;}
-else if(x&amp;gt;20){y=4;}
-else {y=5;}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;switch语句&lt;/strong&gt;：switch语句是多分支选择语句，一般形式如下&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;switch(表达式1)/*当表达式1和常量表达式1相同时，就执行后面的语句1，之后遇到break就退出switch语句，以此类推，当所有常量表达式没有与表达式相对应的值，那么就执行default后面的语句n+1*/
-{
-    case 常量表达式1:{语句1；}break;
-    case 常量表达式2:{语句2；}break;
-        ……
-    case 常量表达式n:{语句n；}break;
-    default:{语句n+1;}
-/*每一case常量表达式需互不相同，否则将混乱*/
-/*各个case和default出现次序，不影响程序执行的结果*/
-/*如果在case中遗忘了break语句，则程序执行了本行之后，不会按规定退出switch语句，而是将执行后续的case语句。在执行一个case分支后，使流程跳出switch结构，即终止switch语句的执行，可以用一条break语句完成*/
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;例如：在单片机程序设计中，常用switch语句作为键盘中按键按下的判别，并根据按下键的键号跳向各自的分支处理程序。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;input:  keynum=keyscan()/*keyscan是键盘扫描函数*/
-switch(keynum)
-{
-      case 1:key1();break;//如果按下键为1键，则执行函数key1()
-      case 2:key2();break;//如果按下键为2键，则执行函数key2()
-      case 3:key3();break;//如果按下键为3键，则执行函数key3()
-      case 4:key4();break;//如果按下键为4键，则执行函数key4()
-  ……
-      default:goto input
-         
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;循环结构流程控制语句&#34;&gt;循环结构流程控制语句&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;实现循环结构的语句有以下三种：while语句、do-while语句和for语句。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;while语句&lt;/strong&gt;：语法形式如下&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;while(表达式)
-{
-    循环体语句；
-}
-/*while是先判断表达式真假，若为假程序不会执行，为真才执行*/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;例如：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;while((P1&amp;amp;0x80))= =0)
-{}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;while中的条件语句对AT89S52单片机的P1口第七位进行测试，如果P1 7为低（0），则由循环体无实际操作语句，故继续测试下去（等待），一旦P1 7变为高电平（1），则循环终止&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;do while语句&lt;/strong&gt;：语法形式如下&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;do
-{
-    循环体语句;
-}
-while(表达式)；
-/*do while 先执行循环体语句，再判断表达式真假，若为假则停止程序，但前提数据已经录入，即程序已经运行了。*/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;例：实型数组SAMPLE存有10个采样值，编写程序段，要求返回其平均值（平均值滤波）&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;float avg(float *sample)
-{
-    float sum=0;
-    char n=0;
-    do
-    {
-        sum+=sample[n];/*sum+=sample与sum=sum+sample等价*/
-        n++;
-    }while(n&amp;lt;10);
-    return(sum/10);
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;基于for语句的循环&lt;/strong&gt;：for循环的一般格式如下：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;for(表达式1;表达式2;表达式3)
-{
-    循环体语句；
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;例：编写一个延时1ms程序&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void delayms(unsigned char int j)/*delayms延时函数*/
-{
-    unsigned char i;
-    while{j- -}
-    {
-        for(i=0;i&amp;lt;125;i++)/*执行一个for语句大概要延时8us，要执行125次，共延时1ms,利用for语句来延时*/
-        {;}/*等待*/
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;例：求1+2+3+...+100的累加和&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;#include&amp;lt;reg51.h&amp;gt;
-#include&amp;lt;stdio.h&amp;gt;
-main()
-{
-	int nvar1,nsum;
-	for(nvarl=0,nsum=1;nsum&amp;lt;=100;nsum++)
-	nvar1+=nsum;  //累加求和
-	while(1);
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;break语句&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;例：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void main(void)
-{
-    int i,sum;
-    sum=0;
-    for(i=1;i&amp;lt;=10;i++)
-    {
-        sum=sum+i;
-        if(sum&amp;gt;5)break;
-        print(&amp;quot;sum=%d\n&amp;quot;,sum);/*通过串口向计算机屏幕输出显示sum值*/
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;continue语句&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;例：输出整数1~100的累加值，但要求跳过所有个位为3的数。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void main(void)
-{
-    int i,sum=0;
-    for(i=1;i&amp;lt;=100;i++)
-    {
-        if(i%10= =3)
-        continue;
-        sum=sum+i;
-    }    
-    print(&amp;quot;sum=%d\n&amp;quot;,sum);/*在计算机屏幕显示sum值，了解本语句的功能即可*/
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;goto语句&lt;/strong&gt;：基本格式如下：goto  标号&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;例：计算整数1~100的累加值，存放到sum中。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;void main(void)
-{
-    unsigned char i
-    int sum;
-     sumadd;
-    sum=sum+i;
-    i++;
-    if(i&amp;lt;101)
-    {
-        goto sumadd/*无条件跳转到sumadd*/
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-">Bug测试</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/Z65MUNzNY/"" data-c="
-          &lt;p&gt;学习单片机需要什么基础&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;基本的数电模电知识，二进制、十进制、十六进制，与、或、非逻辑关系&lt;/li&gt;
-&lt;li&gt;简单的c语言&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;单片机能做什么？&lt;br&gt;
-控制或简单运算有关的电子设备&lt;/p&gt;
-&lt;p&gt;80C51系列（类似linux内核）&lt;br&gt;
-AT89C51：需要有专门的编辑器才能写程序&lt;br&gt;
-AT89S51：不需要专门的编辑器&lt;br&gt;
-AT89LV51：低电平&lt;/p&gt;
-&lt;p&gt;单片机组成部分&lt;br&gt;
-CPU：由运算和控制逻辑组成，同时还包括中断系统和部分外部特殊功能寄存器&lt;br&gt;
-RAM：用以存放可以读写的数据，如运算的中间结果、最终结果以及欲显示的数据&lt;br&gt;
-ROM：用以存放程序、一些原始数据和表格&lt;br&gt;
-IO口：四个八位并行IO口，既可以用作输入也可以用作输出&lt;br&gt;
-TC：两个定时或者计数器，既可以工作在定时模式，也可以工作在计数模式&lt;/p&gt;
-">单片机学习笔记</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/qe8eK5IAz/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/qe8eK5IAz/"" data-c="
           &lt;p&gt;写这篇文章的主要目的就是用来给next主题的开源社区用户一个参考的地方，最近发现很多提交pr的用户不太“正确”，这里的正确是指我这边方便操作，并不是说大家提交的pr是错误的，那么为什么要按照我的要求来提交pr呢？既然都是给项目提交代码，何必要弄这么多麻烦的事情呢？其实这个一个是规范，另一个也是想不辜负大家的心意。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;h2 id=&#34;pr&#34;&gt;PR&lt;/h2&gt;
@@ -2817,7 +1044,7 @@ TC：两个定时或者计数器，既可以工作在定时模式，也可以工
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/lsz6Jikoa/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/lsz6Jikoa/"" data-c="
           &lt;p&gt;情景描述：之前在网上开源的一款主题项目，短短半年时间受到很多网友的喜爱，也收获了一批忠实粉丝，社区也比较活跃，前段时间就有个用户提出了一个问题，就是主题的压缩包已经高达30多M，懂技术的人应该都知道这个问题的严重性，一个静态的主题高达30M那真的是一个灾难性问题。后来花了些时间将主题包的大小从30M压缩到6M，再经过github官方压缩，成功降到1M，也算是一个比较不错的优化案例了吧。在这里将我优化中遇到的问题和经验总结下。&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;h2 id=&#34;查找问题&#34;&gt;查找问题&lt;/h2&gt;
@@ -2860,7 +1087,7 @@ git gc --prune=now
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/1JA_OJlig/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/1JA_OJlig/"" data-c="
           &lt;p&gt;Next主题是翻版hexo平台上的主题，由于其简约的风格深受用户的喜爱，不过很可惜的是hexo在使用上有很多不足之处。而gridea则弥补了其很多的缺点，但是目前gridea仍处于成长阶段，bug也有不少，至于Next主题情况也是类似，从开发至今大概以及过去了4个月的时间，还处于一个很不稳定的阶段，这个阶段在功能上会有很大的调整，很多用户还不是很会使用这个主题。所以准备维护一个使用文档，帮助大家解决问题。&lt;br&gt;
 &lt;img src=&#34;https://cdn.jsdelivr.net/gh/hsxyhao/images.github.io@master/1JA_OJlig/group_chat.jpeg&#34; alt=&#34;Next主题交流群&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 上图是主题交流群，有什么问题可以在群里交流，有建议也可以在群里提，希望能帮助大家快速构建主题。&lt;/p&gt;
@@ -3160,7 +1387,7 @@ var _hmt = _hmt || [];
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/OHqC_LpWd/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/OHqC_LpWd/"" data-c="
           &lt;p&gt;electron是什么？简单点来说就是让你使用前端技术（css、js、html）就可以开发桌面应用（mac，windows，linux），但是使用纯html来写桌面应用，简单的毫无问题，但是复杂的项目那简直为让人生不如死。所以肯定要选择前端框架来提高开发效率。但是对于一个小白来说一下子跨越着实有点大，所以就准备写个文章，记录一下纯小白在使用electron的过程中遇到的坑。当然这里会结合ts来开发应用，毕竟js在开发后期确实有些不方便，谁用谁知道。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;大名鼎鼎的vs code也是用electron开发的，这点确实让我很惊讶。electron技术起源于atom，一款由github开源的编辑器，当时第一次接触atom时，IDE实在是卡到爆，也不知道是不是我当时电脑该换了，反正给我的映像就是非常吃内存。而vscode则带给我另一种体验，让我完全无法想象使用electron开发的。&lt;/p&gt;
@@ -3190,12 +1417,12 @@ npm install &amp;amp;&amp;amp; npm start
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/Och5LtMIu/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/Och5LtMIu/"" data-c="
           &lt;p&gt;各位小伙伴看这里👉，最新版NexT主题已经悄悄上线，暗中观察的你赶快使用起来喔！！！不过从最新的用户反馈中得知，目前的最新的版本在自定义配置方面过于复杂，有些属性配置大家也不知道怎么调整，只能靠一步步调试，效率很低。为了帮助大家快速熟悉最新的版本，在这里准备给大家输出一个详细的配置教程。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这几天一直笼罩在新型冠状病毒的恐惧中，弄得我精神恍惚，更新实在更不上啊，多多担待😮。建议大家还是多做好防范措施，尽量少去人多的地方，避免感染，不要过度恐慌，但是还是多给家里人普及一下这方面的信息，尤其是老人，总之大家多注意点，防范点。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1579959959591.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://yeming.site/post-images/1579959959591.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;!-- more --&gt;
 &lt;h1 id=&#34;更新内容&#34;&gt;更新内容&lt;/h1&gt;
 &lt;ol&gt;
@@ -3206,10 +1433,10 @@ npm install &amp;amp;&amp;amp; npm start
 &lt;h1 id=&#34;魔改&#34;&gt;魔改&lt;/h1&gt;
 &lt;p&gt;魔改主要为那些喜欢骚操作的用户打造的，大多数用户无需关注，默认的主题已经很好看了。Next系列主打的是简约风格，针对的是大众用户，包括我自己也比较喜欢这类风格 。之前在Gridea群里了解到，有些小伙伴喜欢玩一些骚操作，打造专属于自己的主题。不过Gridea的用户群体涉及到的行业不仅仅是程序员，还有很多非技术人员，对于这些用户来说，改个小功能非常困难，所以最终就决定根据网上流行的几款魔改Next，做了二次开发，尽量让所有人都能打造自己的专属主题。具体可以达到什么效果，可以参考这里: &lt;a href=&#34;https://hunter1023.github.io&#34;&gt;特殊服务&lt;/a&gt;、&lt;a href=&#34;http://lyxf.live&#34;&gt;乐屿心扉&lt;/a&gt;、&lt;a href=&#34;https://hasaik.com/links/&#34;&gt;Xu&#39;s Blog&lt;/a&gt;&lt;br&gt;
 魔改的配置项主要包含以下几个方面：背景图片、标题背景图片、站点预览背景图片、可视区透明度、站点标题字体大小、背景图片虚化、Muse风格阴影效果，具体对应的效果参考下图。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1579961109935.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1579961109935.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;颜色&#34;&gt;颜色&lt;/h1&gt;
 &lt;p&gt;魔改可以改变主题的样式，但是有时候选择的图片和颜色并不是很搭，就可以考虑使用颜色自定义配置调整，进行搭配。下图列出每个颜色配置对应的位置效果&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1579963092730.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1579963092730.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;看板娘&#34;&gt;看板娘&lt;/h1&gt;
 &lt;p&gt;看板娘也就是live2d，现在很多博客上都会带有一个萌萌的宠物，提高整个博客的萌值。为此我从网上找了一款自我感觉还不错的看板娘，除了常见的功能外，还带有&lt;strong&gt;AI聊天功能&lt;/strong&gt;，&lt;strong&gt;病毒特效&lt;/strong&gt;以及&lt;strong&gt;背景音乐&lt;/strong&gt;。至于看板娘的操作，其实很简单，大家如果喜欢的话可以动手试一下，这里就不过多介绍了。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -3225,18 +1452,18 @@ npm install &amp;amp;&amp;amp; npm start
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/gridea_help/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/gridea_help/"" data-c="
           &lt;p&gt;最近在gridea的群聊发现很多新人在安装好gridea点击远程连接的时候都会出现问题，大部分都是类似no  such remote这样的提示信息，之前我第一次安装的时候也出现过这样的问题，本来以为就我一个人会有，后面发现有这个问题的人也不少，经常群里有人问题这样的问题。自己也在群里解决了一些，但是这样总不是办法，还是需要写一个文档出来，节约大家的时间，这也是写这篇文章的原因，希望这篇文章可以帮助大家解决问题，如果不能解决，可以在下面评论，我会尽力解决，后期也方便其他新手再次遇到类似的问题。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1578642807761.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1578642807761.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;h1 id=&#34;远程连接出错&#34;&gt;远程连接出错&lt;/h1&gt;
 &lt;p&gt;这个问题其实在Gridea的issue已经有解决方案了，&lt;a href=&#34;https://github.com/getgridea/gridea/issues/403&#34;&gt;点击查看详情&lt;/a&gt;（windows系统类似）。issue有两个方法，一个是我经常使用的（新手不友好），一个是另一个网友提出的方法，直接删除output文件夹中的.git隐藏文件，这个方法比较简单高效推荐使用。&lt;/p&gt;
 &lt;h2 id=&#34;output文件夹&#34;&gt;output文件夹&lt;/h2&gt;
 &lt;p&gt;output文件夹不在程序的安装路径，不在程序的安装路径，不在程序的安装路径，在Gridea的站点源文件路径下，怎么找到程序的&lt;strong&gt;站点源文件路径&lt;/strong&gt;，可以在版本中心里找到，就是Gridea左下角最左边的按钮，如下图所示。找到之后进入ouput目录，删除啊.git隐藏文件。隐藏文件怎么显示？mac下command+shift+.，windows下找度娘吧😅&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1578643087146.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1578643087146.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;原因&#34;&gt;原因&lt;/h2&gt;
 &lt;p&gt;一般远程连接出错，都是git的远程地址配置没有配置，出错的提示如下图所示。打开Gridea的开发者选项，可以看到控制台的有包含no such remote类似的提示信息，根据以下方案可以进行修复。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1578635170895.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1578635170895.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 可以在Gridea的ouput文件中打开终端输入git remote命令校验&lt;/p&gt;
 &lt;h2 id=&#34;解决方案&#34;&gt;解决方案&lt;/h2&gt;
 &lt;p&gt;第一种方案&lt;br&gt;
@@ -3258,7 +1485,7 @@ npm install &amp;amp;&amp;amp; npm start
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id=&#34;同步失败&#34;&gt;同步失败&lt;/h1&gt;
 &lt;p&gt;除了连接失败外，还有一个经常出现的问题，同步失败，其实这个错误也是git导致的问题，一般都是.git文件中一个config文件导致，我遇见的情况多数都是token没有添加上，修复这个问题可以打开config页面，从把token写上去，就是图片中划横线的部分（没有划全，替换的时候注意下）。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1578642131057.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1578642131057.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 也可以试试直接删除.git文件夹，这个我没试过，不知道有没有用。&lt;/p&gt;
 &lt;h1 id=&#34;coding无法同步&#34;&gt;coding无法同步&lt;/h1&gt;
 &lt;p&gt;coding无法同步的主要原因就是token的问题，coding中每个token都会有一个用户名，在访问的时候可能需要把这个token用户名加上，但是Gridea没有支持token用户名，只有平台用户名，目前这个问题可以将coding的token换成coding的&lt;strong&gt;密码&lt;/strong&gt;，这样就可以同步成功了。&lt;/p&gt;
@@ -3268,7 +1495,7 @@ npm install &amp;amp;&amp;amp; npm start
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/"" data-c="
           &lt;p&gt;刚过完元旦就遇到了让人恶心的bug，都还没有从朋友圈狗粮阴影里出来，😒。先记录一下吧，防止以后会遇到相似的bug。之前负责公司的一个运营平台，里面有一个周统计任务，每周统计一下服务的使用量。我采用的思路就是将使用记录的创建时间用weekofyear以及year分别获取记录的周以及年，然后用group by分组统计。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;weekofyear获取的是一年中的第几周，year获取的是时间的年分&lt;/p&gt;
@@ -3280,22 +1507,22 @@ npm install &amp;amp;&amp;amp; npm start
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/zhu-ti-she-qu-de-bug/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/zhu-ti-she-qu-de-bug/"" data-c="
           &lt;p&gt;主题风格之间的兼容&lt;br&gt;
 自定义布局颜色，内容宽度支持&lt;br&gt;
 夜间模式&lt;br&gt;
 打赏功能&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1580100833596.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1580100833596.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;https://github.com/deviljinc/deviljinc.github.io&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1578053332742.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1578053414299.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1578053496826.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1578053332742.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1578053414299.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1578053496826.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 ">主题社区的bug</a>
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/skin-update/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/skin-update/"" data-c="
           &lt;p&gt;更新提示&lt;/p&gt;
 &lt;p&gt;后期主题自定义配置支持&lt;br&gt;
 黑夜模式，&lt;br&gt;
@@ -3307,9 +1534,9 @@ npm install &amp;amp;&amp;amp; npm start
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/shuo-yi-xia-next-zhu-ti/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/shuo-yi-xia-next-zhu-ti/"" data-c="
           &lt;p&gt;NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，经常是一旦出现了bug就加班加点的修复，虽然累一点，但是反而快乐了许多。最后我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1577787675038.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://yeming.site/post-images/1577787675038.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;!-- more --&gt;
 &lt;h1 id=&#34;已开发的功能&#34;&gt;已开发的功能&lt;/h1&gt;
 &lt;p&gt;目前NexT主题虽然还处于Beta版本，但是也越来越完善了，相信不久就会给NexT用户交出一份满意的答卷。&lt;/p&gt;
@@ -3366,8 +1593,8 @@ npm install &amp;amp;&amp;amp; npm start
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/ce-shi-md-shu-xue-gong-shi/"" data-c="
-          &lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1577763703490.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/ce-shi-md-shu-xue-gong-shi/"" data-c="
+          &lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://yeming.site/post-images/1577763703490.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;!-- more --&gt;
 &lt;p&gt;行内与独行&lt;br&gt;
 行内公式：将公式插入到本行内，符号：&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;公&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;式&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;内&lt;/mi&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;容&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;公式内容&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;公&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;式&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;内&lt;/span&gt;&lt;span class=&#34;mord cjk_fallback&#34;&gt;容&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，如：&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mi&gt;z&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;xyz&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.625em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.03588em;&#34;&gt;y&lt;/span&gt;&lt;span class=&#34;mord mathdefault&#34; style=&#34;margin-right:0.04398em;&#34;&gt;z&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;
@@ -3531,9 +1758,9 @@ c-16-25.333-24-45-24-59z&#39;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;/spa
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/redis-chang-kao-mian-shi-ti/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/redis-chang-kao-mian-shi-ti/"" data-c="
           &lt;p&gt;前段时间学习了一下redis，并且也做了些学习笔记，刚过一周的时候，就已经忘得一干二净，实在是惭愧啊。不过唯一的安慰就是当时的笔记灵感都记录下来了，尤其是难点都做了详细的笔记。本来准备过段时间再回顾一下，今天同事丢了本redis面试题给我，大概看了下，基本上前段时间看的内容都有提到，所以就准备将这些面试题和我之前做的笔记结合起来做一个回忆索引。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1577675564766.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1577675564766.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;h1 id=&#34;什么是redis&#34;&gt;&lt;a href=&#34;/post/rui-shi-jun-dao-redis/&#34;&gt;什么是Redis？&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;Redis是完全开源免费的，遵守 BSD 协议，是一个高性能的key-value数据库。 Redis与其他key-value缓存产品有以下三个特点:&lt;br&gt;
@@ -3715,7 +1942,7 @@ Redis 在内存中对数字进行递增或递减的操作实现的非常好。�
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/ce-shi-fen-ye-4/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/ce-shi-fen-ye-4/"" data-c="
           &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;消息传输方式&lt;br&gt;
@@ -3759,9 +1986,9 @@ IO模型的使用&lt;/p&gt;
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/kafka-chu-shi/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/kafka-chu-shi/"" data-c="
           &lt;p&gt;第一次听到kafka还是在17年实习的时候，当时在一家外包公司，没错就是外包，不过后来呆了半个月就离职了。当时接触的是一个电信外包项目，主要是基于大数据做一个端到端的监控平台，还是实习的我第一次听到了kafka这个名字，不过由于那时还只是一个打酱油的实习生再加上并没有待多长时间，就没有深入了解它，来到第二家公司后再一次听见kafka，当时是一家做数字货币交易所的，就是类似比特币的虚拟货币，当时有一个OCR的实名认证接口需要用到kafka做异步，不过很可惜的是18年暴雷，公司资金链断裂开始裁员，转正还没一个月的我就又失业了。之后第三次入职，是一家做风控的创业公司，当时让我负责计费系统的设计，后来经过一系列插曲，又再次接触到了kafka，至此开始真正接触它了解它。现在准备把kafka系统性的学习一遍。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1577177788093.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1577177788093.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;记得在第二家公司还发生过一个小插曲，当时一个开发人员在往kafka发送完消息之后，消费者无法消费到消息，最后找到CTO来解决，还被训了一顿，问题是因为当时那个开发人员在本地开了一个消费端，当消息发送到kafka后，被本地的消费了，开发环境没有消费到。这是个很常见的小问题，相信很多开发者都遇见过，不过不知道你们有没有被CTO给训一顿😂&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3838,9 +2065,9 @@ IO模型的使用&lt;/p&gt;
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/kafka-xue-qian-zhun-bei/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/kafka-xue-qian-zhun-bei/"" data-c="
           &lt;p&gt;不知道大家在学习一门新的技术之前是怎么做准备的，不过我想每个人都会遇到过学习完一门知识长时间不接触会立马忘记的情况。就像我之前学的JVM和Redis一样，学习的时候对每个细节都非常了解，可是时间一长之后又会立马忘得一干二净，我觉得大多数人都无法避免这种现象，毕竟你没有过目不忘的本领。既然无法避免那就只能想办法可以快速的再次拾起，就像物理实验中的误差一样，不可避免只能降低。所以在此推荐大家每当学习一个新的知识点的时候，一定要做好学习前的规划以及笔记，不然到头来又是一场空。等到面试的时候再把它拿出来看看，其中重要的点着重回顾，我想一定会有所帮助。还有一点就是记笔记最好整理成博客放在自己的博客或者三方博客平台上，强迫自己把笔记写的自己能看懂外还要别人也能看懂，而且还能和别人一起交流经验，一起学习。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1577156196399.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1577156196399.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;h1 id=&#34;kafka面试题&#34;&gt;Kafka面试题&lt;/h1&gt;
 &lt;p&gt;为了学习好kafka，从学习的资料上拷贝了一些面试题，在学习之前，看下面试题，带着问题学习，说不定会事半功倍，等自己学习完之后在借助面试题回顾自己所学的内容，加深印象。面试前也可以拿出来看一看，一举三得，倍儿棒😆&lt;/p&gt;
@@ -3910,9 +2137,9 @@ IO模型的使用&lt;/p&gt;
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/xiao-xi-dui-lie-xue-xi-kai-pian/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/xiao-xi-dui-lie-xue-xi-kai-pian/"" data-c="
           &lt;p&gt;什么是消息队列？消息队列有哪些？又解决了哪些问题？该怎么选择消息队列？使用消息队列的时候会遇到哪些问题？带着这些疑问先对消息队列进行初步了解。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1576199469901.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1576199469901.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;介绍&#34;&gt;介绍&lt;/h1&gt;
 &lt;p&gt;在计算机科学中，消息队列（英语：Message queue）是一种进程间通信或同一进程的不同线程间的通信方式，软件的贮列用来处理一系列的输入，通常是来自用户。消息队列提供了异步的通信协议，每一个贮列中的纪录包含详细说明的数据，包含发生的时间，输入设备的种类，以及特定的输入参数，也就是说：消息的发送者和接收者不需要同时与消息队列交互。消息会保存在队列中，直到接收者取回它。&lt;br&gt;
 一个 WIMP 环境像是 Microsoft Windows，借由优先的某些形式（通常是事件的时间或是重要性的顺序）来存储用户产生的事件到一个 事件贮列 中。系统把每个事件从事件贮列中传递给目标的应用程序。          &lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97&#34;&gt;——摘自维基百科&lt;/a&gt;&lt;/p&gt;
@@ -4106,7 +2333,7 @@ IO模型的使用&lt;/p&gt;
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/redis-tao-tai-ji-zhi/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/redis-tao-tai-ji-zhi/"" data-c="
           &lt;p&gt;说到Redis的内存淘汰机制，突然我联想到之前上大学时候的手机内存不够用的问题。记得那时候买的是16G的5s，🍎手机都知道，非常耐用，用了四年都不卡，所以手机里存了大量的东西，导致手机经常提示内存不够用。我就经常删除手机里的图片，当时我的策略就是将手机里最不重要的照片以及很少会用到的照片删除掉，现在想想当初买手机的时候真应该买内存大一些的了。其实这里我删除手机照片的思考方式就有点类似Redis的内存淘汰机制了。&lt;/p&gt;
 &lt;h1 id=&#34;删除策略&#34;&gt;删除策略&lt;/h1&gt;
 &lt;ul&gt;
@@ -4147,7 +2374,7 @@ IO模型的使用&lt;/p&gt;
 &lt;h2 id=&#34;为什么采用近似的lru算法&#34;&gt;为什么采用近似的LRU算法&lt;/h2&gt;
 &lt;p&gt;redis中使用的LRU算法并不是真正的LRU算法，采用的是一种近似的LRU算法，如果每次添加key的时候查找所有key的最大空闲时间，显然在性能上会有所降低，本来这种剔除的策略就是一种概率的猜测，所以在选择最大的空闲时间key的时候，只要在概率上逼近真正lru算法就行了。过期算法是在redis2.8版本中加入的，并且在3.0中对其进行了优化。&lt;/p&gt;
 &lt;p&gt;下图对lru算法进行了一些比较，左上角是理想的lru算法效果。上层是改进版即3.0后的版本与理想的lru算法的一个比较，下面两张图是2.8版本与3.0版本进行的一个比较。那么需要怎么理解这个图呢？&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1575603094713.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1575603094713.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 在这个图里面分为三个区域&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;最上层的浅灰色区域代表需要淘汰的key&lt;/li&gt;
@@ -4240,7 +2467,7 @@ unsigned long LFUGetTimeInMinutes(void) {
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/vim-ming-ling-ji-lu/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/vim-ming-ling-ji-lu/"" data-c="
           &lt;p&gt;今天在公司领导问了个vim的命令，当时脑子一片空白，一时间语无伦次，场面甚是尴尬，真是书到用时方恨少啊！😰&lt;br&gt;
 作为一名后端开发，在日常开发的过程中肯定会接触到使用vim快捷命令，基本上都是用到的时候直接度娘，虽然会接触到一些常用的vim命令，毕竟不是运维，过段时间基本上会再次忘掉，下次在遇见的时候再度娘。期间难免会耽搁不少时间，但是我觉得特地学一下vim，又感觉有点力不从心，上班不比上学，不是每天都可以划水。最后想了下觉得应该把用到的vim命令记录下来，方便下次查阅，后面有时间的时候也翻一下，就当做记单词了吧。&lt;/p&gt;
 &lt;!-- more --&gt;
@@ -4260,7 +2487,7 @@ G 页末
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/redis-gao-ke-yong/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/redis-gao-ke-yong/"" data-c="
           &lt;p&gt;Redis的高可用实现方案有哪些，为什么要选择官方的哨兵模式，自己开发自动化故障转移脚本有什么问题。redis cluster重定向有几种？redis数据分区...&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;h1 id=&#34;主从复制的问题&#34;&gt;主从复制的问题&lt;/h1&gt;
@@ -4294,14 +2521,14 @@ G 页末
 &lt;/ul&gt;
 &lt;h2 id=&#34;哨兵模式拓扑图&#34;&gt;哨兵模式拓扑图&lt;/h2&gt;
 &lt;p&gt;哨兵模式是为了解决主从复制一系列问题产生的，本质上是不会修改主从复制的结构，只是在其基础上进行扩展，也就是多了一些sentinel节点，其实这里的sentinel节点也是一种特殊的redis服务几点。&lt;/p&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1574667620983.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://yeming.site/post-images/1574667620983.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;strong&gt;故障转移步骤&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;主节点出现故障，从节点与主节点的连接断开，主从复制失败。&lt;/li&gt;
 &lt;li&gt;每个sentinel节点通过定期监控查看主节点是否出现故障。&lt;/li&gt;
 &lt;li&gt;如果有多个sentinel节点都检测出主节点出现故障，则会选举出一个leader sentinel来负责故障转移的主要任务。&lt;/li&gt;
 &lt;li&gt;开始进行故障转移&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1574668587748.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1574668587748.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;第四步将之前的主节点变为从节点，是在该节点可以重启之后进行的操作。&lt;/p&gt;
@@ -4416,7 +2643,7 @@ exit 0
 1秒的定时监控主要是用来做心跳检测的，sentinel节点每隔一秒钟会向所有节点（主从节点，其他sentinel节点）发送一次心跳。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;strong&gt;redis sentinel监控图&lt;/strong&gt;&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1574844918230.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1574844918230.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;本来准备摘自《Redis开发与运维》上的图，但是发现三张图有些占地方，所以就自己画了张图，由于画图软件的原因有两个地方画不出来就没有弄了，不过不影响整体。虽然有些复杂但是如果把这个屡清楚了三个定时任务具体的功能也就清楚了。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -4436,7 +2663,7 @@ exit 0
 &lt;/ul&gt;
 &lt;h3 id=&#34;故障转移&#34;&gt;故障转移&lt;/h3&gt;
 &lt;p&gt;在选出leader节点之后就会进行故障转移操作，故障转移操作也很简单，在进行转移的时候对从节点的信息做一些简单的判断，过滤出最优从节点晋升。具体过程如下：&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1574845720018.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1574845720018.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;选择出新的主节点&lt;br&gt;
 1). 过滤出所有不健康的节点(主观下线、断线)，5秒内没有回复过sentinel节点，以及与主节点失联超过down-after-milliseconds * 10秒。&lt;br&gt;
@@ -4579,7 +2806,7 @@ ASK重定向是指发生在槽迁移的过程中，槽中的数据还没有迁�
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/2020-nian-mian-shi-zhun-bei/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/2020-nian-mian-shi-zhun-bei/"" data-c="
           &lt;ol&gt;
 &lt;li&gt;spring cloud全套项目实战
 &lt;ol&gt;
@@ -4612,11 +2839,11 @@ ASK重定向是指发生在槽迁移的过程中，槽中的数据还没有迁�
 &lt;li&gt;数据库知识回顾
 &lt;ol&gt;
 &lt;li&gt;锁&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1575343851331.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1575343862372.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1575343886116.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1575343895467.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1575343951180.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1575343851331.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1575343862372.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1575343886116.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1575343895467.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1575343951180.jpeg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -4624,7 +2851,7 @@ ASK重定向是指发生在槽迁移的过程中，槽中的数据还没有迁�
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/redis-copy/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/redis-copy/"" data-c="
           &lt;p&gt;什么是redis的复制，为什么要有复制功能，全量复制有什么问题，部分复制又解决了哪些问题。&lt;/p&gt;
 &lt;p&gt;复制就是将redis节点中的数据复制完同步到其他节点中，在redis中参与复制一般有主节点(master)以及从节点(slave)，将数据从主节点复制到从节点，并且复制的方式是单向的，不能逆向复制，在建立复制关系之后主节点的数据会同步到从节点直到解除主从关系。不论是哨兵模式还是redis集群都是在复制的基础上完成的。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;记忆点&lt;/strong&gt;&lt;/p&gt;
@@ -4702,7 +2929,7 @@ ASK重定向是指发生在槽迁移的过程中，槽中的数据还没有迁�
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;psync流程&#34;&gt;psync流程&lt;/h1&gt;
 &lt;h2 id=&#34;前期&#34;&gt;前期&lt;/h2&gt;
-&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;http://localhost:4000/post-images/1574410766776.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://yeming.site/post-images/1574410766776.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
 &lt;ol&gt;
 &lt;li&gt;从节点发送psync命令到主节点，runid是主节点的，在建立复制关系时保存下来的。offset是偏移量，如果是第一次复制，则为-1，否则是从节点保存的复制偏移量。&lt;/li&gt;
 &lt;li&gt;主节点根据psync的两个参数作出相应，如果runid不一致，则直接进行全量复制，否则会进行部分复制。&lt;/li&gt;
@@ -4714,7 +2941,7 @@ ASK重定向是指发生在槽迁移的过程中，槽中的数据还没有迁�
 &lt;/ul&gt;
 &lt;h2 id=&#34;全量复制&#34;&gt;全量复制&lt;/h2&gt;
 &lt;p&gt;当从节点收到来自主节点的全量复制的响应时，会进行全量复制。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1574413814260.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1574413814260.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;1)、2)步骤是psync数据同步前期，这个阶段是来判断进行全量复制还是部分复制&lt;/li&gt;
 &lt;li&gt;3)从节点接受到来自主节点的全量复制响应，会保存主节点的runId以及offset&lt;/li&gt;
@@ -4747,7 +2974,7 @@ ASK重定向是指发生在槽迁移的过程中，槽中的数据还没有迁�
 &lt;/ol&gt;
 &lt;h2 id=&#34;部分复制&#34;&gt;部分复制&lt;/h2&gt;
 &lt;p&gt;从上面可以得知一个全量复制的成本是相当的高的，所以redis在2.8版本之后对齐做了优化，出现了部分辅助功能，就是百度、迅雷等常用软件的一种断点续传的功能。在进行全量复制的过程中如果出现了网络闪断或者命令丢失等情况时，从节点会要求主节点补发丢失的命令数据，如果主节点的复制积压缓冲区存在这部分数据则直接发送给从节点。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1574418539238.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1574418539238.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;1)主从之间网络出现中断&lt;/li&gt;
 &lt;li&gt;2)主节点依旧响应请求，这时的写命令会写入到复制积压缓冲区中&lt;/li&gt;
@@ -4761,7 +2988,7 @@ ASK重定向是指发生在槽迁移的过程中，槽中的数据还没有迁�
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;心跳&#34;&gt;心跳&lt;/h1&gt;
 &lt;p&gt;redis通过心跳维护主从节点之间的长连接，主节点默认每10秒(repl-ping-slave-period控制频率)发送ping命令，判断从节点的存活性和连接状态。从节点在主线程中每隔1秒发送replconf ack offset命令，给主节点上报当前的偏移量。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1574489105257.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1574489105257.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;考点&#34;&gt;考点&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;心跳机制中从节点每次上报自身的偏移量有什么作用?&lt;/li&gt;
@@ -4794,7 +3021,7 @@ ASK重定向是指发生在槽迁移的过程中，槽中的数据还没有迁�
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/redis-chi-jiu-hua/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/redis-chi-jiu-hua/"" data-c="
           &lt;p&gt;持久化有哪几种方式，各有什么问题。每种持久化的流程是什么样的，AOF重写是什么机制，解决了什么问题，fork底层函数，COW机制。&lt;/p&gt;
 &lt;h1 id=&#34;面试&#34;&gt;面试&lt;/h1&gt;
 &lt;p&gt;在面试的时候如果被问到Redis持久化的时候，怎么回答比较好？我想从以下几个角度展开，一定会让面试官眼前一亮。&lt;/p&gt;
@@ -4825,7 +3052,7 @@ ASK重定向是指发生在槽迁移的过程中，槽中的数据还没有迁�
 &lt;/ul&gt;
 &lt;h2 id=&#34;bgsave流程&#34;&gt;bgsave流程&lt;/h2&gt;
 &lt;p&gt;bgsave命令首先会判断是否存在RBD或者AOF子进程，如果没有则创建，若存在则直接返回。紧接着父进程会fork一个子进程，fork这段时间会出现短时间阻塞，然后父进程继续响应客户端，子进程生成RBD文件，完成持久化之后通知父进程。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1573897466755.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1573897466755.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 bgsave命令流程说明，图片摘自《Redis开发与运维》一书&lt;/p&gt;
 &lt;h2 id=&#34;rbd文件&#34;&gt;RBD文件&lt;/h2&gt;
 &lt;p&gt;RDB的保存于dir配置指定下的目录，除此之外还可以使用config set dir动态修改RDB文件的位置以及config set dbfilename动态修改RBD文件的名称，这个在线上环境的磁盘出现问题或者写满的时候有用。&lt;/p&gt;
@@ -4845,7 +3072,7 @@ bgsave命令流程说明，图片摘自《Redis开发与运维》一书&lt;/p&gt
 &lt;p&gt;相对于RDB来说，AOF是可以进行实时(秒级)持久化的。比较适合用来做热备份，通过配置文件中的appendonly yes来开启，appendfilename为AOF持久化的文件名，默认为appendonly.aof。&lt;/p&gt;
 &lt;h2 id=&#34;aof工作流程&#34;&gt;AOF工作流程&lt;/h2&gt;
 &lt;p&gt;AOF持久化首先会将客户端请求的命令放入到AOF缓存中，然后根据磁盘的刷新策略写入到磁盘中，当AOF文件达到上限时，会进行AOF重写，对文件进行瘦身，最后在redis重启的时候重新加载下AOF文件即可。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1573900560042.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1573900560042.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;命令写入过程&#34;&gt;命令写入过程&lt;/h3&gt;
 &lt;p&gt;服务端接收到客户端按照RESP协议文本格式的命令后，会将其直接写入到aof缓存区内。使用aof缓存可以提高redis的性能，以及使用不同缓存区刷新策略，可以在性能和安全方面做出平衡。&lt;br&gt;
 AOF刷新策略&lt;/p&gt;
@@ -4870,7 +3097,7 @@ AOF刷新策略&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;aof重写流程&#34;&gt;AOF重写流程&lt;/h3&gt;
 &lt;p&gt;AOFfork的子进程只是用来重写已经存在AOF文件，AOF写入还是由父进程来完成。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1574070629984.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1574070629984.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 1.执行AOF重写请求&lt;br&gt;
 如果当前已经存在AOF重写任务，则当次请求不执行，如果已经有bgsave正在执行，则当前请求会等待该任务执行完成后启动。&lt;br&gt;
 2.父进程fork一个子进程用来重写AOF文件，将客户端的命令&lt;strong&gt;同时&lt;/strong&gt;保存到aof_buf以及aof_rewrite_buf中&lt;/p&gt;
@@ -4895,11 +3122,11 @@ AOF刷新策略&lt;/p&gt;
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/rui-shi-jun-dao-redis/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/rui-shi-jun-dao-redis/"" data-c="
           &lt;p&gt;redis有哪些基础数据结构，什么是快速链表，什么是跳跃链表，使用redis特有的数据类型可以实现哪些有趣的功能。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication, Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster.&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1577761648931.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1577761648931.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;上面一段话取自Redis官方的介绍，为什么要把它放在这里，我觉得这是介绍Redis最为标准的一段话，从用途、数据结构已经功能等多方面介绍，如果以后面试官叫你介绍下redis的话，我觉得可以直接把这段话背下来😌。至于为什么把Redis称为瑞士军刀，相信用过redis的人都会这么认为。&lt;/p&gt;
 &lt;!-- more --&gt;
@@ -4909,7 +3136,7 @@ AOF刷新策略&lt;/p&gt;
 &lt;p&gt;从redis的官方介绍中就可以得出，redis的基础数据类型有五种，分别为：string，hash，list，set，以及zset。至于后面提到的hyperloglogs、geospatial、bitmaps的类型，有的是后面的版本增加的，有的是基础数据类型扩展来的。相对于其他的nosql数据库来说，redis的数据类型已经很充分了。redis内置的这些类型，对于学过java的同学可以使用java中的HashMap来辅助记忆，比如说string类型就是Map&amp;lt;String,String&amp;gt;,list类型就类比为Map&amp;lt;String,List&lt;String&gt;&amp;gt;，hash则为Map&amp;lt;String,Map&amp;lt;String,String&amp;gt;&amp;gt;。通过这样的辅助记忆，就可以很快的记住redis的数据类型，对于后期各种类型的命令使用也起到一定的帮助。从上面的类比中我们可以看到redis是一个key，value的数据存储系统，key都是字符串类型，value则对应redis着以上几种数据类型。&lt;/p&gt;
 &lt;h2 id=&#34;string类型&#34;&gt;string类型&lt;/h2&gt;
 &lt;p&gt;string类型，可以说是redis中使用到最多的一种类型了，开发中有很多开发人员把一些热点数据的序列化成json，存储到redis中，最后访问的时候后再取出来反序列化返回到客户端。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1573721308127.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1573721308127.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 重点记忆：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;最大能存储512M的内容&lt;/li&gt;
@@ -4934,9 +3161,9 @@ OK
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;list类型&#34;&gt;list类型&lt;/h2&gt;
 &lt;p&gt;Redis中的list相当于java中的LinkedList，不是ArrayList，也就是说他是一个链表。结合*pop和*push命令可以实现队列或者栈这种数据结构。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1573722527155.gif&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1573722527155.gif&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;快速链表&#34;&gt;快速链表&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:4000/post-images/1573801624670.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;p&gt;&lt;img src=&#34;https://yeming.site/post-images/1573801624670.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 准确的说list类型的底层实现是快速链表，普通链表在数据量量大的情况下性能是非常低的，所以需要对list进行优化。在列表开始数据量少的情况下，会直接申请一块&lt;strong&gt;连续&lt;/strong&gt;的内存存储，这块内存的结构就是ziplist(压缩列表)，当数据量比较多的时候会切换成quicklist，就是多个ziplist结合成的链表。&lt;/p&gt;
 &lt;h3 id=&#34;list扩展应用&#34;&gt;list扩展应用&lt;/h3&gt;
 &lt;ol&gt;
@@ -5002,7 +3229,7 @@ OK
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;set类型&#34;&gt;set类型&lt;/h2&gt;
 &lt;p&gt;同样的set类型可以类比为java中的HashSet，是一种键值对唯一的数据结构，大家都知道java中的HashSet是由HashMap“变异”的，相对于HashMap，HashSet的所有value都是Null。set具有自动去重的功能，可以保证set中的可以是唯一的。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1573804430835.gif&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1573804430835.gif&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 命令：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;&amp;gt; sadd books python
 (integer) 1
@@ -5025,7 +3252,7 @@ OK
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;zset有序集合&#34;&gt;zset(有序集合)&lt;/h2&gt;
 &lt;p&gt;set是一个无序不重复集合，zset是一个有序的不重复集合，redis内部是通过跳跃链表来实现的。要想对一个链表排序，普通的链表肯定是不行的。需要对普通链表进行改进，改造后就是跳跃链表了。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1573807555093.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1573807555093.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 上图就是跳跃链表的一个简化示意图，相信不熟悉的人看到这里肯定会懵，这个“跳跃”二字如何解释，在这里跳跃是指层与层之间的一个切换，不是元素和元素之间。层是代表高度词，所以用跳跃来形容也比较合适。&lt;/p&gt;
 &lt;h1 id=&#34;最后&#34;&gt;最后&lt;/h1&gt;
 &lt;p&gt;这里只是对Redis的基本数据类型进行一个简单记录，将所有重要的地方都记录下来，但是没有详细记录，在面试的时候如果聊到Redis，可以简单的做个大概介绍，后面再慢慢深入，后续的文章中会对文中的一些点进行详细的学习记录。本篇文章主要根据网上的资料进行总结，说不上复制，如果单纯的把别人的东西复制过来放在自己的博客上，行为上本身就是可耻的（未标明原著），其次在效果上也是微乎其微 。建议大家平时看过一些东西之后转换成自己的理解后记录下来，这样的话效果也会好很多🤓。&lt;/p&gt;
@@ -5036,9 +3263,9 @@ OK
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/gridea-setup/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/gridea-setup/"" data-c="
           &lt;p&gt;上大学的时候一直想弄一个博客系统，但是当时自己还是初学者，根本完不成，心想着等到以后技术长进一点之后准备弄一个，可是一直等到现在都没有弄起来。期间也玩过hexo、typecho等静态博客平台，但是当时没有好好管理，搭建好的博客在服务器到期后就没再弄了。无意间在掘金上看到了&lt;a href=&#34;https://gridea.dev/&#34;&gt;Gridea&lt;/a&gt;，进入官网后发现颜值还挺高的，后面慢慢的了解后，才发现目前还是个小众平台，主题以及平台的功能都还不完善。但是平台提供写文章的功能还不错(好像当时没有使用hexo就是因为没有一个写文章的地方)，后来就决定使用它了，相信gridea也会越来越优秀💪。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1576203380178.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1576203380178.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 顺带一张高颜值的美图欣赏一下🤣&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;h1 id=&#34;搭建教程&#34;&gt;搭建教程&lt;/h1&gt;
@@ -5049,9 +3276,9 @@ OK
 &lt;li&gt;在github右上角进入settings页面，在进入Developer settings页面
 &lt;ul&gt;
 &lt;li&gt;添加一个个人访问token，添加完之后立马复制保存一下，token是一次性可见的，后面在访问的时候就会消失，那个时候只能从新创建一个了。权限选择第一个repo就行了。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1573626367969.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1573626367969.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
 &lt;li&gt;然后再创建一个oauth app，后面开通评论会用到。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1573626568363.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1573626568363.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -5066,10 +3293,10 @@ $ yarn electron:build
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;绑定github信息&#34;&gt;绑定github信息&lt;/h2&gt;
 &lt;p&gt;将之前创建的token、仓库、域名等信息配置一下，配置好之后保存一下。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1573627331402.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1573627331402.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;添加gittalk评论&#34;&gt;添加Gittalk评论&lt;/h2&gt;
 &lt;p&gt;开通评论，需要使用到oauth账号，填写好之后，保存一下。&lt;br&gt;
-&lt;img src=&#34;http://localhost:4000/post-images/1573627495172.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://yeming.site/post-images/1573627495172.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;完结散花&#34;&gt;完结散花🍂&lt;/h2&gt;
 &lt;p&gt;最后一步，点击左下角同步一下就可以了。如果同步出现问题，请移步到文章尾部，看看是否能帮助到你。&lt;/p&gt;
 &lt;h1 id=&#34;帮助&#34;&gt;帮助&lt;/h1&gt;
@@ -5089,7 +3316,7 @@ $ yarn electron:build
       </div>
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="http://localhost:4000/post/about/"" data-c="
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/about/"" data-c="
           &lt;blockquote&gt;
 &lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
 &lt;/blockquote&gt;
