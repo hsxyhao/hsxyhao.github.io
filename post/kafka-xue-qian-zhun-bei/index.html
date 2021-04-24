@@ -9,7 +9,7 @@
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
 <title>Kafka学前准备 | Madara</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1614437202295">
+<link rel="shortcut icon" href="/favicon.ico?v=1619248754685">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -242,7 +242,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">20</span>
+        <span class="site-item-stat-count">24</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -1225,6 +1225,400 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/pwMn75Fcu/"" data-c="
+          &lt;p&gt;写这篇文章的目的是什么？&lt;br&gt;
+太过于相信自己的记忆力以及理解能力，以至于很久之前整理过的知识又忘得一干二净，导致自己现在关于这方面的知识只有个模糊的印象，其中缘由也不是很清楚了，所以在此就觉得写篇博客记录下自己的学习过程是很有必要的。&lt;/p&gt;
+&lt;h1 id=&#34;为什么去了解它&#34;&gt;为什么去了解它&lt;/h1&gt;
+&lt;p&gt;记得在刚学数据库的时候，我们都会写上&lt;code&gt;Class.forName(&#39;com.mysql.jdbc.Driver&#39;)&lt;/code&gt;，由于当时是初学者所以就没有具体的了解，知道后来对java的学习加深以后，就觉得摸到这块知识了，除此之外这也是一个很不错的面试知识点，可以通过这个知识来确定自己掌握的知识到底够不够。&lt;/p&gt;
+&lt;h1 id=&#34;历史&#34;&gt;历史&lt;/h1&gt;
+&lt;p&gt;java的lClassloader从jdk1.0就已经推出，但是双亲委派模型从jdk1.2才推出，推出的目的主要是为了解决Class重复定义的问题。对于这点的解释，大家可以想象一下，如果我们自己定义了一个和java.Lang一模一样的类型，但是里面的代码却完全不同，那么jvm虚拟机在遇到这种情况到底该以谁的位标准。所以java的设计者就设计了一种&lt;strong&gt;双亲委派模型&lt;/strong&gt;。&lt;br&gt;
+其大致的解释就是，当JVM去加载一个class时，会首先让其父类加载器去加载，父加载器去判断有没有加载过此类，如果加载了子加载器就不用了加载，若没有加载父加载在有能力加载的范围内才会加载。由此可知每一种加载器的加载范围是限定的，不是所有的class都能加载，在这里贴出一张网图帮助大家理解下java类加载器的基础知识：&lt;img src=&#34;https://yeming.site/post-images/1618137610789.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+总结一下上图中的知识点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;三种顶级classloader（BootStrap、ExtClassLoader、AppClassLoader）&lt;/li&gt;
+&lt;li&gt;每种classloader都有自己限定加载路径或者包&lt;/li&gt;
+&lt;li&gt;三种顶级class呈现出一种&amp;quot;继承&amp;quot;的关系&lt;/li&gt;
+&lt;li&gt;自己定义的classloader继承自AppClassLoader&lt;/li&gt;
+&lt;li&gt;还有一点是图上没有的，就是父级的类加载器可以不可以使用子级类加载器加载的class，但是子级可以使用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ExtClassLoader在jdk1.9版本以及之后版本已经改名为PlatformClassLoader&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;抛砖引玉&#34;&gt;抛砖引玉&lt;/h1&gt;
+&lt;p&gt;在使用Mysql（5.1.6之前版本）的时候每次都要写上&lt;code&gt;Class.forName(&#39;com.mysql.jdbc.Driver&#39;)&lt;/code&gt;这么一句代码，总感觉很多余而且还容易忘记，所以为了揭开其神秘的面纱，接下来我们就需要了解另一个知识——&lt;strong&gt;打破双亲委派模型&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在jdk的版本迭代中曾有三次比较出名的打破双亲委派的修改&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;第一次是在jdk1.2中为了引出双亲委派模型，为了解决loadClass会被重写的可能，推出了一个新的方法findClass，也就是说当开发人员要定义一个自己的ClassLoader的时候只需要去重写findClass方法即可，就不会破坏掉loadClass，这样就会符合双亲委派模型。&lt;/li&gt;
+&lt;li&gt;第二次打破双亲委派模型就是本次讲解的核心内容，也是由于双亲委派模型本身的&lt;strong&gt;缺点&lt;/strong&gt;，才不得不去打破&lt;/li&gt;
+&lt;li&gt;第三次是由于用户对程序动态性（代码热替换、模块热部署）的追求而导致的。如OSGi.（暂未涉及到，所以没有太深入了解，本段话摘自网上）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;双亲委派模型的缺点&#34;&gt;双亲委派模型的缺点&lt;/h2&gt;
+&lt;p&gt;既然双亲委派模型这么重要，对JVM的代码安全提供着重要的保障，那它有没有什么缺点或者死穴呢？当然是有的，这里就要将jdbc驱动拿出来举例，java在设计之初为了让各自的数据库厂家提供更适合自己家数据库的jdbc驱动，就在rt.jar包里定义了一些接口，方便厂家用来扩展，如此便导致了一个重要的问题，DriverManager实在rt包里，即由高级类加载器加载，各自厂家的驱动却是在应用类加载器里，所以通过DriverManager的无法调用厂家自己实现的驱动，所以必须要开发人员手动的去加载驱动即调用&lt;code&gt;Class.forName(&#39;com.mysql.jdbc.Driver&#39;)&lt;/code&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;什么是打破双亲委派模型？&lt;br&gt;
+双亲委派模型的基本流程就是当加载一个class的时候，首先调用父加载器去加载，当父加载器无法加载时才会由子加载器加载。所谓打破就是不按照这种模型来加载，所以rt包下定义的DriverManager是无法在自身当中去初始化各厂商实现的驱动，这个时候就会借助SPI来打破这种限制。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;spi&#34;&gt;SPI&lt;/h1&gt;
+&lt;p&gt;SPI即Service Provider Interface，服务提供接口，jdk1.6实现的一个机制，通过这个机制就可以在BootStrapClassLoader以及ExtClassLoader加载的类中获取AppClassLoader去加载应用类。该规则大致就是&lt;strong&gt;让开发者在jar包下的META-INF目录下创建一个services的文件，在其中添加一个用接口限定名作为文件名的文件，文件内容为接口的实现类限定名&lt;/strong&gt;&lt;br&gt;
+eg:&lt;br&gt;
+以Mysql举例，在5.1.6版本之后就会找到&lt;code&gt;META-INF/services/java.sql.Driver&lt;/code&gt;文件，里面添加了一行&lt;code&gt;com.mysql.jdbc.Driver&lt;/code&gt;内容&lt;/p&gt;
+&lt;p&gt;SPI机制的本质其实就是通过&lt;code&gt;Thread.currentThread().getContextClassLoader()&lt;/code&gt;（线程上下文类加载器）获取应用类加载器的。&lt;/p&gt;
+&lt;h1 id=&#34;classfornamecommysqljdbcdriver&#34;&gt;Class.forName(&#39;com.mysql.jdbc.Driver&#39;)&lt;/h1&gt;
+&lt;p&gt;Class.forName(&#39;com.mysql.jdbc.Driver&#39;)这句代码的真正意义其实是去调用Driver类中的静态初始化块，在这里回去注册一个Driver驱动，其实我们完全可以用new Driver()这行代码代替，这样也会去调用Driver的静态初始化块的，只不过这样的话DriverManager就会多注册一个Driver，与自己创建的Driver对象重复，所以就完全没有必要了。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public class Driver extends NonRegisteringDriver implements java.sql.Driver {
+    public Driver() throws SQLException {
+    }
+
+    static {
+        try {
+            DriverManager.registerDriver(new Driver());
+        } catch (SQLException var1) {
+            throw new RuntimeException(&amp;quot;Can&#39;t register driver!&amp;quot;);
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;最后&#34;&gt;最后&lt;/h1&gt;
+&lt;p&gt;这片文章主要用来记忆怎么去理解打破双亲委派模型的原因，而不是介绍基础知识。&lt;/p&gt;
+">Java的双亲委派模型</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/2sP5kCdoJ/"" data-c="
+          &lt;p&gt;前几天看Redis的时候看见了一个LRU缓存，感觉挺有意思的，今天闲着无事就想着手写一个来练练手。不过在开始动手之前，还是做个简单的介绍，关于LRU的一些知识。LRU（least recently used）即最近最少使用，常用语缓存的过期策略。Redis是一个比较常用的缓存中间件，经常被用来存放一些高访问率的数据，但是有的时候数据量过大，就会导致内存溢出，这个时候就需要按照一定的规则或者策略删除掉旧的数据，而LRU过期策略就是其中一种。&lt;/p&gt;
+&lt;h1 id=&#34;设计&#34;&gt;设计&lt;/h1&gt;
+&lt;p&gt;接下来我们就来设计一个简单的基于LRU的Key-Value缓存，说到设计首当其冲的就是数据结构。那么选用什么数据结构最合适呢？首先我们要知道我们是用来作为缓存的，那么缓存最多的操作就是读写，除此之外还要有增删操作，那么这个时候仅仅使用数据肯定就不行了，如果只使用链表呢也不行，这个时候就要使用链表和映射结合的方式。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;
+
+public class day01 {
+    public static void main(String[] args) {
+        LRUCache&amp;lt;String&amp;gt; lruCache = new LRUCache&amp;lt;String&amp;gt;(3);
+        lruCache.cache(&amp;quot;A&amp;quot;, &amp;quot;a&amp;quot;);
+        lruCache.cache(&amp;quot;B&amp;quot;, &amp;quot;b&amp;quot;);
+        lruCache.cache(&amp;quot;C&amp;quot;, &amp;quot;c&amp;quot;);
+        for (String s : lruCache) {
+            System.out.print(s + &amp;quot;&amp;lt;-&amp;quot;);
+        }
+        lruCache.get(&amp;quot;A&amp;quot;);
+        System.out.println();
+        for (String s : lruCache) {
+            System.out.print(s + &amp;quot;&amp;lt;-&amp;quot;);
+        }
+        lruCache.cache(&amp;quot;D&amp;quot;, &amp;quot;d&amp;quot;);
+        System.out.println();
+        for (String s : lruCache) {
+            System.out.print(s + &amp;quot;&amp;lt;-&amp;quot;);
+        }
+    }
+    static class LRUCache&amp;lt;T&amp;gt; implements Iterable&amp;lt;T&amp;gt;{
+        private final LinkedHashMap&amp;lt;String, T&amp;gt; cache;
+        private int MAX;
+        public LRUCache(int size) {
+            this.cache = new LinkedHashMap&amp;lt;&amp;gt;(size);
+            this.MAX = size;
+        }
+        public void cache(String key, T value) {
+            if (cache.size() &amp;gt;= MAX) {
+                Map.Entry&amp;lt;String, T&amp;gt; first = cache.entrySet().iterator().next();
+                cache.remove(first.getKey());
+            } else {
+                if (cache.containsKey(key)) {
+                    cache.remove(key);
+                }
+            }
+            cache.put(key,value);
+        }
+
+        public T get(String key) {
+            if (cache.containsKey(key)) {
+                T val = cache.get(key);
+                cache.remove(key);
+                cache.put(key, val);
+                return val;
+            }
+            return null;
+        }
+        @Override
+        public Iterator&amp;lt;T&amp;gt; iterator() {
+            Iterator&amp;lt;Map.Entry&amp;lt;String, T&amp;gt;&amp;gt; iterator = cache.entrySet().iterator();
+            return new Iterator() {
+                @Override
+                public boolean hasNext() {
+                    return iterator.hasNext();
+                }
+                @Override
+                public T next() {
+                    return iterator.next().getValue();
+                }
+            };
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+">手写基于LRU的缓存</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/HxAFt0ldG/"" data-c="
+          &lt;p&gt;最近学习java8的Stream api时，发现有两个api很相似，即map和flatMap。map我们都知道是映射，那这个flatMap是什么意思呢，flat有拉平的意思，难道是拉平映射？虽说没有这样的专业说法，但是感觉上有点像那么回事，于是上网查找资料，结果一无所获，全是一些比较晦涩难懂的说法，什么一对一转换，一对多转换，或者上来弄一张不知道所以然的图，真的很让初学者懵逼啊！&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;p&gt;在学习之前，先让大家解决一个经常遇到的数据提取问题，假设有这样一组数据，两个班级，每个班级有5个学生，每位同学都有着自己的学号、姓名、性别，现在让我们提取出两个班级所有学生的姓名，那么应该怎么做？&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;    static class Student {
+        private String userName;
+        private String userNo;
+        private String userSex;
+        public Student(String userName, String userNo, String userSex) {
+            this.userName = userName;
+            this.userNo = userNo;
+            this.userSex = userSex;
+        }
+        public String getUserName() {
+            return this.userName;
+        }
+    }
+    private static List&amp;lt;List&amp;lt;Student&amp;gt;&amp;gt; getMaps() {
+        List&amp;lt;List&amp;lt;Student&amp;gt;&amp;gt; students = new ArrayList&amp;lt;&amp;gt;();
+        List&amp;lt;Student&amp;gt; class1 = new ArrayList&amp;lt;&amp;gt;();
+        class1.add(new Student(&amp;quot;1-1&amp;quot;, &amp;quot;男&amp;quot;, &amp;quot;小羊&amp;quot;));
+        class1.add(new Student(&amp;quot;1-2&amp;quot;, &amp;quot;男&amp;quot;, &amp;quot;小牛&amp;quot;));
+        class1.add(new Student(&amp;quot;1-3&amp;quot;, &amp;quot;男&amp;quot;, &amp;quot;小刺猬&amp;quot;));
+        List&amp;lt;Student&amp;gt; class2 = new ArrayList&amp;lt;&amp;gt;();
+        class2.add(new Student(&amp;quot;2-1&amp;quot;, &amp;quot;男&amp;quot;, &amp;quot;小羊&amp;quot;));
+        class2.add(new Student(&amp;quot;2-2&amp;quot;, &amp;quot;男&amp;quot;, &amp;quot;小牛&amp;quot;));
+        class2.add(new Student(&amp;quot;2-3&amp;quot;, &amp;quot;男&amp;quot;, &amp;quot;小刺猬&amp;quot;));
+        students.add(class1);
+        students.add(class2);
+        return students;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;java8之前&#34;&gt;java8之前&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;List&amp;lt;List&amp;lt;Student&amp;gt;&amp;gt; data = getMaps();
+List&amp;lt;String&amp;gt; nums = new ArrayList&amp;lt;&amp;gt;();
+for (List&amp;lt;Student&amp;gt; item : data) {
+    for (Student student : item) {
+        nums.add(student.userNo);
+    }
+}
+System.out.println(nums);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出结果&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[小羊, 小牛, 小刺猬, 小羊, 小牛, 小刺猬]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;java8-map&#34;&gt;java8 map&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;var result1 = data.stream()
+        .map(Collection::stream).collect(toList());
+result1.forEach(System.out::println);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出结果&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;java.util.stream.ReferencePipeline$3@17c68925&lt;br&gt;
+java.util.stream.ReferencePipeline$3@7e0ea639&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;java8-flatmap&#34;&gt;java8 flatMap&lt;/h1&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;var result2 = data.stream()
+        .flatMap(Collection::stream).collect(toList());
+result2.forEach(System.out::println);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出结果&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[小羊, 小牛, 小刺猬, 小羊, 小牛, 小刺猬]&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;总结：&lt;br&gt;
+通过上面的演示，可以看出使用map是达不到效果的，而使用flatMap却可以，它可以将多个数组里的元素拉出来然后返回在一个数组里，可能这就是拉平的意思吧，将多个数组拉平成一个数组。&lt;/p&gt;
+">一文弄懂java8中的map和flatMap</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/5j3OZLk0Z/"" data-c="
+          &lt;p&gt;个人觉得笔记的知识点记得太多不是太好，首先自己并不会认真的去看，其次就是自己的表达能力并不一定到位，有可能会过段时间之后就记不住了。反而只将知识点记录下来，会勾起大脑整个回忆细胞，让大脑不停的去想这些知识点涉及到的知识，其次就是每当自己忘记的时候可以在搜索资料查看。&lt;/p&gt;
+&lt;h1 id=&#34;集合&#34;&gt;集合&lt;/h1&gt;
+&lt;h2 id=&#34;基础知识&#34;&gt;基础知识&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;请用Iterable实现一个随机序列产生器&lt;/li&gt;
+&lt;li&gt;Collection和Set的区别&lt;/li&gt;
+&lt;li&gt;Map是不是Collection？&lt;/li&gt;
+&lt;li&gt;TreeMap和HashMap的区别？&lt;/li&gt;
+&lt;li&gt;HashMap vs HashTable&lt;/li&gt;
+&lt;li&gt;实现Key-Value的LRU缓存&lt;/li&gt;
+&lt;li&gt;Map的本质&lt;/li&gt;
+&lt;li&gt;HashMap是什么&lt;/li&gt;
+&lt;li&gt;TreeSet是什么&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;数据结构&#34;&gt;数据结构&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;链表的表示&lt;/li&gt;
+&lt;li&gt;增删改查？相关复杂度&lt;/li&gt;
+&lt;li&gt;合并两个链表的操作&lt;/li&gt;
+&lt;li&gt;反转链表&lt;/li&gt;
+&lt;li&gt;用链表实现队列、栈&lt;/li&gt;
+&lt;li&gt;判断链表中是否有环&lt;/li&gt;
+&lt;li&gt;和CAS Loop结合&lt;/li&gt;
+&lt;li&gt;栈和队列的基本概念：什么是栈什么是队列&lt;/li&gt;
+&lt;li&gt;栈和队列的实现和基本操作接口&lt;/li&gt;
+&lt;li&gt;栈实现队列？队列实现栈&lt;/li&gt;
+&lt;li&gt;括号匹配问题&lt;/li&gt;
+&lt;li&gt;表达式解析问题&lt;/li&gt;
+&lt;li&gt;树的表示？&lt;/li&gt;
+&lt;li&gt;反转二叉树&lt;/li&gt;
+&lt;li&gt;计算树的深度?&lt;/li&gt;
+&lt;li&gt;广度优先算法和深度优先算法&lt;/li&gt;
+&lt;li&gt;树遍历的序？如何判断二叉树是不是二叉搜索树？&lt;/li&gt;
+&lt;li&gt;关于对平衡二叉树的认知&lt;/li&gt;
+&lt;li&gt;HashTable的原理&lt;/li&gt;
+&lt;li&gt;说一个hash函数&lt;/li&gt;
+&lt;li&gt;Java的HashMap是如何实现的？&lt;/li&gt;
+&lt;li&gt;除了哈希表还有哪些适合存key value的数据结构&lt;/li&gt;
+&lt;li&gt;ConcurrentHashMap是怎么回事？什么时候用（有版本区别）&lt;/li&gt;
+&lt;li&gt;Java的Object的hashcode是如何计算的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;源码分析&#34;&gt;源码分析&lt;/h2&gt;
+&lt;h1 id=&#34;反射&#34;&gt;反射&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;什么是反射&lt;/li&gt;
+&lt;li&gt;写一个关于XXX反射的程序&lt;/li&gt;
+&lt;li&gt;解释下为什么要面向切面编程&lt;/li&gt;
+&lt;li&gt;为什么Proxy.newProxyInstance要传入ClassLoader&lt;/li&gt;
+&lt;li&gt;写一个AOP&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;并发&#34;&gt;并发&lt;/h1&gt;
+&lt;h2 id=&#34;线程&#34;&gt;线程&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;进程和线程的区别&lt;/li&gt;
+&lt;li&gt;为什么要有线程&lt;/li&gt;
+&lt;li&gt;为什么要减少线程切换&lt;/li&gt;
+&lt;li&gt;进程开销为什么比线程大&lt;/li&gt;
+&lt;li&gt;Java线程有什么状态？如何转换&lt;/li&gt;
+&lt;li&gt;Java线程是内核级还是用户级&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;cas&#34;&gt;cas&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;竞争条件是怎么产生的？解决竞争条件有哪些方法&lt;/li&gt;
+&lt;li&gt;原子操作是如何实现的&lt;/li&gt;
+&lt;li&gt;Java的CAS是如何实现的&lt;/li&gt;
+&lt;li&gt;CAS的ABA问题&lt;/li&gt;
+&lt;li&gt;AtomicInteger类是如何实现的&lt;/li&gt;
+&lt;li&gt;AtomicStampedReference解决什么问题？内部如何实现&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;同步器&#34;&gt;同步器&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;什么是同步&lt;/li&gt;
+&lt;li&gt;简述下java有哪些同步器&lt;/li&gt;
+&lt;li&gt;synchronized是如何实现的&lt;/li&gt;
+&lt;li&gt;ReentrantLock和synchronized的区别&lt;/li&gt;
+&lt;li&gt;为什么需要AbstractQueuedSynchronizer&lt;/li&gt;
+&lt;li&gt;偏向锁、轻量级锁、重量级锁是什么回事&lt;/li&gt;
+&lt;li&gt;AbstractQueuedSynchronizer可以用来做什么&lt;/li&gt;
+&lt;li&gt;简述AbstractQueuedSynchronizer如何工作的&lt;/li&gt;
+&lt;li&gt;手写程序：如何用AbstractQueuedSynchronizer实现Mutex&lt;/li&gt;
+&lt;li&gt;AQS如何保持公平性&lt;/li&gt;
+&lt;li&gt;CAS在AQS中的作用是什么&lt;/li&gt;
+&lt;li&gt;AQS内部的CLH算法工作原理是什么&lt;/li&gt;
+&lt;li&gt;synchronized和ReentrantLock的区别&lt;/li&gt;
+&lt;li&gt;什么场景下需要锁可重入&lt;/li&gt;
+&lt;li&gt;什么场景下用CountDownLatch&lt;/li&gt;
+&lt;li&gt;什么场景下用Semaphore&lt;/li&gt;
+&lt;li&gt;Phaser是怎么实现的&lt;/li&gt;
+&lt;li&gt;什么场景下用Exchanger&lt;/li&gt;
+&lt;li&gt;ArrayBlockingQueue和LinkedBlockingQueue的区别&lt;/li&gt;
+&lt;li&gt;add/offer/put区别？remove/poll/take的区别?&lt;/li&gt;
+&lt;li&gt;DelayQueu的应用场景&lt;/li&gt;
+&lt;li&gt;SynchronousQueue的应用场景？&lt;/li&gt;
+&lt;li&gt;LinkedTransferQueue和SynchronousQueue有什么异同&lt;/li&gt;
+&lt;li&gt;LinkedBlockingDeque和SynchronousQueue工作原理一样吗&lt;/li&gt;
+&lt;li&gt;说说ArrayBlockingQueue和LinkedTransferQueue的最大区别？以及使用场景&lt;/li&gt;
+&lt;li&gt;什么是有界队列？什么是无界队列&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;函数式编程monad&#34;&gt;函数式编程Monad&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;什么是流&lt;/li&gt;
+&lt;li&gt;::运算符的作用&lt;/li&gt;
+&lt;li&gt;Java8 Stream的价值是什么&lt;/li&gt;
+&lt;li&gt;创建Stream有几种方法&lt;/li&gt;
+&lt;li&gt;coding利用parallel并发执行任务&lt;br&gt;
+https://www.freesion.com/article/61001040771/&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;jvm&#34;&gt;JVM&lt;/h1&gt;
+&lt;h2 id=&#34;内存布局&#34;&gt;内存布局&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;讲讲JVM的内存布局&lt;/li&gt;
+&lt;li&gt;JVM中的对象都有哪些数据&lt;/li&gt;
+&lt;li&gt;JVM运行时数据区有哪些&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;gc&#34;&gt;GC&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;为什么要GC&lt;/li&gt;
+&lt;li&gt;STW（Stop the world）是什么？&lt;/li&gt;
+&lt;li&gt;图和提高Throughput（吞吐量）&lt;/li&gt;
+&lt;li&gt;引用计数有什么问题？&lt;/li&gt;
+&lt;li&gt;java中有哪几种引用&lt;/li&gt;
+&lt;li&gt;为什么需要三色标记而不是双色？&lt;/li&gt;
+&lt;li&gt;三色标记算法如何处理mutation（变动）？&lt;/li&gt;
+&lt;li&gt;java堆分成哪些部分？&lt;/li&gt;
+&lt;li&gt;新生代、老年代、存货代、永久代是什么？如何工作的？&lt;/li&gt;
+&lt;li&gt;什么时候发生复制整理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;垃圾收集器&#34;&gt;垃圾收集器&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;都有哪些那几收集器？&lt;/li&gt;
+&lt;li&gt;G1、CMS、Serial、ParNew、Z、Parallel&lt;/li&gt;
+&lt;li&gt;Minor GC、Major GC、Full GC&lt;/li&gt;
+&lt;li&gt;GC Rooting的根节点有哪些？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;jvm调试工具&#34;&gt;JVM调试工具&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;JMeter 压力测试&lt;/li&gt;
+&lt;li&gt;jps java应用程序查看&lt;/li&gt;
+&lt;li&gt;jstat JVM统计监控工具&lt;/li&gt;
+&lt;li&gt;jmap&lt;/li&gt;
+&lt;li&gt;jinfo 查看修改虚拟机配置&lt;/li&gt;
+&lt;li&gt;jhat Java堆分析工具&lt;/li&gt;
+&lt;li&gt;jstack 打印Java的Stack&lt;/li&gt;
+&lt;li&gt;jconsole&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;java对象&#34;&gt;Java对象&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;说一下Object在内存中的格式&lt;/li&gt;
+&lt;li&gt;说一下初始化一个类的过程&lt;/li&gt;
+&lt;li&gt;空的Object多大&lt;/li&gt;
+&lt;li&gt;Class Header里都有什么&lt;/li&gt;
+&lt;li&gt;Object有哪些方法&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;java版本新特性&#34;&gt;java版本新特性&lt;/h1&gt;
+&lt;h2 id=&#34;java8&#34;&gt;java8&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Lambda、Function Interface&lt;/li&gt;
+&lt;li&gt;方法引用操作符::&lt;/li&gt;
+&lt;li&gt;Stream(Monad函数式编程)&lt;/li&gt;
+&lt;li&gt;Optional&lt;T&gt;&lt;/li&gt;
+&lt;li&gt;接口的方法(static、default、private)&lt;/li&gt;
+&lt;li&gt;Java8 Nashorn JavaScript&lt;/li&gt;
+&lt;li&gt;本地化日期处理升级&lt;/li&gt;
+&lt;li&gt;内置Base64工具&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;java9&#34;&gt;java9&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;模块系统&lt;/li&gt;
+&lt;li&gt;交互式编程环境(JShell)&lt;/li&gt;
+&lt;li&gt;HTTP2.0 Clinet&lt;/li&gt;
+&lt;li&gt;改进Javadoc&lt;/li&gt;
+&lt;li&gt;支持multirelease jar 包&lt;/li&gt;
+&lt;li&gt;集合的工厂方法&lt;/li&gt;
+&lt;li&gt;Stream新增API(takeWhile、dropWhile、itreate、ofNullAble)&lt;/li&gt;
+&lt;li&gt;钻石操作符语法优化&amp;lt;&amp;gt;&lt;/li&gt;
+&lt;li&gt;try-with-resource改进&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;java10&#34;&gt;java10&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;局部变量类型推断&lt;/li&gt;
+&lt;li&gt;JDK代码仓库整理&lt;/li&gt;
+&lt;/ol&gt;
+">Java面试合集</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://yeming.site/post/qe8eK5IAz/"" data-c="

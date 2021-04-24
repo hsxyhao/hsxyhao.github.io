@@ -8,7 +8,7 @@
 <meta name="keywords" content="Coder | 个人博客 | Gridea | NexT ">
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
-<title>MySQL恶心的周跨年问题 | Madara</title>
+<title>手写基于LRU的缓存 | Madara</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1619248754685">
 <link rel="stylesheet" href="/media/css/pisces.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -61,7 +61,7 @@
 </script>
 
 
-  <meta name="description" content="MySQL恶心的周跨年问题" />
+  <meta name="description" content="手写基于LRU的缓存" />
   <meta name="keywords" content="" />
 </head>
 
@@ -221,7 +221,8 @@
       <div class="sidebar-body pisces" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -279,6 +280,191 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number no_compress"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E8%AE%BE%E8%AE%A1">设计</a></li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -366,8 +552,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/">
-      MySQL恶心的周跨年问题
+    <a class="post-title-link" href="https://yeming.site/post/2sP5kCdoJ/">
+      手写基于LRU的缓存
     </a>
   </h1>
   <div class="post-meta">
@@ -375,23 +561,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2020-01-06 12:17:49">2020-01-06</span>
+      <span class="publish-time" data-t="2021-04-09 14:42:41">2021-04-09</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2<span class="language" data-lan="minute">分钟</span></span>
+      <span>3<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>378<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>546<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/" data-flag-title="MySQL恶心的周跨年问题" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/2sP5kCdoJ/" data-flag-title="手写基于LRU的缓存" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -400,13 +586,76 @@
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>刚过完元旦就遇到了让人恶心的bug，都还没有从朋友圈狗粮阴影里出来，😒。先记录一下吧，防止以后会遇到相似的bug。之前负责公司的一个运营平台，里面有一个周统计任务，每周统计一下服务的使用量。我采用的思路就是将使用记录的创建时间用weekofyear以及year分别获取记录的周以及年，然后用group by分组统计。</p>
-<blockquote>
-<p>weekofyear获取的是一年中的第几周，year获取的是时间的年分</p>
-</blockquote>
-<p>这样处理的问题大多数情况下都是没有问题的，但是在特殊情况下就会出现问题，比如说周跨年，就是说一年中的最后一个周的七天可能包含两年，类似19年最后一周就是，19年12月30日~20年的1月5日。那么在遇到这种情况怎么样才能在尽量不改动业务的情况下修复这个问题呢，其实也很简单，使用YEARWEEK函数，这个函数有两个参数，具体的解释可以看这篇<a href="https://blog.csdn.net/dmw412724/article/details/95318091">博客</a>，这个函数的效果就是不管是20191230还是20200105这中间哪个时间段都可以达到输出一样的结果，拿到这个结果之后对其进行切割，用left以及right函数就可以分别获取周和年，在最小改动业务的情况下完美的解决了这个bug，😌</p>
-<!-- more -->
-<p><code>测试</code></p>
+              <p>前几天看Redis的时候看见了一个LRU缓存，感觉挺有意思的，今天闲着无事就想着手写一个来练练手。不过在开始动手之前，还是做个简单的介绍，关于LRU的一些知识。LRU（least recently used）即最近最少使用，常用语缓存的过期策略。Redis是一个比较常用的缓存中间件，经常被用来存放一些高访问率的数据，但是有的时候数据量过大，就会导致内存溢出，这个时候就需要按照一定的规则或者策略删除掉旧的数据，而LRU过期策略就是其中一种。</p>
+<h1 id="设计">设计</h1>
+<p>接下来我们就来设计一个简单的基于LRU的Key-Value缓存，说到设计首当其冲的就是数据结构。那么选用什么数据结构最合适呢？首先我们要知道我们是用来作为缓存的，那么缓存最多的操作就是读写，除此之外还要有增删操作，那么这个时候仅仅使用数据肯定就不行了，如果只使用链表呢也不行，这个时候就要使用链表和映射结合的方式。</p>
+<pre><code class="language-java">
+
+public class day01 {
+    public static void main(String[] args) {
+        LRUCache&lt;String&gt; lruCache = new LRUCache&lt;String&gt;(3);
+        lruCache.cache(&quot;A&quot;, &quot;a&quot;);
+        lruCache.cache(&quot;B&quot;, &quot;b&quot;);
+        lruCache.cache(&quot;C&quot;, &quot;c&quot;);
+        for (String s : lruCache) {
+            System.out.print(s + &quot;&lt;-&quot;);
+        }
+        lruCache.get(&quot;A&quot;);
+        System.out.println();
+        for (String s : lruCache) {
+            System.out.print(s + &quot;&lt;-&quot;);
+        }
+        lruCache.cache(&quot;D&quot;, &quot;d&quot;);
+        System.out.println();
+        for (String s : lruCache) {
+            System.out.print(s + &quot;&lt;-&quot;);
+        }
+    }
+    static class LRUCache&lt;T&gt; implements Iterable&lt;T&gt;{
+        private final LinkedHashMap&lt;String, T&gt; cache;
+        private int MAX;
+        public LRUCache(int size) {
+            this.cache = new LinkedHashMap&lt;&gt;(size);
+            this.MAX = size;
+        }
+        public void cache(String key, T value) {
+            if (cache.size() &gt;= MAX) {
+                Map.Entry&lt;String, T&gt; first = cache.entrySet().iterator().next();
+                cache.remove(first.getKey());
+            } else {
+                if (cache.containsKey(key)) {
+                    cache.remove(key);
+                }
+            }
+            cache.put(key,value);
+        }
+
+        public T get(String key) {
+            if (cache.containsKey(key)) {
+                T val = cache.get(key);
+                cache.remove(key);
+                cache.put(key, val);
+                return val;
+            }
+            return null;
+        }
+        @Override
+        public Iterator&lt;T&gt; iterator() {
+            Iterator&lt;Map.Entry&lt;String, T&gt;&gt; iterator = cache.entrySet().iterator();
+            return new Iterator() {
+                @Override
+                public boolean hasNext() {
+                    return iterator.hasNext();
+                }
+                @Override
+                public T next() {
+                    return iterator.next().getValue();
+                }
+            };
+        }
+    }
+}
+</code></pre>
 
             </div>
             
@@ -419,7 +668,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/" title="MySQL恶心的周跨年问题">https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/</a>
+      <a href="https://yeming.site/post/2sP5kCdoJ/" title="手写基于LRU的缓存">https://yeming.site/post/2sP5kCdoJ/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -433,14 +682,14 @@
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="关于Gridea的远程连接、同步失败问题" href="https://yeming.site/post/gridea_help/">关于Gridea的远程连接、同步失败问题</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="关于Gridea的远程连接、同步失败问题" href="https://yeming.site/post/gridea_help/">上一篇</a>
+        <a class="nav-pc-next" title="Java的双亲委派模型" href="https://yeming.site/post/pwMn75Fcu/">Java的双亲委派模型</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="Java的双亲委派模型" href="https://yeming.site/post/pwMn75Fcu/">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="说一下NexT主题" href="https://yeming.site/post/shuo-yi-xia-next-zhu-ti/">说一下NexT主题</a>
-        <a class="nav-mobile-next" title="说一下NexT主题" href="https://yeming.site/post/shuo-yi-xia-next-zhu-ti/">下一篇</a>
+        <a class="nav-pc-next" title="一文弄懂java8中的map和flatMap" href="https://yeming.site/post/HxAFt0ldG/">一文弄懂java8中的map和flatMap</a>
+        <a class="nav-mobile-next" title="一文弄懂java8中的map和flatMap" href="https://yeming.site/post/HxAFt0ldG/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

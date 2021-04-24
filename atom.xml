@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://yeming.site</id>
     <title>Madara</title>
-    <updated>2021-02-27T14:46:49.099Z</updated>
+    <updated>2021-04-24T11:34:14.471Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://yeming.site"/>
     <link rel="self" href="https://yeming.site/atom.xml"/>
@@ -10,6 +10,38 @@
     <logo>https://yeming.site/images/avatar.png</logo>
     <icon>https://yeming.site/favicon.ico</icon>
     <rights>All rights reserved 2021, Madara</rights>
+    <entry>
+        <title type="html"><![CDATA[Java的双亲委派模型]]></title>
+        <id>https://yeming.site/post/pwMn75Fcu/</id>
+        <link href="https://yeming.site/post/pwMn75Fcu/">
+        </link>
+        <updated>2021-04-11T10:25:35.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[手写基于LRU的缓存]]></title>
+        <id>https://yeming.site/post/2sP5kCdoJ/</id>
+        <link href="https://yeming.site/post/2sP5kCdoJ/">
+        </link>
+        <updated>2021-04-09T06:42:41.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[一文弄懂java8中的map和flatMap]]></title>
+        <id>https://yeming.site/post/HxAFt0ldG/</id>
+        <link href="https://yeming.site/post/HxAFt0ldG/">
+        </link>
+        <updated>2020-12-12T14:05:47.000Z</updated>
+        <summary type="html"><![CDATA[<p>最近学习java8的Stream api时，发现有两个api很相似，即map和flatMap。map我们都知道是映射，那这个flatMap是什么意思呢，flat有拉平的意思，难道是拉平映射？虽说没有这样的专业说法，但是感觉上有点像那么回事，于是上网查找资料，结果一无所获，全是一些比较晦涩难懂的说法，什么一对一转换，一对多转换，或者上来弄一张不知道所以然的图，真的很让初学者懵逼啊！</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>最近学习java8的Stream api时，发现有两个api很相似，即map和flatMap。map我们都知道是映射，那这个flatMap是什么意思呢，flat有拉平的意思，难道是拉平映射？虽说没有这样的专业说法，但是感觉上有点像那么回事，于是上网查找资料，结果一无所获，全是一些比较晦涩难懂的说法，什么一对一转换，一对多转换，或者上来弄一张不知道所以然的图，真的很让初学者懵逼啊！</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Java面试合集]]></title>
+        <id>https://yeming.site/post/5j3OZLk0Z/</id>
+        <link href="https://yeming.site/post/5j3OZLk0Z/">
+        </link>
+        <updated>2020-07-10T12:03:30.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[给Next提交代码]]></title>
         <id>https://yeming.site/post/qe8eK5IAz/</id>
@@ -94,62 +126,6 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>最近在gridea的群聊发现很多新人在安装好gridea点击远程连接的时候都会出现问题，大部分都是类似no  such remote这样的提示信息，之前我第一次安装的时候也出现过这样的问题，本来以为就我一个人会有，后面发现有这个问题的人也不少，经常群里有人问题这样的问题。自己也在群里解决了一些，但是这样总不是办法，还是需要写一个文档出来，节约大家的时间，这也是写这篇文章的原因，希望这篇文章可以帮助大家解决问题，如果不能解决，可以在下面评论，我会尽力解决，后期也方便其他新手再次遇到类似的问题。<br>
 <img src="https://hsxyhao.github.io/post-images/1578642807761.jpg" alt="" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MySQL恶心的周跨年问题]]></title>
-        <id>https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/</id>
-        <link href="https://yeming.site/post/mysql-e-xin-de-zhou-kua-nian-wen-ti/">
-        </link>
-        <updated>2020-01-06T04:17:49.000Z</updated>
-        <summary type="html"><![CDATA[<p>刚过完元旦就遇到了让人恶心的bug，都还没有从朋友圈狗粮阴影里出来，😒。先记录一下吧，防止以后会遇到相似的bug。之前负责公司的一个运营平台，里面有一个周统计任务，每周统计一下服务的使用量。我采用的思路就是将使用记录的创建时间用weekofyear以及year分别获取记录的周以及年，然后用group by分组统计。</p>
-<blockquote>
-<p>weekofyear获取的是一年中的第几周，year获取的是时间的年分</p>
-</blockquote>
-<p>这样处理的问题大多数情况下都是没有问题的，但是在特殊情况下就会出现问题，比如说周跨年，就是说一年中的最后一个周的七天可能包含两年，类似19年最后一周就是，19年12月30日~20年的1月5日。那么在遇到这种情况怎么样才能在尽量不改动业务的情况下修复这个问题呢，其实也很简单，使用YEARWEEK函数，这个函数有两个参数，具体的解释可以看这篇<a href="https://blog.csdn.net/dmw412724/article/details/95318091">博客</a>，这个函数的效果就是不管是20191230还是20200105这中间哪个时间段都可以达到输出一样的结果，拿到这个结果之后对其进行切割，用left以及right函数就可以分别获取周和年，在最小改动业务的情况下完美的解决了这个bug，😌</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>刚过完元旦就遇到了让人恶心的bug，都还没有从朋友圈狗粮阴影里出来，😒。先记录一下吧，防止以后会遇到相似的bug。之前负责公司的一个运营平台，里面有一个周统计任务，每周统计一下服务的使用量。我采用的思路就是将使用记录的创建时间用weekofyear以及year分别获取记录的周以及年，然后用group by分组统计。</p>
-<blockquote>
-<p>weekofyear获取的是一年中的第几周，year获取的是时间的年分</p>
-</blockquote>
-<p>这样处理的问题大多数情况下都是没有问题的，但是在特殊情况下就会出现问题，比如说周跨年，就是说一年中的最后一个周的七天可能包含两年，类似19年最后一周就是，19年12月30日~20年的1月5日。那么在遇到这种情况怎么样才能在尽量不改动业务的情况下修复这个问题呢，其实也很简单，使用YEARWEEK函数，这个函数有两个参数，具体的解释可以看这篇<a href="https://blog.csdn.net/dmw412724/article/details/95318091">博客</a>，这个函数的效果就是不管是20191230还是20200105这中间哪个时间段都可以达到输出一样的结果，拿到这个结果之后对其进行切割，用left以及right函数就可以分别获取周和年，在最小改动业务的情况下完美的解决了这个bug，😌</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[说一下NexT主题]]></title>
-        <id>https://yeming.site/post/shuo-yi-xia-next-zhu-ti/</id>
-        <link href="https://yeming.site/post/shuo-yi-xia-next-zhu-ti/">
-        </link>
-        <updated>2019-12-31T06:31:36.000Z</updated>
-        <summary type="html"><![CDATA[<p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，经常是一旦出现了bug就加班加点的修复，虽然累一点，但是反而快乐了许多。最后我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
-<figure data-type="image" tabindex="1"><img src="https://yeming.site/post-images/1577787675038.jpg" alt="" loading="lazy"></figure>
-]]></summary>
-        <content type="html"><![CDATA[<p>NexT主题是copy自hexo-theme-next，目前gridea主题市场上的主题数量不是很多，当时决定使用gridea作为以后的写作工具时就想着写一款主题，如果从设计开始着手，肯定不太现实，自己也不是那块料。所以就从hexo市场了找了一款主题，NexT主题的简单风格是我最喜欢的点，我觉得博客就是一个技术交流的平台没有必要弄的太炫，当然萝卜青菜各有所爱，自己喜欢就好😜，所以最终决定copy一下NexT。本来以为只要将主题开发出来就行了，可是当真正有用户在使用自己的产品时候又是另一种情景，经常是一旦出现了bug就加班加点的修复，虽然累一点，但是反而快乐了许多。最后我会尽我最大的努力来维护以及开发，希望大家也能用的开心✊</p>
-<figure data-type="image" tabindex="1"><img src="https://yeming.site/post-images/1577787675038.jpg" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[KaTeX数学公式支持测试]]></title>
-        <id>https://yeming.site/post/ce-shi-md-shu-xue-gong-shi/</id>
-        <link href="https://yeming.site/post/ce-shi-md-shu-xue-gong-shi/">
-        </link>
-        <updated>2019-12-31T03:11:30.000Z</updated>
-        <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1577763703490.png" alt="" loading="lazy"></figure>
-]]></summary>
-        <content type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://hsxyhao.github.io/post-images/1577763703490.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Redis常考面试题]]></title>
-        <id>https://yeming.site/post/redis-chang-kao-mian-shi-ti/</id>
-        <link href="https://yeming.site/post/redis-chang-kao-mian-shi-ti/">
-        </link>
-        <updated>2019-12-30T03:07:24.000Z</updated>
-        <summary type="html"><![CDATA[<p>前段时间学习了一下redis，并且也做了些学习笔记，刚过一周的时候，就已经忘得一干二净，实在是惭愧啊。不过唯一的安慰就是当时的笔记灵感都记录下来了，尤其是难点都做了详细的笔记。本来准备过段时间再回顾一下，今天同事丢了本redis面试题给我，大概看了下，基本上前段时间看的内容都有提到，所以就准备将这些面试题和我之前做的笔记结合起来做一个回忆索引。<br>
-<img src="https://hsxyhao.github.io/post-images/1577675564766.jpg" alt="" loading="lazy"></p>
-]]></summary>
-        <content type="html"><![CDATA[<p>前段时间学习了一下redis，并且也做了些学习笔记，刚过一周的时候，就已经忘得一干二净，实在是惭愧啊。不过唯一的安慰就是当时的笔记灵感都记录下来了，尤其是难点都做了详细的笔记。本来准备过段时间再回顾一下，今天同事丢了本redis面试题给我，大概看了下，基本上前段时间看的内容都有提到，所以就准备将这些面试题和我之前做的笔记结合起来做一个回忆索引。<br>
-<img src="https://hsxyhao.github.io/post-images/1577675564766.jpg" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
 </feed>
