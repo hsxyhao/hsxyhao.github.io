@@ -8,7 +8,7 @@
 <meta name="keywords" content="Coder | 个人博客 | Gridea | NexT ">
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
-<title>Vim命令 | Madara</title>
+<title>SpringCloud Alibaba入门文档 | Madara</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.3.3/favicon.ico?v=1625843513669">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.3.3/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.3.3/media/fonts/font-awesome.css">
@@ -64,8 +64,8 @@
 
 
 
-  <meta name="description" content="Vim命令" />
-  <meta name="keywords" content="Vim,快捷键" />
+  <meta name="description" content="SpringCloud Alibaba入门文档" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -224,7 +224,8 @@
       <div class="sidebar-body pisces" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.3.3/images/avatar.png"/>
@@ -282,6 +283,223 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number no_compress"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#springboot">SpringBoot</a></li>
+<li><a href="#nacos">nacos</a>
+<ul>
+<li><a href="#%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C">服务注册</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83">配置中心</a></li>
+</ul>
+</li>
+<li><a href="#ribbon">ribbon</a>
+<ul>
+<li><a href="#%E7%BB%86%E7%B2%92%E5%BA%A6%E9%85%8D%E7%BD%AE">细粒度配置</a></li>
+<li><a href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE">全局配置</a></li>
+<li><a href="#%E6%8B%93%E5%B1%95nacos">拓展nacos</a></li>
+</ul>
+</li>
+<li><a href="#feign">feign</a></li>
+<li><a href="#%E7%BB%84%E6%88%90">组成</a>
+<ul>
+<li><a href="#%E9%85%8D%E7%BD%AE%E9%A1%B9">配置项</a></li>
+<li><a href="#%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE">属性配置</a></li>
+<li><a href="#%E6%97%A5%E5%BF%97%E7%BA%A7%E5%88%AB">日志级别</a></li>
+<li><a href="#%E9%9D%9Enacos%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%E4%BD%BF%E7%94%A8">非nacos注册服务使用</a></li>
+<li><a href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96">性能优化</a></li>
+</ul>
+</li>
+<li><a href="#sentinel">sentinel</a>
+<ul>
+<li><a href="#%E6%A0%B8%E5%BF%83api">核心API</a></li>
+<li><a href="#springboot%E9%9B%86%E6%88%90">SpringBoot集成</a></li>
+<li><a href="#%E8%A7%84%E5%88%99">规则</a></li>
+<li><a href="#%E9%85%8D%E7%BD%AE%E6%8C%81%E4%B9%85%E5%8C%96">配置持久化</a></li>
+</ul>
+</li>
+<li><a href="#sleuth-zipkin">sleuth zipkin</a></li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -369,8 +587,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="http://localhost:4000/post/vim-ming-ling-ji-lu/">
-      Vim命令
+    <a class="post-title-link" href="http://localhost:4000/post/zGTrdx_fD/">
+      SpringCloud Alibaba入门文档
     </a>
   </h1>
   <div class="post-meta">
@@ -378,42 +596,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2019-12-05 09:00:51">2019-12-05</span>
+      <span class="publish-time" data-t="2021-06-18 22:55:02">2021-06-18</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="http://localhost:4000/vim/">
-        <span>Vim</span>
-      </a>、
-      
-      
-      
-      <a href="http://localhost:4000/hot-key/">
-        <span>快捷键</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
+      <span>6<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>273<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>1370<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/vim-ming-ling-ji-lu/" data-flag-title="Vim命令" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/zGTrdx_fD/" data-flag-title="SpringCloud Alibaba入门文档" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -422,20 +621,171 @@
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>今天在公司领导问了个vim的命令，当时脑子一片空白，一时间语无伦次，场面甚是尴尬，真是书到用时方恨少啊！😰<br>
-作为一名后端开发，在日常开发的过程中肯定会接触到使用vim快捷命令，基本上都是用到的时候直接度娘，虽然会接触到一些常用的vim命令，毕竟不是运维，过段时间基本上会再次忘掉，下次在遇见的时候再度娘。期间难免会耽搁不少时间，但是我觉得特地学一下vim，又感觉有点力不从心，上班不比上学，不是每天都可以划水。最后想了下觉得应该把用到的vim命令记录下来，方便下次查阅，后面有时间的时候也翻一下，就当做记单词了吧。</p>
-<!-- more -->
-<p>光标行编辑</p>
-<pre><code class="language-java">// 进入编辑模式
-:$ 文件最后一行
-:0 文件第一行
-:n 文件第n-1行
-$ 行尾
-0 行首
+              <h1 id="springboot">SpringBoot</h1>
+<pre><code>四大特性
+1. auto-configuration
+2. starters
+4. cli
+5. actuator
 </code></pre>
-<p>光标全文位置跳转</p>
-<pre><code class="language-java">gg 页首
-G 页末
+<h1 id="nacos">nacos</h1>
+<p>帮助快速实现动态服务发现、服务配置、服务元数据及流量管理 <a href="https://nacos.io/zh-cn/docs/system-configurations.html">文档</a></p>
+<h2 id="服务注册">服务注册</h2>
+<ol>
+<li>nacos.config.server-addr=127.0.0.1:8848<br>
+spring.cloud.nacos.discovery.enabled 默认为true标识开启状态</li>
+<li>领域模型
+<ul>
+<li>namespace 命名空间可以作为环境隔离，如开发环境和生产环境的隔离</li>
+<li>group 分组，默认的分组为DEFAULT_GROUP</li>
+<li>cluster 集群，可以用来做区域集群标记</li>
+<li>instance 服务实例，每个服务都对应着自己的元数据信息，可以用来做定制化的业务开发，如版本号区别</li>
+</ul>
+</li>
+<li>NacosDiscoveryClient<br>
+提供了一些查询nacos server中注册服务信息的api，可以结合ribbon开发基于nacos自定义的负载均衡策略</li>
+</ol>
+<h2 id="配置中心">配置中心</h2>
+<pre><code>1. 新建bootstrap.yml文件
+2. nacos控制台创建配置文件dataid格式为${name}-${active_profile}.${file-extension}
+</code></pre>
+<pre><code class="language-java">spring:
+    cloud:
+        nacos:
+        config:
+            server-addr: 127.0.0.1:8848
+            file-extension: yaml
+    application:
+        name: sca-content-center
+    profiles:
+        active: dev
+</code></pre>
+<pre><code>3. 在指定的配置类上加入@RefreshScope注解
+</code></pre>
+<h1 id="ribbon">ribbon</h1>
+<p>负载均衡，spring-cloud-rabbion是基于netflix开发的组件，主要又以下几种策略</p>
+<ol>
+<li>AvailabilityFilteringRule 简单理解就是选用所有状态正常的服务</li>
+<li>BestAvailableRule 选择一个响应时间最小的</li>
+<li>RandomRule 随机选择一个服务</li>
+<li>RoundRobinRule 轮询规则</li>
+<li>RetryRule 重试规则，当选择的服务不能使用则会一直重试，具体是什么规则可以设置除了RetryRule以外的策略，默认是RoundRobinRule</li>
+<li>WeightedResponseTimeRule 根据响应时间设置权重规则，响应时间越长权重越小</li>
+<li>ZoneAvoidanceRule 默认选项 这是一种根据服务提供者所在Zone的性能以及服务提供者可用性综合计算，选择提供者节点的负载均衡规则，如果没有配置zone，则类似RoundRobinRule规则</li>
+</ol>
+<h2 id="细粒度配置">细粒度配置</h2>
+<ol>
+<li>使用@RibbonClient(name = &quot;${application-name}&quot;, configuration = XXXConfiguration.class)<br>
+可以为指定的服务配置负载均衡策略</li>
+<li>使用yml配置方式</li>
+</ol>
+<pre><code class="language-java">application-name:
+  ribbon:
+   NFLoadBalancerRuleClassNameL: com.netflix.loadbalancer.RandomRule
+</code></pre>
+<blockquote>
+<p>RibbonClient使用的配置类XXXConfiguration，一定要放在main程序包外，否则的就会是全局配置，这是因为spring父子上下文导致的、<br>
+类似的feign也有同样的问题</p>
+</blockquote>
+<h2 id="全局配置">全局配置</h2>
+<ol>
+<li>@RibbonClients(defaultConfiguration = XXXConfiguration.class)</li>
+</ol>
+<h2 id="拓展nacos">拓展nacos</h2>
+<p>nacos可以结合ribbon定义更加适合自己业务（Nacos权重，同一集群优先调用，基于元数据的版本控制）的负载均衡策略，需要使用nacos客户端提供的NacosDiscoveryClient以及ribbon的AbstractLoadBalancerRule<br>
+接口。</p>
+<h1 id="feign">feign</h1>
+<p>声明式服务调用，可以代替RestTemplate的硬编码。</p>
+<h1 id="组成">组成</h1>
+<ol>
+<li>Feign.Builder Feign的入口</li>
+<li>Client feign底层用什么请求，可以和dibbon配合使用</li>
+<li>Contract 契约注解支持，默认SpringMvcContract</li>
+<li>Encoder 编码器，用于将对象转换成消息体 默认SpringEncoder</li>
+<li>Decoder 解码器，将响应消息体转换成对象，默认ResponseEntityDecoder</li>
+<li>Logger 日志管理器</li>
+<li>RequestInterceptor 该接口用于为每个请求添加通用逻辑</li>
+</ol>
+<h2 id="配置项">配置项</h2>
+<ol>
+<li>Logger.Level 日志级别</li>
+<li>Retryer 指定重试策略</li>
+<li>ErrorDecoder 指定错误解码器</li>
+<li>Request.Options 超时时间</li>
+<li>Collection<RequestInterceptor> 拦截器</li>
+<li>SetterFactory</li>
+</ol>
+<h2 id="属性配置">属性配置</h2>
+<pre><code class="language-java">feign.client.config:
+      &lt;feignName&gt;:
+        loggerLevel: full
+        connectTimeout: 5000
+        readTimeout: 5000
+        requestInterceptors:
+            - com.example.XXXRequestInterceptor
+</code></pre>
+<h2 id="日志级别">日志级别</h2>
+<ol>
+<li>NONE</li>
+<li>BASIC 默认，线上使用</li>
+<li>INFO 开发调试使用</li>
+<li>FULL</li>
+</ol>
+<blockquote>
+<p>feign的全局配置以及细粒度配置也有类似ribbon的问题，需要将XXXFeignConfiguration配置类放在main包以外</p>
+</blockquote>
+<h2 id="非nacos注册服务使用">非nacos注册服务使用</h2>
+<p>@FeignClient(name = &quot;xxx&quot;, url = &quot;https://xxxx&quot;)</p>
+<h2 id="性能优化">性能优化</h2>
+<p>为线程池指定配置参数优化线程池</p>
+<pre><code class="language-java">feign:
+  client:
+    config:
+      sca-content-center:
+        loggerLevel: full
+  httpclient:
+    connection-timeout: 2000
+    enabled: true
+    max-connections: 200
+    max-connections-per-route: 20
+</code></pre>
+<h1 id="sentinel">sentinel</h1>
+<p>是一套从流量控制、熔断降级、系统负载保护等多个维度保护服务稳定性的容错框架，可以脱离spring使用，提供了api供普通java应用程序使用。<br>
+和hystrix相比，hystrix使用的是线程进行熔断处理，而sentinel是从并发数或者响应时间来进行流控处理的，这样的好处在于避免了线程切换的开销性能更优，<a href="https://github.com/alibaba/Sentinel/wiki/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8">文档</a></p>
+<h2 id="核心api">核心API</h2>
+<pre><code>1. SphU.entry(resourceName) 定义资源名
+2. Tracer.traceEntry(ex, entry)
+3. ContextUtil 获取上下文工具，可以进行上下文切换
+</code></pre>
+<h2 id="springboot集成">SpringBoot集成</h2>
+<p>使用@SentinelResources注解可以和SpringBoot集成，@SentinelResource(blockHandler = &quot;blockHandlerMethod&quot;)，blockHandler指定的方法需要和注解修饰的方法<br>
+具有相同的返回值以及参数，唯一不同的是blockHandlerMethod可以额外增加一个异常参数</p>
+<h2 id="规则">规则</h2>
+<ol>
+<li>流量控制规则</li>
+<li>熔断降级规则</li>
+<li>系统保护规则</li>
+<li>访问控制规则</li>
+<li>热点规则</li>
+</ol>
+<h2 id="配置持久化"><a href="https://github.com/alibaba/Sentinel/wiki/%E5%8A%A8%E6%80%81%E8%B4%9F%E8%B4%A3%E6%89%A9%E5%B1%95">配置持久化</a></h2>
+<ol>
+<li>拉模式：客户端主动向某个规则管理中心定期轮询拉取规则，这个规则中心可以是 RDBMS、文件，甚至是 VCS 等。这样做的方式是简单，缺点是无法及时获取变更；</li>
+<li>推模式：规则中心统一推送，客户端通过注册监听器的方式时刻监听变化，比如使用 Nacos、Zookeeper 等配置中心。这种方式有更好的实时性和一致性保证。<br>
+配置方式，拉模式可以从<a href="https://github.com/alibaba/Sentinel/wiki/Sentinel-%E6%8E%A7%E5%88%B6%E5%8F%B0%EF%BC%88%E9%9B%86%E7%BE%A4%E6%B5%81%E6%8E%A7%E7%AE%A1%E7%90%86%EF%BC%89#%E8%A7%84%E5%88%99%E9%85%8D%E7%BD%AE">Sentinel-控制台（集群流控管理）#规则配置</a>找到，<br>
+至于推模式修改过于复杂，可以从<a href="https://github.com/hsxyhao/Sentinel-Dashboard-Nacos">Sentinel-Dashboard-Nacos</a>结合<a href="https://www.imooc.com/article/289464">289464</a><br>
+修改</li>
+</ol>
+<h1 id="sleuth-zipkin">sleuth zipkin</h1>
+<p>微服务调用链路跟踪</p>
+<pre><code class="language-java">spring:
+    sleuth:
+        sampler:
+        # 过滤推送的日志，1代表100%全部推送
+        probability: 1
+    zipken:
+        base-url: http://localhost:9411/
+        discover-client-enable: false
 </code></pre>
 
             </div>
@@ -449,7 +799,7 @@ G 页末
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="http://localhost:4000/post/vim-ming-ling-ji-lu/" title="Vim命令">http://localhost:4000/post/vim-ming-ling-ji-lu/</a>
+      <a href="http://localhost:4000/post/zGTrdx_fD/" title="SpringCloud Alibaba入门文档">http://localhost:4000/post/zGTrdx_fD/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -458,23 +808,19 @@ G 页末
   </ul>
   <div class="tags">
     
-      <a href="http://localhost:4000/vim/"># Vim</a>
-    
-      <a href="http://localhost:4000/hot-key/"># 快捷键</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Redis淘汰机制" href="http://localhost:4000/post/redis-tao-tai-ji-zhi/">Redis淘汰机制</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Redis淘汰机制" href="http://localhost:4000/post/redis-tao-tai-ji-zhi/">上一篇</a>
+        <a class="nav-pc-next" title="Kafka入门知识点" href="http://localhost:4000/post/kafka_base/">Kafka入门知识点</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="Kafka入门知识点" href="http://localhost:4000/post/kafka_base/">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Redis高可用" href="http://localhost:4000/post/redis-gao-ke-yong/">Redis高可用</a>
-        <a class="nav-mobile-next" title="Redis高可用" href="http://localhost:4000/post/redis-gao-ke-yong/">下一篇</a>
+        <a class="nav-pc-next" title="Java的双亲委派模型" href="http://localhost:4000/post/7N6LA55Xj/">Java的双亲委派模型</a>
+        <a class="nav-mobile-next" title="Java的双亲委派模型" href="http://localhost:4000/post/7N6LA55Xj/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

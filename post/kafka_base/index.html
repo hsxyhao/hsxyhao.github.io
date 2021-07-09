@@ -8,7 +8,7 @@
 <meta name="keywords" content="Coder | 个人博客 | Gridea | NexT ">
 <meta name="description" content="这个人很懒，什么都不想写...">
 <meta name="theme-color" content="#222">
-<title>Vim命令 | Madara</title>
+<title>Kafka入门知识点 | Madara</title>
 <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.3.3/favicon.ico?v=1625843513669">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.3.3/media/css/pisces.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.3.3/media/fonts/font-awesome.css">
@@ -64,8 +64,8 @@
 
 
 
-  <meta name="description" content="Vim命令" />
-  <meta name="keywords" content="Vim,快捷键" />
+  <meta name="description" content="Kafka入门知识点" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -224,7 +224,8 @@
       <div class="sidebar-body pisces" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://cdn.jsdelivr.net/gh/hsxyhao/hsxyhao.github.io@1.3.3/images/avatar.png"/>
@@ -282,6 +283,200 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number no_compress"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E8%87%AA%E5%B8%A6%E8%84%9A%E6%9C%AC%E4%BD%BF%E7%94%A8">自带脚本使用</a></li>
+<li><a href="#%E8%A7%92%E8%89%B2">角色</a>
+<ul>
+<li><a href="#%E7%94%9F%E4%BA%A7%E8%80%85">生产者</a></li>
+<li><a href="#%E6%B6%88%E8%B4%B9%E8%80%85">消费者</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%AF%E8%AF%AD">术语</a></li>
+<li><a href="#%E6%95%B0%E6%8D%AE%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84">数据组织结构</a></li>
+<li><a href="#%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6">工作机制</a></li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -369,8 +564,8 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="http://localhost:4000/post/vim-ming-ling-ji-lu/">
-      Vim命令
+    <a class="post-title-link" href="http://localhost:4000/post/kafka_base/">
+      Kafka入门知识点
     </a>
   </h1>
   <div class="post-meta">
@@ -378,42 +573,23 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2019-12-05 09:00:51">2019-12-05</span>
+      <span class="publish-time" data-t="2021-06-21 22:44:27">2021-06-21</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">分类于</span>
-      
-      
-      <a href="http://localhost:4000/vim/">
-        <span>Vim</span>
-      </a>、
-      
-      
-      
-      <a href="http://localhost:4000/hot-key/">
-        <span>快捷键</span>
-      </a>
-      
-      
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1<span class="language" data-lan="minute">分钟</span></span>
+      <span>5<span class="language" data-lan="minute">分钟</span></span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>273<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>1147<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/vim-ming-ling-ji-lu/" data-flag-title="Vim命令" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/kafka_base/" data-flag-title="Kafka入门知识点" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -422,21 +598,94 @@
   </div>
 </section>
             <div class="post-body next-md-body" id="post_body">
-              <p>今天在公司领导问了个vim的命令，当时脑子一片空白，一时间语无伦次，场面甚是尴尬，真是书到用时方恨少啊！😰<br>
-作为一名后端开发，在日常开发的过程中肯定会接触到使用vim快捷命令，基本上都是用到的时候直接度娘，虽然会接触到一些常用的vim命令，毕竟不是运维，过段时间基本上会再次忘掉，下次在遇见的时候再度娘。期间难免会耽搁不少时间，但是我觉得特地学一下vim，又感觉有点力不从心，上班不比上学，不是每天都可以划水。最后想了下觉得应该把用到的vim命令记录下来，方便下次查阅，后面有时间的时候也翻一下，就当做记单词了吧。</p>
-<!-- more -->
-<p>光标行编辑</p>
-<pre><code class="language-java">// 进入编辑模式
-:$ 文件最后一行
-:0 文件第一行
-:n 文件第n-1行
-$ 行尾
-0 行首
+              <h1 id="自带脚本使用">自带脚本使用</h1>
+<p>kafka的安装包中包含了大量的使用脚本，开发人员可以使用脚本来帮助开发</p>
+<ol>
+<li>启动脚本 ，–daemon是表示后台启动<br>
+<code>bin/kafka-server-start.sh –daemon config/server.properties –daemon</code></li>
+<li>创建topic命令 ，--topic topic-demo 主题名称，--replication-factor 3 副本因子，副本的个数，--partitions 4 分区数<br>
+<code>bin/kafka-topics.sh --zookeeper localhost:2181/kafka --create --topic topic-demo --replication-factor 3 --partitions 4</code></li>
+<li>查看topic数据<br>
+<code>bin/kafka-topics.sh --zookeeper localhost: 2181/kafka --describe --topic topic-demo</code></li>
+<li>启动消费者<br>
+<code>bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic-demo</code></li>
+<li>启动生产者<br>
+<code>bin/kafka-console-producer.sh --broker-list localhost:9092 --topic topic-demo</code></li>
+</ol>
+<h1 id="角色">角色</h1>
+<ol>
+<li>broker 指kafka服务节点</li>
+<li>consumer 消费者，从broker消费消息</li>
+<li>producer 生产者，往broker上发送消息</li>
+<li>controller 控制器，负责管理整个kafka集群中所有分区和副本的状态</li>
+<li>leader 集群中的leader副本对外提供读写能力</li>
+<li>follower 集群中的follower副本只负责对leader副本进行数据同步，当leader副本挂掉时会参与选取</li>
+<li>consumer_group 是官方用来提供扩容以及集群容错的一种消费机制</li>
+</ol>
+<h2 id="生产者">生产者</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/hsxyhao/images.github.io@master/kafka_base/producer.png" alt="" loading="lazy"><br>
+kafka的客户端主要组成部分有三个，main线程，RecordAccumulator以及sender线程，main线程主要是对发送的消息进行拦截、序列化以及分区操作，操作完成之后将消息追加到RecordAccumulator中，accumulator的数据结构可以简化成key、Deque<RecordBatch>的键值对集合，当有新的消息插入时，<br>
+首先检测对应分区的Deque队列的最后一个元素是否可以追加，如果不可以则重新创建一个后追加。Sender线程负责将accumulator缓存中的数据发送到borker节点中，但是在发送之前会进行一次类似网络OSI模型的一种业务包装。将包装好的&lt;NodeId, Deque&gt;缓存到InFlightRequests中，这里是存放已经发送但是还没有收到响应请求的重复消息。</p>
+<ol>
+<li>拦截器<br>
+拦截器主要在消息发送之前对消息进行拦截，做一些通用操作，onSend方法是在发送之前调用，onAcknowledgement在进行ack确认的时候调用</li>
+</ol>
+<pre><code class="language-java">// properties.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, ProducerInterceptorPrefix.class.getName());
+public interface ProducerInterceptor&lt;K, V&gt; extends Configurable {
+    ProducerRecord&lt;K, V&gt; onSend(ProducerRecord&lt;K, V&gt; var1);
+    void onAcknowledgement(RecordMetadata var1, Exception var2);
+    void close();
+}
 </code></pre>
-<p>光标全文位置跳转</p>
-<pre><code class="language-java">gg 页首
-G 页末
+<ol>
+<li>序列化器<br>
+序列化器对消息进行序列化操作，方便消息网络传输，configure中可以获取kafka的配置信息，比如编码</li>
+</ol>
+<pre><code class="language-java">public interface Serializer&lt;T&gt; extends Closeable {
+    void configure(Map&lt;String, ?&gt; var1, boolean var2);
+    byte[] serialize(String var1, T var2);
+    void close();
+}
 </code></pre>
+<ol>
+<li>分区器<br>
+分区器是确定消息归属分区的作用，默认的分区器是通过轮询的方式，DefaultPartitioner会根据topic生成一个AtomicInteger消息计数器，在发送每一个消息都会对应一个消息编号，最终会根据这个消息编号对topic主题的分区数进行取余得到最终的分区。</li>
+</ol>
+<pre><code class="language-java">public interface Partitioner extends Configurable, Closeable {
+    int partition(String var1, Object var2, byte[] var3, Object var4, byte[] var5, Cluster var6);
+    void close();
+}
+</code></pre>
+<h2 id="消费者">消费者</h2>
+<p>kafka消费者是单线程非线程安全的，所以要实现多线程需要自己设计方案，常见的方案有以下两种：</p>
+<ul>
+<li>第一种将每个消费者对应一个线程，这样的话就不存在线程安全的问题，对于位移的提交来说也是最简单的，但是这样做的缺点也很明显，就是资源占用的问题，多线程之前的上下文切换，如果处理的处理的业务还包含tcp等耗时的网络请求，那么就会导致效率降低。</li>
+<li>第二种就是将处理消息的业务逻辑模块使用多线程处理，这样的就规避了方案一的问题，不过需要将位移提交单独拿出来出来，并且还要使用锁来保证线程安全。</li>
+</ul>
+<pre><code class="language-java">// properties.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG, ProducerInterceptorPrefix.class.getName());
+public interface ConsumerInterceptor&lt;K, V&gt; extends Configurable {
+    ConsumerRecords&lt;K, V&gt; onConsume(ConsumerRecords&lt;K, V&gt; var1);
+    void onCommit(Map&lt;TopicPartition, OffsetAndMetadata&gt; var1);
+    void close();
+}
+</code></pre>
+<h1 id="术语">术语</h1>
+<ol>
+<li>HW 高水位</li>
+<li>LEO log end offset即下一条即将写入的消息的位移</li>
+<li>LSO log stable offset</li>
+<li>AR assigned replicas集群中所有副本</li>
+<li>ISR in sync replicas与leader副本保持一定程度上同步的follower副本</li>
+<li>OSR out sync replicas被踢出isr集合中的follower副本组合成的一个集合</li>
+<li>Offset borker中称为偏移量，消费者中称为消费位移</li>
+</ol>
+<p>replica.lag.time.max.ms<br>
+replica.lag.max.messages（0.9+）</p>
+<h1 id="数据组织结构">数据组织结构</h1>
+<pre><code>partition topic replica segement
+</code></pre>
+<h1 id="工作机制">工作机制</h1>
+<pre><code>rebalance ack transcation log_delete log_compression leader_ephoc</code></pre>
 
             </div>
             
@@ -449,7 +698,7 @@ G 页末
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="http://localhost:4000/post/vim-ming-ling-ji-lu/" title="Vim命令">http://localhost:4000/post/vim-ming-ling-ji-lu/</a>
+      <a href="http://localhost:4000/post/kafka_base/" title="Kafka入门知识点">http://localhost:4000/post/kafka_base/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -458,23 +707,15 @@ G 页末
   </ul>
   <div class="tags">
     
-      <a href="http://localhost:4000/vim/"># Vim</a>
-    
-      <a href="http://localhost:4000/hot-key/"># 快捷键</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Redis淘汰机制" href="http://localhost:4000/post/redis-tao-tai-ji-zhi/">Redis淘汰机制</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Redis淘汰机制" href="http://localhost:4000/post/redis-tao-tai-ji-zhi/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Redis高可用" href="http://localhost:4000/post/redis-gao-ke-yong/">Redis高可用</a>
-        <a class="nav-mobile-next" title="Redis高可用" href="http://localhost:4000/post/redis-gao-ke-yong/">下一篇</a>
+        <a class="nav-pc-next" title="SpringCloud Alibaba入门文档" href="http://localhost:4000/post/zGTrdx_fD/">SpringCloud Alibaba入门文档</a>
+        <a class="nav-mobile-next" title="SpringCloud Alibaba入门文档" href="http://localhost:4000/post/zGTrdx_fD/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
