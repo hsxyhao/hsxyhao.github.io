@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://localhost:4000</id>
+    <id>https://hsxyhao.github.io</id>
     <title>Madara</title>
-    <updated>2021-07-09T15:11:57.911Z</updated>
+    <updated>2021-07-09T16:12:57.746Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://localhost:4000"/>
-    <link rel="self" href="http://localhost:4000/atom.xml"/>
+    <link rel="alternate" href="https://hsxyhao.github.io"/>
+    <link rel="self" href="https://hsxyhao.github.io/atom.xml"/>
     <subtitle>这个人很懒，什么都不想写...</subtitle>
-    <logo>http://localhost:4000/images/avatar.png</logo>
-    <icon>http://localhost:4000/favicon.ico</icon>
+    <logo>https://hsxyhao.github.io/images/avatar.png</logo>
+    <icon>https://hsxyhao.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Madara</rights>
     <entry>
         <title type="html"><![CDATA[Kafka入门知识点]]></title>
-        <id>http://localhost:4000/post/kafka_base/</id>
-        <link href="http://localhost:4000/post/kafka_base/">
+        <id>https://hsxyhao.github.io/post/kafka_base/</id>
+        <link href="https://hsxyhao.github.io/post/kafka_base/">
         </link>
         <updated>2021-06-21T14:44:27.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[SpringCloud Alibaba入门文档]]></title>
-        <id>http://localhost:4000/post/zGTrdx_fD/</id>
-        <link href="http://localhost:4000/post/zGTrdx_fD/">
+        <id>https://hsxyhao.github.io/post/zGTrdx_fD/</id>
+        <link href="https://hsxyhao.github.io/post/zGTrdx_fD/">
         </link>
         <updated>2021-06-18T14:55:02.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Java的双亲委派模型]]></title>
-        <id>http://localhost:4000/post/7N6LA55Xj/</id>
-        <link href="http://localhost:4000/post/7N6LA55Xj/">
+        <id>https://hsxyhao.github.io/post/7N6LA55Xj/</id>
+        <link href="https://hsxyhao.github.io/post/7N6LA55Xj/">
         </link>
         <updated>2021-04-11T14:14:45.000Z</updated>
         <summary type="html"><![CDATA[<p>写这篇文章的目的是什么？<br>
@@ -39,8 +39,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[一文弄懂java8中的map和flatMap]]></title>
-        <id>http://localhost:4000/post/mXH21MAxQ/</id>
-        <link href="http://localhost:4000/post/mXH21MAxQ/">
+        <id>https://hsxyhao.github.io/post/mXH21MAxQ/</id>
+        <link href="https://hsxyhao.github.io/post/mXH21MAxQ/">
         </link>
         <updated>2020-12-12T14:30:25.000Z</updated>
         <summary type="html"><![CDATA[<p>最近学习java8的Stream api时，发现有两个api很相似，即map和flatMap。map我们都知道是映射，那这个flatMap是什么意思呢，flat有拉平的意思，难道是拉平映射？虽说没有这样的专业说法，但是感觉上有点像那么回事，于是上网查找资料，结果一无所获，全是一些比较晦涩难懂的说法，什么一对一转换，一对多转换，或者上来弄一张不知道所以然的图，真的很让初学者懵逼啊！</p>
@@ -52,8 +52,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Java面试合集]]></title>
-        <id>http://localhost:4000/post/5j3OZLk0Z/</id>
-        <link href="http://localhost:4000/post/5j3OZLk0Z/">
+        <id>https://hsxyhao.github.io/post/5j3OZLk0Z/</id>
+        <link href="https://hsxyhao.github.io/post/5j3OZLk0Z/">
         </link>
         <updated>2020-07-10T14:36:14.000Z</updated>
         <summary type="html"><![CDATA[<p>个人觉得笔记的知识点记得太多不是太好，首先自己并不会认真的去看，其次就是自己的表达能力并不一定到位，有可能会过段时间之后就记不住了。反而只将知识点记录下来，会勾起脑细胞去回忆知识点并尝试将其串起来。</p>
@@ -63,8 +63,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[给Next提交代码]]></title>
-        <id>http://localhost:4000/post/qe8eK5IAz/</id>
-        <link href="http://localhost:4000/post/qe8eK5IAz/">
+        <id>https://hsxyhao.github.io/post/qe8eK5IAz/</id>
+        <link href="https://hsxyhao.github.io/post/qe8eK5IAz/">
         </link>
         <updated>2020-04-29T11:23:57.000Z</updated>
         <summary type="html"><![CDATA[<p>写这篇文章的主要目的就是用来给next主题的开源社区用户一个参考的地方，最近发现很多提交pr的用户不太“正确”，这里的正确是指我这边方便操作，并不是说大家提交的pr是错误的，那么为什么要按照我的要求来提交pr呢？既然都是给项目提交代码，何必要弄这么多麻烦的事情呢？其实这个一个是规范，另一个也是想不辜负大家的心意。</p>
@@ -74,8 +74,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Git仓库减肥指南]]></title>
-        <id>http://localhost:4000/post/lsz6Jikoa/</id>
-        <link href="http://localhost:4000/post/lsz6Jikoa/">
+        <id>https://hsxyhao.github.io/post/lsz6Jikoa/</id>
+        <link href="https://hsxyhao.github.io/post/lsz6Jikoa/">
         </link>
         <updated>2020-04-28T23:06:33.000Z</updated>
         <summary type="html"><![CDATA[<p>情景描述：之前在网上开源的一款主题项目，短短半年时间受到很多网友的喜爱，也收获了一批忠实粉丝，社区也比较活跃，前段时间就有个用户提出了一个问题，就是主题的压缩包已经高达30多M，懂技术的人应该都知道这个问题的严重性，一个静态的主题高达30M那真的是一个灾难性问题。后来花了些时间将主题包的大小从30M压缩到6M，再经过github官方压缩，成功降到1M，也算是一个比较不错的优化案例了吧。在这里将我优化中遇到的问题和经验总结下。</p>
@@ -85,8 +85,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[手写基于LRU的缓存]]></title>
-        <id>http://localhost:4000/post/2sP5kCdoJ/</id>
-        <link href="http://localhost:4000/post/2sP5kCdoJ/">
+        <id>https://hsxyhao.github.io/post/2sP5kCdoJ/</id>
+        <link href="https://hsxyhao.github.io/post/2sP5kCdoJ/">
         </link>
         <updated>2020-04-09T14:26:57.000Z</updated>
         <summary type="html"><![CDATA[<p>前几天看Redis的时候看见了一个LRU缓存，感觉挺有意思的，今天闲着无事就想着手写一个来练练手。不过在开始动手之前，还是做个简单的介绍，关于LRU的一些知识。LRU（least recently used）即最近最少使用，常用语缓存的过期策略。Redis是一个比较常用的缓存中间件，经常被用来存放一些高访问率的数据，但是有的时候数据量过大，就会导致内存溢出，这个时候就需要按照一定的规则或者策略删除掉旧的数据，而LRU过期策略就是其中一种。</p>
@@ -96,8 +96,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Next使用文档（持续更新）]]></title>
-        <id>http://localhost:4000/post/1JA_OJlig/</id>
-        <link href="http://localhost:4000/post/1JA_OJlig/">
+        <id>https://hsxyhao.github.io/post/1JA_OJlig/</id>
+        <link href="https://hsxyhao.github.io/post/1JA_OJlig/">
         </link>
         <updated>2020-03-10T14:50:28.000Z</updated>
         <summary type="html"><![CDATA[<p>Next主题是翻版hexo平台上的主题，由于其简约的风格深受用户的喜爱，不过很可惜的是hexo在使用上有很多不足之处。而gridea则弥补了其很多的缺点，但是目前gridea仍处于成长阶段，bug也有不少，至于Next主题情况也是类似，从开发至今大概以及过去了4个月的时间，还处于一个很不稳定的阶段，这个阶段在功能上会有很大的调整，很多用户还不是很会使用这个主题。所以准备维护一个使用文档，帮助大家解决问题。<br>
@@ -111,8 +111,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[结合vue搭建electron桌面应用]]></title>
-        <id>http://localhost:4000/post/OHqC_LpWd/</id>
-        <link href="http://localhost:4000/post/OHqC_LpWd/">
+        <id>https://hsxyhao.github.io/post/OHqC_LpWd/</id>
+        <link href="https://hsxyhao.github.io/post/OHqC_LpWd/">
         </link>
         <updated>2020-03-05T14:26:41.000Z</updated>
         <summary type="html"><![CDATA[<p>electron是什么？简单点来说就是让你使用前端技术（css、js、html）就可以开发桌面应用（mac，windows，linux），但是使用纯html来写桌面应用，简单的毫无问题，但是复杂的项目那简直为让人生不如死。所以肯定要选择前端框架来提高开发效率。但是对于一个小白来说一下子跨越着实有点大，所以就准备写个文章，记录一下纯小白在使用electron的过程中遇到的坑。当然这里会结合ts来开发应用，毕竟js在开发后期确实有些不方便，谁用谁知道。</p>
